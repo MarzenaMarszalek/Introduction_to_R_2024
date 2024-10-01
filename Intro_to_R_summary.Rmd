@@ -6,10 +6,7 @@ chunk_output_type: console
 output:
   github_document:
       toc: true
-      toc_depth: 4
 ---
-## 
-
 
 ## Class 1
   
@@ -49,18 +46,18 @@ output:
   - `setwd()`  - sets working directory for current session
   - `class()`  - prints the names of classes of an object
   - `read_excel()`  - reads an excel (.xls and .xlsx) files 
-  - `read.csv()`  - reads .csv files
-  - `read.table()`  - reads a file in table format and creates a data frame from it
+  - `read.csv()`  - reads .csv files  
+  - `read.table()`  - reads a file in table format and creates a data frame from it  
   - `write.table()`  - prints an object to a file
   - `write_xlsx()`  - writes a data frame to an .xlsx file
 
 
 ## Class 3
 
-  - `head()`    - prints the first n lines of an object
-  - `tail()`    -  prints the last n lines of an object
-  - `summary()`   - 
-  - `str()` 
+  - `head()`    - prints the first n lines of an object  
+  - `tail()`    -  prints the last n lines of an object  
+  - `summary()`   - summarizes the values in a vector or data frame  
+  - `str()` - shows the structure of an object  
   - `as.character()`
   - `as.factor()`
   - `as.numeric()`
@@ -74,17 +71,17 @@ output:
   - Logical operators:
     -  `==`   - equal
     - `!=`    - unequal
-    - `>`   - higher
-    - `>=`    - higher or equal
-    - `<`   - lower
-    - `<=`    - lower or equal
-  - `is.na()`
-  - `sum()`
-  - `mean()`
-  - `identical()`
-  - `%in%`
-  - `which()`
-  - `arrange()`
+    - `>`   - greater than
+    - `>=`    - greater than or equal
+    - `<`   - less than
+    - `<=`    - less than or equal
+  - `is.na()` - checks for missing values in vectors and data frames
+  - `sum()` - returns the sum of all its arguments
+  - `mean()` - returns arithmetic mean 
+  - `identical()` - checks whether two objects in R are exactly equal, function returns the logical vector
+  - `%in%` - checks if the value in the first argument is present in the second argument, function returns the logical vector
+  - `which()` - returns vector of the positions of the values that satisfies given conditions 
+  - `arrange()` - orders the rows according to the values of selected columns
   - `select()`
   - `filter()`
   - `mutate()`
