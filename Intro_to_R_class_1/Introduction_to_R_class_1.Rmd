@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 #output: html_document
 chunk_output_type: console
 output:
-  github_document:
+  html_document:
       toc: true
 ---
 
@@ -454,7 +454,7 @@ getwd()                                  # displays where the file was saved`
   5. Modify vector *days* and create a vector with the number of minutes each month has. Call it `minutes`.
 </span>
 
-```{r, include = F}
+```{r, include = F, eval = FALSE}
 print("Ex. 1")
 days <- c(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 days
