@@ -288,7 +288,7 @@ As you can see, coding can be meticulous and sometimes frustrating work. To redu
 
 <span style="color: darkorange">**Upload both your R script and .csv file to the "Class 2" tab on *Pegaz* platform.**</span>
 
-```{r, include = FALSE}
+```{r, include = FALSE, eval= FALSE}
 print("Ex. 1")
 #setwd("path/to/instructions/class 2")
 
