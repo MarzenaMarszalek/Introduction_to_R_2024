@@ -1,0 +1,567 @@
+---
+title: "Introduction to R - class 4<br> <span style='color: gray'>Data Wrangling 2</span>"
+author: "Tomasz Gaczorek, Wiesław Babik & Mateusz Chechetkin<br>Marzena Marszałek<br> marzena.marszalek@doctoral.uj.edu.pl<br>"
+date: "`r Sys.Date()`"
+#output: html_document
+chunk_output_type: console
+output:
+  github_document:
+      toc: true
+      toc_depth: 4
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Logical expressions
+
+R as a whole computer architecture (including programming languages) is based on the **binary information**, the current either flows (`TRUE`) or not (`FALSE`), (capital letters on purpose) depending on the conditions. These logical values form a distinct type of data and can be, similarly to other types, combined into vectors using the same functions as for numbers and characters.
+
+### <span style="color: green">**Exercise 1**</span>
+<span style="color: green">**Create a logical vector with 3 `TRUE` and 2 `FALSE` values and call it `my_logical`. Note that they are internal R symbols so you should not use quotation marks (`""`).**</span>
+
+Expected result:
+
+```{r}
+my_logical <- c(TRUE, TRUE, TRUE, FALSE, FALSE)
+my_logical
+```
+*An advice: To make your code shorter you can use `T` instead of `TRUE` and `F` instead of `FALSE`.*
+
+Formally, logical values correspond to 0 (for `FALSE`) and 1 (for `TRUE`) and behave like them in every mathematical operations.
+
+### <span style="color: green">**Exercise 2**</span>
+<span style="color: green">**Calculate the sum of `my_logical`.**</span>
+
+
+Expected result:
+
+```{r}
+sum(my_logical)
+```
+
+>**Curiosity**   
+A sum of logical vectors can be used to check a data frame for the presence of `NA` cells. To do this, combine the `is.na()` function used on the data frame with the `sum()` function.
+ 
+However, logical vectors have one important distinctive characteristic: they can be used for **subsetting**. To achieve this you need to provide logical vector with `TRUE` **for the elements you want to keep** and `FALSE` **for for the elements you want to discard**. The length of the logical vector used for subsetting has to be equal to the number of elements (e.g., columns) in the object we want to subset.
+
+### <span style="color: green">**Exercise 3**</span>
+<span style="color: green">**Save 6 first rows of built-in `CO2` dataset to a chosen variable. Then, using logical vectors return its 1st and 5th column.**</span>
+
+Expected result:
+
+```{r}
+v1 <- CO2[1:6,]
+v1[,c(T, F, F, F, T)]
+```
+## Comparisons
+
+Normally, no one creates logical vectors on their own. There are created automatically as the effect of different comparisons. The most common is testing for equality. It is done with double equal sign (`==`).
+
+### <span style="color: green">**Exercise 4**</span>
+<span style="color: green">**Check whether in R: 5 equals 5.00 and whether `π` equals 3.14.**</span>
+
+Expected result:
+
+```{r}
+5 == 5.00
+pi == 3.14
+```
+
+The same stands for all others comparisons but the symbols are different:
+
+  •	`==` - equal  
+  •	`!=` - not equal  
+  •	`>` - greater than  
+  •	`>=` - greater than or equal   
+  •	`<` - less than    
+  •	`<=` - less than or equal  
+  
+>**Curiosity**  
+Double equal sign (`==`) is used for equality because single sign (`=`) is already in use. It serves as an alternative for the assigning arrow, however, for code purity the arrow is the one recommended.
+
+Note that while comparing two vectors with the symbols shown above, R does not consider the action as one comparison. It rather compares them element by element, recycling shorter vector and resulting in logical vector of longer one’s length. It is the same rule as for mathematical operations on vectors.
+
+### <span style="color: green">**Exercise 5**</span>
+<span style="color: green">**Manually create two vectors. One of the prime numbers and a second of even numbers. Both should belong to the range <0,11>. Check if they are equal.**</span>
+
+Expected result:
+
+```{r}
+v5 <- c(2,3,5,7,11)
+v5a <- c(2,4,6,8,10)
+v5 == v5a 
+```
+
+To check whether vectors (as a whole) are identical use `identical()` function.
+
+### <span style="color: green">**Exercise 6**</span>
+<span style="color: green">**Create two integer vectors from 1 to 10. Call them differently and compare them with `identical()` function. Then, change one value within first vector and repeat comparison.**</span>
+
+Expected result:
+
+```{r}
+v6 <- c(1:10)
+v6a <- c(1:10)
+identical(v6, v6a)
+
+v6a[1] <- 2
+identical(v6, v6a)
+```
+The other useful tool is the `%in%` operator. It provides information **whether elements of first vector are present in the second one**. Note that it is focused on the first vector only, so there is **no recycling**.
+
+### <span style="color: green">**Exercise 7**</span>
+<span style="color: green">**Create two character vectors each consisting of a set of individual characters. The first should contain your name and the second one the name of other person from the group. Check how many letter your names have in common. Then, change the order of names and repeat the comparison.**</span>
+
+```{r, include = F}
+v7 <- c("a", "n", "n", "a")
+v7a <- c("C", "a", "m", "i", "l", "a")
+v7 %in% v7a
+```
+
+
+## Exclamation mark
+
+Exclamation mark (`!`) works in R as the symbol of negation (=reversing the statement). Any logical vector preceded by `!` will result in its reversal - `FALSE` changed into `TRUE` and vice versa.
+
+### <span style="color: green">**Exercise 8**</span>
+<span style="color: green">**Having vector of 3 `TRUE` values, return its negation.**</span>
+
+Expected result:
+
+```{r}
+v8 <- c(T, T, T)
+!v8
+```
+
+More typically `!` is used to negate comparisons. Note that the idea is the same: you negate logical vector by negating action which produces it. Remember that negated comparison should be enclosed in parentheses e.g. `!(2 == 2)`.
+
+### <span style="color: green">**Exercise 9**</span>
+<span style="color: green">**Create a sequence of integers from 1 to 100 in which each subsequent element is larger by 3 than the previous one. Then, create logical vector indicating which elements are larger than 50. Do not use `>` sign.**</span>
+
+Expected result:
+
+```{r}
+v9 <- !(seq(1,100,3) < 50)
+v9
+```
+
+## Logical operators
+
+The real power of logic in programming is provided by combining comparisons (use parentheses for clarity). There are two basic operators:
+
+  •	`&` - **and** - condition is `TRUE` if both comparison are `TRUE`  
+  •	`|` - **or** - condition is `TRUE` if at least one comparison is `TRUE`
+  
+### <span style="color: green">**Exercise 10**</span>
+<span style="color: green">**For an integer vector from 1 to 10, create logical vector indicating which element is smaller or larger than 5.**</span>
+
+Expected result:
+
+```{r}
+v10 <- c(1:10)
+(v10 < 5) | (v10 > 5)
+```
+
+### <span style="color: green">**Exercise 11**</span>
+<span style="color: green">**For an integer vector from 1 to 10, create logical vector indicating which element is divisible by both 2 and 3.**</span>
+
+Expected result:
+
+```{r}
+(v10 %% 2 == 0) & (v10 %% 3 == 0)
+```
+>**Curiosity**  
+R also uses double version of `&` and `|` operators. Their outcome is exactly the same and their role is just related to optimization. While using double operators, R checks first condition and if not needed, ignore the second one (e.g. in the ‘AND’ statement if the first condition is `FALSE`, there is no need to check the second one as the result will always be `FALSE`). Note that they are often used when conditions are severly time-consuming.
+
+## which() function
+
+Frequently, the question is not about logical vectors themselves but rather about **which element of a vector fulfills given condition**. The answer is provided by `which()` function. It takes comparison as an argument and **return a vector of indexes** that can be used for subsetting.
+
+### <span style="color: green">**Exercise 12**</span>
+<span style="color: green">**Construct a vector with first 20 integers divisible by 3. Which elements of it are larger or equal 21?**</span>
+
+Expected result:
+
+```{r}
+v12 <- c(1:100)
+v12a <- (v12 %% 3 == 0)
+v12b <- v12[v12a]
+v12c <- v12b[1:20]
+v12d <- which(v12c >= 21)
+```
+
+### <span style="color: green">**Exercise 13**</span>
+<span style="color: green">**Having indexes of values larger or equal 21 from the previous exercise, return the values from the vector.**</span>
+
+Expected result:
+
+```{r}
+v12c[v12d]
+```
+
+
+## Subsetting with the logical expressions
+
+As stated before subsetting can be done directly with logical vectors (`TRUE` for each kept element). In practice, it is even simpler. All you need to provide is a **condition instead of a coordinate** e.g. `vector[condition]` will return only the elements fulfilling given condition.
+
+For example: 
+There is a vector `a <- c(1,2,3,4)`. We want to subset elements of this vector that are greater then 2.  
+The formula will look like this: `a[a>2]`.  
+Then the result will be: `[1] 3 4`.
+
+The logic behind is as follows: 
+
+  - condition (here: `[a>2]`) generates a logical vector - **positions are denoted as a series of `TRUE` and `FALSE`**. In this example the logical vector is: `[1] FALSE FALSE  TRUE  TRUE`.   
+  - elements in this logical vector are used to **return the elements of the vector you want to subset**, for which coordinate equals `TRUE`, so here 2 last elements of the vector will be returned: `[1] 3 4`
+
+Note that you cannot see the `TRUE`/`FALSE` vector itself but it is if fact generated and used during subsetting operation.
+
+### <span style="color: green">**Exercise 14**</span>
+<span style="color: green">**For an integer vector from 1 to 100, return elements higher than vector’s mean.**</span>
+
+Expected result:
+
+```{r}
+v14 <- c(1:100)
+v14[v14 > (mean(v14))]
+```
+
+The same pattern applies for subsetting data frames.
+
+### <span style="color: green">**Exercise 15**</span>
+<span style="color: green">**Using built-in dataset `CO2`, return observation for `Qn2` plant.**</span>
+
+Epected result:
+
+```{r}
+CO2[CO2$Plant == "Qn2",]
+```
+
+
+*An advice: To obtain the logical vector with one element for each row, you need to make comparison based on a column e.g.` my_data[my_data$my_column != 5,]` would result in the observations (including all columns) from `my_data` in which the value for `my_collumn` does not equal 5.*
+
+### <span style="color: green">**Exercise 16**</span>
+<span style="color: green">**Using built-in dataset `CO2`, return observation from `Mississippi` `chilled` plant with an `uptake` higher than 20 ummol/m2 x s.**</span>
+
+Expected result:
+
+```{r}
+CO2[CO2$Type == "Mississippi" & CO2$Treatment == "chilled" & CO2$uptake > 20.0, ]
+```
+
+## dplyr
+
+`dplyr` is an extremely popular R package that helps to easily manage the data frames.
+
+### <span style="color: green">**Exercise 17**</span>
+<span style="color: green">**Install and load the `dplyr` package.**</span>
+
+```{r, echo = F,  message=FALSE}
+library(dplyr)
+```
+
+### <span style="color: green">**Exercise 18**</span>
+<span style="color: green">**Upload the [rats.csv](rats.csv) file into an object called `my_data`.**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+my_data <- read.table("rats.csv", header = T, sep = ",")
+my_data[1:10,]
+```
+
+### <span style="color: green">**Exercise 19**</span>
+<span style="color: green">**Modify `my_data` by adding the column with ID at the beginning.**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+ID <- c(1:nrow(my_data))
+my_data <- cbind(ID, my_data)
+my_data[1:10,]
+```
+
+
+All subsequent functions come from the loaded `dplyr` package.
+Importantly, names of columns provided to `dplyr` functions **do not need quotation marks**.
+
+### SORTING OBSERVATIONS
+
+To sort the data, use `arrange()` function in the following manner: `arrange(dataset,ordering_column)`
+
+#### <span style="color: green">**Exercise 20**</span> 
+<span style="color: green">**Obtain the observations from `my_data` sorted with increasing levels of glycogen.**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+arrange(my_data, Glycogen)[1:10,]
+```
+To obtain the descending order put the name of column inside `desc()` function.
+
+#### <span style="color: green">**Exercise 21**</span> 
+<span style="color: green">**Obtain the observations from `my_data` sorted with the decreasing levels of glycogen.**</span>
+
+
+Expected result (first 10 rows):
+
+```{r}
+arrange(my_data, desc(Glycogen))[1:10,]
+```
+You can also sort the data by **multiple columns**. Do it by adding an additional column in the following manner: `arrange(dataset,ordering_column1,ordering_column2)`. Note that the priority of sorting is denoted by the order of function arguments.
+
+#### <span style="color: green">**Exercise 22**</span> 
+<span style="color: green">**Obtain the observations from `my_data` sorted firstly by `Treatment` column and then by `Rat` column. Both in ascending order.**</span>
+
+
+Expected result (first 10 rows):
+
+```{r}
+arrange(my_data, Treatment, Rat)[1:10,]
+```
+### SUBSETTING COLUMNS
+
+To select particular columns use the `select()` function in the following way: `select(dataset,column_name1,column_name2)`. Note that all mentioned columns will be preserved and the rest will be discarded.
+
+#### <span style="color: green">**Exercise 23**</span> 
+<span style="color: green">**Obtain the `Glycogen` and `Liver` columns from `my_data.`**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+select(my_data, Glycogen, Liver)[1:10,]
+```
+You can also use **minus preceding the column name** which means “**all except this column**”.
+
+#### <span style="color: green">**Exercise 24**</span> 
+<span style="color: green">**Obtain the `ID`, `Glycogen`, `Treatment` and `Liver` columns from `my_data`. Use the minus (`-`) sign.**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+select(my_data, -Rat)[1:10,]
+```
+### SUBSETTING OBSERVATIONS
+
+To subset the observations, use the `filter()` function in the following manner: `filter(dataset, your_logical_condition)`. Note that logical conditions are always related to the values inside a given column.
+
+#### <span style="color: green">**Exercise 25**</span> 
+<span style="color: green">**Obtain the observations for `Treatment 1`.**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+filter(my_data, Treatment == 1)[1:10,]
+```
+You can also combine several logical conditions by using logical operators (see above). Note, however, that for each observation under consideration it needs to result in a single `TRUE` or `FALSE`.
+
+#### <span style="color: green">**Exercise 26**</span> 
+<span style="color: green">**Obtain the observations for `Treatment` 3 with glycogen level higher than 135.**</span>
+
+Expected result:
+
+```{r}
+filter(my_data, Treatment == 3 & Glycogen > 135)
+```
+### MODIFYING COLUMNS
+
+To create a new column based on the others use the `mutate()` function in the following manner: `mutate(dataset,new_column_name = recipe_for_values)`. “Recipe for values” is often a **mathematical formula or simple mathematical function** based on values of other columns. Note that it is just a modification of given value for each observation separately.
+
+#### <span style="color: green">**Exercise 27**</span> 
+<span style="color: green">**Create a new column called `log_Gly` that will be a natural logarithm transformation of `Glycogen` column. Overwrite `my_data`**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+my_data <- mutate(my_data, log_Gly = log(Glycogen))
+my_data[1:10,]
+```
+
+### SUMMARY
+
+Make a summary of your dataset with the `summarise()` function. The syntax is as follows: `summarise(dataset,name_of_summary1 = recipe_for_value1,name_of_summary2 = recipe_for_value2,…)`. Recipe in that case is any aggregating function (e.g.` mean())` that will accept whole column (vector) and result in a single statistics. Note that this function will result in creation of new table with 1 row of summary statistics and as many columns as number of statistics mentioned.
+
+#### <span style="color: green">**Exercise 28**</span> 
+<span style="color: green">**Create a summary of `my_data` containing mean, median, maximum value, minimum value and standard deviation of `Glycogen` column.**</span>
+
+Expected result:
+
+```{r}
+summary_glycogen <- summarise(my_data,
+                     mean = mean(Glycogen),
+                     median = median(Glycogen),
+                     max = max(Glycogen),
+                     min = min(Glycogen),
+                     st_dev = sd(Glycogen))
+summary_glycogen
+```
+
+
+You can also count the number of observations corresponding to the groups within a given column e.g. check how many observations were collected for each treatment. To obtain it use the `count()` function by typing `count(dataset, = given_column)`.
+444444
+#### <span style="color: green">**Exercise 29**</span> 
+<span style="color: green">**Use `count()` function to calculate how many treatments were used in a study.**</span>
+
+Expected result:
+
+```{r}
+count(my_data, Treatment)
+```
+
+### PIPELINE OPERATOR AND PIPELINE
+
+As you probably noticed all `dplyr` functions have data as the first argument. Based on this characteristics you can create a pipeline where the next function **uses the output generated by the previous one**. In that case you should provide the dataset argument to the first function only.
+
+Pipeline is created by connecting subsequent functions with `%>%` (pipe) operator. Remember to skip the data argument in all functions except for the first one e.g. `select(dataset,column1,column2) %>% filter(column1 > 50)`.
+
+#### <span style="color: green">**Exercise 30**</span> 
+<span style="color: green">**Using pipeline and `my_data` data frame: 1. select `ID`, `Glycogen` and `Liver` column. 2. obtain observations with glycogen level lower than 140. 3. sort it based on `Glycogen` column in descending order.**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+v30 <- select(my_data, ID, Glycogen, Liver) %>% filter(Glycogen <  140) %>% arrange(desc(Glycogen))
+v30[1:10,]
+```
+### GROUPING
+
+Performing any function over complete dataset is often not what you really want. Imagine 3 species with a trait of interest. It can be the case that the overall mean does not reflect the variability among species. To check value for each species separately you need to **group your dataset**. Do it by using `group_by()` function in the following manner group_by(dataset,column_with_groups). This produces a grouped dataframe and will cause all subsequent functions to **operate on each group separately**.
+
+#### <span style="color: green">**Exercise 31**</span> 
+<span style="color: green">**Using pipeline, `group_by()` function and `my_data` data frame, create a summary table with mean and standard deviation of `Glycogen` column for each treatment separately.**</span>
+
+Expected result:
+
+```{r}
+v31 <- group_by(my_data, Treatment)
+summarise(v31, mean = mean(Glycogen), st_dev = sd(Glycogen))
+```
+*An advice: To perform any action on the whole dataset again, use the `ungroup()` function.*
+
+#### <span style="color: green">**Exercise 32**</span> 
+<span style="color: green">**Using pipeline, `group_by()` function and `my_data` data frame, create a new column with the deviations of `Glycogen` values from the arithmetic mean in a given `Treatment`.**</span>
+
+Expected result (first 10 rows):
+
+```{r}
+v31 <- group_by(my_data, Treatment)
+v31a <- mutate(v31, std_dev = sd(Glycogen))
+v31[1:10,]
+```
+**************** **ADVANCED** ******************  
+
+### JOINING
+
+Imagine having two data frames corresponding to the same study system. In both of them there is a column with individual IDs. How to bind them together? Using `cbind()` is rather a bad idea as the order of observations can differ.
+
+The solution is to use one of the `_join()` functions.
+
+
+```{r}
+df1 <- data.frame(
+  ID = c("ind_1", "ind_2", "ind_3"),
+  V1 = c("red", "blue", "green")
+)
+
+# Tworzenie drugiej tabeli (ID i V2)
+df2 <- data.frame(
+  ID = c("ind_2", "ind_3", "ind_4"),
+  V2 = c("black", "blue", "blue")
+)
+```
+data frame 1: 
+```{r}
+df1
+```
+
+data frame 2: 
+```{r}
+df2
+```
+
+  
+  1. **`left_join()` - join the values from second table (right) that correspond to observation in the first one (left). If there is no suitable value in the second table, `NA` is returned.**  
+  
+```{r, echo = T}
+left_join(df1, df2, by = "ID")
+```
+  
+  
+  2.	**`right_join()` - join the values from first table (left) that correspond to observation in the second one (right). If there is no suitable value in the first table, `NA` is returned.**
+  
+```{r,echo = T}
+right_join(df1, df2, by = "ID")
+```
+  
+  3.	**`inner_join()` - return only that observations that have corresponding values in both tables.**  
+  
+```{r, echo = T}
+inner_join(df1, df2, by = "ID")
+```
+  4.	**`full_join()` - join what can be joined but **keeps all observations**. In case of the lack of suitable value, returns `NA`.**
+
+```{r, echo = T}
+full_join(df1, df2, by = "ID")
+```
+
+Each of the abovementioned functions can be used by typing: `..._join(first_table,second_table,by = “shared_column_name”)`.
+
+Notice that the name of shared column should be exactly the same in both tables (eg. `ID`).
+
+#### <span style="color: green">**Exercise 33**</span> 
+<span style="color: green">**Execute the code below and then join the observations from `my_data` and `new_data` data frames. Keep all observations from `my_data` but only those from `new_data` that have their counterparts in `my_data`.
+
+`new_data <- data.frame("ID" = c(2:100),"weight" = rnorm(99,mean = 150,sd = 20))`
+
+Expected result (first 10 rows):
+
+```{r}
+new_data <- data.frame("ID" = c(2:100),"weight" = rnorm(99,mean = 150,sd = 20))
+v33 <- left_join(my_data, new_data, by = "ID")
+v33[1:10,]
+```
+
+>**Curiosity**  
+1.	Using joins let us avoid repeating the same information across many data frames.  
+2.	The concept of joins is common in many computer languages but it is most often used in databases management (e.g. SQL).
+
+## <span style="color: darkorange;">Homework</span>
+
+<span style="color: darkorange">
+1.	Create a vector from 1 to 50. Then, using R only, calculate how many elements of this vector are higher of equal than the positive square root of 100. *Positive square root can be calculated with the `sqrt()` function.<br>
+2.	Upload the built-in `CO2` data set as `hw_data`. Using logical expressions, display the rows of the data set that have `concentration` below 350 AND `uptake` of over 30.<br>
+3.	Load the `dplyr` library. In the `hw_data` data frame, sort the observations first by `concentration`, then by `uptake`. Overwrite the `hw_data` file so that the columns are permanently sorted in this manner.<br>
+4.	Add a new column to the `hw_data` data frame that displays the `uptake` value as a percent of the maximum value of that column (=so that the highest value, 45.5, corresponds to 100%). Then remove the original `uptake` column using a `dplyr` function.<br>
+5.	Use the pipe operator to perform multiple functions on the `hw_data` data frame. Create a summary data frame that displays mean and standard deviation of the new `uptake` column for `Treatment` groups. Save this summary as a .csv file.
+
+<span style="color: darkorange">**Upload both your R script and .csv file to the *Pegaz* platform.**</span>
+
+```{r, include = F}
+print("Ex. 1")
+v <- c(1:50)
+sum(v>=sqrt(100))
+
+print("Ex. 2")
+hw_data <- CO2
+hw_data[hw_data$conc < 350 & hw_data$uptake > 30,  ]
+
+print("Ex. 3")
+library(dplyr)
+hw_data <- arrange(hw_data, conc, uptake)
+
+print("Ex. 4")
+hw_data$uptake_percent <- (100*(hw_data$uptake/max(hw_data$uptake))) ##OR
+hw_data <- mutate(hw_data, uptake_percent = 100*(uptake/max(uptake)))
+hw_data <- select(hw_data, -uptake)
+
+print("Ex. 5")
+summary_uptake <- hw_data %>% group_by(Treatment) %>% summarise(mean = mean(uptake_percent), st_dev = sd(uptake_percent))
+
+write.table(summary_uptake, "hw_data.csv")
+
+```
+
+
