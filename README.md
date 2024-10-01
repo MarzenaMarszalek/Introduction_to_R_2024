@@ -6,3 +6,4 @@
 [Class 3: Data Wrangling 1](https://github.com/MarzenaMarszalek/Introduction_to_R_2024/blob/main/Intro_to_R_class_3/Introduction_to_r_class_3.html)  
 [Class 4: Data Wrangling 2](https://github.com/MarzenaMarszalek/Introduction_to_R_2024/blob/main/Intro_to_R_class_4/Introduction_to_R_class_4.html)  
 [Class 5: Plotting: base R and ggplot2]()
+[Summary]()
