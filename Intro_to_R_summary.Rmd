@@ -2,7 +2,6 @@
 title: "Introduction to R<br> <span style='color: gray'>Summary"
 author: "Marzena Marszałek<br> marzena.marszalek@doctoral.uj.edu.pl<br>"
 date: "`r Sys.Date()`"
-#output: html_document
 chunk_output_type: console
 output:
   github_document:
