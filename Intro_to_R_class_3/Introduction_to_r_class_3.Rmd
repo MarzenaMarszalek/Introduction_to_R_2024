@@ -41,7 +41,7 @@ Remember about the optimal coding workflow.
   •	get a brief description of the data frame using the `summary()` function – this is particularly important, as it displays the type of data in each column of the data frame
 
 ### <span style="color: green">**Exercise 1**</span>
-<span style="color: green">**Upload [class_3_data.xlsx](Intro_to_R_class_3/class_3_data.xlsx) into R and save it to a variable called `my_data`.**</span>
+<span style="color: green">**Upload [class_3_data.xlsx](https://github.com/MarzenaMarszalek/Introduction_to_R_2024/blob/main/Intro_to_R_class_3/class_3_data.xlsx) into R and save it to a variable called `my_data`.**</span>
 
 
 ```{r, eval = T, include = F}
