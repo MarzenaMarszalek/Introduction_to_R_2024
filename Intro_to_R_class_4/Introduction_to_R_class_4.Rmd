@@ -109,7 +109,7 @@ identical(v6, v6a)
 v6a[1] <- 2
 identical(v6, v6a)
 ```
-The other useful tool is the `%in%` operator. It provides information **whether elements of first vector are present in the second one**. Note that it is focused on the first vector only, so there is **no recycling**.
+The other useful tool is the `%in%` operator. It provides information **whether elements of first vector are present in the second one**. Note that it is focused on the first vector only, so there is **no recycling**. The result of the operation with `%in%` is the logical vector.
 
 ### <span style="color: green">**Exercise 7**</span>
 <span style="color: green">**Create two character vectors each consisting of a set of individual characters. The first should contain your name and the second one the name of other person from the group. Check how many letter your names have in common. Then, change the order of names and repeat the comparison.**</span>
@@ -189,6 +189,10 @@ v12 <- c(1:100)
 v12a <- (v12 %% 3 == 0)
 v12b <- v12[v12a]
 v12c <- v12b[1:20]
+
+# or
+v12 <- seq(from=3, by=3, length.out=20)
+
 v12d <- which(v12c >= 21)
 ```
 
