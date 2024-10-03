@@ -435,27 +435,25 @@ v30[1:10,]
 ```
 ### GROUPING
 
-Performing any function over complete dataset is often not what you really want. Imagine 3 species with a trait of interest. It can be the case that the overall mean does not reflect the variability among species. To check value for each species separately you need to **group your dataset**. Do it by using `group_by()` function in the following manner group_by(dataset,column_with_groups). This produces a grouped dataframe and will cause all subsequent functions to **operate on each group separately**.
+Performing any function over complete dataset is often not what you really want. Imagine 3 species with a trait of interest. It can be the case that the overall mean does not reflect the variability among species. To check value for each species separately you need to **group your dataset**. Do it by using `group_by()` function in the following manner `group_by(dataset, column_with_groups)`. This produces a grouped dataframe and will cause all subsequent functions to **operate on each group separately**.
 
 #### <span style="color: green">**Exercise 31**</span> 
-<span style="color: green">**Using pipeline, `group_by()` function and `my_data` data frame, create a summary table with mean and standard deviation of `Glycogen` column for each treatment separately.**</span>
+<span style="color: green">**Using pipe, `group_by()` function and `my_data` data frame, create a summary table with mean and standard deviation of `Glycogen` column for each treatment separately.**</span>
 
 Expected result:
 
 ```{r}
-v31 <- group_by(my_data, Treatment)
-summarise(v31, mean = mean(Glycogen), st_dev = sd(Glycogen))
+v31 <- my_data %>% group_by(Treatment) %>% summarise(v31, mean = mean(Glycogen), st_dev = sd(Glycogen))
 ```
 *An advice: To perform any action on the whole dataset again, use the `ungroup()` function.*
 
 #### <span style="color: green">**Exercise 32**</span> 
-<span style="color: green">**Using pipeline, `group_by()` function and `my_data` data frame, create a new column with the deviations of `Glycogen` values from the arithmetic mean in a given `Treatment`.**</span>
+<span style="color: green">**Using pipe, `group_by()` function and `my_data` data frame, create a new column with the deviations of `Glycogen` values from the arithmetic mean in a given `Treatment`.**</span>
 
 Expected result (first 10 rows):
 
 ```{r}
-v31 <- group_by(my_data, Treatment)
-v31a <- mutate(v31, std_dev = sd(Glycogen))
+v31 <- group_by(my_data, Treatment) %>%  mutate(v31, std_dev = sd(Glycogen))
 v31[1:10,]
 ```
 **************** **ADVANCED** ******************  

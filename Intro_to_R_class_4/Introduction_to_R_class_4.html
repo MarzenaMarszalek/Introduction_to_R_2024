@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik &amp; Mateusz Chechetkin Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2024-10-02" />
+<meta name="date" content="2024-10-03" />
 
 <title>Introduction to R - class 4  Data Wrangling 2</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 4<br> <span style="color: gray">Data Wrangling 2</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik &amp; Mateusz
 Chechetkin<br>Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2024-10-02</h4>
+<h4 class="date">2024-10-03</h4>
 
 </div>
 
@@ -1015,8 +1015,8 @@ The shortcut for <code>%&gt;%</code> operator is
 <blockquote>
 <p><strong>Curiosity</strong> In R version 4.1.0 a new pipe operator is
 available <code>|&gt;</code>. This operator is a part of base R so you
-don’t have to load additional packages like <code>dplyr</code> for
-<code>%&gt;%</code> to use it.</p>
+don’t have to load additional packages (like loading <code>dplyr</code>
+to use <code>%&gt;%</code>) to use it.</p>
 </blockquote>
 <div id="exercise-30" class="section level4">
 <h4><span style="color: green"><strong>Exercise 30</strong></span></h4>
@@ -1165,15 +1165,15 @@ from <code>new_data</code> that have their counterparts in
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Rat Liver  log_Gly   weight
 ## 1   1      131         1   1     1 4.875197       NA
-## 2   2      130         1   1     1 4.867534 147.7494
-## 3   3      131         1   1     2 4.875197 133.5975
-## 4   4      125         1   1     2 4.828314 133.2561
-## 5   5      136         1   1     3 4.912655 160.7671
-## 6   6      142         1   1     3 4.955827 142.6563
-## 7   7      150         1   2     1 5.010635 133.7935
-## 8   8      148         1   2     1 4.997212 154.7160
-## 9   9      140         1   2     2 4.941642 178.5671
-## 10 10      143         1   2     2 4.962845 156.4687</code></pre>
+## 2   2      130         1   1     1 4.867534 169.2538
+## 3   3      131         1   1     2 4.875197 165.4771
+## 4   4      125         1   1     2 4.828314 112.8955
+## 5   5      136         1   1     3 4.912655 153.8517
+## 6   6      142         1   1     3 4.955827 171.3089
+## 7   7      150         1   2     1 5.010635 122.3561
+## 8   8      148         1   2     1 4.997212 152.9645
+## 9   9      140         1   2     2 4.941642 172.7517
+## 10 10      143         1   2     2 4.962845 140.6354</code></pre>
 <blockquote>
 <p><strong>Curiosity</strong><br />
 1. Using joins let us avoid repeating the same information across many
