@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 #output: html_document
 chunk_output_type: console
 output:
-  github_document:
+  html_document:
       toc: true
       toc_depth: 4
 ---
@@ -15,18 +15,18 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 **Data visualization** is a vital tool for statistics and research. Plots, graphs, and other visual representations of data not only make complex datasets **more accessible** but also reveal **patterns, trends, and outliers** we might not notice otherwise. 
-Base R provides all necessary functions for creating quick plots that you can use for your own information, e.g. in accessing **the distribution of data**. To make plots more aesthetically pleasing, readable, and publication ready, we will use an external library `ggplot2`.
+Base R provides all necessary functions for creating quick plots that you can use for your own information, e.g. in accessing **the distribution of data**. To make plots more aesthetically pleasing, readable, and publication ready, we will use `ggplot2` package.
 
 ## Basic plotting
 
-During this class, we will be working on the internal dataset `iris`, which describes various dimensions of flowers. You can pull up the description of the dataset by typing a question mark before its name.
+During this class, we will be working on the internal dataset `iris`, which describes various dimensions of flowers. You can access the description of the dataset by typing a question mark before its name.
 Here is a botanical visual of the flower structure.
 
 
 ![](flower.png)
 
 ### <span style="color: green">**Exercise 1**</span>
-<span style="color: green">**Upload the internal data set `iris` as an object called `my_data`. View the dataset and create its short summary.**</span>
+<span style="color: green">**Assign the internal data set `iris` to an object called `my_data`. View the dataset and create its short summary.**</span>
 
 Expected result (first 10 rows):
 
@@ -39,18 +39,18 @@ summary(my_data)
 
 The two most common types of plots are **scatterplots** and **histograms**.
 
-  - Scatterplots display individual observations of two measures existing on a **continuous scale** (e.g. weight and height, age and red blood cell count, etc). They are usually used to demonstrate a **relationship** (or lack thereof) between two traits or measures.   
-  - Histograms, on the other hand, display **frequencies** of observations (shown on the y axis of a graph) per category of observations (shown on the x axis).
+  - **Scatterplots** display individual observations of two variables measured existing on a **continuous scale**. They are usually used to demonstrate a **relationship** (or lack thereof) between two traits or measures.   
+  - **Histograms**, on the other hand, display **frequencies** of observations (shown on the y axis of a graph) per category of observations (shown on the x axis).
   
-Histograms combine a categorical scale and a continuous scale and are usually used to demonstrate differences between groups or their central tendencies (e.g. means).
+Histograms are usually used to demonstrate differences between groups or their central tendencies (e.g. means).
 
 ### Scatterplot
 
 We’ll start with a scatterplot.  
-The basic R function to create any kind of plot is, simply, `plot()`. To set it up, provide arguments for data (the data frame it will use), x dimension, and y dimension.
+The basic R function to create any kind of plot is, simply, `plot()`. To set it up, provide arguments for data (the data frame it will use), x axis, and y axis.
 
 #### <span style="color: green">**Exercise 2**</span> 
-<span style="color: green">**Create a simple plot using the `my_data` data frame. Into the `plot()` function, provide the sepal length column as the source for the x dimension, and sepal width as the y dimension.**</span>
+<span style="color: green">**Create a simple plot using the `my_data` data frame. Provide the sepal length column as x, and sepal width as y arguments of the `plot()` function.**</span>
 
 Expected result:
 
@@ -58,10 +58,10 @@ Expected result:
 plot(x = my_data$Sepal.Length, y = my_data$Sepal.Width)
 ```
 
-Alternatively, the same command can be given using the `~` (tilda) sign. In coding language, this can be read as “dependent on”, and is used not only in plots, but also in e.g. statistical functions.
+Alternatively, the same command can be given using the `~` (tilde) sign. In coding language, this can be read as “depends on", and is used not only in plots, but also in e.g. statistical functions.
 
 #### <span style="color: green">**Exercise 3**</span> 
-<span style="color: green">**Create a plot using the same function but writing the arguments down as **sepal width depending on sepal length**. Provide a data argument equal to the name of the data frame we are using. Remember that, on a standard plot, the y axis shows the dependent variable, and x shows the independent variable.**</span>
+<span style="color: green">**Create a plot using the same function but writing the arguments down as **sepal width depending on sepal length**. Provide the name of the data frame as data argument. Remember that, on a standard plot, the y axis shows the dependent variable, and x shows the independent variable.**</span>
 
 The only difference in the results should be the displayed titles for the axes. 
 
@@ -74,16 +74,16 @@ The basic `plot()` function allows us to somewhat customize the plots. For examp
 #### <span style="color: green">**Exercise 4**</span> 
 <span style="color: green">**Copy and modify the code that is creating the plot. Add axes titles using the arguments `xlab` and `ylab`. Add the title of the plot using the `main` argument.**</span>
 
-Remember that, for any function, you can always pull up its manual by typing its name with a question mark at the beginning into the R console.
+Remember that, for any function, you can always access its manual by typing its name with a question mark at the beginning into the R console.
 
 ```{r, fig.show = 'hide'}
 plot(Sepal.Width ~ Sepal.Length, data = my_data, xlab = "sepal length", ylab = "sepal width", main = "Correlation plot")
 ```
 
 
->**Curiosity** You can use the `par()` function to further customize the plot. Pulling up the manual will show you the various options you have.
+>**Curiosity** You can use the `par()` function to further customize the plot. Inspecting the manual will show you the various options you have.
 
-What if we want to add grouping to the scatterplot? We can add another argument to the function too, for example, color the individual observations according to some group.
+What if we want to add grouping to the scatterplot? We can add another argument to the function too, for example, color the individual observations according to group.
 
 #### <span style="color: green">**Exercise 5**</span> 
 <span style="color: green">**Modify the plot function to color the observations by `Species`. Do this by adding a `col` argument and setting the `Species` column as its value.**</span>
@@ -99,13 +99,13 @@ plot(Sepal.Width ~ Sepal.Length, data = my_data,
 ```
  
 >**Curiosity**
-The basic plot function allows further modification, such as e.g. addition of a legend to the plot. We will not focus on this as making the plots more readable is easier in `ggplot2`.
+The basic plot function allows further modification, such as, e.g., addition of a legend to the plot. We will not focus on this as making the plots more readable is easier in `ggplot2`.
 
-### Historam
+### Histogram
 
-Now let’s try making a histogram.
+Now let’s try to make a histogram.
 
-The base R function for making a histogram is `hist()`. The only argument you need to provide is the column of a data you want to work on. The group of the observations will be shown on the x axis, and the frequency of occurrences of observations in that group will be shown on the y axis.
+The base R function for making a histogram is `hist()`. The only argument you need to provide is the column of the data you want to work on. The group of the observations will be shown on the x axis, and the frequency of occurrences of observations in that group will be shown on the y axis.
 
 #### <span style="color: green">**Exercise 6**</span> 
 <span style="color: green">**Create a histogram plot of the sepal length using `my_data`.**</span>
@@ -117,7 +117,7 @@ hist(my_data$Sepal.Length)
 ```
 
  
-You can customize this plot using the same arguments as in the `plot()` function to add descriptions to the axes and a title. Additionally, we can adjust some other things about this plot, for example changing the grouping on the x axis using the `breaks` argument. The `breaks` argument can take a single number (which will correspond to the number of bins) or a numeric vector (which will correspond to the boundary of the bins). 
+You can customize this plot using the same arguments as in the `plot()` function to add axes labels and a title. Additionally, we can adjust some other things about this plot, for example changing the grouping on the x axis using the `breaks` argument. The `breaks` argument can take a single number (which will correspond to the number of bins) or a numeric vector (which will correspond to the boundaries of the bins). 
 
 #### <span style="color: green">**Exercise 7**</span> 
 <span style="color: green">**Update the histogram code by adding axes names, title, and setting it to display 4 bins.**</span>
@@ -134,21 +134,21 @@ hist(my_data$Sepal.Length,
 
 ### Installation
 
-From now on, we are going to use the external `ggplot2` package. To install it go to Tools >> Install Packages… or type:
+From now on, we are going to use the `ggplot2` package. To install it go to Tools >> Install Packages… or type:
 
 `install.packages("ggplot2")`
 
-Remember to load the library after it installs.
+Remember to load the package after it installs.
 
 ### Syntax
 
-The syntax for plots generation includes three groups of functions:
+The syntax to generate a plot includes three groups of functions:
 
-  -	**the base**- `ggplot()` - starts a new plot  
-  -	**the body** - e.g.` geom_point()` - creates plotted elements based on provided data  
+  -	**the base** - `ggplot()` - starts a new plot  
+  -	**the body** - e.g.` geom_point()` - displays the data  
   -	**the layout** - e.g. `theme()` - changes the appearance of a plot
   
-You can use many functions that will contribute to a given plot but each of them should be separated by the plus symbol (`+`) e.g. `ggplot(…) + geom_point() + geom_line() + theme(…)`.
+You can use many functions that will contribute to a given plot but each of them should be connected by the plus symbol (`+`) e.g. `ggplot(…) + geom_point() + geom_line() + theme(…)`.
 
 Both the `ggplot()` and the body functions share two crucial arguments:
 
@@ -206,6 +206,7 @@ ggplot(my_data) +
   geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
   theme_bw() +
   labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises")
+
 ```
 
 
@@ -379,7 +380,7 @@ In `ggplot`, we can use the function `ggsave()`. **By default, it saves the last
 #### <span style="color: green">**Exercise 19**</span> 
 <span style="color: green">**Save one of the plots we generated today using your preferred method.**</span>
 
-```{r, message = F}
+```{r, message = F, eval = F}
 ggsave("plot_ggsave.png")
 ```
 

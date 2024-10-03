@@ -3,14 +3,11 @@ Introduction to R<br> <span style='color: gray'>Summary
 Marzena Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
 2024-10-01
 
-- [](#section)
 - [Class 1](#class-1)
 - [Class 2](#class-2)
 - [Class 3](#class-3)
 - [Class 4](#class-4)
 - [Class 5](#class-5)
-
-## 
 
 ## Class 1
 
@@ -51,18 +48,18 @@ Marzena Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
 - `setwd()` - sets working directory for current session
 - `class()` - prints the names of classes of an object
 - `read_excel()` - reads an excel (.xls and .xlsx) files
-- `read.csv()` - reads .csv files
+- `read.csv()` - reads .csv files  
 - `read.table()` - reads a file in table format and creates a data frame
-  from it
+  from it  
 - `write.table()` - prints an object to a file
 - `write_xlsx()` - writes a data frame to an .xlsx file
 
 ## Class 3
 
-- `head()` - prints the first n lines of an object
-- `tail()` - prints the last n lines of an object
-- `summary()` -
-- `str()`
+- `head()` - prints the first n lines of an object  
+- `tail()` - prints the last n lines of an object  
+- `summary()` - summarizes the values in a vector or data frame  
+- `str()` - shows the structure of an object  
 - `as.character()`
 - `as.factor()`
 - `as.numeric()`
@@ -76,17 +73,21 @@ Marzena Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
 - Logical operators:
   - `==` - equal
   - `!=` - unequal
-  - `>` - higher
-  - `>=` - higher or equal
-  - `<` - lower
-  - `<=` - lower or equal
-- `is.na()`
-- `sum()`
-- `mean()`
-- `identical()`
-- `%in%`
-- `which()`
-- `arrange()`
+  - `>` - greater than
+  - `>=` - greater than or equal
+  - `<` - less than
+  - `<=` - less than or equal
+- `is.na()` - checks for missing values in vectors and data frames
+- `sum()` - returns the sum of all its arguments
+- `mean()` - returns arithmetic mean
+- `identical()` - checks whether two objects in R are exactly equal,
+  function returns the logical vector
+- `%in%` - checks if the value in the first argument is present in the
+  second argument, function returns the logical vector
+- `which()` - returns vector of the positions of the values that
+  satisfies given conditions
+- `arrange()` - orders the rows according to the values of selected
+  columns
 - `select()`
 - `filter()`
 - `mutate()`
