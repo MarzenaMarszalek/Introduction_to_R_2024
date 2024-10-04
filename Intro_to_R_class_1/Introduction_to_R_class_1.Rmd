@@ -136,13 +136,24 @@ Where:
 
 </center>
 
+Expected result:
+
+```{r}
+
+#population 1 
+(0.8*log(1/0.8))+(0.1*log(1/0.1))+(0.1*log(1/0.1))
+
+#population 2
+(0.2*log(1/0.2))+(0.2*log(1/0.2))+(0.6*log(1/0.6))
+```
+
 ## Variables
 
-**Until you name something it does not exist in a computer memory!** Any outcome of the execution of a command within the console perishes when the calculation is finished, unless it is **assigned to a given name**. Named objects within the computer memory are called *variables*. You can create one by using arrows (assignement symbol) in the following manner:
+**Until you name something it does not exist in a computer memory!** Any outcome of the execution of a command within the console perishes when the calculation is finished, unless it is **assigned to a given name**. Named objects within the computer memory are called *variables*. You can create one **by using arrows (assignement symbol)** in the following manner:
 
 `chosen_name <- object_to_be_saved`  
 
-You can easily recall the value of the variable later on by typing its name.
+You can easily recall the value of the variable later on **by typing its name**.
 
 ### <span style="color: green">**Exercise 6**</span>
 <span style="color: green">**Try to save 5 as variable. Choose a variable name on your own. Then, type your variable’s name and press Enter.**</span>
@@ -154,7 +165,7 @@ x <- 5
 x
 ```
 
-*An advice: The variable name is case sensitive and cannot contain blank spaces or start with a digit. When you want to combine several words into one name use the underscore (\_). By convention dots are used for function names and should be used with caution.*
+*An advice: The variable name is case sensitive and **cannot contain blank spaces or start with a digit**. When you want to combine several words into one name use the underscore (\_). By convention dots are used for function names and should be used with caution.*
 
 Since the variable is saved, its name can replace the actual value in any R commands e.g. if 2 is assigned to x, both `2+3` and `x+3` would result in 5.
 
@@ -182,7 +193,7 @@ range_diff <- range_diff + (range_diff*0.20)
 range_diff
 ```
 
-Variables can store not only numbers. The other very popular type of data is **string**. It is a text which behaves as a single object regardless of its length. To distinguish strings from variable names R requires usage of **quotation marks** around them.
+Variables can store not only numbers. The other very popular type of data is **string**. It is a text which behaves as a single object regardless of its length. To distinguish strings from variable names R requires usage of **quotation marks** (`""`) around them.
 
 ### <span style="color: green">**Exercise 9**</span>
 <span style="color: green">**Save your name to the variable `my_name`. Call it.**</span>
@@ -196,9 +207,9 @@ my_name
 
 ## Functions
 
-One of the usual ways to deal with your data in R is to use **functions**. They are simply lines of code saved in a computer memory that perform desired operations and often return a result. Some functions are **built into R**, and some require additional tools called **libraries** to be installed. Think apps pre-loaded on your phone like a calculator or a calendar vs apps for specific uses you need to download separately. We will talk about function libraries in the next class. 
+One of the usual ways to deal with your data in R is to use **functions**. They are simply lines of code saved in a computer memory that perform desired operations and often return a result. Some functions are **built into R**, and some require additional tools called **packages** to be installed. Think apps pre-loaded on your phone like a calculator or a calendar vs apps for specific uses you need to download separately. We will talk about packages in the next class. 
 
-Functions we used before take only a single argument e.g. `log()` takes a number. However, it is rarely the case. List of function’s arguments and the way of usage can be found in **function’s manual**. It can be reached by typing `?` followed by the function’s name.
+Functions we used before take only a single argument e.g. `log()` takes a number. However, it is rarely the case. List of function’s arguments and the way of usage can be found in **function’s manual**. It can be reached by typing question mark (`?`) followed by the function’s name.
 
 ### <span style="color: green">**Exercise 10**</span>
 <span style="color: green">**Open the manual for `paste()` function.**</span>
@@ -214,7 +225,7 @@ Usually the manual consists of 7 sections:
   - **EXAMPLES**
   
 ### <span style="color: green">**Exercise 11**</span>
-<span style="color: green">**Use `paste()` function to stick the following words together: 'I’m’, ‘using’ and ‘R’. Don’t forget about quotation marks.**</span>
+<span style="color: green">**Use `paste()` function to stick the following words together: 'I’m’, ‘using’ and ‘R’. Don’t forget about quotation marks (`""`).**</span>
 
 Expected result:
 
@@ -254,7 +265,7 @@ v1 <- c(5:10)
 v1
 ```
 
->Tip: To create a vector of consecutive integers you can type the limits of the range separated by the colon.
+*Tip: To create a vector of consecutive integers you can type the limits of the range separated by the colon.*
 
 ### <span style="color: green">**Exercise 14**</span>
 <span style="color: green">**Create a vector containing integers from 1 to 100 and save it to a variable `one_to_hundred`. Call it.**</span>
@@ -283,7 +294,7 @@ v2
 To create a vector of repeated values, use `rep()` function.
 
 ### <span style="color: green">**Exercise 16**</span>
-<span style="color: green">**Access `rep()` manual by typing `?rep` in console. Using `rep()` function, create a vector consisting of 1,2 and 3 repeated 20 times. Save it as a variable` repeated`.**</span>
+<span style="color: green">**Access `rep()` manual by typing `?rep` in console. Using `rep()` function, create a vector consisting of 1,2 and 3 repeated 20 times. Save it as a variable `repeated`. Call it.**</span>
 
 ```{r}
 repeated <- rep(x = c(1:3), times = 20)
@@ -348,13 +359,24 @@ c(1,2,3,4) + 5   # 5 is added to each element, the same as c(1,2,3,4) + c(5,5,5,
 c(1,2,3,4) + 5  
 
 ```
-```{r, eval=F, echo=T}
-paste("text", seq(1:10))   # Similarly here - the shorter vector including 1 element ("text") is repeated 10 times to reach the length of the longer vector.
 
+
+```{r, eval=F, echo=T}
+c(1,2,3,4) + c(1,2)   # the same as c(1,2,3,4) + c(1,2,1,2)
 ```
+
+
+```{r}
+c(1,2,3,4) + c(1,2)
+```
+
 
 ```{r}
 paste("text", seq(1:10))
+
+```
+```{r, eval=F, echo=T}
+paste("text", seq(1:10))   # Similarly here - the shorter vector including 1 element ("text") is repeated 10 times to reach the length of the longer vector.
 
 ```
 
@@ -368,14 +390,6 @@ paste(c("cat", "dog", "mouse"), seq(1:10))
 ```
 
 
-```{r, eval=F, echo=T}
-c(1,2,3,4) + c(1,2)   # the same as c(1,2,3,4) + c(1,2,1,2)
-```
-
-
-```{r}
-c(1,2,3,4) + c(1,2)
-```
 
 ### <span style="color: green">**Exercise 20**</span>
 <span style="color: green">**Having a vector `one_to_hundred`, raise each element to the power of 3. Save it to a variable called `power_3`.**</span>
