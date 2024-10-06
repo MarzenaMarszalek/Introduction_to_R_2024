@@ -34,24 +34,28 @@ The RStudio window consists of four main panels:
 
 ![](rstudio.png)
 
-  1. **Code editor** - Here you can write your code and save it in a text file (.R). You can run it anytime by highlighting given piece of code and clicking Run in right-top corner (also Ctrl+R).
+  1. **Code editor** - Here you can write your code and save it in a text file (.R). You can run it anytime by highlighting given piece of code and clicking Run in right-top corner (also Ctrl + Enter).
 
   2. **Console** - Exactly the same console as in standard R (see Class 1). Note that any line of code run from Code editor will appear in the console. To recall the lastly run line of code use Arrow-up (it works as a general way of browsing through the history of the executed commands).
 
   3. **Environment / History**  
-    -	**Environment** - check all variables and functions present in your computer’s memory (RAM). Have in mind they will be lost as soon as you close RStudio.  
+    -	**Environment** - shows all the objects that you created or loaded into your computer’s memory (RAM). Have in mind they will be lost as soon as you close RStudio.  
     -	**History** - access to the entire code run in a given RStudio session.  
   
   4. **Files / Plots / Help / Packages**  
     -	**Files** - manage files on your computer.  
     -	**Plots** - preview generated plots before saving them.  
     - **Help** - access help page (often with examples) for a given function.  
-    - **Packages** - manage all additionally installed libraries.
+    - **Packages** - manage all additionally installed packages.
     
 #### <span style="color: green">**Exercise 1**</span>
-<span style="color: green;">**Create new script file (File >> New File >> R Script) and save it. Write code for all subsequent exercises using Code editor. Remember that to obtain any outcome/result you need to execute/run your code first.**</span>
+<span style="color: green;">**Create new script file (File >> New File >> R Script) and save it. Call it as you wish. Write code for all subsequent exercises using Code editor. Remember that to obtain any outcome/result you need to execute/run your code first.**</span>
 
-*An advice: If you want to include some comments within a script file or “turn off” chunk of code, type the hash before it (#). Anything written until the end of a given line will be ignored by R. To comment several lines highlight them and use Ctrl+Shift+c. Repeat it to uncomment.*
+To make your code easier to read and understand it is a good practice to **add comments**. Comments help explain what specific sections of the code are doing. This may be useful for other people using your script, and for you as even if you know what your code is doing, after some time you may forget it, and again spend a lot of time to understand its functioning. Repeat it to uncomment
+
+In R you can add comments to your script (or “turn off” chunk of code) by starting the line with hashtag `#`. Anything to the right of the hashtag will not be take by R as a command. To comment several lines highlight them and use Ctrl+Shift+c
+
+Apart from adding comments hashtag can be also used to "silence" a chunk of your code. You can add `#` before a command so that it will not be executed while running a script. When you remove hashtag, the command will be executed when you run your script again.
 
 ## Working directory
 
@@ -87,16 +91,16 @@ One of the advantages of RStudio is that it can save a lot of your work in betwe
   -	**copy and update the name of your script file (e.g. with that day’s date)** – if you are working on a previously created file and want to keep track of multiple versions  
   -	**set up a working directory** – easiest way to keep track of this is to have a line of code at the beginning of the script; if you set up a working directory through the RStudio user interface, you can copy the code from the console into the script  
   -	**clear the RStudio environment** – this is important especially when switching between scripts/projects you are working on  
-  - **load any packages that the script is using** – further explanation of this will be in the section about libraries; for now, remember that some functions we will use later on are not present in base R, so if RStudio suddenly doesn’t want to run code with a function that you’ve been using before, it might be because it comes from a library that isn’t currently loaded
+  - **load any packages that the script is using** – further explanation of this will be in the section about packages; for now, remember that some functions we will use later on are not present in base R, so if RStudio suddenly doesn’t want to run code with a function that you’ve been using before, it might be because it comes from a package that isn’t currently loaded
 
 ### Uploading files into RStudio
 
-There are two main ways of uploading files into the RStudio environment – by calling a function in your code, and through the user interface. Which one you pick depends on you.
+There are two main ways of uploading files into the RStudio environment – **by calling a function in your code**, and **through the user interface**. Which one you pick depends on you.
 If you want to upload an MS Excel file through the user interface, go to the files section of the screen (lower right square section). Then pick the files tab.
 
 ![](files_upload.png)
 
-Remember that, **by default, the tab will display the contents of your working directory**. You can pick a file that is not in your working directory, however, it is good practice to keep a copy of the files you’re working on in the folder set as your working directory.  
+Remember that, **by default, the tab will display the content of your working directory**. You can pick a file that is not in your working directory, however, it is good practice to keep a copy of the files you’re working on in the folder set as your working directory.  
 
 Once you find the file, you can click on it, select “import dataset”, and navigate through the upload process. Through the upload menu, you can setup the name of the file, the sheet in the excel file you want to upload, and the range of data you want to include. R also generates code that you can then copy and include into your R script.* 
 
@@ -114,7 +118,7 @@ class_2_data <- read_excel("path")
 
 ### Packages
 
-A package is a collection of functions not available in the base R. Think about it like a toolbox, or an app for your phone that you need to install for a specific function. Some packages are downloaded at the same time as RStudio; others you need to find and download yourself.  
+A package is a collection of functions not available in the base R. Think about it like a toolbox, or an app for your phone that you need to install for a specific function. Some packages are downloaded at the same time as RStudio is installed; others you need to find and download yourself.  
 
 #### Why are some R functions not available in base R?  
 For two reasons. Firstly, if every time you opened RStudio it would have to load every single function in it, even the fastest laptop would take many minutes to open R. This is why some packages can be found in RStudio from the moment you install it, but are not loaded (=activated) until you ask RStudio to do it. You can browse a list of packages in the packages tab, in the same lower right corner as the file upload.  
@@ -131,7 +135,7 @@ Remember, if you are using someone else’s package in your research, you need t
 Although R was developed primarily for data science and statistics, it can be used for many different purposes. For example, there are some text-based games for R. Check out [these](https://www.r-bloggers.com/2016/06/useless-but-fun-r-packages/) (useless but fun) R packages.
 
 #### How to use a package? 
-If the package you want to use is already present in RStudio (= it was downloaded at the same time as the app itself), all you need to do is load it using the `library()` function. However, if the package is not installed you have to do it manually. 
+If the package you want to use is already present in RStudio, all you need to do is load it using the `library()` function. However, if the package is not installed you have to do it and then load with `library()` function. 
 
 #### <span style="color: green;">**Exercise 5**</span>  
 <span style="color: green;">**Load any package you can find in the RStudio list using a command prompt library([package name]).**</span>
@@ -167,16 +171,16 @@ Uploading a .csv file into R does not require any additional package. We can do 
 Additionally, we need to provide extra arguments to make sure the file is read correctly. 
 These arguments are, for example:  
 
-  - **header**: specifies whether the top row should be considered the headers of each column; should set as T if the top row corresponds to column descriptors and to F if the top row starts immediately from data  
+  - **header**: specifies whether the top row should be considered the headers of each column; should set as `TRUE` if the top row corresponds to column descriptors and to `FALSE` if the top row starts immediately from data  
   - **sep**: stands for separator; specifies which symbol (“,”, “_”, or “ “) was used to separate values in the file; by default, .csv files should be comma ( , ) separated, but might be set to something else – you can check by opening the .csv file though a basic text editor  
   - **encoding**: specifies which encoding is used in the .csv file; can be important if you are using files with non-latin characters, for example*, but isn’t always needed
 
-*if you are trying to upload a file with non-latin characters and R is displaying them as nonsense symbols, you can try the following: open your .csv as a text document in the most basic text editor and save it with the UTF-8 encoding; then, while uploading it to R, make sure to specify encoding as UTF-8; this should fix the problem
+*if you are trying to upload a file with non-latin characters and R is displaying them as nonsense symbols, you can try the following: open your .csv as a text document in the most basic text editor and save it with the **UTF-8** encoding; then, while uploading it to R, make sure to specify encoding as UTF-8; this should fix the problem
 
 The `read.csv()` function can work with just one argument – the file name. However, as the name suggests, it only works with standard .csv file and does not allow for certain kinds of customization through arguments. 
 
 #### <span style="color: green;">**Exercise 8**</span>
-<span style="color: green;">**Upload "class_2_data.csv" file into the R environment using the `read.table()` function; you can set the additional arguments as: `header = T,  sep = “,” , encoding = “UTF-8”`**
+<span style="color: green;">**Upload "class_2_data.csv" file into the R environment using the `read.table()` function; you can set the additional arguments as: `header = `TRUE`,  sep = “,” , encoding = “UTF-8”`**
 
 In most of your analyses, you will not need to download a modified data frame out of R – you will only be interested in the results of certain tests or graphs that R will generate. However, if you want to **download the data frame**, you can use:  
   - `write.table()` – for saving a .csv file; uses similar arguments to `read.table()`  
@@ -196,7 +200,7 @@ Tips for finding R solutions on the Internet:
 #### <span style="color: green;">**Exercise 9**</span>
 <span style="color: green;">**Search the Internet for an R function that can rename columns in a data frame. Install and load a package if necessary. Try using the RStudio manual to figure out how to use the function that can perform this task.**</span>
 
-Remember that the manual for any installed function can be pulled up by typing a question mark before its name.  
+Remember that the manual for any installed function can be pulled up by typing a question mark (`?`) before its name.  
 If you are attempting to use someone else’s code and you need to adapt it for your purposes, consider the following:
 
   -	before changing anything in the code you copied, go through the entire script and **make sure you understand**, at least on a basic level, what every line is doing  
@@ -207,6 +211,11 @@ If you are attempting to use someone else’s code and you need to adapt it for 
 
 #### <span style="color: green;">**Exercise 10**</span>
 <span style="color: green;">**Find a script online that uses R to calculate time differences between two dates. Try adjusting it to calculate how many days are left in this year.**</span>
+
+```{r, eval = F}
+difftime("2020-12-31", "2020-10-06", units = "days") 
+```
+
 
 ### Reading warning and error messages.
 
@@ -220,9 +229,9 @@ Whenever RStudio finds an issue in the code, it will display a message in the co
 
 Some common warning messages are:
 
-  -	<span style="color: red">NAs introduced by coercion</span> – often happens when converting between data types, e.g. numeric to character; if R fails to do this for whatever reason, it will insert an NA value instead, and warn you about this change  
-  -	<span style="color: red">unused argument</span> – happens when R notices that some argument in a function or a whole line of code does not do anything; this is not necessarily an issue, but might mean that something you intended to work is not actually working  
-  -	<span style="color: red">non-numeric argument to binary operator</span> – most likely means you are trying to perform a mathematical operation (addition, multiplication, etc) on something that is not a number; remember that something can look like a number in a vector or a data frame but still be seen as a character
+  -	<span style="color: red">**NAs introduced by coercion**</span> – often happens when converting between data types, e.g. numeric to character; if R fails to do this for whatever reason, it will insert an NA value instead, and warn you about this change  
+  -	<span style="color: red">**unused argument**</span> – happens when R notices that some argument in a function or a whole line of code does not do anything; this is not necessarily an issue, but might mean that something you intended to work is not actually working  
+  -	<span style="color: red">**non-numeric argument to binary operator**</span> – most likely means you are trying to perform a mathematical operation (addition, multiplication, etc) on something that is not a number; remember that something can look like a number in a vector or a data frame but still be seen as a character
   
 Some warning messages can be safely ignored, while some indicate potential issues in your code. When in doubt, always double check on the internet.
 
@@ -232,10 +241,10 @@ Note: a message with the same content can be either a warning or an error. The d
 
 Some common causes for errors in R can be:
 
-  -	<span style="color: red">Error in [code]: object not found</span> - you are trying to perform an operation on an object that does not exist; this can happen because your file did not load into R (e.g. because the working directory is set incorrectly), because of a typo in the object’s name (remember that names in R are case-sensitive!) or because the object was deleted from the environment  
-  -	<span style="color: red">Error: unexpected '[symbol]' in "[code]”</span> – there is some sort of syntax issue, e.g. a typo in the function, a misplaced comma, or missing parentheses   
-  -	<span style="color: red">Error in [function()]: could not find function “function()”</span> – either the function name is misspelled or you are trying to use a function from a library that isn’t installed and loaded; can also happen with old code when the name of a function updates – in this case, RStudio will sometimes suggest the new name, otherwise it can be found on the internet  
-  -	<span style="color: red">Error in [data frame]: arguments imply differing number of rows</span> – you are trying to create a data frame using vectors of different length or combine dataframes of different sizes
+  -	<span style="color: red">**Error in [code]: object not found**</span> - you are trying to perform an operation on an object that does not exist; this can happen because your file did not load into R (e.g. because the working directory is set incorrectly), because of a typo in the object’s name (remember that names in R are case-sensitive!) or because the object was deleted from the environment  
+  -	<span style="color: red">**Error: unexpected '[symbol]' in "[code]**”</span> – there is some sort of syntax issue, e.g. a typo in the function, a misplaced comma, or missing parentheses   
+  -	<span style="color: red">**Error in [function()]: could not find function “function()”**</span> – either the function name is misspelled or you are trying to use a function from a library that isn’t installed and loaded; can also happen with old code when the name of a function updates – in this case, RStudio will sometimes suggest the new name, otherwise it can be found on the internet  
+  -	<span style="color: red">**Error in [data frame]: arguments imply differing number of rows**</span> – you are trying to create a data frame using vectors of different length or combine dataframes of different sizes
 
 The order of operations when encountering an error:
 
@@ -260,13 +269,6 @@ If all of the above fails, you can try looking up your specific situation – ch
 `describe(class_2_data)`
 
 ### Keeping your code clean and tidy
-
-To make your code easier to read and understand it is a good practice to **add comments**. Comments help explain what specific sections of the code are doing. This may be useful for other people using your script, and for you as even if you know what your code is doing, after some time you may forget it, and again spend a lot of time to understand its functioning.
-
-In R you can add comments to your script by starting the line with hashtag `#`. Anything to the right of the hashtag will not be take by R as a command.
-
-Apart from adding comments hashtag can be also used to "silence" a chunk of your code. You can add `#` before a command so that it will not be executed while running a script. When you remove hashtag, the command will be executed when you run your script again.
-
 
 As you can see, coding can be meticulous and sometimes frustrating work. To reduce this frustration, remember the following:
 
