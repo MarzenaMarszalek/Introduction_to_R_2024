@@ -243,7 +243,7 @@ Some common causes for errors in R can be:
 
   -	<span style="color: red">**Error in [code]: object not found**</span> - you are trying to perform an operation on an object that does not exist; this can happen because your file did not load into R (e.g. because the working directory is set incorrectly), because of a typo in the object’s name (remember that names in R are case-sensitive!) or because the object was deleted from the environment  
   -	<span style="color: red">**Error: unexpected '[symbol]' in "[code]**”</span> – there is some sort of syntax issue, e.g. a typo in the function, a misplaced comma, or missing parentheses   
-  -	<span style="color: red">**Error in [function()]: could not find function “function()”**</span> – either the function name is misspelled or you are trying to use a function from a library that isn’t installed and loaded; can also happen with old code when the name of a function updates – in this case, RStudio will sometimes suggest the new name, otherwise it can be found on the internet  
+  -	<span style="color: red">**Error in [function()]: could not find function “function()”**</span> – either the function name is misspelled or you are trying to use a function from a library that isn’t installed or loaded; can also happen with old code when the name of a function updates – in this case, RStudio will sometimes suggest the new name, otherwise it can be found on the internet  
   -	<span style="color: red">**Error in [data frame]: arguments imply differing number of rows**</span> – you are trying to create a data frame using vectors of different length or combine dataframes of different sizes
 
 The order of operations when encountering an error:
@@ -272,21 +272,21 @@ If all of the above fails, you can try looking up your specific situation – ch
 
 As you can see, coding can be meticulous and sometimes frustrating work. To reduce this frustration, remember the following:
 
-  -	stick to habits of setting up you working session every time you open RStudio
-  -	if you are working on a script for multiple days, consider making a new copy of it every day or every week to keep previous versions in hand in case you will need to revert the changes
-  -	include comments in your code! remember that you can use the hashtag symbol `#` to both turn off certain parts of the code and leave useful descriptions – this can be a lifesaver when using someone else’s code or even coming back to work you were doing weeks or months ago
-  -	make it a habit to go back through your scripts and simplify anything you can - the shorter the script, the less can go wrong
-  -	give your objects short, unique, and self-describing names - things can quickly get out of hand if all of your data frames are called “dataframe”
+  -	stick to habits of **setting up your working session** every time you open RStudio  
+  -	if you are working on a script for multiple days, consider making a **new copy of it every day or every week** to keep previous versions in hand in case you will need to revert the changes
+  -	**include comments** in your code! remember that you can use the hashtag symbol `#` to both turn off certain parts of the code and leave useful descriptions – this can be a lifesaver when using someone else’s code or even coming back to work you were doing weeks or months ago  
+  -	make it a habit to go back through your scripts and **simplify anything you can** - the shorter the script, the less can go wrong  
+  -	give your objects **short, unique, and self-describing names** - things can quickly get out of hand if all of your data frames are called “dataframe”  
   -	make use of packages such as `dplyr` to make your files more tidy – we will learn more about it during the next lesson
 
 ## <span style="color: darkorange;">Homework</span>
 
 <span style="color: darkorange">
   1.	Create a new script file and save it with the name “class_2_homework_Your_Name.R”. Create a separate folder on your computer and set that folder as your working directory. **Include the code for setting up that directory at the beginning of your script**.<br> 
-  2.	Upload the 'homework_data' file into the RStudio using your preferred method. Include the code for uploading the file into the script. *Remember that some upload methods require libraries to be loaded first.<br>
-  3.	Load the `dplyr` library. Include the loading of the library as a line of code in your script.<br>
+  2.	Upload the "homework_data.xlsx" file into the RStudio using your preferred method. Include the code for uploading the file into the script. *Remember that some upload methods require libraries to be loaded first.<br>
+  3.	Load the `dplyr` library. **Include the loading of the library as a line of code in your script**.<br>
   4.	Find a dplyr function that can sort values in a given column of a data frame. Use it to sort all the values in the column `score` from lowest to highest.<br>
-  5.	Save your result as a .csv file using `write.table()` function. Give the .csv file a different name.
+  5.	Save your result as a .csv file using `write.table()` function. Call the .csv file “class_2_sorted_column_Your_Name.csv”.
 
 <span style="color: darkorange">**Upload both your R script and .csv file to the "Class 2" tab on *Pegaz* platform.**</span>
 
@@ -305,6 +305,6 @@ print("Ex. 4")
 homework_data <- arrange(homework_data, score)
 
 print("Ex. 5")
-write.table(homework_data, "hw_data_modified.csv")
+write.table(homework_data, "Class_2_sorted_column_Your_Name.csv")
 ```
 
