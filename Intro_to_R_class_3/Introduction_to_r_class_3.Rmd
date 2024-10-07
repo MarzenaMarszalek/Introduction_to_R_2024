@@ -124,7 +124,7 @@ my_column_4
 Expected result:
 
 ```{r}
-my_column_4[3:5]
+my_column_4[3:5,1]
 ```
 
 Table can be also subsetted with the use of columns’ (or rows’) names.
