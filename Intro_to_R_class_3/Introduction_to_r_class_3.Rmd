@@ -191,7 +191,7 @@ my_data[,-2]
 
 ###     1.	Replacement
 
-Assign a given value to specific place in your table with the use of an arrow. It works just as with variables assignment - e.g.` table[row_number,collumn_number] <- new_value`
+To replace a given value in your table assign a new value to this place in your table with the use of an arrow (`<-`). It works just as with variables assignment - e.g.` table[row_number,collumn_number] <- new_value`
 
 #### <span style="color: green">**Exercise 13**</span>
 <span style="color: green">**Replace 5th value in the column `sex` with the label ‘Unknown’. Call column `sex` and check whether it was indeed replaced.**</span>
@@ -231,6 +231,7 @@ mean(my_data$score)
 
   •	`nrow()` - number of rows  
   •	`ncol()` - number of columns
+  • `dim()` - dimensions of an object
   
 #### <span style="color: green">**Exercise 16**</span>
 <span style="color: green">**Return total number of cells within `my_data`.**</span>
@@ -242,7 +243,7 @@ nrow(my_data)*ncol(my_data)
 ```
 ###   4.	Deleting rows with missing data
 
-Missing data, as stated before, are represented as `NA` (not-available) in R. Most of the functions will raise an error every time the `NA` is provided as the argument.
+**Missing data**, as stated before, are represented as `NA` (not-available) in R. Most of the functions will raise an error every time the `NA` is provided as the argument.
 
 #### <span style="color: green">**Exercise 17**</span>
 <span style="color: green">**Choose one cell and replace its value with `NA`. Do not add quotation marks as `NA` is an internal R symbol (just as `π`). Print whole row.**</span>
@@ -279,7 +280,7 @@ ID <- c(100:(99 + nrow(my_data)))
 ID
 ```
 
-You can combine data frames with the use of `cbind()` function in the following manner: `cbind(data_frame1,data_frame2)`. Note that a vector can be seen as a data frame with only one column.
+You can combine data frames with the use of `cbind()` function in the following manner: `cbind(data_frame1,data_frame2)`. Note that a **vector can be seen as a data frame with only one column**.
 
 ### <span style="color: green">**Exercise 20**</span>
 <span style="color: green">**Place created IDs at the beginning of `my_data` (as first column). Overwrite my_data variable.**</span>
@@ -288,7 +289,7 @@ You can combine data frames with the use of `cbind()` function in the following 
 my_data <- cbind(ID, my_data)
 ```
 
-  2.	Adding new row is more complicated as **you cannot create a vector with different types of data**. Firstly you need to create a new data frame (similar to the old one) consisting of only new row (or rows). To do this use `data.frame()` function in the following manner: `data.frame(columnName1 = value1, columnName2 = value2,…)`.
+2.	Adding new row is more complicated as **you cannot create a vector with different types of data**. Firstly you need to create a new data frame (similar to the old one) consisting of only new row (or rows). To do this use `data.frame()` function in the following manner: `data.frame(columnName1 = value1, columnName2 = value2,…)`.
   
 ### <span style="color: green">**Exercise 21**</span>
 <span style="color: green">**Create data frame `added_rows` with one row and following values: `130`,`ind031`,`F`, `55.7`, `77`. Columns’ names should correspond to this of `my_data`. Call it.**</span>
@@ -302,12 +303,12 @@ added_rows
 
 
 >**Curiosity** 
-To combine a data frame with more rows at the same time replace the values for each column with the vectors.
+To combine a data frame with more rows at the same time replace the values for each column with the **vectors**.
 
 To stick data frames by rows use `rbind()` function in the following manner: `rbind(data_frame1,data_frame2)`
 
 ### <span style="color: green">**Exercise 22**</span>
-<span style="color: green">**Place created row at the end of `my_data`. Overwrite my_data variable. Print 5 last rows of `my_data` to check the operation result.**</span>
+<span style="color: green">**Place created row at the end of `my_data`. Overwrite my_data variable. Print 6 last rows of `my_data` to check the operation result.**</span>
 
 Expected result:
 
@@ -342,24 +343,25 @@ To save your data frame into a file use `write.table()` function.
 
 <span style="color: darkorange">
 Prepare your homework in the form of a script file (.R) and call it "class_3_homework_Your_name.R".  
-All exercises need to be performed on the **built-in `swiss` dataset**. To work on it, use this command:  
-`my_data <- swiss`
+All exercises need to be performed on the **built-in `ToothGrowth` dataset**. Remember you can find the sataset details checking its description with `?ToothGrowth`. To work on it, use this command:  
+`my_data <- ToothGrowth`
 Include all subsequent steps in a script file.<br>
-  1.	With an R command, return the lowest percentage of Catholics.<br>
-  2.	With an R command, return the median percentage of live births living more than 1 year. Tip: check `swiss` dataset description for column details.<br>
-  3.	With an R command, add column with self-chosen ID for each observation and save the dataset as a `my_data` variable. Add `ID`  before `Fertility` column.<br>
-  4.	With an R command, modify `my_data` by removing its 4 first rows.<br>
-  5.	Save a modified dataset to a .csv file<br>
+  1.	Find the the shortest tooth length.<br>
+  2.	Add new row at the end of `my_data`. The values in a new row should be as follow: 26.2, OJ, 2.0. Overwrite `my_data` variable.<br>
+  3.	Add column with self-chosen ID for each observation as the first column of `my_data`. Overwrite `my_data` variable.<br>
+  4.	Modify `my_data` by removing its 4 first rows.<br>
+  5.	Save a modified dataset to a "class_3_swiss_modified_Your_Name.csv" file<br>
 
 <span style="color: darkorange">**Upload both your R script and .csv to the "Class 3" tab on *Pegaz* platform.**</span>
 
 ```{r, include = FALSE, eval = FALSE}
-my_data <- swiss
+my_data <- ToothGrowth
 print("Ex. 1")
-min(my_data$Catholic)
+min(my_data$len)
 
 print("Ex. 2")
-100-(median(my_data$Infant.Mortality))
+new_row <- data.frame(len = 26.2, supp = "OJ", dose = 2.0)
+my_data <- rbind(my_data, new_row)
 
 print("Ex. 3")
 ID <- c(1:nrow(my_data))

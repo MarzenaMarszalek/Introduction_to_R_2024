@@ -58,6 +58,9 @@ output:
   - `tail()`    -  prints the last n lines of an object  
   - `summary()`   - summarizes the values in a vector or data frame  
   - `str()` - shows the structure of an object  
+  - `ncol()`  
+  - `nrow()`
+  - `dim()`
   - `as.character()`
   - `as.factor()`
   - `as.numeric()`
