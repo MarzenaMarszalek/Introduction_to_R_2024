@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik &amp; Mateusz Chechetkin Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2024-10-01" />
+<meta name="date" content="2024-10-07" />
 
 <title>Introduction to R - class 3  Data Wrangling 1</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 3<br> <span style="color: gray">Data Wrangling 1</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik &amp; Mateusz
 Chechetkin<br>Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2024-10-01</h4>
+<h4 class="date">2024-10-07</h4>
 
 </div>
 
@@ -421,40 +421,45 @@ frame</a>
 </ul>
 </div>
 
-<p>Data wrangling refers to the process of <strong>transforming raw and
-basic data into a more useful, neat, and tidy form</strong>. It includes
-everything from changing the appearance of tables and sorting their
-contents to making mathematical operations on the data and preparing it
-for various kinds of statistical analysis. In the first part, we will
-cover the data wrangling capabilities of base R.</p>
+<p><strong>Data wrangling</strong> refers to the process of
+<strong>transforming raw and basic data into a more useful, neat, and
+tidy form</strong>. It includes everything from changing the appearance
+of tables and sorting their contents to making mathematical operations
+on the data and preparing it for various kinds of statistical analysis.
+In the first part, we will cover the data wrangling capabilities of
+<strong>base R</strong>.</p>
 <div id="data-frame" class="section level2">
 <h2>Data frame</h2>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhsAAAC+CAYAAACcac3JAAAAiXpUWHRSYXcgcHJvZmlsZSB0eXBlIGV4aWYAAHjaVY7bCcQwDAT/VcWVoJf1KOcSbEgHKf9knMNkPqRlsQdBv68BnwkhgzYPSzMsNDX5WyFwIYjESHPXXDxbqBLvGoRXsAxH3Q/16f80sbDh6m7NTju57NyFJWrWP5hWnGfkltCBSyPv/uhvOfwAUE8ssZgZM9gAAAoGaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/Pgo8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA0LjQuMC1FeGl2MiI+CiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIKICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIgogICBleGlmOlBpeGVsWERpbWVuc2lvbj0iNTM5IgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMTkwIgogICB0aWZmOkltYWdlV2lkdGg9IjUzOSIKICAgdGlmZjpJbWFnZUhlaWdodD0iMTkwIgogICB0aWZmOk9yaWVudGF0aW9uPSIxIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg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" /></p>
-<p>Data frame is something you probably know as a “table”. However it
-has some unique characteristics:<br />
-1. <strong>It always has a header</strong>. It means that each column
+<p><strong>Data frame</strong> is something you probably know as a
+“table”. However it has some unique characteristics:</p>
+<ol style="list-style-type: decimal">
+<li><strong>It always has a header</strong>. It means that each column
 must have its unique name. If names are not provided R creates them
 automatically as <strong>V</strong> (as “variable”) followed by the
 consecutive number.<br />
-2. <strong>Table is always complete</strong>. It means that each column
+</li>
+<li><strong>Table is always complete</strong>. It means that each column
 has the same number of rows. If some data are missing R puts
 <code>NA</code> (“not available”) in a given cell.<br />
-3. An individual column of a data frame, similarly to vectors, can
+</li>
+<li>An individual column of a data frame, similarly to vectors, can
 contain <strong>only one type of data</strong>, but <strong>different
-columns can be of different types</strong>.</p>
+columns can be of different types</strong>.</li>
+</ol>
 <p>During most statistical analysis, you will be operating on data
 frames.</p>
 <blockquote>
 <p><strong>Curiosity</strong><br />
-In R, there is also an object called matrix that will not be covered
-during this course. It looks and behaves similar to the data frame but
-all cells must contains the same type of data (often numbers). It is
-usually used in mathematics (matrix operations) and graphics (image
-encoding).<br />
-Recently, the object called tibble is rising in popularity and possibly
-will replace data.frame in the near future. The differences between both
-are rather subtle and do not affect our exercises directly. If you want
-to read more, follow the <a href="https://blog.rstudio.com/2016/03/24/tibble-1-0-0/">link</a>.</p>
+In R, there is also an object called <strong>matrix</strong> that will
+not be covered during this course. It looks and behaves similar to the
+data frame but all cells must contains the same type of data (often
+numbers). It is usually used in mathematics (matrix operations) and
+graphics (image encoding).<br />
+Recently, the object called <strong>tibble</strong> is rising in
+popularity and possibly will replace data.frame in the near future. The
+differences between both are rather subtle and do not affect our
+exercises directly. If you want to read more, follow the <a href="https://blog.rstudio.com/2016/03/24/tibble-1-0-0/">link</a>.</p>
 </blockquote>
 <p>In the last class, we learned how to upload an existing file into R.
 Now we will learn how to modify data frames. Remember about the optimal
@@ -463,11 +468,11 @@ coding workflow.</p>
 checking your data once it is uploaded into the RStudio. You can do this
 in the following ways:</strong></p>
 <p>• visually inspect the file by either clicking on it in the
-environment (top right square) or by using the View(dataframe) function
-– reminder that R is case sensitive and View starts with a capital
-V<br />
-• ask R to display the top five rows of the data frame using the
-<code>head()</code> function, or the bottom 5 rows using the
+environment (top right square) or by using the
+<code>View(dataframe)</code> function – reminder that R is case
+sensitive and View starts with a capital V<br />
+• ask R to display the top six rows of the data frame using the
+<code>head()</code> function, or the bottom six rows using the
 <code>tail()</code> function<br />
 • get a brief description of the data frame using the
 <code>summary()</code> function – this is particularly important, as it
@@ -487,9 +492,10 @@ short description for it.</strong></span></p>
 </div>
 <div id="types-of-data" class="section level2">
 <h2>Types of data</h2>
-<p>All values inside one column must be of the same data type, but the
-columns can be of different types. Type of data within a column is
-defined by its class. The most popular classes are:</p>
+<p><strong>All values inside one column must be of the same data
+type</strong>, but the <strong>columns can be of different
+types</strong>. Type of data within a column is defined by its class.
+The most popular classes are:</p>
 <p>• <code>character</code> - strings (remember that numbers surrounded
 by quotation marks are also treated as strings)<br />
 • <code>factor</code> - strings with the levels carrying information
@@ -502,30 +508,30 @@ of the nominal scale. To read strings as factors set the
 • <code>integer</code> - only integers<br />
 • <code>logical</code> - logical values (<code>TRUE</code> or
 <code>FALSE</code>)</p>
-<p>You can check the class of a value or a vector using the
-<code>class()</code> function. To use it on a data frame, you need to
-specify which columns you want to check. To check every column in a data
-frame, use the <code>str()</code> function.</p>
+<p>You can check the <strong>class of a value or a vector</strong> using
+the <code>class()</code> function. To use it on a data frame, you need
+to specify which columns you want to check. To check every column in a
+data frame, use the <code>str()</code> function.</p>
 <div id="exercise-3" class="section level3">
 <h3><span style="color: green"><strong>Exercise 3</strong></span></h3>
 <p><span style="color: green"><strong>Check the class types of every
 column of the <code>my_data</code> data frame.</strong></span></p>
-<p>You can also convert different data types with the use of as…
-functions family e.g. <code>as.character()</code>,
-<code>as.factor()</code> ect.. Note, however, that not all conversions
-are permitted e.g. a letter cannot be converted into an integer. To
-change class of a column you need to replace whole column with the
-result of as… function. We will learn how to do it once we discuss
-subsetting.</p>
+<p>You can also <strong>convert</strong> different data types with the
+use of as… functions family e.g. <code>as.character()</code>,
+<code>as.factor()</code> ect.. Note, however, that <strong>not all
+conversions are permitted</strong> e.g. a letter cannot be converted
+into an integer. To change class of a column you need to replace whole
+column with the result of as… function. We will learn how to do it once
+we discuss subsetting.</p>
 </div>
 </div>
 <div id="subsetting" class="section level2">
 <h2>Subsetting</h2>
 <p>Data frame can be <strong>subsetted</strong> (=accessed or displayed
 in a specific way) with the use of <strong>coordinates</strong>
-(indexes) enclosed within the <strong>square brackets</strong>. In case
-of data frames there are always 2 coordinates:
-<code>[row_number, column_number]</code>.</p>
+(indexes) enclosed within the <strong>square brackets</strong>
+(<code>[]</code>). In case of data frames there are always 2
+coordinates: <code>[row_number, column_number]</code>.</p>
 <p>Note that <strong>vectors have only one coordinate</strong>, the
 position, so they can be called one-dimensional objects. <strong>Data
 frames have two dimensions</strong>: rows and columns.</p>
@@ -555,9 +561,6 @@ columns of <code>my_data</code>.</strong></span></p>
 ## 3    22    88
 ## 4    29    86
 ## 5    24    28</code></pre>
-<p><em>Tip: If you want to call for all rows or columns it is enough to
-leave blank space instead of the respective coordinate -
-e.g. <strong><code>[,column_number]</code></strong></em></p>
 </div>
 <div id="exercise-6" class="section level3">
 <h3><span style="color: green"><strong>Exercise 6</strong></span></h3>
@@ -565,6 +568,9 @@ e.g. <strong><code>[,column_number]</code></strong></em></p>
 <code>my_data</code> as a variable called <code>my_column_4</code>. Call
 the variable, so its content is displayed in
 console.</strong></span></p>
+<p><em>Tip: If you want to call for all rows or columns it is enough to
+leave blank space instead of the respective coordinate -
+e.g. <strong><code>[,column_number]</code></strong></em></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>## # A tibble: 30 × 1
 ##    score
@@ -599,7 +605,7 @@ names.</p>
 <h3><span style="color: green"><strong>Exercise 8</strong></span></h3>
 <p><span style="color: green"><strong>Return the same column (4th) but
 use column name instead of its number. Don’t forget about quotation
-marks.</strong></span></p>
+marks (<code>&quot;&quot;</code>).</strong></span></p>
 <p>Expected results (first 10 rows):</p>
 <pre><code>## # A tibble: 30 × 1
 ##    score
@@ -615,10 +621,10 @@ marks.</strong></span></p>
 ##  9    76
 ## 10    74
 ## # ℹ 20 more rows</code></pre>
-<p>One another way to obtain the whole column is to use <strong>dollar
-sign</strong> between table’s and column’s name. Such expression is
-automatically treated as a vector, so it can be directly subsetted to
-get a particular row. -
+<p>One another way to obtain the <strong>whole column</strong> is to use
+<strong>dollar sign between table’s and column’s name</strong>. Such
+expression is automatically treated as a vector, so it can be directly
+subsetted to get a particular row. -
 e.g. <code>table$column_name[row_number]</code>.</p>
 </div>
 <div id="exercise-9" class="section level3">
@@ -628,14 +634,17 @@ of mass column from <code>my_data</code>. Use dollar
 sign.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##  [1] 24 27 22 20 25 24 28 25 20 23 29</code></pre>
-<p>If desired rows (or columns) do not follow each other and the range
-option cannot be used, vector of coordinates should be provided.</p>
-<p>Note that the outcome is no longer a table. As we asked for just one
-column, a series of numbers (vector) was returned.</p>
+<p>If desired rows (or columns)** do not follow each other** and the
+range option cannot be used, <strong>vector of coordinates</strong>
+should be provided.</p>
+<p>Note that <strong>the outcome is no longer a table</strong>. As we
+asked for just one column, a series of numbers (vector) was
+returned.</p>
 <blockquote>
-<p><strong>Curiosity</strong> Pulling one row from the data frame
-<strong>will not result in a vector</strong>. It is because a row can
-contain elements of different types what is not allowed for vectors.</p>
+<p><strong>Curiosity</strong><br />
+Pulling one row from the data frame <strong>will not result in a
+vector</strong>. It is because a row can contain elements of different
+types what is not allowed for vectors.</p>
 </blockquote>
 </div>
 <div id="exercise-10" class="section level3">
@@ -652,9 +661,9 @@ column corresponding to values in the vector created
 before.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1] 88 28 32 76 49</code></pre>
-<p>You can also subset everything except specified columns (or rows). To
-do this, put minus (<code>-</code>) before an index or vector of
-indexes.</p>
+<p>You can also <strong>subset everything except specified columns (or
+rows)</strong>. To do this, put minus (<code>-</code>) before an index
+or vector of indexes.</p>
 </div>
 <div id="exercise-12" class="section level3">
 <h3><span style="color: green"><strong>Exercise 12</strong></span></h3>
@@ -681,8 +690,9 @@ indexes.</p>
 <h2>Simple operations on data frames/ tibbles</h2>
 <div id="replacement" class="section level3">
 <h3>1. Replacement</h3>
-<p>Assign a given value to specific place in your table with the use of
-an arrow. It works just as with variables assignment -
+<p>To replace a given value in your table assign a new value to this
+place in your table with the use of an arrow (<code>&lt;-</code>). It
+works just as with variables assignment -
 e.g.<code>table[row_number,collumn_number] &lt;- new_value</code></p>
 <div id="exercise-13" class="section level4">
 <h4><span style="color: green"><strong>Exercise 13</strong></span></h4>
@@ -726,7 +736,8 @@ Class 1).</p>
 <div id="simple-summaries" class="section level3">
 <h3>3. Simple summaries</h3>
 <p>• <code>nrow()</code> - number of rows<br />
-• <code>ncol()</code> - number of columns</p>
+• <code>ncol()</code> - number of columns • <code>dim()</code> -
+dimensions of an object</p>
 <div id="exercise-16" class="section level4">
 <h4><span style="color: green"><strong>Exercise 16</strong></span></h4>
 <p><span style="color: green"><strong>Return total number of cells
@@ -737,9 +748,9 @@ within <code>my_data</code>.</strong></span></p>
 </div>
 <div id="deleting-rows-with-missing-data" class="section level3">
 <h3>4. Deleting rows with missing data</h3>
-<p>Missing data, as stated before, are represented as <code>NA</code>
-(not-available) in R. Most of the functions will raise an error every
-time the <code>NA</code> is provided as the argument.</p>
+<p><strong>Missing data</strong>, as stated before, are represented as
+<code>NA</code> (not-available) in R. Most of the functions will raise
+an error every time the <code>NA</code> is provided as the argument.</p>
 <div id="exercise-17" class="section level4">
 <h4><span style="color: green"><strong>Exercise 17</strong></span></h4>
 <p><span style="color: green"><strong>Choose one cell and replace its
@@ -791,8 +802,8 @@ desired length of the vector. Call the vector ID.</strong></span></p>
 ## [20] 119 120 121 122 123 124 125 126 127 128</code></pre>
 <p>You can combine data frames with the use of <code>cbind()</code>
 function in the following manner:
-<code>cbind(data_frame1,data_frame2)</code>. Note that a vector can be
-seen as a data frame with only one column.</p>
+<code>cbind(data_frame1,data_frame2)</code>. Note that a <strong>vector
+can be seen as a data frame with only one column</strong>.</p>
 </div>
 <div id="exercise-20" class="section level3">
 <h3><span style="color: green"><strong>Exercise 20</strong></span></h3>
@@ -820,7 +831,8 @@ following manner:
 ## 1 130     ind031   F 55.7    77</code></pre>
 <blockquote>
 <p><strong>Curiosity</strong> To combine a data frame with more rows at
-the same time replace the values for each column with the vectors.</p>
+the same time replace the values for each column with the
+<strong>vectors</strong>.</p>
 </blockquote>
 <p>To stick data frames by rows use <code>rbind()</code> function in the
 following manner: <code>rbind(data_frame1,data_frame2)</code></p>
@@ -828,7 +840,7 @@ following manner: <code>rbind(data_frame1,data_frame2)</code></p>
 <div id="exercise-22" class="section level3">
 <h3><span style="color: green"><strong>Exercise 22</strong></span></h3>
 <p><span style="color: green"><strong>Place created row at the end of
-<code>my_data</code>. Overwrite my_data variable. Print 5 last rows of
+<code>my_data</code>. Overwrite my_data variable. Print 6 last rows of
 <code>my_data</code> to check the operation result.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##     ID individual sex mass score
@@ -871,18 +883,18 @@ name.</strong>&lt;/span.</p>
 <p><span style="color: darkorange"> Prepare your homework in the form of
 a script file (.R) and call it “class_3_homework_Your_name.R”.<br />
 All exercises need to be performed on the <strong>built-in
-<code>swiss</code> dataset</strong>. To work on it, use this
-command:<br />
-<code>my_data &lt;- swiss</code> Include all subsequent steps in a
-script file.<br> 1. With an R command, return the lowest percentage of
-Catholics.<br> 2. With an R command, return the median percentage of
-live births living more than 1 year. Tip: check <code>swiss</code>
-dataset description for column details.<br> 3. With an R command, add
-column with self-chosen ID for each observation and save the dataset as
-a <code>my_data</code> variable. Add <code>ID</code> before
-<code>Fertility</code> column.<br> 4. With an R command, modify
-<code>my_data</code> by removing its 4 first rows.<br> 5. Save a
-modified dataset to a .csv file<br></p>
+<code>ToothGrowth</code> dataset</strong>. Remember you can find the
+sataset details checking its description with <code>?ToothGrowth</code>.
+To work on it, use this command:<br />
+<code>my_data &lt;- ToothGrowth</code> Include all subsequent steps in a
+script file.<br> 1. Find the the shortest tooth length.<br> 2. Add new
+row at the end of <code>my_data</code>. The values in a new row should
+be as follow: 26.2, OJ, 2.0. Overwrite <code>my_data</code>
+variable.<br> 3. Add column with self-chosen ID for each observation as
+the first column of <code>my_data</code>. Overwrite <code>my_data</code>
+variable.<br> 4. Modify <code>my_data</code> by removing its 4 first
+rows.<br> 5. Save a modified dataset to a
+“class_3_swiss_modified_Your_Name.csv” file<br></p>
 <p><span style="color: darkorange"><strong>Upload both your R script and
 .csv to the “Class 3” tab on <em>Pegaz</em>
 platform.</strong></span></p>
