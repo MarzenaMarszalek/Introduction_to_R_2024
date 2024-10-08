@@ -2,7 +2,6 @@
 title: "Introduction to R - class 5<br> <span style='color: gray'>Plotting: base R and ggplot2</span>"
 author: "Tomasz Gaczorek, Wiesław Babik & Mateusz Chechetkin<br>Marzena Marszałek<br> marzena.marszalek@doctoral.uj.edu.pl<br>"
 date: "`r Sys.Date()`"
-#output: html_document
 chunk_output_type: console
 output:
   html_document:
@@ -394,7 +393,7 @@ Use the built in `mtcars` data set for all exercises. As a reminder, you can pul
 4.	Group values in the above scatterplot based on the number of cylinders. Does it change the relationship<br>
 5.	Plot a relationship between the number of forward gears and rate of combustion (miles/per gallon).<br>
 
-<span style="color: darkorange">**Save all the graphs with your preferred method. Upload your R script (including commands for saving graphs) on the *Pegaz* platform. Do not upload graph files itself!**</span>
+<span style="color: darkorange">**Save all the graphs with your preferred method. Upload your R script (including commands for saving graphs) on the *Pegaz* platform. Do not upload graph files itself.**</span>
 
 ```{r, include = F, eval = FALSE}
 my_data <- mtcars
