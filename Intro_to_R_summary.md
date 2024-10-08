@@ -11,20 +11,18 @@ Marzena Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
 
 ## Class 1
 
-- `+`  
-- `-`  
-- `*`  
-- `/`  
-- `^`  
-- `%%`  
-- `%/%`  
-- `log()`  
-- `log10()`  
-- `exp()`  
-- `sin()`  
-- `cos()`  
-- `tan()`  
-- `abs()`  
+- `+` - addition
+- `-` - subtraction
+- `*` - multiplication
+- `/` - division
+- `^` - exponentiation
+- `%%` - modulo
+- `%/%` - integer division
+- `log()` - natural logarithm
+- `log10()` - logarithm base 10
+- `exp()` - exponent
+- `sin()`, `cos()`, `tan()` - trigonometric functions  
+- `abs()` - absolute value
 - `paste()` - converts its arguments to character strings
 - `seq()` - generates a sequence of numbers
 - `rep()` - repeats a vector x in various ways
@@ -60,16 +58,19 @@ Marzena Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
 - `tail()` - prints the last n lines of an object  
 - `summary()` - summarizes the values in a vector or data frame  
 - `str()` - shows the structure of an object  
-- `ncol()`  
-- `nrow()`
-- `dim()`
-- `as.character()`
-- `as.factor()`
-- `as.numeric()`
-- `na.omit()`
-- `cbind()`
-- `rbind()`
-- `data.frame()`
+- `ncol()` - prints the number of column of an object
+- `nrow()` - prints the number of rows of an object
+- `dim()` - prints the dimensions of on object (number of rows and
+  columns)
+- `as.character()` - converts a numeric object to a string data type or
+  a character object
+- `as.factor()` - converts a column from numeric to factor
+- `as.numeric()` - converts a character vector into a numeric vector
+- `na.omit()` - removes any observation with missing values (NA) from a
+  vector, matrix, or data frame
+- `cbind()` - combines R objects by columns
+- `rbind()` combines R objects by columns
+- `data.frame()` - creates data frames
 
 ## Class 4
 
@@ -91,23 +92,32 @@ Marzena Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
   satisfies given conditions
 - `arrange()` - orders the rows according to the values of selected
   columns
-- `select()`
-- `filter()`
-- `mutate()`
-- `summarise()`
-- `count()`
-- `group_by()`
-- `left_join()`
-- `right_join()`
-- `inner_join()`
-- `full_join`
+- `select()` - selects specific columns within your data
+- `filter()` - subsets a data frame, retaining all rows that satisfy
+  given conditions
+- `mutate()` - creates new columns that are functions of existing
+  variables
+- `summarise()` - summarises grouped data (grouped with group_by()
+  function)
+- `count()` - count the observations in each group, it is a simplified
+  combination of group_by() and summarise()
+- `group_by()` - groups the data according to given columns
+- `left_join()` - joins 2 data frames based on a common column,
+  preserving all rows from the first data frame
+- `right_join()` - joins 2 data frames based on a common column,
+  preserving all rows from the second data frame
+- `inner_join()` - joins 2 data frames based on a common column,
+  preserving only rows that are common to both data frames
+- `full_join` - - joins 2 data frames based on a common column,
+  preserving all rows from both data frames and replacing missing values
+  with `NA`
 
 ## Class 5
 
-- `plot()`
-- `hist()`
-- `ggplot()`
-- `ggsave()`
-- `png(“[name].png”)`  
-  `plot([arguments])`  
-  `dev.off()`
+- `plot()` - base R function, creates various types of plots
+- `hist()` - base R function, creates histograms
+- `ggplot()` - `ggplot2` package function, used to create plots,
+  constructs the initial plot object,
+- `ggsave()` - export `ggplot2` plots to image files or vector graphics.
+- `png()` - opens a PNG device for saving plots as PNG files
+- `dev.off()` - closes a PNG device for saving plots as PNG files

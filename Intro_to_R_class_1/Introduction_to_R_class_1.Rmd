@@ -71,7 +71,7 @@ Expected result:
 ```
 
 R also provides 2 additional operators:  
-  `%%` - modulus - returns the rest from the division  
+  `%%` - modulo - returns the rest from the division  
   `%/%` - integer division - returns how many times one number fits into another
 
 
