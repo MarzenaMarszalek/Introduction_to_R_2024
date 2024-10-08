@@ -1,7 +1,7 @@
 Introduction to R<br> <span style='color: gray'>Summary
 ================
 Marzena Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
-2024-10-01
+2024-10-08
 
 - [Class 1](#class-1)
 - [Class 2](#class-2)
@@ -60,6 +60,9 @@ Marzena Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
 - `tail()` - prints the last n lines of an object  
 - `summary()` - summarizes the values in a vector or data frame  
 - `str()` - shows the structure of an object  
+- `ncol()`  
+- `nrow()`
+- `dim()`
 - `as.character()`
 - `as.factor()`
 - `as.numeric()`
