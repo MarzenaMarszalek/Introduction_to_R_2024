@@ -369,13 +369,13 @@ c(1,2,3,4) + c(1,2)   # the same as c(1,2,3,4) + c(1,2,1,2)
 c(1,2,3,4) + c(1,2)
 ```
 
+```{r, eval=F, echo=T}
+paste("text", seq(1:10))   # Similarly here - the shorter vector including 1 element ("text") is repeated 10 times to reach the length of the longer vector.
+
+```
 
 ```{r}
 paste("text", seq(1:10))
-
-```
-```{r, eval=F, echo=T}
-paste("text", seq(1:10))   # Similarly here - the shorter vector including 1 element ("text") is repeated 10 times to reach the length of the longer vector.
 
 ```
 
@@ -461,9 +461,9 @@ getwd()                                  # displays where the file was saved`
 <span style="color: darkorange">
 **Please, save all your commands in a text file and call it "class_1_homework_Your_Name". Upload it to the "Class 1" tab on *Pegaz* platform.**<br>
   1. Create a vector with 12 elements which will correspond to the number of days each month has. Assume it is not a leap-year. Call it `days`.<br>
-  2. Calculate median number of days in a month.<br>
-  3. Calculate the difference (in days) between the longest and the shortest month.<br>
-  4 . Modify vector *days* to obtain a vector of unique possible months’ lengths. Call it `months_length`.<br>
+  2. Using vector `days` calculate median number of days in a month.<br>
+  3. Using vector `days` calculate the difference (in days) between the longest and the shortest month.<br>
+  4. Modify vector *days* to obtain a vector of unique possible months’ lengths. Call it `months_length`.<br>
   5. Modify vector *days* and create a vector with the number of minutes each month has. Call it `minutes`.
 </span>
 
