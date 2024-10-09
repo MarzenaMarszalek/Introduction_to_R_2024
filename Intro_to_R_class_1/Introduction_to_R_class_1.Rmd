@@ -463,8 +463,8 @@ getwd()                                  # displays where the file was saved`
   1. Create a vector with 12 elements which will correspond to the number of days each month has. Assume it is not a leap-year. Call it `days`.<br>
   2. Using vector `days` calculate median number of days in a month.<br>
   3. Using vector `days` calculate the difference (in days) between the longest and the shortest month.<br>
-  4. Modify vector *days* to obtain a vector of unique possible months’ lengths. Call it `months_length`.<br>
-  5. Modify vector *days* and create a vector with the number of minutes each month has. Call it `minutes`.
+  4. Modify vector `days` to obtain a vector of unique possible months’ lengths. Call it `months_length`.<br>
+  5. Modify vector `days` and create a vector with the number of minutes each month has. Call it `minutes`.
 </span>
 
 ```{r, include = F, eval = FALSE}
