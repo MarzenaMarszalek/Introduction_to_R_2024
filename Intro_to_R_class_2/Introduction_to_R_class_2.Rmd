@@ -15,11 +15,11 @@ knitr::opts_chunk$set(echo = F)
 
 ## RStudio
 
-RStudio is a shell and programming environment for the R language. It makes working with R much easier and more intuitive by providing a user interface to R features originally hidden behind R functions. However, remember that **all actions can be also performed within the classical R console**.
+RStudio is a **shell** and **programming environment** for the R language. It makes working with R much easier and more intuitive by providing a **user interface** to R features originally hidden behind R functions. However, remember that **all actions can be also performed within the classical R console**.
 
 ### Installation
 
-Follow the [link](https://posit.co/download/rstudio-desktop/), choose the appropriate operating system and install free **RStudio Desktop**. Have in mind that R needs to be installed first.
+Follow the [link](https://posit.co/download/rstudio-desktop/), choose the appropriate operating system and install free **RStudio Desktop**. Have in mind that **R needs to be installed first**.
 
 ### Appearance
 
@@ -48,17 +48,15 @@ The RStudio window consists of four main panels:
     - **Packages** - manage all additionally installed packages.
     
 #### <span style="color: green">**Exercise 1**</span>
-<span style="color: green;">**Create new script file (File >> New File >> R Script) and save it. Call it as you wish. Write code for all subsequent exercises using Code editor. Remember that to obtain any outcome/result you need to execute/run your code first.**</span>
+<span style="color: green;">**Create **new script file** (File >> New File >> R Script) and save it. Call it as you wish. Write code for all subsequent exercises using **Code editor**. Remember that to obtain any outcome/result you need to execute/run your code first.**</span>
 
-To make your code easier to read and understand it is a good practice to **add comments**. Comments help explain what specific sections of the code are doing. This may be useful for other people using your script, and for you as even if you know what your code is doing, after some time you may forget it, and again spend a lot of time to understand its functioning. Repeat it to uncomment
+To make your code easier to read and understand it is a good practice to **add comments**. Comments help explain what specific sections of the code are doing. This may be useful for other people using your script, and for you as even if you know what your code is doing, after some time you may forget it, and again spend a lot of time to understand its functioning. 
 
-In R you can add comments to your script (or “turn off” chunk of code) by starting the line with hashtag `#`. Anything to the right of the hashtag will not be take by R as a command. To comment several lines highlight them and use Ctrl+Shift+c
-
-Apart from adding comments hashtag can be also used to "silence" a chunk of your code. You can add `#` before a command so that it will not be executed while running a script. When you remove hashtag, the command will be executed when you run your script again.
+In R you can add comments to your script by **starting the line with hashtag** `#`. Apart from adding comments to your script hashtag can be also used to **"turn off" a chunk of your code**. **Anything to the right of the hashtag will not be taken by R as a command**. To **comment several lines** highlight them and use **Ctrl+Shift+c**. Repeat it to uncomment. When you remove hashtag, the command will be executed when you run your script again.
 
 ## Working directory
 
-Working directory is a folder on your computer where **R is operating at the moment**. Think about it as a separate room for a given analysis. R will look for and save all files in the working directory by default. You can check current working directory by typing `getwd()`.
+**Working directory** is a folder on your computer where **R is operating at the moment**. Think about it as a separate room for a given analysis. R will look for and save all files in the working directory by default. You can check current working directory by typing `getwd()`.
 
 ### How to set a working directory?  
 To set new working directory use Session >> Set Working Directory >> Choose Directory or use `setwd()` function with a destination path provided as an argument.
