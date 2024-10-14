@@ -152,7 +152,7 @@ You can use many functions that will contribute to a given plot but each of them
 Both the `ggplot()` and the body functions share two crucial arguments:
 
   -	`data` - data frame based on which plotting should be performed  
-  -	`mapping` - the value needs to be a in form of `aes()` (aesthetic) function with following arguments:  
+  -	`mapping` - the value needs to be in a form of `aes()` (aesthetic) function with following arguments:  
     -	`x` - name of the column with values for the x (horizontal) axis (without quotation marks)  
     -	`y` - name of the column with values for the y (vertical) axis (without quotation marks)
     
@@ -162,15 +162,41 @@ Note that the arguments passed to the `ggplot()` function are “parental”. It
   *1.	Use `my_data` data frame as the source of the data for all subsequent body functions that create the plot elements*  
   *2.	Use `column1` as the values on the x axis and `column2` as the values on the y axis and generate a point for each observation*
 
+
+To create the plotting area we supply the name of the dataset and map two variables to x and y aesthetics.
+
+```{r}
+library(ggplot2)
+```
+```{r, echo = TRUE}
+ggplot(data = iris, mapping = aes(x = Petal.Length, y = Petal.Width))
+```
+
+We see the plot, with both axes scaled according to the ranges of the two variables to be plotted, but there’s nothing else on the plot. It’s because we have to add the visual layer(s) representing the data, which are called **geoms**. Not every geom is appropriate for displaying every type of data, you can find the complete list of geoms[[here](https://ggplot2.tidyverse.org/reference/index.html). For scatterplot we’ll use `geom_point()`. Also, we can omit `data =` and `mapping =` when we keep the order of the arguments.
+
+```{r, echo = TRUE}
+ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
+```
+You can also move `mapping` from the base of `ggplot` to the body - here, to `geom_point()`. Both options will give the same result.
+
+```{r, echo = TRUE, fig.show = 'hide'}
+ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width))
+```
+Now let’s mark each species with a distinct colour. It’s very simple and natural in ggplot2() - we just add colour aesthetics and map the variable `Species` to it.
+
+```{r, echo = TRUE}
+ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, color = Species))
+```
+
+
 ### Scatterplot 
 
 #### <span style="color: green">**Exercise 8**</span> 
-<span style="color: green">**Create a scatterplot presenting the relationship between sepals’ length and width. Use `geom_point()` function for points generation.**</span>
+<span style="color: green">**Create a scatterplot presenting the relationship between sepals’ length and width. Use `geom_point()` function.**</span>
 
 Expected result:
 
 ```{r}
-library(ggplot2)
 ggplot(my_data) +
   geom_point(aes(x = Sepal.Length, y = Sepal.Width))
 ```
@@ -178,7 +204,7 @@ ggplot(my_data) +
 
 Now, let’s make it pretty!
 
-  1.	Decide on the general appearance by the choice of a given `theme…()` function. For statistics, I highly recommend using `theme_bw()` as it removes unnecessary background. To check all built-in possibilities follow the [link](https://ggplot2.tidyverse.org/reference/ggtheme.html). Be aware that the choice of any specific `theme…()` function reduces adjustment flexibility. The other option is to use plain `theme()` function and adjust all characteristics on your own.  
+  1.	Decide on the general appearance by the choice of a given `theme…()` function. For example, it is often usefl to apply `theme_bw()` as it removes unnecessary background. To check all built-in possibilities follow the [link](https://ggplot2.tidyverse.org/reference/ggtheme.html). Be aware that the choice of any specific `theme…()` function reduces adjustment flexibility. The other option is to use plain `theme()` function and adjust all characteristics on your own.  
   2.	Set proper labels by using `labs()` function with arguments: `title` for the title of plot, `x` for x-axis label and `y` for y-axis label.
 
 #### <span style="color: green">**Exercise 9**</span> 
@@ -212,11 +238,11 @@ ggplot(my_data) +
 
 > **Curiosity**  
 There is an entire family of the scale…() functions that personalize the way observations are displayed e.g.:  
- 1.	`scale_x_discrete(`) (for groups), `scale_x_continuous()` (for gradient) - modify x axis functionalities (e.g. its >range)  
- 2.	`scale_y_discrete()` (for groups), `scale_y_continuous()` (for gradient) - modify y axis functionalities (e.g. its >range)  
+ 1.	`scale_x_discrete(`) (for groups), `scale_x_continuous()` (for gradient) - modify x axis functionalities (e.g. its range)  
+ 2.	`scale_y_discrete()` (for groups), `scale_y_continuous()` (for gradient) - modify y axis functionalities (e.g. its range)  
  3.	`scale_color_manual()` - to set personalized colors and legend labels
 
-Points alone are often not enough to see a trend. To make a proper justification we need a **regression line**. You can draw it by adding `geom_smooth()` function to the plot’s body. Remember about required arguments (either assigned or inherited). Also, to obtain the linear regression, set argument `method` to `lm`.
+Points alone are often not enough to see a trend. To get a better idea we need a **regression line**. You can draw it by adding `geom_smooth()` function to the plot’s body. Remember about required arguments (either assigned or inherited). Also, to obtain the linear regression, set argument `method` to `"lm"`.
 
 
 #### <span style="color: green">**Exercise 11**</span> 
@@ -253,24 +279,9 @@ ggplot(my_data) +
 >**Curiosity**
 Using `group` argument instead of color will also generate separate lines but all will be of the same color.
 
-
-Plotting lines works in exactly same way but with the use of `geom_line()` function. Note that points on scatterplots should not be connected with lines unless you want to represent a connection between the points (e.g. change in temperature from one day to another). This is not the case in the iris data set. However, for the sake of practicing, we can still do it. 
-
-#### <span style="color: green">**Exercise 13**</span> 
-<span style="color: green">**Take the scatterplot from exercise 10, but instead of points add lines representing similar relationship for petals across species.**</span>
-
-Expected result:
- 
-```{r}
-ggplot(my_data) +
-  theme_bw() +
-  labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises") +
-  geom_line(aes(x = Sepal.Length, y = Sepal.Width, color = Species))
-```
-
 ### Boxplot
 
-Until now, we were working on plots with continuous values on x and y axes. What if we want to plot sepal width alone over all species? As species are on discrete scale (class of column is factor) we should consider a boxplot. Generate it in the similar way with the use of `geom_boxplot()` function.
+Until now, we were working on plots with continuous values on x and y axes. What if we want to plot sepal width alone over all species? As species are on discrete scale we should consider a boxplot. Generate it in the similar way with the use of `geom_boxplot()` function. Note, that discrete variables can be of character, logical or factor type. If you have named groups it is highly recommended to encode them as factors, because factor levels can be ordered manually, which allows you to control the order in which groups appear on the plot.
 
 #### <span style="color: green">**Exercise 14**</span> 
 <span style="color: green">**Generate a boxplot representing the sepal’s length across different iris species.**</span>
@@ -290,7 +301,7 @@ ggplot(my_data) +
 
 ### Histogram
 
-Another commonly used type of a plot is a **histogram**. It depicts the **number of observations within given ranges of values**. Generate it with the `geom_histogram()` function. Specify the aesthetics for x-axis only as y-values are computed by R.
+Another commonly used type of a plot is **histogram**. It depicts the **number of observations within given ranges of values**. Generate it with the `geom_histogram()` function. Specify the aesthetics for x-axis only as y-values are computed by R.
 
 #### <span style="color: green">**Exercise 15**</span> 
 <span style="color: green">**Generate a histogram of sepal length.**</span>
@@ -316,7 +327,7 @@ Expected result:
  
 ```{r, message = F}
 ggplot(my_data) +
-  geom_histogram(aes(x = Sepal.Length, y = (..count..)/sum(..count..)), color = "black") +
+  geom_histogram(aes(x = Sepal.Length, y = (..count..)/sum(..count..))) +
   theme_bw() +
   labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation")
 ```
@@ -364,13 +375,13 @@ When R generates plots based on our commands, they are treated like any other ob
   
 If you only need to save one image, both options are equally convenient. If, however, you are generating multiple plots per script, it can be faster to include code that saves them after every line that generates the image.
 
-In base R, to save a plot, you need to enclose in a save function. It looks like this:
+In base R, to save a plot you need first initialize an appropriate graphic device with a file name, than use plotting commands, and finally close the device. It looks like this:
 
 `png(“[name].png”)`  
 `plot([arguments])`  
 `dev.off()`
 
-Other than .png, you can save it in .jpg, .bmp, and .tiff formats, using corresponding functions. Remember that **by default, R will save the image to your working directory**.
+Other than .png, you can save it in .jpg, .bmp, and .tiff formats, using graphic devices. Remember that **by default, R will save the image to your working directory**.
 
 In `ggplot`, we can use the function `ggsave()`. **By default, it saves the last plot generated in the code**. It takes the name of a file to be generated (with a format extension) as the main argument, and it can be adjusted using many other arguments. For example:
 `ggsave(“scatterplot_1.pdf”, width = 20, height = 20, units = 'cm')`
