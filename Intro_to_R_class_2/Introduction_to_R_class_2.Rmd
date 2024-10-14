@@ -189,7 +189,7 @@ R is a constantly growing and updating community. If you need something done in 
 
 Tips for finding R solutions on the Internet:
 
-  - **improve your google searches** - identify keywords that will allow you to find the function you need and combine them using quotation marks and Boolean logic (e.g. “R library” AND “general linear model”)  
+  - **improve your google searches** - identify keywords that will allow you to find the function you need and combine them using quotation marks and Boolean logic (e.g. “R package” AND “general linear model”)  
   - **use trusted sources for finding packages and getting advice** – *[StackOverflow](https://stackoverflow.com/), [RDocumentation](https://www.rdocumentation.org/), [CRAN](https://cran.r-project.org/)*, and published research are the best  
   - **use published codes** - many coders and researchers will share their code for free on GitHub and other websites – even if the code cannot solve your problem, it can point you in the right direction  
   - **be careful with AI-generated solutions**: while websites like ChatGPT can be useful for finding specific functions, it rarely generates a whole block of code that does not require heavy editing; if the code uses functions you don’t know, you might not notice that it generates faulty results
@@ -203,7 +203,7 @@ If you are attempting to use someone else’s code and you need to adapt it for 
   -	before changing anything in the code you copied, go through the entire script and **make sure you understand**, at least on a basic level, what every line is doing  
   -	remember to change the parts of the code that do not apply to your tasks: e.g., change the path to files being used, adjust function arguments and parameters, and remove parts that are not important for you  
   -	another coder might assume that everyone uses the same packages as they do – if a function is not working, it can be a result of R not recognizing it  
-  -	you can find what library uses a specific function by searching **“R [function name] package”** – keep in mind that multiple packages can use the same word to describe different functions, so make sure to read its description before downloading the library  
+  -	you can find what package uses a specific function by searching **“R [function name] package”** – keep in mind that multiple packages can use the same word to describe different functions, so make sure to read its description before downloading the package  
 
 
 #### <span style="color: green;">**Exercise 10**</span>
@@ -240,7 +240,7 @@ Some common causes for errors in R can be:
 
   -	<span style="color: red">**Error in [code]: object not found**</span> - you are trying to perform an operation on an object that does not exist; this can happen because your file did not load into R (e.g. because the working directory is set incorrectly), because of a typo in the object’s name (remember that names in R are case-sensitive!) or because the object was deleted from the environment  
   -	<span style="color: red">**Error: unexpected '[symbol]' in "[code]**”</span> – there is some sort of syntax issue, e.g. a typo in the function, a misplaced comma, or missing parentheses   
-  -	<span style="color: red">**Error in [function()]: could not find function “function()”**</span> – either the function name is misspelled or you are trying to use a function from a library that isn’t installed or loaded; can also happen with old code when the name of a function updates – in this case, RStudio will sometimes suggest the new name, otherwise it can be found on the internet  
+  -	<span style="color: red">**Error in [function()]: could not find function “function()”**</span> – either the function name is misspelled or you are trying to use a function from a package that isn’t installed or loaded; can also happen with old code when the name of a function updates – in this case, RStudio will sometimes suggest the new name, otherwise it can be found on the internet  
   -	<span style="color: red">**Error in [data frame]: arguments imply differing number of rows**</span> – you are trying to create a data frame using vectors of different length or combine dataframes of different sizes
 
 The order of operations when encountering an error:
@@ -279,10 +279,10 @@ As you can see, coding can be meticulous and sometimes frustrating work. To redu
 ## <span style="color: darkorange;">Homework</span>
 
 <span style="color: darkorange">
-  1.	Create a new script file and save it with the name “class_2_homework_Your_Name.R”. Create a separate folder on your computer and set that folder as your working directory. **Include the code for setting up that directory at the beginning of your script**.<br> 
-  2.	Upload the "homework_data.xlsx" file into the RStudio using your preferred method. Include the code for uploading the file into the script. *Remember that some upload methods require libraries to be loaded first.<br>
-  3.	Load the `dplyr` library. **Include the loading of the library as a line of code in your script**.<br>
-  4.	Find a dplyr function that can sort values in a given column of a data frame. Use it to sort all the values in the column `score` from lowest to highest.<br>
+  1.	Create a new script file and save it as “class_2_homework_Your_Name.R”. Create a separate folder on your computer and set that folder as your working directory. **Include the code for setting up that directory at the beginning of your script**.<br> 
+  2.	Upload the "homework_data.xlsx" file into the RStudio using your preferred method. **Include the code for uploading the file into the script**. Remember that some upload methods require packages to be loaded first.<br>
+  3.	Load the `dplyr` package. **Include the loading of the package as a line of code in your script**.<br>
+  4.	Find a `dplyr` function that can sort values in a given column of a data frame. Use it to sort all the values in the column `score` from lowest to highest.<br>
   5.	Save your result as a .csv file using `write.table()` function. Call the .csv file “class_2_sorted_column_Your_Name.csv”.
 
 <span style="color: darkorange">**Upload both your R script and .csv file to the "Class 2" tab on *Pegaz* platform.**</span>
