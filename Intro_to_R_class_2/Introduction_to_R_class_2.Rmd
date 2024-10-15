@@ -48,7 +48,7 @@ The RStudio window consists of four main panels:
     - **Packages** - manage all additionally installed packages.
     
 #### <span style="color: green">**Exercise 1**</span>
-<span style="color: green;">**Create **new script file** (File >> New File >> R Script) and save it. Call it as you wish. Write code for all subsequent exercises using **Code editor**. Remember that to obtain any outcome/result you need to execute/run your code first.**</span>
+<span style="color: green;">**Create new script file (File >> New File >> R Script) and save it. Call it as you wish. Write code for all subsequent exercises using **Code editor**. Remember that to obtain any outcome/result you need to execute/run your code first.**</span>
 
 To make your code easier to read and understand it is a good practice to **add comments**. Comments help explain what specific sections of the code are doing. This may be useful for other people using your script, and for you as even if you know what your code is doing, after some time you may forget it, and again spend a lot of time to understand its functioning. 
 
