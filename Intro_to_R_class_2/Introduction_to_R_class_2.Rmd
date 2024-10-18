@@ -282,7 +282,7 @@ As you can see, coding can be meticulous and sometimes frustrating work. To redu
   1.	Create a new script file and save it as “class_2_homework_Your_Name.R”. Create a separate folder on your computer and set that folder as your working directory. **Include the code for setting up that directory at the beginning of your script**.<br> 
   2.	Upload the [homework_data.xlsx](homework_data.xlsx) file into the RStudio using your preferred method. **Include the code for uploading the file into the script**. Remember that some upload methods require packages to be loaded first.<br>
   3.	Load the `dplyr` package. **Include the loading of the package as a line of code in your script**.<br>
-  4.	Find a `dplyr` function that can sort a data frame based on the value of the given column of a data frame. Use it to sort homework data frame the values in the column `score` from lowest to highest.<br>
+  4.	Find a `dplyr` function that can sort a data frame based on the values of the given column of a data frame. Use it to sort homework data frame according to the values in the column `score` from lowest to highest.<br>
   5.	Save your result as a .csv file using `write.table()` function. Call the .csv file “class_2_sorted_column_Your_Name.csv”. Check `write.table()` function manual to find out what arguments you should use to save .csv file properly.
 
 <span style="color: darkorange">**Upload both your R script and .csv file to the "Class 2" tab on *Pegaz* platform.**</span>
