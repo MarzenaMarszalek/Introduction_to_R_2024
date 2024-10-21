@@ -337,7 +337,7 @@ class(my_data$sex)
 To save your data frame into a file use `write.table()` function.
 
 ### <span style="color: green">**Exercise 23**</span>
-<span style="color: green">**Save modified `my_data` to the .csv file. Include your surname in the file name.**</span.
+<span style="color: green">**Save modified `my_data` to the .csv file. Include your surname in the file name.**</span>
 
 ## <span style="color: darkorange;">Homework</span>
 
@@ -348,7 +348,7 @@ All exercises need to be performed on the **built-in `ToothGrowth` dataset**. Re
 Include all subsequent steps in a script file.<br>
   1.	Check the class of each column in `my_data` data frame. Find the the shortest tooth length.<br>
   2.	Add new row at the end of `my_data`. The values in a new row should be as follow: 26.2, OJ, 2.0. Overwrite `my_data` variable.<br>
-  3.	Add column with IDs - "obs_1" to "obs_n" ("n" is the number of the last observation)- for each observation as the first column of `my_data`. Overwrite `my_data` variable. Tip: to create a vector with IDs you can use `paste()` to connect "obs_" with the numbers (1-60) instead of typing each ID manually.<br>
+  3.	Add column with IDs - "obs_1" to "obs_n" ("n" is the number of the last observation)- for each observation as the first column of `my_data`. Overwrite `my_data` variable. Tip: to create a vector with IDs you can use `paste()` to connect "obs_" with the numbers (1-n) instead of typing each ID manually.<br>
   4.	Modify `my_data` by removing its 4 first rows. Overwrite `my_data` variable.<br>
   5.	Save a modified dataset to a "class_3_toothgrowth_modified_Your_Name.csv" file.<br>
 
