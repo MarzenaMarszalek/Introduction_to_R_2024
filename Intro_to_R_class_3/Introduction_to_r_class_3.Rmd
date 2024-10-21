@@ -62,7 +62,7 @@ summary(my_data)
 **All values inside one column must be of the same data type**, but the **columns can be of different types**. Type of data within a column is defined by its class. The most popular classes are:
 
   •	`character` - strings (remember that numbers surrounded by quotation marks are also treated as strings)  
-  •	`factor` - usually strings, represent categorical variables - variables that can take on a limited number of distinct values. When creating or saving data (`data.frame()` or `read.csv()`) you can control whether character vectors are automatically converted into factors using `stringAsFactors` argument (for R version >= 4.0.0)
+  •	`factor` - usually strings, represent categorical variables - variables that can take on a limited number of distinct values. When creating or saving data (`data.frame()` or `read.csv()`) you can control whether character vectors are automatically converted into factors using `stringAsFactors` argument (for R version >= 4.0.0)  
   •	`numeric` - real numbers  
   •	`integer` - only integers  
   •	`logical` - logical values (`TRUE` or `FALSE`)
@@ -93,7 +93,7 @@ Expected result:
 my_data[5,3]
 ```
 
-You can call for multiple values in the same time. To define range of coordinates, use **colon** separating range borders - e.g. `[row_number_1:row_number_2, column_number]`.
+You can call for **multiple values in the same time**. To define range of coordinates, use **colon** (`:`) separating range borders - e.g. `[row_number_1:row_number_2, column_number]`.
 
 ### <span style="color: green">**Exercise 5**</span>
 <span style="color: green">**Return first 5 rows for the last 2 columns of `my_data`.**</span>
@@ -108,7 +108,7 @@ my_data[1:5,3:4]
 ### <span style="color: green">**Exercise 6**</span>
 <span style="color: green">**Now, save 4th column of `my_data` as a variable called `my_column_4`. Call the variable, so its content is displayed in console.**</span>
 
-*Tip: If you want to call for all rows or columns it is enough to leave blank space instead of the respective coordinate - e.g. **`[,column_number]`***
+*Tip: If you want to call for **all rows or columns** it is enough to leave blank space instead of the respective coordinate - e.g. **`[,column_number]`***
 
 Expected result (first 10 rows):
 
@@ -130,11 +130,11 @@ my_column_4[3:5,1]
 Table can be also subsetted with the use of columns’ (or rows’) names.
 
 ### <span style="color: green">**Exercise 8**</span>
-<span style="color: green">**Return the same column (4th) but use column name instead of its number. Don’t forget about quotation marks (`""`).**</span>
+<span style="color: green">**Return 4th column of `my_data` but use column name instead of its number. Don’t forget about quotation marks (`""`).**</span>
 
 Expected results (first 10 rows):
 
-```{r, echo = F}
+```{r}
 my_data[,"score"]
 ```
 
@@ -191,7 +191,7 @@ my_data[,-2]
 
 ###     1.	Replacement
 
-To replace a given value in your table assign a new value to this place in your table with the use of an arrow (`<-`). It works just as with variables assignment - e.g.` table[row_number,collumn_number] <- new_value`
+To replace a given value in your table assign a new value to this place in your table with the use of an arrow (`<-`). It works just as with variables assignment - e.g.` table[row_number,column_number] <- new_value`
 
 #### <span style="color: green">**Exercise 13**</span>
 <span style="color: green">**Replace 5th value in the column `sex` with the label ‘Unknown’. Call column `sex` and check whether it was indeed replaced.**</span>
@@ -205,7 +205,7 @@ my_data$sex
 
 ###   2.	Mathematical operations
 
-You can use classical mathematical operators: `+`, `-`, `*` and `/`. Remember, however, that mathematical operations make sense only for **integer or numeric** data type.
+You can use classical mathematical operators: `+`, `-`, `*` and `/`. Remember, however, that **mathematical operations make sense only for integer or numeric** data type.
 
 #### <span style="color: green">**Exercise 14**</span>
 <span style="color: green">**Recalculate and modify `mass` column to convert it from kilograms to pounds (1 kilogram equals around 2.20 pounds). Display modified column.**</span>
@@ -343,14 +343,14 @@ To save your data frame into a file use `write.table()` function.
 
 <span style="color: darkorange">
 Prepare your homework in the form of a script file (.R) and call it "class_3_homework_Your_name.R".  
-All exercises need to be performed on the **built-in `ToothGrowth` dataset**. Remember you can find the sataset details checking its description with `?ToothGrowth`. To work on it, use this command:  
+All exercises need to be performed on the **built-in `ToothGrowth` dataset**. Remember you can find the dataset details checking its description with `?ToothGrowth`. To work on it, use this command:  
 `my_data <- ToothGrowth`
 Include all subsequent steps in a script file.<br>
-  1.	Find the the shortest tooth length.<br>
+  1.	Check the class of each column in `my_data` data frame. Find the the shortest tooth length.<br>
   2.	Add new row at the end of `my_data`. The values in a new row should be as follow: 26.2, OJ, 2.0. Overwrite `my_data` variable.<br>
-  3.	Add column with self-chosen ID for each observation as the first column of `my_data`. Overwrite `my_data` variable.<br>
-  4.	Modify `my_data` by removing its 4 first rows.<br>
-  5.	Save a modified dataset to a "class_3_swiss_modified_Your_Name.csv" file<br>
+  3.	Add column with IDs - "obs_1" to "obs_n" ("n" is the number of the last observation)- for each observation as the first column of `my_data`. Overwrite `my_data` variable. Tip: to create a vector with IDs you can use `paste()` to connect "obs_" with the numbers (1-60) instead of typing each ID manually.<br>
+  4.	Modify `my_data` by removing its 4 first rows. Overwrite `my_data` variable.<br>
+  5.	Save a modified dataset to a "class_3_toothgrowth_modified_Your_Name.csv" file.<br>
 
 <span style="color: darkorange">**Upload both your R script and .csv to the "Class 3" tab on *Pegaz* platform.**</span>
 
@@ -364,7 +364,7 @@ new_row <- data.frame(len = 26.2, supp = "OJ", dose = 2.0)
 my_data <- rbind(my_data, new_row)
 
 print("Ex. 3")
-ID <- c(1:nrow(my_data))
+ID <- paste("obs_", c(1:61), sep = "")
 my_data <- cbind(ID, my_data)
 
 print("Ex. 4")

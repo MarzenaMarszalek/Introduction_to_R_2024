@@ -503,8 +503,8 @@ by quotation marks are also treated as strings)<br />
 creating or saving data (<code>data.frame()</code> or
 <code>read.csv()</code>) you can control whether character vectors are
 automatically converted into factors using <code>stringAsFactors</code>
-argument (for R version &gt;= 4.0.0) • <code>numeric</code> - real
-numbers<br />
+argument (for R version &gt;= 4.0.0)<br />
+• <code>numeric</code> - real numbers<br />
 • <code>integer</code> - only integers<br />
 • <code>logical</code> - logical values (<code>TRUE</code> or
 <code>FALSE</code>)</p>
@@ -544,8 +544,9 @@ frames have two dimensions</strong>: rows and columns.</p>
 ##    mass
 ##   &lt;dbl&gt;
 ## 1    24</code></pre>
-<p>You can call for multiple values in the same time. To define range of
-coordinates, use <strong>colon</strong> separating range borders -
+<p>You can call for <strong>multiple values in the same time</strong>.
+To define range of coordinates, use <strong>colon</strong>
+(<code>:</code>) separating range borders -
 e.g. <code>[row_number_1:row_number_2, column_number]</code>.</p>
 </div>
 <div id="exercise-5" class="section level3">
@@ -568,8 +569,8 @@ columns of <code>my_data</code>.</strong></span></p>
 <code>my_data</code> as a variable called <code>my_column_4</code>. Call
 the variable, so its content is displayed in
 console.</strong></span></p>
-<p><em>Tip: If you want to call for all rows or columns it is enough to
-leave blank space instead of the respective coordinate -
+<p><em>Tip: If you want to call for <strong>all rows or columns</strong>
+it is enough to leave blank space instead of the respective coordinate -
 e.g. <strong><code>[,column_number]</code></strong></em></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>## # A tibble: 30 × 1
@@ -603,9 +604,9 @@ names.</p>
 </div>
 <div id="exercise-8" class="section level3">
 <h3><span style="color: green"><strong>Exercise 8</strong></span></h3>
-<p><span style="color: green"><strong>Return the same column (4th) but
-use column name instead of its number. Don’t forget about quotation
-marks (<code>&quot;&quot;</code>).</strong></span></p>
+<p><span style="color: green"><strong>Return 4th column of
+<code>my_data</code> but use column name instead of its number. Don’t
+forget about quotation marks (<code>&quot;&quot;</code>).</strong></span></p>
 <p>Expected results (first 10 rows):</p>
 <pre><code>## # A tibble: 30 × 1
 ##    score
@@ -693,7 +694,7 @@ or vector of indexes.</p>
 <p>To replace a given value in your table assign a new value to this
 place in your table with the use of an arrow (<code>&lt;-</code>). It
 works just as with variables assignment -
-e.g.<code>table[row_number,collumn_number] &lt;- new_value</code></p>
+e.g.<code>table[row_number,column_number] &lt;- new_value</code></p>
 <div id="exercise-13" class="section level4">
 <h4><span style="color: green"><strong>Exercise 13</strong></span></h4>
 <p><span style="color: green"><strong>Replace 5th value in the column
@@ -711,7 +712,7 @@ and check whether it was indeed replaced.</strong></span></p>
 <h3>2. Mathematical operations</h3>
 <p>You can use classical mathematical operators: <code>+</code>,
 <code>-</code>, <code>*</code> and <code>/</code>. Remember, however,
-that mathematical operations make sense only for <strong>integer or
+that <strong>mathematical operations make sense only for integer or
 numeric</strong> data type.</p>
 <div id="exercise-14" class="section level4">
 <h4><span style="color: green"><strong>Exercise 14</strong></span></h4>
@@ -884,17 +885,21 @@ name.</strong>&lt;/span.</p>
 a script file (.R) and call it “class_3_homework_Your_name.R”.<br />
 All exercises need to be performed on the <strong>built-in
 <code>ToothGrowth</code> dataset</strong>. Remember you can find the
-sataset details checking its description with <code>?ToothGrowth</code>.
+dataset details checking its description with <code>?ToothGrowth</code>.
 To work on it, use this command:<br />
 <code>my_data &lt;- ToothGrowth</code> Include all subsequent steps in a
-script file.<br> 1. Find the the shortest tooth length.<br> 2. Add new
-row at the end of <code>my_data</code>. The values in a new row should
-be as follow: 26.2, OJ, 2.0. Overwrite <code>my_data</code>
-variable.<br> 3. Add column with self-chosen ID for each observation as
-the first column of <code>my_data</code>. Overwrite <code>my_data</code>
-variable.<br> 4. Modify <code>my_data</code> by removing its 4 first
-rows.<br> 5. Save a modified dataset to a
-“class_3_swiss_modified_Your_Name.csv” file<br></p>
+script file.<br> 1. Check the class of each column in
+<code>my_data</code> data frame. Find the the shortest tooth length.<br>
+2. Add new row at the end of <code>my_data</code>. The values in a new
+row should be as follow: 26.2, OJ, 2.0. Overwrite <code>my_data</code>
+variable.<br> 3. Add column with IDs - “obs_1” to “obs_n” (“n” is the
+number of the last observation)- for each observation as the first
+column of <code>my_data</code>. Overwrite <code>my_data</code> variable.
+Tip: to create a vector with IDs you can use <code>paste()</code> to
+connect “obs_” with the numbers (1-60) instead of typing each ID
+manually.<br> 4. Modify <code>my_data</code> by removing its 4 first
+rows. Overwrite <code>my_data</code> variable.<br> 5. Save a modified
+dataset to a “class_3_toothgrowth_modified_Your_Name.csv” file.<br></p>
 <p><span style="color: darkorange"><strong>Upload both your R script and
 .csv to the “Class 3” tab on <em>Pegaz</em>
 platform.</strong></span></p>
