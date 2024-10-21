@@ -36,12 +36,12 @@ Remember about the optimal coding workflow.
 
 **Another good habit to add to the ones we learned last time is checking your data once it is uploaded into the RStudio. You can do this in the following ways:**
 
-  •	visually inspect the file by either clicking on it in the environment (top right square) or by using the `View(dataframe)` function – reminder that R is case sensitive and View starts with a capital V  
-  •	ask R to display the top six rows of the data frame using the `head()` function, or the bottom six rows using the `tail()` function  
-  •	get a brief description of the data frame using the `summary()` function – this is particularly important, as it displays the type of data in each column of the data frame
+  •	**visually inspect the file** by either clicking on it in the environment (top right square) or by using the `View(dataframe)` function – reminder that R is case sensitive and View starts with a capital V  
+  •	ask R to **display the top six rows** of the data frame using the `head()` function, or the bottom six rows using the `tail()` function  
+  •	get a **brief description** of the data frame using the `summary()` function – this is particularly important, as it displays the type of data in each column of the data frame
 
 ### <span style="color: green">**Exercise 1**</span>
-<span style="color: green">**Upload [class_3_data.xlsx](https://github.com/MarzenaMarszalek/Introduction_to_R_2024/blob/main/Intro_to_R_class_3/class_3_data.xlsx) into R and save it to a variable called `my_data`.**</span>
+<span style="color: green">**Upload [class_3_data.xlsx](class_3_data.xlsx) into R and save it to a variable called `my_data`.**</span>
 
 
 ```{r, eval = T, include = F}
@@ -50,10 +50,10 @@ my_data <- read_excel("class_3_data.xlsx")
 ```
 
 ### <span style="color: green">**Exercise 2**</span>
-<span style="color: green">**View the uploaded data frame. View the top five rows of `my_data` data frame and generate a short description for it.**</span>
+<span style="color: green">**View the uploaded data frame. Access `head()` function manual. View the top 10 rows of `my_data` data frame and generate a short description for it.**</span>
  
 ```{r, eval=F}
-head(my_data, n = 5)
+head(my_data, n = 10)
 summary(my_data)
 ``` 
  
@@ -62,7 +62,7 @@ summary(my_data)
 **All values inside one column must be of the same data type**, but the **columns can be of different types**. Type of data within a column is defined by its class. The most popular classes are:
 
   •	`character` - strings (remember that numbers surrounded by quotation marks are also treated as strings)  
-  •	`factor` - strings with the levels carrying information about the number of occurrences and order of strings. Factors are commonly used when doing statistics in R, where they serve as indicators of the nominal scale. To read strings as factors set the `stringAsFactors` argument of importing function to `TRUE` (for R version >= 4.0.0).  
+  •	`factor` - usually strings, represent categorical variables - variables that can take on a limited number of distinct values. When creating or saving data (`data.frame()` or `read.csv()`) you can control whether character vectors are automatically converted into factors using `stringAsFactors` argument (for R version >= 4.0.0)
   •	`numeric` - real numbers  
   •	`integer` - only integers  
   •	`logical` - logical values (`TRUE` or `FALSE`)
