@@ -10,8 +10,8 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+```{r setup, include = F}
+knitr::opts_chunk$set(echo = F)
 ```
 
 ## Logical expressions
@@ -53,7 +53,7 @@ Expected result:
 
 ```{r}
 v1 <- CO2[1:6,]
-v1[,c(T, F, F, F, T)]
+v1[, c(T, F, F, F, T)]
 ```
 ## Comparisons
 
@@ -89,8 +89,8 @@ Note that while comparing two vectors with the symbols shown above, R does not c
 Expected result:
 
 ```{r}
-v5 <- c(2,3,5,7,11)
-v5a <- c(2,4,6,8,10)
+v5 <- c(2, 3, 5, 7, 11)
+v5a <- c(2, 4, 6, 8, 10)
 v5 == v5a 
 ```
 
@@ -109,7 +109,7 @@ identical(v6, v6a)
 v6a[1] <- 2
 identical(v6, v6a)
 ```
-The other useful tool is the `%in%` operator. It provides information **whether elements of first vector are present in the second one**. Note that it is focused on the first vector only, so there is **no recycling**. The result of the operation with `%in%` is the logical vector.
+The other useful tool is the `%in%` operator. It provides information **whether elements of the first vector are present in the second one**. Note that it is focused on the first vector only, so there is **no recycling**. The result of the operation with `%in%` is the logical vector.
 
 ### <span style="color: green">**Exercise 7**</span>
 <span style="color: green">**Create two character vectors each consisting of a set of individual characters. The first should contain your name and the second one the name of other person from the group. Check how many letter your names have in common. Then, change the order of names and repeat the comparison.**</span>
@@ -126,12 +126,12 @@ v7 %in% v7a
 Exclamation mark (`!`) works in R as the symbol of negation (=reversing the statement). Any logical vector preceded by `!` will result in its reversal - `FALSE` changed into `TRUE` and vice versa.
 
 ### <span style="color: green">**Exercise 8**</span>
-<span style="color: green">**Having vector of 3 `TRUE` values, return its negation.**</span>
+<span style="color: green">**Having vector of 3 `TRUE` and 3 `FALSE` values, return its negation.**</span>
 
 Expected result:
 
 ```{r}
-v8 <- c(T, T, T)
+v8 <- c(T, T, T, F, F, F)
 !v8
 ```
 
@@ -143,7 +143,7 @@ More typically `!` is used to negate comparisons. Note that the idea is the same
 Expected result:
 
 ```{r}
-v9 <- !(seq(1,100,3) < 50)
+v9 <- !(seq(1, 100, 3) < 50)
 v9
 ```
 
@@ -173,7 +173,7 @@ Expected result:
 (v10 %% 2 == 0) & (v10 %% 3 == 0)
 ```
 >**Curiosity**  
-R also uses double version of `&` and `|` operators. Their outcome is exactly the same and their role is just related to optimization. While using double operators, R checks first condition and if not needed, ignore the second one (e.g. in the ‘AND’ statement if the first condition is `FALSE`, there is no need to check the second one as the result will always be `FALSE`). Note that they are often used when conditions are severly time-consuming.
+R also uses double version of `&` and `|` operators. Their outcome is exactly the same and their role is just related to optimization. While using double operators, R checks first condition and if not needed, ignore the second one (e.g. in the "AND" statement if the first condition is `FALSE`, there is no need to check the second one as the result will always be `FALSE`). Note that they are often used when conditions are severly time-consuming.
 
 ## which() function
 
@@ -212,13 +212,13 @@ v12c[v12d]
 As stated before subsetting can be done directly with logical vectors (`TRUE` for each kept element). In practice, it is even simpler. All you need to provide is a **condition instead of a coordinate** e.g. `vector[condition]` will return only the elements fulfilling given condition.
 
 For example: 
-There is a vector `a <- c(1,2,3,4)`. We want to subset elements of this vector that are greater then 2.  
-The formula will look like this: `a[a>2]`.  
+There is a vector `a <- c(1, 2, 3, 4)`. We want to subset elements of this vector that are greater then 2.  
+The formula will look like this: `a[a > 2]`.  
 Then the result will be: `[1] 3 4`.
 
 The logic behind is as follows: 
 
-  - condition (here: `[a>2]`) generates a logical vector - **positions are denoted as a series of `TRUE` and `FALSE`**. In this example the logical vector is: `[1] FALSE FALSE  TRUE  TRUE`.   
+  - condition (here: `[a > 2]`) generates a logical vector - **positions are denoted as a series of `TRUE` and `FALSE`**. In this example the logical vector is: `[1] FALSE FALSE  TRUE  TRUE`.   
   - elements in this logical vector are used to **return the elements of the vector you want to subset**, for which coordinate equals `TRUE`, so here 2 last elements of the vector will be returned: `[1] 3 4`
 
 Note that you cannot see the `TRUE`/`FALSE` vector itself but it is if fact generated and used during subsetting operation.
@@ -241,11 +241,11 @@ The same pattern applies for subsetting data frames.
 Epected result:
 
 ```{r}
-CO2[CO2$Plant == "Qn2",]
+CO2[CO2$Plant == "Qn2", ]
 ```
 
 
-*An advice: To obtain the logical vector with one element for each row, you need to make comparison based on a column e.g.` my_data[my_data$my_column != 5,]` would result in the observations (including all columns) from `my_data` in which the value for `my_collumn` does not equal 5.*
+*An advice: To obtain the logical vector with one element for each row, you need to make comparison based on a column e.g.` my_data[my_data$my_column != 5, ]` would result in the observations (including all columns) from `my_data` in which the value for `my_column` does not equal 5.*
 
 ### <span style="color: green">**Exercise 16**</span>
 <span style="color: green">**Using built-in dataset `CO2`, return observation from `Mississippi` `chilled` plant with an `uptake` higher than 20 ummol/m2 x s.**</span>
@@ -274,7 +274,7 @@ Expected result (first 10 rows):
 
 ```{r}
 my_data <- read.table("rats.csv", header = T, sep = ",")
-my_data[1:10,]
+my_data[1:10, ]
 ```
 
 ### <span style="color: green">**Exercise 19**</span>
@@ -285,7 +285,7 @@ Expected result (first 10 rows):
 ```{r}
 ID <- c(1:nrow(my_data))
 my_data <- cbind(ID, my_data)
-my_data[1:10,]
+my_data[1:10, ]
 ```
 
 
@@ -294,7 +294,7 @@ Importantly, names of columns provided to `dplyr` functions **do not need quotat
 
 ### SORTING OBSERVATIONS
 
-To sort the data, use `arrange()` function in the following manner: `arrange(dataset,ordering_column)`
+To sort the data, use `arrange()` function in the following manner: `arrange(dataset, ordering_column)`
 
 #### <span style="color: green">**Exercise 20**</span> 
 <span style="color: green">**Obtain the observations from `my_data` sorted with increasing levels of glycogen.**</span>
@@ -302,7 +302,7 @@ To sort the data, use `arrange()` function in the following manner: `arrange(dat
 Expected result (first 10 rows):
 
 ```{r}
-arrange(my_data, Glycogen)[1:10,]
+arrange(my_data, Glycogen)[1:10, ]
 ```
 To obtain the descending order put the name of column inside `desc()` function.
 
@@ -315,20 +315,20 @@ Expected result (first 10 rows):
 ```{r}
 arrange(my_data, desc(Glycogen))[1:10,]
 ```
-You can also sort the data by **multiple columns**. Do it by adding an additional column in the following manner: `arrange(dataset,ordering_column1,ordering_column2)`. Note that the priority of sorting is denoted by the order of function arguments.
+You can also sort the data by **multiple columns**. To do this add an additional column in the following manner: `arrange(dataset, ordering_column1, ordering_column2`. Note that the priority of sorting is denoted by the order of function arguments.
 
 #### <span style="color: green">**Exercise 22**</span> 
-<span style="color: green">**Obtain the observations from `my_data` sorted firstly by `Treatment` column and then by `Rat` column. Both in ascending order.**</span>
+<span style="color: green">**Using function from `dplyr` package obtain the observations from `my_data` sorted firstly by `Treatment` column and then by `Rat` column. Both in ascending order.**</span>
 
 
 Expected result (first 10 rows):
 
 ```{r}
-arrange(my_data, Treatment, Rat)[1:10,]
+arrange(my_data, Treatment, Rat)[1:10, ]
 ```
 ### SUBSETTING COLUMNS
 
-To select particular columns use the `select()` function in the following way: `select(dataset,column_name1,column_name2)`. Note that all mentioned columns will be preserved and the rest will be discarded.
+To select particular columns use the `select()` function in the following way: `select(dataset, column_name1, column_name2)`. Note that all mentioned columns will be preserved and the rest will be discarded.
 
 #### <span style="color: green">**Exercise 23**</span> 
 <span style="color: green">**Obtain the `Glycogen` and `Liver` columns from `my_data.`**</span>
@@ -336,7 +336,7 @@ To select particular columns use the `select()` function in the following way: `
 Expected result (first 10 rows):
 
 ```{r}
-select(my_data, Glycogen, Liver)[1:10,]
+select(my_data, Glycogen, Liver)[1:10, ]
 ```
 You can also use **minus preceding the column name** which means “**all except this column**”.
 
@@ -346,24 +346,24 @@ You can also use **minus preceding the column name** which means “**all except
 Expected result (first 10 rows):
 
 ```{r}
-select(my_data, -Rat)[1:10,]
+select(my_data, -Rat)[1:10, ]
 ```
 ### SUBSETTING OBSERVATIONS
 
 To subset the observations, use the `filter()` function in the following manner: `filter(dataset, your_logical_condition)`. Note that logical conditions are always related to the values inside a given column.
 
 #### <span style="color: green">**Exercise 25**</span> 
-<span style="color: green">**Obtain the observations for `Treatment 1`.**</span>
+<span style="color: green">**Obtain the observations for `Treatment` equals 1.**</span>
 
 Expected result (first 10 rows):
 
 ```{r}
-filter(my_data, Treatment == 1)[1:10,]
+filter(my_data, Treatment == 1)[1:10, ]
 ```
 You can also combine several logical conditions by using logical operators (see above). Note, however, that for each observation under consideration it needs to result in a single `TRUE` or `FALSE`.
 
 #### <span style="color: green">**Exercise 26**</span> 
-<span style="color: green">**Obtain the observations for `Treatment` 3 with glycogen level higher than 135.**</span>
+<span style="color: green">**Obtain the observations for `Treatment` equals 3 with glycogen level higher than 135.**</span>
 
 Expected result:
 
@@ -372,7 +372,7 @@ filter(my_data, Treatment == 3 & Glycogen > 135)
 ```
 ### MODIFYING COLUMNS
 
-To create a new column based on the others use the `mutate()` function in the following manner: `mutate(dataset,new_column_name = recipe_for_values)`. “Recipe for values” is often a **mathematical formula or simple mathematical function** based on values of other columns. Note that it is just a modification of given value for each observation separately.
+To create a new column based on the others use the `mutate()` function in the following manner: `mutate(dataset, new_column_name = recipe_for_values)`. “Recipe for values” is often a **mathematical formula or simple mathematical function** based on values of other columns. Note that it is just a modification of given value for each observation separately.
 
 #### <span style="color: green">**Exercise 27**</span> 
 <span style="color: green">**Create a new column called `log_Gly` that will be a natural logarithm transformation of `Glycogen` column. Overwrite `my_data`**</span>
@@ -381,12 +381,12 @@ Expected result (first 10 rows):
 
 ```{r}
 my_data <- mutate(my_data, log_Gly = log(Glycogen))
-my_data[1:10,]
+my_data[1:10, ]
 ```
 
 ### SUMMARY
 
-Make a summary of your dataset with the `summarise()` function. The syntax is as follows: `summarise(dataset,name_of_summary1 = recipe_for_value1,name_of_summary2 = recipe_for_value2,…)`. Recipe in that case is any aggregating function (e.g.` mean())` that will accept whole column (vector) and result in a single statistics. Note that this function will result in creation of new table with 1 row of summary statistics and as many columns as number of statistics mentioned.
+Make a summary of your dataset with the `summarise()` function. The syntax is as follows: `summarise(dataset, name_of_summary1 = recipe_for_value1, name_of_summary2 = recipe_for_value2,…)`. Recipe in that case is any aggregating function (e.g.` mean()` ) that will accept whole column (vector) and result in a single statistics. Note that this function will result in creation of new table with 1 row of summary statistics and as many columns as number of statistics mentioned.
 
 #### <span style="color: green">**Exercise 28**</span> 
 <span style="color: green">**Create a summary of `my_data` containing mean, median, maximum value, minimum value and standard deviation of `Glycogen` column.**</span>
@@ -404,8 +404,8 @@ summary_glycogen
 ```
 
 
-You can also count the number of observations corresponding to the groups within a given column e.g. check how many observations were collected for each treatment. To obtain it use the `count()` function by typing `count(dataset, = given_column)`.
-444444
+You can also count the number of observations corresponding to the groups within a given column e.g. check how many observations were collected for each treatment. To obtain it use the `count()` function by typing `count(dataset, given_column)`.
+
 #### <span style="color: green">**Exercise 29**</span> 
 <span style="color: green">**Use `count()` function to calculate how many treatments were used in a study.**</span>
 
@@ -419,13 +419,13 @@ count(my_data, Treatment)
 
 As you probably noticed all `dplyr` functions have data as the first argument. Based on this characteristics you can create a pipeline where the next function **uses the output generated by the previous one**. In that case you should provide the dataset argument to the first function only.
 
-Pipeline is created by connecting subsequent functions with `%>%` (pipe) operator. Remember to skip the data argument in all functions except for the first one e.g. `select(dataset,column1,column2) %>% filter(column1 > 50)`. The shortcut for ` %>% ` operator is `Ctrl + Shift + M` (Windows) or `Cmd + Shift + M` (Mac). 
+Pipeline is created by connecting subsequent functions with `%>%` (pipe) operator. Remember to skip the `data` argument in all functions except for the first one e.g. `select(dataset, column1, column2) %>% filter(column1 > 50)`. The shortcut for `%>% ` operator is `Ctrl + Shift + M` (Windows) or `Cmd + Shift + M` (Mac). 
 
 >**Curiosity**
 In R version 4.1.0 a new pipe operator is available `|>`. This operator is a part of base R so you don't have to load additional packages (like loading `dplyr` to use `%>%`) to use it.
 
 #### <span style="color: green">**Exercise 30**</span> 
-<span style="color: green">**Using pipeline and `my_data` data frame: 1. select `ID`, `Glycogen` and `Liver` column. 2. obtain observations with glycogen level lower than 140. 3. sort it based on `Glycogen` column in descending order.**</span>
+<span style="color: green">**Using pipeline and `my_data`: 1. select `ID`, `Glycogen` and `Liver` column. 2. obtain observations with glycogen level lower than 140. 3. sort it based on `Glycogen` column in descending order.**</span>
 
 Expected result (first 10 rows):
 
@@ -443,7 +443,7 @@ Performing any function over complete dataset is often not what you really want.
 Expected result:
 
 ```{r}
-v31 <- my_data %>% group_by(Treatment) %>% summarise(v31, mean = mean(Glycogen), st_dev = sd(Glycogen))
+v31 <- my_data %>% group_by(Treatment) %>% summarise(mean = mean(Glycogen), st_dev = sd(Glycogen))
 ```
 *An advice: To perform any action on the whole dataset again, use the `ungroup()` function.*
 
@@ -453,7 +453,7 @@ v31 <- my_data %>% group_by(Treatment) %>% summarise(v31, mean = mean(Glycogen),
 Expected result (first 10 rows):
 
 ```{r}
-v31 <- group_by(my_data, Treatment) %>%  mutate(v31, std_dev = sd(Glycogen))
+v31 <- group_by(my_data, Treatment) %>%  mutate(std_dev = sd(Glycogen))
 v31[1:10,]
 ```
 **************** **ADVANCED** ******************  
@@ -512,21 +512,21 @@ inner_join(df1, df2, by = "ID")
 full_join(df1, df2, by = "ID")
 ```
 
-Each of the abovementioned functions can be used by typing: `..._join(first_table,second_table,by = “shared_column_name”)`.
+Each of the abovementioned functions can be used by typing: `_join(first_table, second_table, by = “shared_column_name”)`.
 
 Notice that the name of shared column should be exactly the same in both tables (eg. `ID`).
 
 #### <span style="color: green">**Exercise 33**</span> 
-<span style="color: green">**Execute the code below and then join the observations from `my_data` and `new_data` data frames. Keep all observations from `my_data` but only those from `new_data` that have their counterparts in `my_data`.
+<span style="color: green">**Execute the code below to create a new data frame with `ID` and `weight` column. Join the observations from `my_data` and `new_data` data frames using proper `_join()` function. Keep all observations from `my_data` but only those from `new_data` that have their counterparts in `my_data`.**
 
 `new_data <- data.frame("ID" = c(2:100),"weight" = rnorm(99,mean = 150,sd = 20))`
 
 Expected result (first 10 rows):
 
 ```{r}
-new_data <- data.frame("ID" = c(2:100),"weight" = rnorm(99,mean = 150,sd = 20))
+new_data <- data.frame("ID" = c(2:100),"weight" = rnorm(99, mean = 150, sd = 20))
 v33 <- left_join(my_data, new_data, by = "ID")
-v33[1:10,]
+v33[1:10, ]
 ```
 
 >**Curiosity**  
@@ -538,20 +538,20 @@ v33[1:10,]
 <span style="color: darkorange">
 1.	Create a vector from 1 to 50. Then, using R only, calculate how many elements of this vector are higher of equal than the positive square root of 100. *Positive square root can be calculated with the `sqrt()` function.<br>
 2.	Upload the built-in `CO2` data set as `hw_data`. Using logical expressions, display the rows of the data set that have `concentration` below 350 AND `uptake` of over 30.<br>
-3.	Load the `dplyr` library. In the `hw_data` data frame, sort the observations first by `concentration`, then by `uptake`. Overwrite the `hw_data` file so that the columns are permanently sorted in this manner.<br>
-4.	Add a new column to the `hw_data` data frame that displays the `uptake` value as a percent of the maximum value of that column (=so that the highest value, 45.5, corresponds to 100%). Then remove the original `uptake` column using a `dplyr` function.<br>
-5.	Use the pipe operator to perform multiple functions on the `hw_data` data frame. Create a summary data frame that displays mean and standard deviation of the new `uptake` column for `Treatment` groups. Save this summary as a .csv file.
+3.	Load the `dplyr` package. In the `hw_data` data frame sort the observations first by `concentration`, then by `uptake`. Overwrite the `hw_data` file so that the columns are permanently sorted in this manner.<br>
+4.	Using `dplyr` function add a new column to the `hw_data` data frame that displays the `uptake` value as a percent of the maximum value of that column (=so that the highest value, 45.5, corresponds to 100%). Then remove the original `uptake` column using a `dplyr` function.<br>
+5.	Use the pipe operator to perform multiple functions on the `hw_data` data frame. Create a summary data frame that displays mean and standard deviation of the new `uptake` column for `Treatment` groups. Save this summary as a .csv file called "CO2_uptake_summary_Your_Name.csv".
 
 <span style="color: darkorange">**Upload both your R script and .csv file to the *Pegaz* platform.**</span>
 
 ```{r, include = F, eval = F}
 print("Ex. 1")
 v <- c(1:50)
-sum(v>=sqrt(100))
+sum(v >= sqrt(100))
 
 print("Ex. 2")
 hw_data <- CO2
-hw_data[hw_data$conc < 350 & hw_data$uptake > 30,  ]
+hw_data[hw_data$conc < 350 & hw_data$uptake > 30, ]
 
 print("Ex. 3")
 library(dplyr)

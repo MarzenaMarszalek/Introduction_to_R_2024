@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik &amp; Mateusz Chechetkin Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2024-10-03" />
+<meta name="date" content="2024-10-25" />
 
 <title>Introduction to R - class 4  Data Wrangling 2</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 4<br> <span style="color: gray">Data Wrangling 2</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik &amp; Mateusz
 Chechetkin<br>Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2024-10-03</h4>
+<h4 class="date">2024-10-25</h4>
 
 </div>
 
@@ -428,6 +428,7 @@ COLUMNS</a>
 <li><a href="#summary" id="toc-summary">SUMMARY</a>
 <ul>
 <li><a href="#exercise-28" id="toc-exercise-28"><span style="color: green"><strong>Exercise 28</strong></span></a></li>
+<li><a href="#exercise-29" id="toc-exercise-29"><span style="color: green"><strong>Exercise 29</strong></span></a></li>
 </ul></li>
 <li><a href="#pipeline-operator-and-pipeline" id="toc-pipeline-operator-and-pipeline">PIPELINE OPERATOR AND
 PIPELINE</a>
@@ -562,10 +563,10 @@ vector and repeat comparison.</strong></span></p>
 <pre><code>## [1] TRUE</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>The other useful tool is the <code>%in%</code> operator. It provides
-information <strong>whether elements of first vector are present in the
-second one</strong>. Note that it is focused on the first vector only,
-so there is <strong>no recycling</strong>. The result of the operation
-with <code>%in%</code> is the logical vector.</p>
+information <strong>whether elements of the first vector are present in
+the second one</strong>. Note that it is focused on the first vector
+only, so there is <strong>no recycling</strong>. The result of the
+operation with <code>%in%</code> is the logical vector.</p>
 </div>
 <div id="exercise-7" class="section level3">
 <h3><span style="color: green"><strong>Exercise 7</strong></span></h3>
@@ -585,9 +586,10 @@ into <code>TRUE</code> and vice versa.</p>
 <div id="exercise-8" class="section level3">
 <h3><span style="color: green"><strong>Exercise 8</strong></span></h3>
 <p><span style="color: green"><strong>Having vector of 3
-<code>TRUE</code> values, return its negation.</strong></span></p>
+<code>TRUE</code> and 3 <code>FALSE</code> values, return its
+negation.</strong></span></p>
 <p>Expected result:</p>
-<pre><code>## [1] FALSE FALSE FALSE</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
 <p>More typically <code>!</code> is used to negate comparisons. Note
 that the idea is the same: you negate logical vector by negating action
 which produces it. Remember that negated comparison should be enclosed
@@ -634,7 +636,7 @@ than 5.</strong></span></p>
 R also uses double version of <code>&amp;</code> and <code>|</code>
 operators. Their outcome is exactly the same and their role is just
 related to optimization. While using double operators, R checks first
-condition and if not needed, ignore the second one (e.g. in the ‘AND’
+condition and if not needed, ignore the second one (e.g. in the “AND”
 statement if the first condition is <code>FALSE</code>, there is no need
 to check the second one as the result will always be
 <code>FALSE</code>). Note that they are often used when conditions are
@@ -673,14 +675,14 @@ vector.</strong></span></p>
 simpler. All you need to provide is a <strong>condition instead of a
 coordinate</strong> e.g. <code>vector[condition]</code> will return only
 the elements fulfilling given condition.</p>
-<p>For example: There is a vector <code>a &lt;- c(1,2,3,4)</code>. We
+<p>For example: There is a vector <code>a &lt;- c(1, 2, 3, 4)</code>. We
 want to subset elements of this vector that are greater then 2.<br />
-The formula will look like this: <code>a[a&gt;2]</code>.<br />
+The formula will look like this: <code>a[a &gt; 2]</code>.<br />
 Then the result will be: <code>[1] 3 4</code>.</p>
 <p>The logic behind is as follows:</p>
 <ul>
-<li>condition (here: <code>[a&gt;2]</code>) generates a logical vector -
-<strong>positions are denoted as a series of <code>TRUE</code> and
+<li>condition (here: <code>[a &gt; 2]</code>) generates a logical vector
+- <strong>positions are denoted as a series of <code>TRUE</code> and
 <code>FALSE</code></strong>. In this example the logical vector is:
 <code>[1] FALSE FALSE  TRUE  TRUE</code>.<br />
 </li>
@@ -718,9 +720,9 @@ plant.</strong></span></p>
 ## 14   Qn2 Quebec nonchilled 1000   44.3</code></pre>
 <p><em>An advice: To obtain the logical vector with one element for each
 row, you need to make comparison based on a column
-e.g.<code>my_data[my_data$my_column != 5,]</code> would result in the
+e.g.<code>my_data[my_data$my_column != 5, ]</code> would result in the
 observations (including all columns) from <code>my_data</code> in which
-the value for <code>my_collumn</code> does not equal 5.</em></p>
+the value for <code>my_column</code> does not equal 5.</em></p>
 </div>
 <div id="exercise-16" class="section level3">
 <h3><span style="color: green"><strong>Exercise 16</strong></span></h3>
@@ -783,7 +785,7 @@ functions <strong>do not need quotation marks</strong>.</p>
 <div id="sorting-observations" class="section level3">
 <h3>SORTING OBSERVATIONS</h3>
 <p>To sort the data, use <code>arrange()</code> function in the
-following manner: <code>arrange(dataset,ordering_column)</code></p>
+following manner: <code>arrange(dataset, ordering_column)</code></p>
 <div id="exercise-20" class="section level4">
 <h4><span style="color: green"><strong>Exercise 20</strong></span></h4>
 <p><span style="color: green"><strong>Obtain the observations from
@@ -821,15 +823,16 @@ glycogen.</strong></span></p>
 ## 8  19      151         2   2     1
 ## 9   7      150         1   2     1
 ## 10 12      150         1   2     3</code></pre>
-<p>You can also sort the data by <strong>multiple columns</strong>. Do
-it by adding an additional column in the following manner:
-<code>arrange(dataset,ordering_column1,ordering_column2)</code>. Note
+<p>You can also sort the data by <strong>multiple columns</strong>. To
+do this add an additional column in the following manner:
+<code>arrange(dataset, ordering_column1, ordering_column2</code>. Note
 that the priority of sorting is denoted by the order of function
 arguments.</p>
 </div>
 <div id="exercise-22" class="section level4">
 <h4><span style="color: green"><strong>Exercise 22</strong></span></h4>
-<p><span style="color: green"><strong>Obtain the observations from
+<p><span style="color: green"><strong>Using function from
+<code>dplyr</code> package obtain the observations from
 <code>my_data</code> sorted firstly by <code>Treatment</code> column and
 then by <code>Rat</code> column. Both in ascending
 order.</strong></span></p>
@@ -851,7 +854,7 @@ order.</strong></span></p>
 <h3>SUBSETTING COLUMNS</h3>
 <p>To select particular columns use the <code>select()</code> function
 in the following way:
-<code>select(dataset,column_name1,column_name2)</code>. Note that all
+<code>select(dataset, column_name1, column_name2)</code>. Note that all
 mentioned columns will be preserved and the rest will be discarded.</p>
 <div id="exercise-23" class="section level4">
 <h4><span style="color: green"><strong>Exercise 23</strong></span></h4>
@@ -902,7 +905,7 @@ conditions are always related to the values inside a given column.</p>
 <div id="exercise-25" class="section level4">
 <h4><span style="color: green"><strong>Exercise 25</strong></span></h4>
 <p><span style="color: green"><strong>Obtain the observations for
-<code>Treatment 1</code>.</strong></span></p>
+<code>Treatment</code> equals 1.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Rat Liver
 ## 1   1      131         1   1     1
@@ -923,7 +926,7 @@ consideration it needs to result in a single <code>TRUE</code> or
 <div id="exercise-26" class="section level4">
 <h4><span style="color: green"><strong>Exercise 26</strong></span></h4>
 <p><span style="color: green"><strong>Obtain the observations for
-<code>Treatment</code> 3 with glycogen level higher than
+<code>Treatment</code> equals 3 with glycogen level higher than
 135.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##   ID Glycogen Treatment Rat Liver
@@ -940,7 +943,7 @@ consideration it needs to result in a single <code>TRUE</code> or
 <h3>MODIFYING COLUMNS</h3>
 <p>To create a new column based on the others use the
 <code>mutate()</code> function in the following manner:
-<code>mutate(dataset,new_column_name = recipe_for_values)</code>.
+<code>mutate(dataset, new_column_name = recipe_for_values)</code>.
 “Recipe for values” is often a <strong>mathematical formula or simple
 mathematical function</strong> based on values of other columns. Note
 that it is just a modification of given value for each observation
@@ -969,12 +972,12 @@ separately.</p>
 <h3>SUMMARY</h3>
 <p>Make a summary of your dataset with the <code>summarise()</code>
 function. The syntax is as follows:
-<code>summarise(dataset,name_of_summary1 = recipe_for_value1,name_of_summary2 = recipe_for_value2,…)</code>.
-Recipe in that case is any aggregating function
-(e.g.<code>mean())</code> that will accept whole column (vector) and
-result in a single statistics. Note that this function will result in
-creation of new table with 1 row of summary statistics and as many
-columns as number of statistics mentioned.</p>
+<code>summarise(dataset, name_of_summary1 = recipe_for_value1, name_of_summary2 = recipe_for_value2,…)</code>.
+Recipe in that case is any aggregating function (e.g.<code>mean()</code>
+) that will accept whole column (vector) and result in a single
+statistics. Note that this function will result in creation of new table
+with 1 row of summary statistics and as many columns as number of
+statistics mentioned.</p>
 <div id="exercise-28" class="section level4">
 <h4><span style="color: green"><strong>Exercise 28</strong></span></h4>
 <p><span style="color: green"><strong>Create a summary of
@@ -987,10 +990,13 @@ column.</strong></span></p>
 <p>You can also count the number of observations corresponding to the
 groups within a given column e.g. check how many observations were
 collected for each treatment. To obtain it use the <code>count()</code>
-function by typing <code>count(dataset, = given_column)</code>. 444444
-#### <span style="color: green"><strong>Exercise 29</strong></span>
-<span style="color: green"><strong>Use <code>count()</code> function to
-calculate how many treatments were used in a study.</strong></span></p>
+function by typing <code>count(dataset, given_column)</code>.</p>
+</div>
+<div id="exercise-29" class="section level4">
+<h4><span style="color: green"><strong>Exercise 29</strong></span></h4>
+<p><span style="color: green"><strong>Use <code>count()</code> function
+to calculate how many treatments were used in a
+study.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##   Treatment  n
 ## 1         1 12
@@ -1006,9 +1012,9 @@ pipeline where the next function <strong>uses the output generated by
 the previous one</strong>. In that case you should provide the dataset
 argument to the first function only.</p>
 <p>Pipeline is created by connecting subsequent functions with
-<code>%&gt;%</code> (pipe) operator. Remember to skip the data argument
-in all functions except for the first one
-e.g. <code>select(dataset,column1,column2) %&gt;% filter(column1 &gt; 50)</code>.
+<code>%&gt;%</code> (pipe) operator. Remember to skip the
+<code>data</code> argument in all functions except for the first one
+e.g. <code>select(dataset, column1, column2) %&gt;% filter(column1 &gt; 50)</code>.
 The shortcut for <code>%&gt;%</code> operator is
 <code>Ctrl + Shift + M</code> (Windows) or <code>Cmd + Shift + M</code>
 (Mac).</p>
@@ -1021,10 +1027,10 @@ to use <code>%&gt;%</code>) to use it.</p>
 <div id="exercise-30" class="section level4">
 <h4><span style="color: green"><strong>Exercise 30</strong></span></h4>
 <p><span style="color: green"><strong>Using pipeline and
-<code>my_data</code> data frame: 1. select <code>ID</code>,
-<code>Glycogen</code> and <code>Liver</code> column. 2. obtain
-observations with glycogen level lower than 140. 3. sort it based on
-<code>Glycogen</code> column in descending order.</strong></span></p>
+<code>my_data</code>: 1. select <code>ID</code>, <code>Glycogen</code>
+and <code>Liver</code> column. 2. obtain observations with glycogen
+level lower than 140. 3. sort it based on <code>Glycogen</code> column
+in descending order.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Liver
 ## 1  33      139     2
@@ -1047,48 +1053,42 @@ case that the overall mean does not reflect the variability among
 species. To check value for each species separately you need to
 <strong>group your dataset</strong>. Do it by using
 <code>group_by()</code> function in the following manner
-group_by(dataset,column_with_groups). This produces a grouped dataframe
-and will cause all subsequent functions to <strong>operate on each group
-separately</strong>.</p>
+<code>group_by(dataset, column_with_groups)</code>. This produces a
+grouped dataframe and will cause all subsequent functions to
+<strong>operate on each group separately</strong>.</p>
 <div id="exercise-31" class="section level4">
 <h4><span style="color: green"><strong>Exercise 31</strong></span></h4>
-<p><span style="color: green"><strong>Using pipeline,
+<p><span style="color: green"><strong>Using pipe,
 <code>group_by()</code> function and <code>my_data</code> data frame,
 create a summary table with mean and standard deviation of
 <code>Glycogen</code> column for each treatment
 separately.</strong></span></p>
 <p>Expected result:</p>
-<pre><code>## # A tibble: 3 × 3
-##   Treatment  mean st_dev
-##       &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1         1  140.  10.3 
-## 2         2  151    5.66
-## 3         3  135.   4.71</code></pre>
 <p><em>An advice: To perform any action on the whole dataset again, use
 the <code>ungroup()</code> function.</em></p>
 </div>
 <div id="exercise-32" class="section level4">
 <h4><span style="color: green"><strong>Exercise 32</strong></span></h4>
-<p><span style="color: green"><strong>Using pipeline,
+<p><span style="color: green"><strong>Using pipe,
 <code>group_by()</code> function and <code>my_data</code> data frame,
 create a new column with the deviations of <code>Glycogen</code> values
 from the arithmetic mean in a given
 <code>Treatment</code>.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
-<pre><code>## # A tibble: 10 × 6
+<pre><code>## # A tibble: 10 × 7
 ## # Groups:   Treatment [1]
-##       ID Glycogen Treatment   Rat Liver log_Gly
-##    &lt;int&gt;    &lt;int&gt;     &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;
-##  1     1      131         1     1     1    4.88
-##  2     2      130         1     1     1    4.87
-##  3     3      131         1     1     2    4.88
-##  4     4      125         1     1     2    4.83
-##  5     5      136         1     1     3    4.91
-##  6     6      142         1     1     3    4.96
-##  7     7      150         1     2     1    5.01
-##  8     8      148         1     2     1    5.00
-##  9     9      140         1     2     2    4.94
-## 10    10      143         1     2     2    4.96</code></pre>
+##       ID Glycogen Treatment   Rat Liver log_Gly std_dev
+##    &lt;int&gt;    &lt;int&gt;     &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1     1      131         1     1     1    4.88    10.3
+##  2     2      130         1     1     1    4.87    10.3
+##  3     3      131         1     1     2    4.88    10.3
+##  4     4      125         1     1     2    4.83    10.3
+##  5     5      136         1     1     3    4.91    10.3
+##  6     6      142         1     1     3    4.96    10.3
+##  7     7      150         1     2     1    5.01    10.3
+##  8     8      148         1     2     1    5.00    10.3
+##  9     9      140         1     2     2    4.94    10.3
+## 10    10      143         1     2     2    4.96    10.3</code></pre>
 <p>**************** <strong>ADVANCED</strong> ******************</p>
 </div>
 </div>
@@ -1151,29 +1151,31 @@ value, returns <code>NA</code>.</strong></li>
 ## 3 ind_3 green  blue
 ## 4 ind_4  &lt;NA&gt;  blue</code></pre>
 <p>Each of the abovementioned functions can be used by typing:
-<code>..._join(first_table,second_table,by = “shared_column_name”)</code>.</p>
+<code>_join(first_table, second_table, by = “shared_column_name”)</code>.</p>
 <p>Notice that the name of shared column should be exactly the same in
 both tables (eg. <code>ID</code>).</p>
 <div id="exercise-33" class="section level4">
 <h4><span style="color: green"><strong>Exercise 33</strong></span></h4>
-<p><span style="color: green">**Execute the code below and then join the
-observations from <code>my_data</code> and <code>new_data</code> data
-frames. Keep all observations from <code>my_data</code> but only those
-from <code>new_data</code> that have their counterparts in
-<code>my_data</code>.</p>
+<p><span style="color: green"><strong>Execute the code below to create a
+new data frame with <code>ID</code> and <code>weight</code> column. Join
+the observations from <code>my_data</code> and <code>new_data</code>
+data frames using proper <code>_join()</code> function. Keep all
+observations from <code>my_data</code> but only those from
+<code>new_data</code> that have their counterparts in
+<code>my_data</code>.</strong></p>
 <p><code>new_data &lt;- data.frame(&quot;ID&quot; = c(2:100),&quot;weight&quot; = rnorm(99,mean = 150,sd = 20))</code></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Rat Liver  log_Gly   weight
 ## 1   1      131         1   1     1 4.875197       NA
-## 2   2      130         1   1     1 4.867534 169.2538
-## 3   3      131         1   1     2 4.875197 165.4771
-## 4   4      125         1   1     2 4.828314 112.8955
-## 5   5      136         1   1     3 4.912655 153.8517
-## 6   6      142         1   1     3 4.955827 171.3089
-## 7   7      150         1   2     1 5.010635 122.3561
-## 8   8      148         1   2     1 4.997212 152.9645
-## 9   9      140         1   2     2 4.941642 172.7517
-## 10 10      143         1   2     2 4.962845 140.6354</code></pre>
+## 2   2      130         1   1     1 4.867534 158.9052
+## 3   3      131         1   1     2 4.875197 128.2661
+## 4   4      125         1   1     2 4.828314 152.5160
+## 5   5      136         1   1     3 4.912655 142.2286
+## 6   6      142         1   1     3 4.955827 143.8736
+## 7   7      150         1   2     1 5.010635 141.3438
+## 8   8      148         1   2     1 4.997212 124.1601
+## 9   9      140         1   2     2 4.941642 187.5273
+## 10 10      143         1   2     2 4.962845 117.8395</code></pre>
 <blockquote>
 <p><strong>Curiosity</strong><br />
 1. Using joins let us avoid repeating the same information across many
@@ -1193,19 +1195,20 @@ root can be calculated with the <code>sqrt()</code> function.<br> 2.
 Upload the built-in <code>CO2</code> data set as <code>hw_data</code>.
 Using logical expressions, display the rows of the data set that have
 <code>concentration</code> below 350 AND <code>uptake</code> of over
-30.<br> 3. Load the <code>dplyr</code> library. In the
-<code>hw_data</code> data frame, sort the observations first by
+30.<br> 3. Load the <code>dplyr</code> package. In the
+<code>hw_data</code> data frame sort the observations first by
 <code>concentration</code>, then by <code>uptake</code>. Overwrite the
 <code>hw_data</code> file so that the columns are permanently sorted in
-this manner.<br> 4. Add a new column to the <code>hw_data</code> data
-frame that displays the <code>uptake</code> value as a percent of the
-maximum value of that column (=so that the highest value, 45.5,
-corresponds to 100%). Then remove the original <code>uptake</code>
-column using a <code>dplyr</code> function.<br> 5. Use the pipe operator
-to perform multiple functions on the <code>hw_data</code> data frame.
-Create a summary data frame that displays mean and standard deviation of
-the new <code>uptake</code> column for <code>Treatment</code> groups.
-Save this summary as a .csv file.</p>
+this manner.<br> 4. Using <code>dplyr</code> function add a new column
+to the <code>hw_data</code> data frame that displays the
+<code>uptake</code> value as a percent of the maximum value of that
+column (=so that the highest value, 45.5, corresponds to 100%). Then
+remove the original <code>uptake</code> column using a
+<code>dplyr</code> function.<br> 5. Use the pipe operator to perform
+multiple functions on the <code>hw_data</code> data frame. Create a
+summary data frame that displays mean and standard deviation of the new
+<code>uptake</code> column for <code>Treatment</code> groups. Save this
+summary as a .csv file called “CO2_uptake_summary_Your_Name.csv”.</p>
 <p><span style="color: darkorange"><strong>Upload both your R script and
 .csv file to the <em>Pegaz</em> platform.</strong></span></p>
 </div>
