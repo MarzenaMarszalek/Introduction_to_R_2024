@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik &amp; Mateusz Chechetkin Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2024-10-21" />
+<meta name="date" content="2024-10-25" />
 
 <title>Introduction to R - class 3  Data Wrangling 1</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 3<br> <span style="color: gray">Data Wrangling 1</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik &amp; Mateusz
 Chechetkin<br>Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2024-10-21</h4>
+<h4 class="date">2024-10-25</h4>
 
 </div>
 
@@ -517,12 +517,12 @@ data frame, use the <code>str()</code> function.</p>
 <p><span style="color: green"><strong>Check the class types of every
 column of the <code>my_data</code> data frame.</strong></span></p>
 <p>You can also <strong>convert</strong> different data types with the
-use of as… functions family e.g. <code>as.character()</code>,
-<code>as.factor()</code> ect.. Note, however, that <strong>not all
-conversions are permitted</strong> e.g. a letter cannot be converted
-into an integer. To change class of a column you need to replace whole
-column with the result of as… function. We will learn how to do it once
-we discuss subsetting.</p>
+use of as.[class_name] functions family
+e.g. <code>as.character()</code>, <code>as.factor()</code> ect.. Note,
+however, that <strong>not all conversions are permitted</strong> e.g. a
+letter cannot be converted into an integer. To change class of a column
+you need to replace whole column with the result of as… function. We
+will learn how to do it once we discuss subsetting.</p>
 </div>
 </div>
 <div id="subsetting" class="section level2">
@@ -531,7 +531,7 @@ we discuss subsetting.</p>
 in a specific way) with the use of <strong>coordinates</strong>
 (indexes) enclosed within the <strong>square brackets</strong>
 (<code>[]</code>). In case of data frames there are always 2
-coordinates: <code>[row_number, column_number]</code>.</p>
+coordinates: <code>table[row_number, column_number]</code>.</p>
 <p>Note that <strong>vectors have only one coordinate</strong>, the
 position, so they can be called one-dimensional objects. <strong>Data
 frames have two dimensions</strong>: rows and columns.</p>
@@ -547,7 +547,7 @@ frames have two dimensions</strong>: rows and columns.</p>
 <p>You can call for <strong>multiple values in the same time</strong>.
 To define range of coordinates, use <strong>colon</strong>
 (<code>:</code>) separating range borders -
-e.g. <code>[row_number_1:row_number_2, column_number]</code>.</p>
+e.g. <code>table[row_number_1:row_number_2, column_number]</code>.</p>
 </div>
 <div id="exercise-5" class="section level3">
 <h3><span style="color: green"><strong>Exercise 5</strong></span></h3>
@@ -571,7 +571,7 @@ the variable, so its content is displayed in
 console.</strong></span></p>
 <p><em>Tip: If you want to call for <strong>all rows or columns</strong>
 it is enough to leave blank space instead of the respective coordinate -
-e.g. <strong><code>[,column_number]</code></strong></em></p>
+e.g. <strong><code>table[,column_number]</code></strong></em></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>## # A tibble: 30 × 1
 ##    score
@@ -737,8 +737,8 @@ Class 1).</p>
 <div id="simple-summaries" class="section level3">
 <h3>3. Simple summaries</h3>
 <p>• <code>nrow()</code> - number of rows<br />
-• <code>ncol()</code> - number of columns • <code>dim()</code> -
-dimensions of an object</p>
+• <code>ncol()</code> - number of columns<br />
+• <code>dim()</code> - dimensions of an object</p>
 <div id="exercise-16" class="section level4">
 <h4><span style="color: green"><strong>Exercise 16</strong></span></h4>
 <p><span style="color: green"><strong>Return total number of cells
