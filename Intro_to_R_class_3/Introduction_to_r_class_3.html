@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik &amp; Mateusz Chechetkin Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2024-10-25" />
+<meta name="date" content="2024-10-28" />
 
 <title>Introduction to R - class 3  Data Wrangling 1</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 3<br> <span style="color: gray">Data Wrangling 1</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik &amp; Mateusz
 Chechetkin<br>Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2024-10-25</h4>
+<h4 class="date">2024-10-28</h4>
 
 </div>
 
@@ -415,7 +415,7 @@ data</a>
 <li><a href="#saving-data-frame" id="toc-saving-data-frame">Saving data
 frame</a>
 <ul>
-<li><a href="#exercise-23-1" id="toc-exercise-23-1"><span style="color: green"><strong>Exercise 23</strong></span></a></li>
+<li><a href="#exercise-24" id="toc-exercise-24"><span style="color: green"><strong>Exercise 24</strong></span></a></li>
 </ul></li>
 <li><a href="#homework" id="toc-homework"><span style="color: darkorange;">Homework</span></a></li>
 </ul>
@@ -514,8 +514,8 @@ to specify which columns you want to check. To check every column in a
 data frame, use the <code>str()</code> function.</p>
 <div id="exercise-3" class="section level3">
 <h3><span style="color: green"><strong>Exercise 3</strong></span></h3>
-<p><span style="color: green"><strong>Check the class types of every
-column of the <code>my_data</code> data frame.</strong></span></p>
+<p><span style="color: green"><strong>Check the class of every column of
+the <code>my_data</code> data frame.</strong></span></p>
 <p>You can also <strong>convert</strong> different data types with the
 use of as.[class_name] functions family
 e.g. <code>as.character()</code>, <code>as.factor()</code> ect.. Note,
@@ -623,16 +623,16 @@ forget about quotation marks (<code>&quot;&quot;</code>).</strong></span></p>
 ## 10    74
 ## # ℹ 20 more rows</code></pre>
 <p>One another way to obtain the <strong>whole column</strong> is to use
-<strong>dollar sign between table’s and column’s name</strong>. Such
-expression is automatically treated as a vector, so it can be directly
-subsetted to get a particular row. -
+<strong>dollar sign <code>$</code> between table’s and column’s
+name</strong>. Such expression is automatically treated as a vector, so
+it can be directly subsetted to get a particular row. -
 e.g. <code>table$column_name[row_number]</code>.</p>
 </div>
 <div id="exercise-9" class="section level3">
 <h3><span style="color: green"><strong>Exercise 9</strong></span></h3>
 <p><span style="color: green"><strong>Return values from 5th to 15th row
-of mass column from <code>my_data</code>. Use dollar
-sign.</strong></span></p>
+of mass column from <code>my_data</code>. Use dollar sign
+<code>$</code>.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##  [1] 24 27 22 20 25 24 28 25 20 23 29</code></pre>
 <p>If desired rows (or columns)** do not follow each other** and the
@@ -724,7 +724,7 @@ column.</strong></span></p>
 <pre><code>##  [1] 48.4 63.8 48.4 63.8 52.8 59.4 48.4 44.0 55.0 52.8 61.6 55.0 44.0 50.6 63.8
 ## [16] 61.6 57.2 48.4 46.2 57.2 50.6 68.2 59.4 59.4 74.8 72.6 55.0 46.2 39.6 74.8</code></pre>
 <p>Also, you can use simple summary functions from previous class (see
-Class 1).</p>
+Class 2).</p>
 </div>
 <div id="exercise-15" class="section level4">
 <h4><span style="color: green"><strong>Exercise 15</strong></span></h4>
@@ -824,9 +824,9 @@ following manner:
 <h3><span style="color: green"><strong>Exercise 21</strong></span></h3>
 <p><span style="color: green"><strong>Create data frame
 <code>added_rows</code> with one row and following values:
-<code>130</code>,<code>ind031</code>,<code>F</code>, <code>55.7</code>,
-<code>77</code>. Columns’ names should correspond to this of
-<code>my_data</code>. Call it.</strong></span></p>
+<code>130</code>, <code>ind031</code>, <code>F</code>,
+<code>55.7</code>, <code>77</code>. Columns’ names should correspond to
+this of <code>my_data</code>. Call it.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##    ID individual sex mass score
 ## 1 130     ind031   F 55.7    77</code></pre>
@@ -836,7 +836,7 @@ the same time replace the values for each column with the
 <strong>vectors</strong>.</p>
 </blockquote>
 <p>To stick data frames by rows use <code>rbind()</code> function in the
-following manner: <code>rbind(data_frame1,data_frame2)</code></p>
+following manner: <code>rbind(data_frame1, data_frame2)</code></p>
 </div>
 <div id="exercise-22" class="section level3">
 <h3><span style="color: green"><strong>Exercise 22</strong></span></h3>
@@ -872,8 +872,8 @@ worked.</strong></span></p>
 <h2>Saving data frame</h2>
 <p>To save your data frame into a file use <code>write.table()</code>
 function.</p>
-<div id="exercise-23-1" class="section level3">
-<h3><span style="color: green"><strong>Exercise 23</strong></span></h3>
+<div id="exercise-24" class="section level3">
+<h3><span style="color: green"><strong>Exercise 24</strong></span></h3>
 <p><span style="color: green"><strong>Save modified <code>my_data</code>
 to the .csv file. Include your surname in the file
 name.</strong></span></p>

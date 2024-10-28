@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik &amp; Mateusz Chechetkin Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2024-10-25" />
+<meta name="date" content="2024-10-28" />
 
 <title>Introduction to R - class 4  Data Wrangling 2</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 4<br> <span style="color: gray">Data Wrangling 2</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik &amp; Mateusz
 Chechetkin<br>Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2024-10-25</h4>
+<h4 class="date">2024-10-28</h4>
 
 </div>
 
@@ -1163,19 +1163,19 @@ data frames using proper <code>_join()</code> function. Keep all
 observations from <code>my_data</code> but only those from
 <code>new_data</code> that have their counterparts in
 <code>my_data</code>.</strong></p>
-<p><code>new_data &lt;- data.frame(&quot;ID&quot; = c(2:100),&quot;weight&quot; = rnorm(99,mean = 150,sd = 20))</code></p>
+<p><code>new_data &lt;- data.frame(&quot;ID&quot; = c(2:100), &quot;weight&quot; = rnorm(99, mean = 150, sd = 20))</code></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Rat Liver  log_Gly   weight
 ## 1   1      131         1   1     1 4.875197       NA
-## 2   2      130         1   1     1 4.867534 158.9052
-## 3   3      131         1   1     2 4.875197 128.2661
-## 4   4      125         1   1     2 4.828314 152.5160
-## 5   5      136         1   1     3 4.912655 142.2286
-## 6   6      142         1   1     3 4.955827 143.8736
-## 7   7      150         1   2     1 5.010635 141.3438
-## 8   8      148         1   2     1 4.997212 124.1601
-## 9   9      140         1   2     2 4.941642 187.5273
-## 10 10      143         1   2     2 4.962845 117.8395</code></pre>
+## 2   2      130         1   1     1 4.867534 145.1153
+## 3   3      131         1   1     2 4.875197 148.1779
+## 4   4      125         1   1     2 4.828314 123.2159
+## 5   5      136         1   1     3 4.912655 171.3523
+## 6   6      142         1   1     3 4.955827 151.7490
+## 7   7      150         1   2     1 5.010635 121.2280
+## 8   8      148         1   2     1 4.997212 150.3982
+## 9   9      140         1   2     2 4.941642 172.0754
+## 10 10      143         1   2     2 4.962845 154.7473</code></pre>
 <blockquote>
 <p><strong>Curiosity</strong><br />
 1. Using joins let us avoid repeating the same information across many
@@ -1193,22 +1193,23 @@ Then, using R only, calculate how many elements of this vector are
 higher of equal than the positive square root of 100. *Positive square
 root can be calculated with the <code>sqrt()</code> function.<br> 2.
 Upload the built-in <code>CO2</code> data set as <code>hw_data</code>.
-Using logical expressions, display the rows of the data set that have
+Using logical expressions, display the rows of the dataset that have
 <code>concentration</code> below 350 AND <code>uptake</code> of over
 30.<br> 3. Load the <code>dplyr</code> package. In the
 <code>hw_data</code> data frame sort the observations first by
 <code>concentration</code>, then by <code>uptake</code>. Overwrite the
 <code>hw_data</code> file so that the columns are permanently sorted in
 this manner.<br> 4. Using <code>dplyr</code> function add a new column
-to the <code>hw_data</code> data frame that displays the
-<code>uptake</code> value as a percent of the maximum value of that
-column (=so that the highest value, 45.5, corresponds to 100%). Then
-remove the original <code>uptake</code> column using a
-<code>dplyr</code> function.<br> 5. Use the pipe operator to perform
-multiple functions on the <code>hw_data</code> data frame. Create a
-summary data frame that displays mean and standard deviation of the new
-<code>uptake</code> column for <code>Treatment</code> groups. Save this
-summary as a .csv file called “CO2_uptake_summary_Your_Name.csv”.</p>
+called <code>uptake_percent</code> to the <code>hw_data</code> data
+frame that displays the <code>uptake</code> value as a percent of the
+maximum value of that column (=so that the highest value, 45.5,
+corresponds to 100%). Then remove the original <code>uptake</code>
+column using a <code>dplyr</code> function.<br> 5. Use the pipe operator
+to perform multiple functions on the <code>hw_data</code> data frame.
+Create a summary data frame that displays mean and standard deviation of
+the new <code>uptake_percent</code> column for <code>Treatment</code>
+groups. Save this summary as a .csv file called
+“CO2_uptake_summary_Your_Name.csv”.</p>
 <p><span style="color: darkorange"><strong>Upload both your R script and
 .csv file to the <em>Pegaz</em> platform.</strong></span></p>
 </div>

@@ -519,7 +519,7 @@ Notice that the name of shared column should be exactly the same in both tables 
 #### <span style="color: green">**Exercise 33**</span> 
 <span style="color: green">**Execute the code below to create a new data frame with `ID` and `weight` column. Join the observations from `my_data` and `new_data` data frames using proper `_join()` function. Keep all observations from `my_data` but only those from `new_data` that have their counterparts in `my_data`.**
 
-`new_data <- data.frame("ID" = c(2:100),"weight" = rnorm(99,mean = 150,sd = 20))`
+`new_data <- data.frame("ID" = c(2:100), "weight" = rnorm(99, mean = 150, sd = 20))`
 
 Expected result (first 10 rows):
 
@@ -537,35 +537,33 @@ v33[1:10, ]
 
 <span style="color: darkorange">
 1.	Create a vector from 1 to 50. Then, using R only, calculate how many elements of this vector are higher of equal than the positive square root of 100. *Positive square root can be calculated with the `sqrt()` function.<br>
-2.	Upload the built-in `CO2` data set as `hw_data`. Using logical expressions, display the rows of the data set that have `concentration` below 350 AND `uptake` of over 30.<br>
+2.	Upload the built-in `CO2` data set as `hw_data`. Using logical expressions, display the rows of the dataset that have `concentration` below 350 AND `uptake` of over 30.<br>
 3.	Load the `dplyr` package. In the `hw_data` data frame sort the observations first by `concentration`, then by `uptake`. Overwrite the `hw_data` file so that the columns are permanently sorted in this manner.<br>
-4.	Using `dplyr` function add a new column to the `hw_data` data frame that displays the `uptake` value as a percent of the maximum value of that column (=so that the highest value, 45.5, corresponds to 100%). Then remove the original `uptake` column using a `dplyr` function.<br>
-5.	Use the pipe operator to perform multiple functions on the `hw_data` data frame. Create a summary data frame that displays mean and standard deviation of the new `uptake` column for `Treatment` groups. Save this summary as a .csv file called "CO2_uptake_summary_Your_Name.csv".
+4.	Using `dplyr` function add a new column called `uptake_percent` to the `hw_data` data frame that displays the `uptake` value as a percent of the maximum value of that column (=so that the highest value, 45.5, corresponds to 100%). Then remove the original `uptake` column using a `dplyr` function.<br>
+5.	Use the pipe operator to perform multiple functions on the `hw_data` data frame. Create a summary data frame that displays mean and standard deviation of the new `uptake_percent` column for `Treatment` groups. Save this summary as a .csv file called "CO2_uptake_summary_Your_Name.csv".
 
 <span style="color: darkorange">**Upload both your R script and .csv file to the *Pegaz* platform.**</span>
 
 ```{r, include = F, eval = F}
-print("Ex. 1")
-v <- c(1:50)
-sum(v >= sqrt(100))
+## Ex. 1
+vect <- c(1:50)
+sum(vect > sqrt(100))
 
-print("Ex. 2")
+# Ex. 2
 hw_data <- CO2
 hw_data[hw_data$conc < 350 & hw_data$uptake > 30, ]
 
-print("Ex. 3")
+# Ex. 3
 library(dplyr)
 hw_data <- arrange(hw_data, conc, uptake)
 
-print("Ex. 4")
-hw_data$uptake_percent <- (100*(hw_data$uptake/max(hw_data$uptake))) ##OR
+# Ex. 4
 hw_data <- mutate(hw_data, uptake_percent = 100*(uptake/max(uptake)))
 hw_data <- select(hw_data, -uptake)
 
-print("Ex. 5")
+# Ex. 5
 summary_uptake <- hw_data %>% group_by(Treatment) %>% summarise(mean = mean(uptake_percent), st_dev = sd(uptake_percent))
-
-write.table(summary_uptake, "hw_data.csv")
+write.table(summary_uptake, "CO2_uptake_summary_Your_Name.csv", sep = ",", row.names = FALSE)
 
 ```
 

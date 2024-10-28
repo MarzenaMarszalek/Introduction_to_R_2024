@@ -70,7 +70,7 @@ summary(my_data)
 You can check the **class of a value or a vector** using the `class()` function. To use it on a data frame, you need to specify which columns you want to check. To check every column in a data frame, use the `str()` function. 
 
 ### <span style="color: green">**Exercise 3**</span>
-<span style="color: green">**Check the class types of every column of the `my_data` data frame.**</span>
+<span style="color: green">**Check the class of every column of the `my_data` data frame.**</span>
 
 ```{r, eval=F}
 str(my_data)
@@ -90,7 +90,7 @@ Note that **vectors have only one coordinate**, the position, so they can be cal
 Expected result:
 
 ```{r}
-my_data[5,3]
+my_data[5, 3]
 ```
 
 You can call for **multiple values in the same time**. To define range of coordinates, use **colon** (`:`) separating range borders - e.g. `table[row_number_1:row_number_2, column_number]`.
@@ -101,7 +101,7 @@ You can call for **multiple values in the same time**. To define range of coordi
 Expected result:
 
 ```{r}
-my_data[1:5,3:4]
+my_data[1:5, 3:4]
 ```
 
 
@@ -113,7 +113,7 @@ my_data[1:5,3:4]
 Expected result (first 10 rows):
 
 ```{r}
-my_column_4 <- my_data[,4]
+my_column_4 <- my_data[, 4]
 my_column_4
 ```
 
@@ -124,7 +124,7 @@ my_column_4
 Expected result:
 
 ```{r}
-my_column_4[3:5,1]
+my_column_4[3:5, 1]
 ```
 
 Table can be also subsetted with the use of columns’ (or rows’) names.
@@ -135,13 +135,13 @@ Table can be also subsetted with the use of columns’ (or rows’) names.
 Expected results (first 10 rows):
 
 ```{r}
-my_data[,"score"]
+my_data[, "score"]
 ```
 
-One another way to obtain the **whole column** is to use **dollar sign between table’s and column’s name**. Such expression is automatically treated as a vector, so it can be directly subsetted to get a particular row. - e.g. `table$column_name[row_number]`.
+One another way to obtain the **whole column** is to use **dollar sign `$` between table’s and column’s name**. Such expression is automatically treated as a vector, so it can be directly subsetted to get a particular row. - e.g. `table$column_name[row_number]`.
 
 ### <span style="color: green">**Exercise 9**</span>
-<span style="color: green">**Return values from 5th to 15th row of mass column from `my_data`. Use dollar sign.**</span>
+<span style="color: green">**Return values from 5th to 15th row of mass column from `my_data`. Use dollar sign `$`.**</span>
 
 Expected result:
 
@@ -162,7 +162,7 @@ Pulling one row from the data frame **will not result in a vector**. It is becau
 Expected result:
 
 ```{r}
-v <- c(3,5,7,9,12)
+v <- c(3, 5, 7, 9, 12)
 v
 ```
 
@@ -183,7 +183,7 @@ You can also **subset everything except specified columns (or rows)**. To do thi
 Expected result (first 10 rows):
 
 ```{r}
-my_data[,-2]
+my_data[, -2]
 ```
 
 
@@ -213,10 +213,10 @@ You can use classical mathematical operators: `+`, `-`, `*` and `/`. Remember, h
 Expected result:
 
 ```{r}
-my_data$mass <- (my_data$mass)*2.20
+my_data$mass <- (my_data$mass) * 2.20
 my_data$mass
 ```
-Also, you can use simple summary functions from previous class (see Class 1).
+Also, you can use simple summary functions from previous class (see Class 2).
 
 #### <span style="color: green">**Exercise 15**</span>
 <span style="color: green">**Calculate the mean value of the `score` column.**</span>
@@ -249,7 +249,7 @@ nrow(my_data)*ncol(my_data)
 <span style="color: green">**Choose one cell and replace its value with `NA`. Do not add quotation marks as `NA` is an internal R symbol (just as `π`). Print whole row.**</span>
 
 ```{r, echo = F}
-my_data[1,2] <- NA
+my_data[1, 2] <- NA
 ```
 
 Rows with missing data can be removed with `na.omit()` function. To save changes, the result of `na.omit()` function must be saved as a variable. **Note that, in practice, deleting missing data must be well justified. Make sure they do not provide any important information**.
@@ -292,7 +292,7 @@ my_data <- cbind(ID, my_data)
 2.	Adding new row is more complicated as **you cannot create a vector with different types of data**. Firstly you need to create a new data frame (similar to the old one) consisting of only new row (or rows). To do this use `data.frame()` function in the following manner: `data.frame(columnName1 = value1, columnName2 = value2,…)`.
   
 ### <span style="color: green">**Exercise 21**</span>
-<span style="color: green">**Create data frame `added_rows` with one row and following values: `130`,`ind031`,`F`, `55.7`, `77`. Columns’ names should correspond to this of `my_data`. Call it.**</span>
+<span style="color: green">**Create data frame `added_rows` with one row and following values: `130`, `ind031`, `F`, `55.7`, `77`. Columns’ names should correspond to this of `my_data`. Call it.**</span>
 
 Expected result:
 
@@ -305,7 +305,7 @@ added_rows
 >**Curiosity** 
 To combine a data frame with more rows at the same time replace the values for each column with the **vectors**.
 
-To stick data frames by rows use `rbind()` function in the following manner: `rbind(data_frame1,data_frame2)`
+To stick data frames by rows use `rbind()` function in the following manner: `rbind(data_frame1, data_frame2)`
 
 ### <span style="color: green">**Exercise 22**</span>
 <span style="color: green">**Place created row at the end of `my_data`. Overwrite my_data variable. Print 6 last rows of `my_data` to check the operation result.**</span>
@@ -336,7 +336,7 @@ class(my_data$sex)
 
 To save your data frame into a file use `write.table()` function.
 
-### <span style="color: green">**Exercise 23**</span>
+### <span style="color: green">**Exercise 24**</span>
 <span style="color: green">**Save modified `my_data` to the .csv file. Include your surname in the file name.**</span>
 
 ## <span style="color: darkorange;">Homework</span>
