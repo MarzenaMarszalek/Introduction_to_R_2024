@@ -155,7 +155,7 @@ The real power of logic in programming is provided by combining comparisons (use
   •	`|` - **or** - condition is `TRUE` if at least one comparison is `TRUE`
   
 ### <span style="color: green">**Exercise 10**</span>
-<span style="color: green">**For an integer vector from 1 to 10, create logical vector indicating which element is smaller or larger than 5.**</span>
+<span style="color: green">**For an integer vector from 1 to 10, create logical vector indicating which element is smaller or larger than 5. Use logical operator.**</span>
 
 Expected result:
 
@@ -165,7 +165,7 @@ v10 <- c(1:10)
 ```
 
 ### <span style="color: green">**Exercise 11**</span>
-<span style="color: green">**For an integer vector from 1 to 10, create logical vector indicating which element is divisible by both 2 and 3.**</span>
+<span style="color: green">**For an integer vector from 1 to 10, create logical vector indicating which element is divisible by both 2 and 3. Use logical operator.**</span>
 
 Expected result:
 
@@ -198,7 +198,7 @@ v12d
 ```
 
 ### <span style="color: green">**Exercise 13**</span>
-<span style="color: green">**Having indexes of values larger or equal 21 from the previous exercise, return the values from the vector.**</span>
+<span style="color: green">**Having indexes of values larger or equal 21 from the previous exercise, return the values from previously constructed vector that corresponds to these indexes.**</span>
 
 Expected result:
 
@@ -297,7 +297,7 @@ Importantly, names of columns provided to `dplyr` functions **do not need quotat
 To sort the data, use `arrange()` function in the following manner: `arrange(dataset, ordering_column)`
 
 #### <span style="color: green">**Exercise 20**</span> 
-<span style="color: green">**Obtain the observations from `my_data` sorted with increasing levels of glycogen.**</span>
+<span style="color: green">**Obtain the observations from `my_data` sorted with increasing levels of glycogen.* Use the `arragne()` function.*</span>
 
 Expected result (first 10 rows):
 
@@ -307,7 +307,7 @@ arrange(my_data, Glycogen)[1:10, ]
 To obtain the descending order put the name of column inside `desc()` function.
 
 #### <span style="color: green">**Exercise 21**</span> 
-<span style="color: green">**Obtain the observations from `my_data` sorted with the decreasing levels of glycogen.**</span>
+<span style="color: green">**Using `arragne()` function sort the observations from `my_data` with the decreasing levels of glycogen.**</span>
 
 
 Expected result (first 10 rows):
@@ -315,10 +315,10 @@ Expected result (first 10 rows):
 ```{r}
 arrange(my_data, desc(Glycogen))[1:10,]
 ```
-You can also sort the data by **multiple columns**. To do this add an additional column in the following manner: `arrange(dataset, ordering_column1, ordering_column2`. Note that the priority of sorting is denoted by the order of function arguments.
+You can also sort the data by **multiple columns**. To do this add an additional column in the following manner: `arrange(dataset, ordering_column1, ordering_column2)`. Note that the priority of sorting is denoted by the order of function arguments.
 
 #### <span style="color: green">**Exercise 22**</span> 
-<span style="color: green">**Using function from `dplyr` package obtain the observations from `my_data` sorted firstly by `Treatment` column and then by `Rat` column. Both in ascending order.**</span>
+<span style="color: green">**Using `arragne()` function obtain the observations from `my_data` sorted firstly by `Treatment` column and then by `Rat` column. Both in ascending order.**</span>
 
 
 Expected result (first 10 rows):
@@ -331,7 +331,7 @@ arrange(my_data, Treatment, Rat)[1:10, ]
 To select particular columns use the `select()` function in the following way: `select(dataset, column_name1, column_name2)`. Note that all mentioned columns will be preserved and the rest will be discarded.
 
 #### <span style="color: green">**Exercise 23**</span> 
-<span style="color: green">**Obtain the `Glycogen` and `Liver` columns from `my_data.`**</span>
+<span style="color: green">**Obtain the `Glycogen` and `Liver` columns from `my_data.` Use `select()` function.**</span>
 
 Expected result (first 10 rows):
 
@@ -341,7 +341,7 @@ select(my_data, Glycogen, Liver)[1:10, ]
 You can also use **minus preceding the column name** which means “**all except this column**”.
 
 #### <span style="color: green">**Exercise 24**</span> 
-<span style="color: green">**Obtain the `ID`, `Glycogen`, `Treatment` and `Liver` columns from `my_data`. Use the minus (`-`) sign.**</span>
+<span style="color: green">**Obtain the `ID`, `Glycogen`, `Treatment` and `Liver` columns from `my_data`. Use `select()` function and the minus (`-`) sign.**</span>
 
 Expected result (first 10 rows):
 
@@ -353,7 +353,7 @@ select(my_data, -Rat)[1:10, ]
 To subset the observations, use the `filter()` function in the following manner: `filter(dataset, your_logical_condition)`. Note that logical conditions are always related to the values inside a given column.
 
 #### <span style="color: green">**Exercise 25**</span> 
-<span style="color: green">**Obtain the observations for `Treatment` equals 1.**</span>
+<span style="color: green">**Using `filter()` function obtain the observations for `Treatment` equals 1.**</span>
 
 Expected result (first 10 rows):
 
@@ -363,7 +363,7 @@ filter(my_data, Treatment == 1)[1:10, ]
 You can also combine several logical conditions by using logical operators (see above). Note, however, that for each observation under consideration it needs to result in a single `TRUE` or `FALSE`.
 
 #### <span style="color: green">**Exercise 26**</span> 
-<span style="color: green">**Obtain the observations for `Treatment` equals 3 with glycogen level higher than 135.**</span>
+<span style="color: green">**Using `filter()` function obtain the observations for `Treatment` equals 3 with glycogen level higher than 135.**</span>
 
 Expected result:
 
@@ -375,7 +375,7 @@ filter(my_data, Treatment == 3 & Glycogen > 135)
 To create a new column based on the others use the `mutate()` function in the following manner: `mutate(dataset, new_column_name = recipe_for_values)`. “Recipe for values” is often a **mathematical formula or simple mathematical function** based on values of other columns. Note that it is just a modification of given value for each observation separately.
 
 #### <span style="color: green">**Exercise 27**</span> 
-<span style="color: green">**Create a new column called `log_Gly` that will be a natural logarithm transformation of `Glycogen` column. Overwrite `my_data`**</span>
+<span style="color: green">**Using `mutate()` fynction create a new column called `log_Gly` that will be a natural logarithm transformation of `Glycogen` column. Overwrite `my_data`**</span>
 
 Expected result (first 10 rows):
 
@@ -389,7 +389,7 @@ my_data[1:10, ]
 Make a summary of your dataset with the `summarise()` function. The syntax is as follows: `summarise(dataset, name_of_summary1 = recipe_for_value1, name_of_summary2 = recipe_for_value2,…)`. Recipe in that case is any aggregating function (e.g.` mean()` ) that will accept whole column (vector) and result in a single statistics. Note that this function will result in creation of new table with 1 row of summary statistics and as many columns as number of statistics mentioned.
 
 #### <span style="color: green">**Exercise 28**</span> 
-<span style="color: green">**Create a summary of `my_data` containing mean, median, maximum value, minimum value and standard deviation of `Glycogen` column.**</span>
+<span style="color: green">**Use `summarise()` function to create a summary of `my_data` containing mean, median, maximum value, minimum value and standard deviation of `Glycogen` column.**</span>
 
 Expected result:
 
@@ -425,7 +425,10 @@ Pipeline is created by connecting subsequent functions with `%>%` (pipe) operato
 In R version 4.1.0 a new pipe operator is available `|>`. This operator is a part of base R so you don't have to load additional packages (like loading `dplyr` to use `%>%`) to use it.
 
 #### <span style="color: green">**Exercise 30**</span> 
-<span style="color: green">**Using pipeline and `my_data`: 1. select `ID`, `Glycogen` and `Liver` column. 2. obtain observations with glycogen level lower than 140. 3. sort it based on `Glycogen` column in descending order.**</span>
+<span style="color: green">**Using pipeline and `my_data`: 
+1. select `ID`, `Glycogen` and `Liver` column.  
+2. obtain observations with glycogen level lower than 140.  
+3. sort it based on `Glycogen` column in descending order.**</span>
 
 Expected result (first 10 rows):
 
