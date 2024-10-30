@@ -447,6 +447,7 @@ Expected result:
 
 ```{r}
 v31 <- my_data %>% group_by(Treatment) %>% summarise(mean = mean(Glycogen), st_dev = sd(Glycogen))
+v31
 ```
 *An advice: To perform any action on the whole dataset again, use the `ungroup()` function.*
 
