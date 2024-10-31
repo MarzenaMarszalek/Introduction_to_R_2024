@@ -374,6 +374,8 @@ Still not great. The bars from different species overlap each other. To show the
 #### <span style="color: green">**Exercise 18**</span> 
 <span style="color: green">**Modify histogram from exercise 17 to show the bars for each species next to each other.**</span>
 
+Expected result:
+
 ```{r}
 ggplot(my_data, aes(x = Sepal.Length, fill = Species)) + geom_histogram(color = "black", bins = 10, position = "dodge") +
   theme_bw() +
