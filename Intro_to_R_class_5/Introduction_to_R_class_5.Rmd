@@ -289,7 +289,7 @@ Using `group` argument instead of color will also generate separate lines but al
 Until now, we were working on plots with **continuous values on x and y axes**. What if we want to plot sepal width alone over all species? As **species are on discrete scale** we should consider a **boxplot**. Generate it in the similar way with the use of `geom_boxplot()` function. Note, that **discrete variables can be of character**, logical or factor type.  
 If you have named groups it is highly recommended to encode them as **factors**, because factor levels can be ordered manually, which allows you to control the order in which groups appear on the plot.
 
-#### <span style="color: green">**Exercise 14**</span> 
+#### <span style="color: green">**Exercise 13**</span> 
 <span style="color: green">**Generate a boxplot representing the sepal’s length across different iris species.**</span>
 
 Expected result:
@@ -310,29 +310,34 @@ ggplot(my_data) +
 Another commonly used type of a plot is **histogram**. It depicts the **number of observations within given ranges of values**. Generate it with the `geom_histogram()` function. Specify the aesthetics for x-axis only as y-values are computed by R.  
 To set a common color for all bars, use `fill` and `color` argument of `geom_histogram()` function and provide it with a color name. It would set the color of filling and contours respectively.
 
-#### <span style="color: green">**Exercise 15**</span> 
+#### <span style="color: green">**Exercise 14**</span> 
 <span style="color: green">**Generate a histogram of sepal length. Set bars and contours color.**</span>
 
 Expected result:
 
-```{r, message = F}
+```{r}
 ggplot(my_data) +
   geom_histogram(aes(x = Sepal.Length ), fill =  "white", color = "black") +
   theme_bw() +
   labs(x  = "Length of sepal [cm]", y = "Number of observations", title = "Histogram of sepals' length observation") +
   theme(plot.title = element_text(hjust = 0.5))
-
 ```
 
-It’d also be nice to to show each species with different colour.
+It looks like there are too many bins (the default is 30), let’s reduce their number to 10. It’d also be nice to to show each species with different colour.
 
-#### <span style="color: green">**Exercise 16**</span> 
-<span style="color: green">**Generate a histogram of sepal length. Set bars' color according to `Species`.**</span>
+#### <span style="color: green">**Exercise 15**</span> 
+<span style="color: green">**Generate a histogram of sepal length. Set bars' color according to `Species`. Add `bins = 10` argument to `geom_histogram()` function to decrease the number of bins.**</span>
 
 Expected result:
 
 ```{r}
-ggplot(my_data) + geom_histogram(aes(x = Sepal.Length, fill = Species), color = "black") +
+ggplot(my_data) + geom_histogram(aes(x = Sepal.Length, fill = Species), color = "black", bins = 10) +
+  theme_bw() +
+  labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation") + 
+  theme(plot.title = element_text(hjust = 0.5)) 
+```
+```{r, fig.show = "hide"}
+ggplot(my_data, aes(x = Sepal.Length, fill = Species)) + geom_histogram(color = "black", bins = 10) +
   theme_bw() +
   labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation") + 
   theme(plot.title = element_text(hjust = 0.5)) 
@@ -340,14 +345,14 @@ ggplot(my_data) + geom_histogram(aes(x = Sepal.Length, fill = Species), color = 
 
 You can also think about histograms as **calculating the frequency** rather than the number of observations. To do this set the `y` argument of `geom_histogram()` aesthetics to `after_stat(count)`. Note that it is an internal `ggplot` symbol for the frequency calculation.
 
-#### <span style="color: green">**Exercise 17**</span> 
+#### <span style="color: green">**Exercise 16**</span> 
 <span style="color: green">**Generate a histogram of sepal length with the relative frequencies on the y axis.**</span>
 
 Expected result:
  
 ```{r, message = F}
-ggplot(my_data) +
-  geom_histogram(aes(x = Sepal.Length, y = after_stat(count)), fill =  "white", color = "black") +
+ggplot(my_data, aes(x = Sepal.Length, y = after_stat(count))) +
+  geom_histogram(fill =  "white", color = "black", bins = 10) +
   theme_bw() +
   labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation") +
   theme(plot.title = element_text(hjust = 0.5))
@@ -357,13 +362,14 @@ Note that the histograms looks almost identical but the **y-axis values were cha
 
 Using histograms, you can also generate a **density distribution**. Think about it as the graphical visualization of **relative probabilities** that a **randomly sampled observations come from a given interval**. Note that sampling based on density function would generate the histogram similar to the one from the real-data. It can be used to **roughly assess the normality of data**. Do it by changing y argument of `geom_histogram()` function to `after_stat(density)`. Additionally, use `geom_density()` function. Remember about aesthetics’ argument `x` and note you can use `alpha` argument to set distribution transparency.
 
-### <span style="color: green">**Exercise 18**</span> 
+### <span style="color: green">**Exercise 17**</span> 
 <span style="color: green">**Modify the histogram from exercise 16th by adding density distribution.**</span>
 
 Expected result:
 
 ```{r, message = F}
-ggplot(my_data) + geom_histogram(aes(x = Sepal.Length, y = after_stat(density)), fill = "white", color = "black") +
+ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) + 
+  geom_histogram(fill = "white", color = "black", bins = 10) +
   geom_density(aes(x = Sepal.Length, y = after_stat(density)), fill = "pink", alpha = 0.2) +
   theme_bw() +
   labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation") + 
@@ -376,8 +382,8 @@ ggplot(my_data) + geom_histogram(aes(x = Sepal.Length, y = after_stat(density)),
 Expected result:
 
 ```{r, message = F}
-ggplot(my_data) + 
-  geom_histogram(aes(x = Sepal.Length, y = after_stat(density)), fill = "white", color = "black", bins = 30) + 
+ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) + 
+  geom_histogram(fill = "white", color = "black", bins = 10) + 
   geom_density(aes(x = Sepal.Length, fill = Species), alpha = 0.2) +  
   theme_bw() +
   labs(x = "Length of sepal [cm]", y = "Density", title = "Histogram of Sepals' Length Observation") + 
