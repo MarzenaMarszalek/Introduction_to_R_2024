@@ -369,9 +369,21 @@ ggplot(my_data, aes(x = Sepal.Length, fill = Species)) + geom_histogram(color = 
   theme(plot.title = element_text(hjust = 0.5)) 
 ```
 
-You can also think about histograms as **calculating the frequency** rather than the number of observations. To do this set the `y` argument of `geom_histogram()` aesthetics to `(after_stat(count))/(sum(after_stat(count)))`. Note that `after_stat(count))` is a function that allows you to access computed statistics while creating a plot.
+Still not great. The bars from different species overlap each other. To show the bars for each species next to each other we adjust their position with `position = "dodge"` in `geom_histogram()` function.
 
 #### <span style="color: green">**Exercise 18**</span> 
+<span style="color: green">**Modify histogram from exercise 17 to show the bars for each species next to each other.**</span>
+
+```{r, fig.show = "hide"}
+ggplot(my_data, aes(x = Sepal.Length, fill = Species)) + geom_histogram(color = "black", bins = 10, position = "dodge") +
+  theme_bw() +
+  labs(x  = "Length of sepal [cm]", y = "Number of observations", title = "Histogram of sepals' length observation") + 
+  theme(plot.title = element_text(hjust = 0.5)) 
+```
+
+You can also think about histograms as **calculating the frequency** rather than the number of observations. To do this set the `y` argument of `geom_histogram()` aesthetics to `(after_stat(count))/(sum(after_stat(count)))`. Note that `after_stat(count))` is a function that allows you to access computed statistics while creating a plot.
+
+#### <span style="color: green">**Exercise 19**</span> 
 <span style="color: green">**Generate a histogram of sepal length with the relative frequencies on the y axis.**</span>
 
 Expected result:
@@ -388,7 +400,7 @@ Note that the histograms looks almost identical but the **y-axis values were cha
 
 Using histograms, you can also generate a **density distribution**. Think about it as the graphical visualization of **relative probabilities** that a **randomly sampled observations come from a given interval**. Note that sampling based on density function would generate the histogram similar to the one from the real-data. It can be used to **roughly assess the normality of data**. Do it by changing y argument of `geom_histogram()` function to `after_stat(density)`. Additionally, use `geom_density()` function. Remember about aesthetics’ argument `x` and note you can use `alpha` argument to set distribution transparency.
 
-#### <span style="color: green">**Exercise 19**</span> 
+#### <span style="color: green">**Exercise 20**</span> 
 <span style="color: green">**Modify the histogram from exercise 16th to display density on y axis. Add also density distribution using `geom_density()`.**</span>
 
 Expected result:
@@ -402,7 +414,7 @@ ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) +
   theme(plot.title = element_text(hjust = 0.5)) 
 ```
 
-#### <span style="color: green">**Exercise 20**</span> 
+#### <span style="color: green">**Exercise 21**</span> 
 <span style="color: green">**Modify the histogram above and display density distributions for each species separately on a single plot. Take advantage of `color` argument inside aesthetics.**</span>
 
 Expected result:
@@ -437,7 +449,7 @@ In `ggplot`, we can use the function `ggsave()`. **By default, it saves the last
 `ggsave("scatterplot_1.pdf", width = 20, height = 20, units = "cm")`
 
 
-#### <span style="color: green">**Exercise 21**</span> 
+#### <span style="color: green">**Exercise 22**</span> 
 <span style="color: green">**Save one of the plots we generated today using your preferred method.**</span>
 
 ```{r, message = F, eval = F}
