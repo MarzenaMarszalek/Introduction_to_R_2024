@@ -138,7 +138,7 @@ From now on, we are going to use the `ggplot2` package.
 
 Install and load the package:
 
-`install.packages("ggplot2")`
+`install.packages("ggplot2")`  
 `library(ggplot2)`
 
 ### Syntax
@@ -184,15 +184,15 @@ You can also move `mapping` from the base of `ggplot` to the body - here, to `ge
 ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width))
 ```
 
-Now let’s mark each species with a distinct color. It’s very simple and natural in `ggplot2()` - we just add `color` aesthetics and map the variable `Species` to it. Again, you can add `color` aesthetics both to the base and body of the plotting function. The results of both formulas below will be the same.
+Now let’s mark each species with a distinct color. It’s very simple and natural in `ggplot2()` - we just add `color` aesthetics and map the variable `Species` to it. The results of both formulas below will be the same.
 
-
-```{r, echo = TRUE}
-ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, color = Species))
-```
 ```{r, echo = TRUE, fig.show = "hide"}
 ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_point()
 ```
+```{r, echo = TRUE}
+ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, color = Species))
+```
+
 
 
 #### <span style="color: green">**Exercise 8**</span> 
@@ -307,7 +307,7 @@ ggplot(my_data, aes(x = Species, y = Sepal.Length)) +
 To set a common color for all boxes, use `fill` and `color` argument of `geom_boxplot()` function and provide it with a color name. It would set the color of filling and contours respectively. To color the boxes or its contours according to a variable e.g., `Species` you have to place `fill` or `color` argument in `aes()`.
 
 #### <span style="color: green">**Exercise 14**</span> 
-<span style="color: green">**Modify plot from exercise 13. by setting the color of boxes' contours according to `Species`**</span>
+<span style="color: green">**Modify plot from exercise 13. by setting the color of boxes' contours according to `Species`.**</span>
 
 ```{r}
 ggplot(my_data, aes(x = Species, y = Sepal.Length, color = Species)) +
@@ -316,7 +316,8 @@ ggplot(my_data, aes(x = Species, y = Sepal.Length, color = Species)) +
   labs(x = "Species", y = "Length of sepal [cm]", title = "Sepal length across iris species") +
   theme(plot.title = element_text(hjust = 0.5))
 ```
-f you have tens, or perhaps a hundred data points, it may be useful to show them all together with boxplot. To avoid points overlapping each other, use `geom_jitter()`.
+
+If you have tens, or perhaps a hundred data points, it may be useful to show them all together with boxplot. To avoid points overlapping each other, use `geom_jitter()`.
 
 #### <span style="color: green">**Exercise 15**</span> 
 <span style="color: green">**Modify plot from exercise 14. by setting adding data points. Use `geom_jitter()` function**</span>
@@ -358,17 +359,17 @@ Expected result:
 ```{r}
 ggplot(my_data) + geom_histogram(aes(x = Sepal.Length, fill = Species), color = "black", bins = 10) +
   theme_bw() +
-  labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation") + 
+  labs(x  = "Length of sepal [cm]", y = "Number of observations", title = "Histogram of sepals' length observation") + 
   theme(plot.title = element_text(hjust = 0.5)) 
 ```
 ```{r, fig.show = "hide"}
 ggplot(my_data, aes(x = Sepal.Length, fill = Species)) + geom_histogram(color = "black", bins = 10) +
   theme_bw() +
-  labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation") + 
+  labs(x  = "Length of sepal [cm]", y = "Number of observations", title = "Histogram of sepals' length observation") + 
   theme(plot.title = element_text(hjust = 0.5)) 
 ```
 
-You can also think about histograms as **calculating the frequency** rather than the number of observations. To do this set the `y` argument of `geom_histogram()` aesthetics to `after_stat(count)`. Note that it is an internal `ggplot` symbol for the frequency calculation.
+You can also think about histograms as **calculating the frequency** rather than the number of observations. To do this set the `y` argument of `geom_histogram()` aesthetics to `(after_stat(count))/(sum(after_stat(count)))`. Note that `after_stat(count))` is a function that allows you to access computed statistics while creating a plot.
 
 #### <span style="color: green">**Exercise 18**</span> 
 <span style="color: green">**Generate a histogram of sepal length with the relative frequencies on the y axis.**</span>
@@ -376,7 +377,7 @@ You can also think about histograms as **calculating the frequency** rather than
 Expected result:
  
 ```{r, message = F}
-ggplot(my_data, aes(x = Sepal.Length, y = after_stat(count))) +
+ggplot(my_data, aes(x = Sepal.Length, y = after_stat(count)/sum(after_stat(count)))) +
   geom_histogram(fill =  "white", color = "black", bins = 10) +
   theme_bw() +
   labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation") +
@@ -388,7 +389,7 @@ Note that the histograms looks almost identical but the **y-axis values were cha
 Using histograms, you can also generate a **density distribution**. Think about it as the graphical visualization of **relative probabilities** that a **randomly sampled observations come from a given interval**. Note that sampling based on density function would generate the histogram similar to the one from the real-data. It can be used to **roughly assess the normality of data**. Do it by changing y argument of `geom_histogram()` function to `after_stat(density)`. Additionally, use `geom_density()` function. Remember about aesthetics’ argument `x` and note you can use `alpha` argument to set distribution transparency.
 
 #### <span style="color: green">**Exercise 19**</span> 
-<span style="color: green">**Modify the histogram from exercise 16th by adding density distribution.**</span>
+<span style="color: green">**Modify the histogram from exercise 16th to display density on y axis. Add also density distribution using `geom_density()`.**</span>
 
 Expected result:
 
@@ -397,7 +398,7 @@ ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) +
   geom_histogram(fill = "white", color = "black", bins = 10) +
   geom_density(aes(x = Sepal.Length, y = after_stat(density)), fill = "pink", alpha = 0.2) +
   theme_bw() +
-  labs(x  = "Length of sepal [cm]", y = "Frequency", title = "Histogram of sepals' length observation") + 
+  labs(x  = "Length of sepal [cm]", y = "Density", title = "Histogram of sepals' length observation") + 
   theme(plot.title = element_text(hjust = 0.5)) 
 ```
 
