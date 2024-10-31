@@ -24,6 +24,7 @@ Here is a botanical visual of the flower structure.
 
 ![](flower.png)
 
+
 ### <span style="color: green">**Exercise 1**</span>
 <span style="color: green">**Assign the internal data set `iris` to an object called `my_data`. View the dataset and create its short summary.**</span>
 
@@ -46,10 +47,10 @@ Histograms are usually used to demonstrate differences between groups or their c
 ### Scatterplot
 
 We’ll start with a scatterplot.  
-The basic R function to create any kind of plot is, simply, `plot()`. To set it up, provide arguments for data (the data frame it will use), x axis, and y axis.
+The basic R function to create any kind of plot is, simply, `plot()`. To set it up, provide arguments for data (the data frame it will use), x axis, and y axis: `plot(x = x_axis_data_, y = y_axis_data)`, where `x` and `y` specify variables that define x and y axes values respectively. 
 
 #### <span style="color: green">**Exercise 2**</span> 
-<span style="color: green">**Create a simple plot using the `my_data` data frame. Provide the sepal length column as x, and sepal width as y arguments of the `plot()` function.**</span>
+<span style="color: green">**Create a simple plot using the `my_data` data frame. Provide the `Sepal.length` column as x, and `Sepal.width` as y arguments of the `plot()` function.**</span>
 
 Expected result:
 
@@ -57,25 +58,25 @@ Expected result:
 plot(x = my_data$Sepal.Length, y = my_data$Sepal.Width)
 ```
 
-Alternatively, the same command can be given using the `~` (tilde) sign. In coding language, this can be read as “depends on", and is used not only in plots, but also in e.g. statistical functions.
+Alternatively, the same command can be given using the **tilde** `~` sign. In coding language, this can be read as "depends on", and is used not only in plots, but also in e.g. statistical functions.
 
 #### <span style="color: green">**Exercise 3**</span> 
-<span style="color: green">**Create a plot using the same function but writing the arguments down as **sepal width depending on sepal length**. Provide the name of the data frame as data argument. Remember that, on a standard plot, the y axis shows the dependent variable, and x shows the independent variable.**</span>
+<span style="color: green">**Create a plot using the same function but writing the arguments down as `Sepal.width` depending on `Sepal.length`. Provide the name of the data frame as data argument. Remember that, on a standard plot, the y axis shows the dependent variable, and x shows the independent variable.**</span>
 
 The only difference in the results should be the displayed titles for the axes. 
 
-```{r, fig.show = 'hide'}
+```{r}
 plot(Sepal.Width ~ Sepal.Length, data = my_data)
 ```
 
 The basic `plot()` function allows us to somewhat customize the plots. For example, we can change the name of the axes, as well as the title of the plot.
 
 #### <span style="color: green">**Exercise 4**</span> 
-<span style="color: green">**Copy and modify the code that is creating the plot. Add axes titles using the arguments `xlab` and `ylab`. Add the title of the plot using the `main` argument.**</span>
+<span style="color: green">**Copy and modify the code from exercise 3. Add axes titles using the arguments `xlab` and `ylab`. Add the title of the plot using the `main` argument.**</span>
 
 Remember that, for any function, you can always access its manual by typing its name with a question mark at the beginning into the R console.
 
-```{r, fig.show = 'hide'}
+```{r}
 plot(Sepal.Width ~ Sepal.Length, data = my_data, xlab = "sepal length", ylab = "sepal width", main = "Correlation plot")
 ```
 
@@ -177,17 +178,18 @@ We see the plot, with both axes scaled according to the ranges of the two variab
 ```{r, echo = TRUE}
 ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 ```
+
 You can also move `mapping` from the base of `ggplot` to the body - here, to `geom_point()`. Both options will give the same result.
 
 ```{r, echo = TRUE, fig.show = 'hide'}
 ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width))
 ```
+
 Now let’s mark each species with a distinct colour. It’s very simple and natural in ggplot2() - we just add colour aesthetics and map the variable `Species` to it.
 
 ```{r, echo = TRUE}
 ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, color = Species))
 ```
-
 
 ### Scatterplot 
 
@@ -200,7 +202,6 @@ Expected result:
 ggplot(my_data) +
   geom_point(aes(x = Sepal.Length, y = Sepal.Width))
 ```
-
 
 Now, let’s make it pretty!
 
@@ -234,8 +235,6 @@ ggplot(my_data) +
 
 ```
 
-
-
 > **Curiosity**  
 There is an entire family of the scale…() functions that personalize the way observations are displayed e.g.:  
  1.	`scale_x_discrete(`) (for groups), `scale_x_continuous()` (for gradient) - modify x axis functionalities (e.g. its range)  
@@ -258,7 +257,6 @@ ggplot(my_data) +
   labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises") +
   geom_smooth(aes(x = Sepal.Length, y = Sepal.Width), method = "lm")
 ```
-
 
 It seems that there is **no relationship** when you consider **all points together** but what about **relationships within species**? Do it by adding color argument to the `geom_smooth()` aesthetics and setting it as the name of column with species description for each observation.
 
@@ -353,7 +351,6 @@ ggplot(my_data) +
 <span style="color: green">**Modify the histogram above and display density distributions for each species separately on a single plot. Take advantage of `color` argument inside aesthetics.**</span>
 
 Expected result:
-
 
 ```{r, message = F}
 ggplot(my_data) +

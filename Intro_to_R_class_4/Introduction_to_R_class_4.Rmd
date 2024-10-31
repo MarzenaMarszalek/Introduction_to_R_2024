@@ -52,8 +52,8 @@ However, logical vectors have one important distinctive characteristic: they can
 Expected result:
 
 ```{r}
-v1 <- CO2[1:6,]
-v1[, c(T, F, F, F, T)]
+my_data <- CO2[1:6,]
+my_data[,c(T, F, F, F, T)]
 ```
 ## Comparisons
 
@@ -89,9 +89,9 @@ Note that while comparing two vectors with the symbols shown above, R does not c
 Expected result:
 
 ```{r}
-v5 <- c(2, 3, 5, 7, 11)
-v5a <- c(2, 4, 6, 8, 10)
-v5 == v5a 
+prime <- c(2, 3, 5, 7, 11)
+even <- c(2, 4, 6, 8, 10)
+prime == even 
 ```
 
 To check whether vectors (as a whole) are identical use `identical()` function.
@@ -273,7 +273,7 @@ library(dplyr)
 Expected result (first 10 rows):
 
 ```{r}
-my_data <- read.table("rats.csv", header = T, sep = ",")
+my_data <- read.csv("rats.csv")
 my_data[1:10, ]
 ```
 
@@ -433,7 +433,7 @@ In R version 4.1.0 a new pipe operator is available `|>`. This operator is a par
 Expected result (first 10 rows):
 
 ```{r}
-v30 <- select(my_data, ID, Glycogen, Liver) %>% filter(Glycogen <  140) %>% arrange(desc(Glycogen))
+v30 <- my_data %>% select(ID, Glycogen, Liver) %>% filter(Glycogen <  140) %>% arrange(desc(Glycogen))
 v30[1:10,]
 ```
 ### GROUPING
@@ -457,7 +457,7 @@ v31
 Expected result (first 10 rows):
 
 ```{r}
-v31 <- group_by(my_data, Treatment) %>%  mutate(std_dev = sd(Glycogen))
+v31 <- my_data %>% group_by(Treatment) %>%  mutate(std_dev = sd(Glycogen))
 v31[1:10,]
 ```
 **************** **ADVANCED** ******************  
