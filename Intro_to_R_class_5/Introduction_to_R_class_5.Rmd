@@ -72,18 +72,18 @@ plot(Sepal.Width ~ Sepal.Length, data = my_data)
 The basic `plot()` function allows us to somewhat customize the plots. For example, we can change the name of the axes, as well as the title of the plot.
 
 #### <span style="color: green">**Exercise 4**</span> 
-<span style="color: green">**Copy and modify the code from exercise 3. Add axes titles using the arguments `xlab` and `ylab`. Add the title of the plot using the `main` argument.**</span>
+<span style="color: green">**Copy and modify the code from exercise 3. Add axis titles using the arguments `xlab` and `ylab`. Add the title of the plot using the `main` argument.**</span>
 
 Remember that, for any function, you can always access its manual by typing its name with a question mark at the beginning into the R console.
 
 ```{r}
-plot(Sepal.Width ~ Sepal.Length, data = my_data, xlab = "sepal length", ylab = "sepal width", main = "Correlation plot")
+plot(Sepal.Width ~ Sepal.Length, data = my_data, xlab = "sepal length", ylab = "sepal width", main = "Correlation between sepal length and width")
 ```
 
 
 >**Curiosity** You can use the `par()` function to further customize the plot. Inspecting the manual will show you the various options you have.
 
-What if we want to add grouping to the scatterplot? We can add another argument to the function too, for example, color the individual observations according to group.
+What if we want to add **grouping** to the scatterplot? We can add another argument to the function too, for example, color the individual observations according to group.
 
 #### <span style="color: green">**Exercise 5**</span> 
 <span style="color: green">**Modify the plot function to color the observations by `Species`. Do this by adding a `col` argument and setting the `Species` column as its value.**</span>
@@ -94,7 +94,7 @@ Expected result:
 plot(Sepal.Width ~ Sepal.Length, data = my_data,
      xlab = "sepal length",
      ylab = "sepal width",
-     main = "Correlation plot",
+     main = "Correlation between sepal length and width",
      col = my_data$Species)
 ```
  
@@ -122,7 +122,7 @@ You can customize this plot using the same arguments as in the `plot()` function
 #### <span style="color: green">**Exercise 7**</span> 
 <span style="color: green">**Update the histogram code by adding axes names, title, and setting it to display 4 bins.**</span>
 
-```{r, fig.show = 'hide'}
+```{r}
 hist(my_data$Sepal.Length,
      xlab = "sepal length",
      ylab = "count",
@@ -134,11 +134,12 @@ hist(my_data$Sepal.Length,
 
 ### Installation
 
-From now on, we are going to use the `ggplot2` package. To install it go to Tools >> Install Packages… or type:
+From now on, we are going to use the `ggplot2` package.
+
+Install and load the package:
 
 `install.packages("ggplot2")`
-
-Remember to load the package after it installs.
+`library(ggplot2)`
 
 ### Syntax
 
@@ -159,10 +160,6 @@ Both the `ggplot()` and the body functions share two crucial arguments:
     
 Note that the arguments passed to the `ggplot()` function are “parental”. It means they would be used if no arguments are provided for the body functions. It is called inheritance in the programming (because every subsequent function in the line “inherits” the arguments of the parent function).
 
-*An advice: At the beginning, to make it intuitive, provide the data argument within `ggplot()` function and the mapping argument to each of the body functions e.g. `ggplot(data = my_data) + geom_point(mapping = aes(x = column1, y = column2))`. The meaning is as follows:*  
-  *1.	Use `my_data` data frame as the source of the data for all subsequent body functions that create the plot elements*  
-  *2.	Use `column1` as the values on the x axis and `column2` as the values on the y axis and generate a point for each observation*
-
 
 To create the plotting area we supply the name of the dataset and map two variables to x and y aesthetics.
 
@@ -173,7 +170,9 @@ library(ggplot2)
 ggplot(data = iris, mapping = aes(x = Petal.Length, y = Petal.Width))
 ```
 
-We see the plot, with both axes scaled according to the ranges of the two variables to be plotted, but there’s nothing else on the plot. It’s because we have to add the visual layer(s) representing the data, which are called **geoms**. Not every geom is appropriate for displaying every type of data, you can find the complete list of geoms[[here](https://ggplot2.tidyverse.org/reference/index.html). For scatterplot we’ll use `geom_point()`. Also, we can omit `data =` and `mapping =` when we keep the order of the arguments.
+### Scatterplot 
+
+We see the plot, with both axes scaled according to the ranges of the two variables to be plotted, but there’s nothing else on the plot. It’s because we have to add the visual layer(s) representing the data, which are called **geoms**. Not every geom is appropriate for displaying every type of data, you can find the complete list of geoms [here](https://ggplot2.tidyverse.org/reference/index.html). For scatterplot we’ll use `geom_point()`. Also, we can omit `data =` and `mapping =` when we keep the order of the arguments.
 
 ```{r, echo = TRUE}
 ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
@@ -185,13 +184,16 @@ You can also move `mapping` from the base of `ggplot` to the body - here, to `ge
 ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width))
 ```
 
-Now let’s mark each species with a distinct colour. It’s very simple and natural in ggplot2() - we just add colour aesthetics and map the variable `Species` to it.
+Now let’s mark each species with a distinct color. It’s very simple and natural in `ggplot2()` - we just add `color` aesthetics and map the variable `Species` to it. Again, you can add `color` aesthetics both to the base and body of the plotting function. The results of both formulas below will be the same.
+
 
 ```{r, echo = TRUE}
 ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width, color = Species))
 ```
+```{r, echo = TRUE, fig.show = "hide"}
+ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_point()
+```
 
-### Scatterplot 
 
 #### <span style="color: green">**Exercise 8**</span> 
 <span style="color: green">**Create a scatterplot presenting the relationship between sepals’ length and width. Use `geom_point()` function.**</span>
@@ -205,11 +207,13 @@ ggplot(my_data) +
 
 Now, let’s make it pretty!
 
-  1.	Decide on the general appearance by the choice of a given `theme…()` function. For example, it is often usefl to apply `theme_bw()` as it removes unnecessary background. To check all built-in possibilities follow the [link](https://ggplot2.tidyverse.org/reference/ggtheme.html). Be aware that the choice of any specific `theme…()` function reduces adjustment flexibility. The other option is to use plain `theme()` function and adjust all characteristics on your own.  
+  1.	Decide on the general appearance by the choice of a given `theme…()` function. For example, it is often usefl to apply `theme_bw()` as it **removes unnecessary background**. To check all built-in possibilities follow the [link](https://ggplot2.tidyverse.org/reference/ggtheme.html). Be aware that the choice of any specific `theme…()` function reduces adjustment flexibility. The other option is to use plain `theme()` function and adjust all characteristics on your own.  
   2.	Set proper labels by using `labs()` function with arguments: `title` for the title of plot, `x` for x-axis label and `y` for y-axis label.
 
 #### <span style="color: green">**Exercise 9**</span> 
 <span style="color: green">**Modify previous scatterplot by setting `theme_bw()` function. Also, set a main title and axis labels according to the plot below.**
+
+*Tip: By default plot title is left-aligned. To center the title you can use the theme() function: `theme(plot.title = element_text(hjust = 0.5))`. The `hjust` argument controls horizontal justification, with 0.5 centering the title.*
 
 Expected result:
 
@@ -217,7 +221,9 @@ Expected result:
 ggplot(my_data) +
   geom_point(aes(x = Sepal.Length, y = Sepal.Width)) +
   theme_bw() +
-  labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises")
+  labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises") +
+  theme(plot.title = element_text(hjust = 0.5))
+
 ```
 
 As you have seen in the dataset description, the observations were collected for the three species of irises. To display them in different colors add color argument to `geom_point()` aesthetic and set it as the name of column with species description for each observation. Notice that the legend will be automatically added.
@@ -229,10 +235,10 @@ Expected result:
  
 ```{r}
 ggplot(my_data) +
-  geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width,  color = Species)) +
   theme_bw() +
-  labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises")
-
+  labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises") +
+  theme(plot.title = element_text(hjust = 0.5))
 ```
 
 > **Curiosity**  
@@ -241,7 +247,7 @@ There is an entire family of the scale…() functions that personalize the way o
  2.	`scale_y_discrete()` (for groups), `scale_y_continuous()` (for gradient) - modify y axis functionalities (e.g. its range)  
  3.	`scale_color_manual()` - to set personalized colors and legend labels
 
-Points alone are often not enough to see a trend. To get a better idea we need a **regression line**. You can draw it by adding `geom_smooth()` function to the plot’s body. Remember about required arguments (either assigned or inherited). Also, to obtain the linear regression, set argument `method` to `"lm"`.
+Points alone are often not enough to see a trend. To get a better idea we need a **regression line**. You can draw it by adding `geom_smooth()` function to the plot’s body. Remember about required arguments (either assigned or inherited). Also, to obtain the linear regression, set `geom_smooth()` `method` to `"lm"`.
 
 
 #### <span style="color: green">**Exercise 11**</span> 
@@ -252,13 +258,14 @@ Regression line in blue, gray area represents confidence intervals generated by 
 
 ```{r, message = F}
 ggplot(my_data) +
-  geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width,  color = Species)) +
   theme_bw() +
   labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises") +
+  theme(plot.title = element_text(hjust = 0.5)) +
   geom_smooth(aes(x = Sepal.Length, y = Sepal.Width), method = "lm")
 ```
 
-It seems that there is **no relationship** when you consider **all points together** but what about **relationships within species**? Do it by adding color argument to the `geom_smooth()` aesthetics and setting it as the name of column with species description for each observation.
+It seems that there is **no relationship** when you consider **all points together** but what about **relationships within species**? Do it by adding `color` argument to the `geom_smooth()` aesthetics and setting it as the name of column with species description for each observation.
 
 #### <span style="color: green">**Exercise 12**</span> 
 <span style="color: green">**Modify a scatterplot from exercise 11 to obtain separate regression lines for each species.**</span>
@@ -267,11 +274,11 @@ Expected result:
  
 ```{r, message = F}
 ggplot(my_data) +
-  geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width,  color = Species)) +
   theme_bw() +
   labs(x = "Length [cm]", y = "Width [cm]", title = "Relationship between sepals' length and width in irises") +
+  theme(plot.title = element_text(hjust = 0.5)) +
   geom_smooth(aes(x = Sepal.Length, y = Sepal.Width, color = Species), method = "lm")
-
 ``` 
  
 >**Curiosity**
@@ -395,7 +402,7 @@ ggsave("plot_ggsave.png")
 
 <span style="color: darkorange"><br>
 Use the built in `mtcars` data set for all exercises. As a reminder, you can pull up a description of the inbuilt data set by typing a question mark before its name into the R console.<br>
-1.	Using base R, generate a scatterplot to demonstrate a relationship between any 2 continuous variables. Add a grouping by `colour` to the plot, descriptions of axes, and a title.<br>
+1.	Using base R, generate a scatterplot to demonstrate a relationship between any 2 continuous variables. Add a grouping by `color` to the plot, descriptions of axes, and a title.<br>
 2.	Using base R, generate a histogram for any appropriate variable. Set the number of bins on it to 5, add axes descriptions, and plot title.
 3.	Load the `ggplot2` library and use it for all subsequent tasks. Draw a scatterplot of cars’ horsepower against weight. Include a regression line to check the relationship.<br>
 4.	Group values in the above scatterplot based on the number of cylinders. Does it change the relationship<br>
@@ -417,7 +424,7 @@ library(ggplot2)
 ggplot(data = my_data) + geom_point(mapping = aes(x = wt, y = hp)) + geom_smooth(mapping = aes(x = wt, y = hp), method = "lm")
 
 print("Ex. 4")
-ggplot(data = my_data) + geom_point(mapping = aes(x = wt, y = hp, colour = cyl)) + geom_smooth(mapping = aes(x = wt, y = hp), method = "lm")
+ggplot(data = my_data) + geom_point(mapping = aes(x = wt, y = hp, color = cyl)) + geom_smooth(mapping = aes(x = wt, y = hp), method = "lm")
 
 print("Ex.")
 ggplot(data = my_data) + geom_point(mapping = aes(x = gear, y = mpg))
