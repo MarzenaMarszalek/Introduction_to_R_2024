@@ -540,7 +540,7 @@ v33[1:10, ]
 ## <span style="color: darkorange;">Homework</span>
 
 <span style="color: darkorange">
-1.	Create a vector from 1 to 50. Then, using R only, calculate how many elements of this vector are higher of equal than the positive square root of 100. *Positive square root can be calculated with the `sqrt()` function.<br>
+1.	Create a vector from 1 to 50. Then, using R only, calculate how many elements of this vector are higher or equal than the positive square root of 100. *Positive square root can be calculated with the `sqrt()` function.<br>
 2.	Upload the built-in `CO2` data set as `hw_data`. Using logical expressions, display the rows of the dataset that have `concentration` below 350 AND `uptake` of over 30.<br>
 3.	Load the `dplyr` package. In the `hw_data` data frame sort the observations first by `concentration`, then by `uptake`. Overwrite the `hw_data` file so that the columns are permanently sorted in this manner.<br>
 4.	Using `dplyr` function add a new column called `uptake_percent` to the `hw_data` data frame that displays the `uptake` value as a percent of the maximum value of that column (=so that the highest value, 45.5, corresponds to 100%). Then remove the original `uptake` column using a `dplyr` function.<br>
