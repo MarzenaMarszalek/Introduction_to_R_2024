@@ -47,10 +47,10 @@ Histograms are usually used to demonstrate differences between groups or their c
 ### Scatterplot
 
 We’ll start with a scatterplot.  
-The basic R function to create any kind of plot is, simply, `plot()`. To set it up, provide arguments for data (the data frame it will use), x axis, and y axis: `plot(x = x_axis_data_, y = y_axis_data)`, where `x` and `y` specify variables that define x and y axes values respectively. 
+The basic R function to create any kind of plot is, simply, `plot()`. To set it up, provide arguments for x axis, and y axis: `plot(x = x_axis_data, y = y_axis_data)`, where `x` and `y` specify variables that define x and y axes values respectively. 
 
 #### <span style="color: green">**Exercise 2**</span> 
-<span style="color: green">**Create a simple plot using the `my_data` data frame. Provide the `Sepal.length` column as x, and `Sepal.width` as y arguments of the `plot()` function.**</span>
+<span style="color: green">**Create a  scatterplot using;o `my_data` data frame. Provide the `Sepal.length` column as x, and `Sepal.width` as y arguments of the `plot()` function.**</span>
 
 Expected result:
 
@@ -105,7 +105,7 @@ The basic plot function allows further modification, such as, e.g., addition of 
 
 Now let’s try to make a histogram.
 
-The base R function for making a histogram is `hist()`. The only argument you need to provide is the column of the data you want to work on. The group of the observations will be shown on the x axis, and the frequency of occurrences of observations in that group will be shown on the y axis.
+The base R function for making a histogram is `hist()`. The only argument you need to provide is the column of the data you want to work on. The group of the observations will be shown on the x axis, and the number of observations in that group will be shown on the y axis.
 
 #### <span style="color: green">**Exercise 6**</span> 
 <span style="color: green">**Create a histogram plot of the sepal length using `my_data`.**</span>
@@ -174,15 +174,16 @@ ggplot(data = iris, mapping = aes(x = Petal.Length, y = Petal.Width))
 
 We see the plot, with both axes scaled according to the ranges of the two variables to be plotted, but there’s nothing else on the plot. It’s because we have to add the visual layer(s) representing the data, which are called **geoms**. Not every geom is appropriate for displaying every type of data, you can find the complete list of geoms [here](https://ggplot2.tidyverse.org/reference/index.html). For scatterplot we’ll use `geom_point()`. Also, we can omit `data =` and `mapping =` when we keep the order of the arguments.
 
-```{r, echo = TRUE}
-ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
-```
-
-You can also move `mapping` from the base of `ggplot` to the body - here, to `geom_point()`. Both options will give the same result.
+You can also move `mapping` from  `ggplot()` to the body - here, to `geom_point()`. Both options will give the same result.
 
 ```{r, echo = TRUE, fig.show = 'hide'}
 ggplot(data = iris) + geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width))
 ```
+```{r, echo = TRUE}
+ggplot(data = iris, mapping = aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
+```
+
+
 
 Now let’s mark each species with a distinct color. It’s very simple and natural in `ggplot2()` - we just add `color` aesthetics and map the variable `Species` to it. The results of both formulas below will be the same.
 
@@ -207,7 +208,7 @@ ggplot(my_data) +
 
 Now, let’s make it pretty!
 
-  1.	Decide on the general appearance by the choice of a given `theme…()` function. For example, it is often usefl to apply `theme_bw()` as it **removes unnecessary background**. To check all built-in possibilities follow the [link](https://ggplot2.tidyverse.org/reference/ggtheme.html). Be aware that the choice of any specific `theme…()` function reduces adjustment flexibility. The other option is to use plain `theme()` function and adjust all characteristics on your own.  
+  1.	Decide on the general appearance by the choice of a given `theme…()` function. For example, it is often useful to apply `theme_bw()` as it **removes unnecessary background**. To check all built-in possibilities follow the [link](https://ggplot2.tidyverse.org/reference/ggtheme.html). Be aware that the choice of any specific `theme…()` function reduces adjustment flexibility. The other option is to use plain `theme()` function and adjust all characteristics on your own.  
   2.	Set proper labels by using `labs()` function with arguments: `title` for the title of plot, `x` for x-axis label and `y` for y-axis label.
 
 #### <span style="color: green">**Exercise 9**</span> 
@@ -226,7 +227,7 @@ ggplot(my_data) +
 
 ```
 
-As you have seen in the dataset description, the observations were collected for the three species of irises. To display them in different colors add color argument to `geom_point()` aesthetic and set it as the name of column with species description for each observation. Notice that the legend will be automatically added.
+As you have seen in the dataset description, the observations were collected for the three species of irises. To display them in different colors add color argument to aesthetics and set it as the name of column with species description for each observation. Notice that the legend will be automatically added.
 
 #### <span style="color: green">**Exercise 10**</span> 
 <span style="color: green">**Modify previous scatterplot by displaying the observations from different species with distinct colors.**</span>
@@ -286,7 +287,7 @@ Using `group` argument instead of color will also generate separate lines but al
 
 ### Boxplot
 
-Until now, we were working on plots with **continuous values on x and y axes**. What if we want to plot sepal width alone over all species? As **species are on discrete scale** we should consider a **boxplot**. Generate it in the similar way with the use of `geom_boxplot()` function. Note, that **discrete variables can be of character**, logical or factor type.  
+Until now, we were working on plots with **continuous values on x and y axes**. What if we want to plot sepal width alone over all species? As **species are on discrete scale** we should consider a **boxplot**. Generate it in the similar way with the use of `geom_boxplot()` function. Note, that **discrete variables can be of character, logical or factor type**.  
 If you have named groups it is highly recommended to encode them as **factors**, because factor levels can be ordered manually, which allows you to control the order in which groups appear on the plot.
 
 #### <span style="color: green">**Exercise 13**</span> 
@@ -304,7 +305,7 @@ ggplot(my_data, aes(x = Species, y = Sepal.Length)) +
 
 *An advice: If you do not know how to interpret the boxplot, follow the [link](https://wellbeingatschool.org.nz/information-sheet/understanding-and-interpreting-box-plots).*
 
-To set a common color for all boxes, use `fill` and `color` argument of `geom_boxplot()` function and provide it with a color name. It would set the color of filling and contours respectively. To color the boxes or its contours according to a variable e.g., `Species` you have to place `fill` or `color` argument in `aes()`.
+To set a common color for all boxes, use `fill` and `color` argument of `geom_boxplot()` function and provide it with a color name. It would set the color of filling and contours respectively. To color the boxes or its contours according to column' values e.g., `Species` you have to place `fill` or `color` argument in `aes()`.
 
 #### <span style="color: green">**Exercise 14**</span> 
 <span style="color: green">**Modify plot from exercise 13. by setting the color of boxes' contours according to `Species`.**</span>
@@ -334,7 +335,7 @@ ggplot(my_data, aes(x = Species, y = Sepal.Length, color = Species)) +
 ### Histogram
 
 Another commonly used type of a plot is **histogram**. It depicts the **number of observations within given ranges of values**. Generate it with the `geom_histogram()` function. Specify the aesthetics for x-axis only as y-values are computed by R.  
-To set a common color for all bars, use `fill` and `color` argument of `geom_histogram()` function and provide it with a color name. It would set the color of filling and contours respectively.
+To set a common color for all contours and bars, use `fill` and `color` argument of `geom_histogram()` function and provide it with a color name.
 
 #### <span style="color: green">**Exercise 16**</span> 
 <span style="color: green">**Generate a histogram of sepal length. Set bars and contours color.**</span>
