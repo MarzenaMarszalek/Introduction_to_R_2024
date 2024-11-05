@@ -40,7 +40,7 @@ summary(my_data)
 The two most common types of plots are **scatterplots** and **histograms**.
 
   - **Scatterplots** display individual observations of two variables measured existing on a **continuous scale**. They are usually used to demonstrate a **relationship** (or lack thereof) between two traits or measures.   
-  - **Histograms**, on the other hand, display **frequencies** of observations (shown on the y axis of a graph) per category of observations (shown on the x axis).
+  - **Histograms**, on the other hand, display number of observations (shown on the y axis of a graph) per category of observations (shown on the x axis).
   
 Histograms are usually used to demonstrate differences between groups or their central tendencies (e.g. means).
 
@@ -50,7 +50,7 @@ We’ll start with a scatterplot.
 The basic R function to create any kind of plot is, simply, `plot()`. To set it up, provide arguments for x axis, and y axis: `plot(x = x_axis_data, y = y_axis_data)`, where `x` and `y` specify variables that define x and y axes values respectively. 
 
 #### <span style="color: green">**Exercise 2**</span> 
-<span style="color: green">**Create a  scatterplot using;o `my_data` data frame. Provide the `Sepal.length` column as x, and `Sepal.width` as y arguments of the `plot()` function.**</span>
+<span style="color: green">**Create a  scatterplot using `my_data` data frame. Provide the `Sepal.length` column as x, and `Sepal.width` as y arguments of the `plot()` function.**</span>
 
 Expected result:
 
@@ -321,7 +321,7 @@ ggplot(my_data, aes(x = Species, y = Sepal.Length, color = Species)) +
 If you have tens, or perhaps a hundred data points, it may be useful to show them all together with boxplot. To avoid points overlapping each other, use `geom_jitter()`.
 
 #### <span style="color: green">**Exercise 15**</span> 
-<span style="color: green">**Modify plot from exercise 14. by setting adding data points. Use `geom_jitter()` function**</span>
+<span style="color: green">**Modify plot from exercise 14. by adding data points. Use `geom_jitter()` function**</span>
 
 ```{r}
 ggplot(my_data, aes(x = Species, y = Sepal.Length, color = Species)) +
@@ -384,7 +384,7 @@ ggplot(my_data, aes(x = Sepal.Length, fill = Species)) + geom_histogram(color = 
   theme(plot.title = element_text(hjust = 0.5)) 
 ```
 
-You can also think about histograms as **calculating the frequency** rather than the number of observations. To do this set the `y` argument of `geom_histogram()` aesthetics to `(after_stat(count))/(sum(after_stat(count)))`. Note that `after_stat(count))` is a function that allows you to access computed statistics while creating a plot.
+You can also think about histograms as **calculating the frequency** rather than the number of observations. To do this set the `y` argument of aesthetics to `(after_stat(count))/(sum(after_stat(count)))`. Note that `after_stat(count))` is a function that allows you to access computed statistics while creating a plot.
 
 #### <span style="color: green">**Exercise 19**</span> 
 <span style="color: green">**Generate a histogram of sepal length with the relative frequencies on the y axis.**</span>
