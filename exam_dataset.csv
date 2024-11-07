@@ -1,0 +1,9 @@
+﻿Sample_ID,Species,Height_cm,Leaf_Color,Flower_Present,Age_Years,pH_Soil
+S1,Quercus robur,350,Green,Yes,80,6,80
+S2,Pinus sylvestris,120,Dark Green,No,30,5,50
+S3,Betula pendula,250,Light Green,Yes,60,6,00
+S4,Acer platanoides,180,Yellow,No,25,7,20
+S5,Picea abies,300,Green,Yes,70,5,80
+S6,Fagus sylvatica,220,Green,No,50,6,30
+S7,Tilia cordata,200,Dark Green,Yes,40,6,50
+S8,Fraxinus excelsior,260,Green,No,65,6,70
