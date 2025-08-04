@@ -357,63 +357,6 @@ Chechetkin <br>Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral
 
 </div>
 
-<div id="TOC">
-<ul>
-<li><a href="#what-is-r" id="toc-what-is-r">What is R?</a></li>
-<li><a href="#r-installation" id="toc-r-installation">R
-installation</a></li>
-<li><a href="#note-on-programming-vocabulary" id="toc-note-on-programming-vocabulary">Note on Programming
-Vocabulary</a></li>
-<li><a href="#r-as-a-typical-calculator" id="toc-r-as-a-typical-calculator">R as a typical calculator</a>
-<ul>
-<li><a href="#exercise-1" id="toc-exercise-1"><span style="color: green"><strong>Exercise 1</strong></span></a></li>
-<li><a href="#exercise-2" id="toc-exercise-2"><span style="color: green"><strong>Exercise 2</strong></span></a></li>
-<li><a href="#exercise-3" id="toc-exercise-3"><span style="color: green"><strong>Exercise
-3</strong><span></a></li>
-<li><a href="#exercise-4" id="toc-exercise-4"><span style="color: green"><strong>Exercise 4</strong></span></a></li>
-<li><a href="#exercise-5" id="toc-exercise-5"><span style="color: green"><strong>Exercise 5</strong></span></a></li>
-</ul></li>
-<li><a href="#variables" id="toc-variables">Variables</a>
-<ul>
-<li><a href="#exercise-6" id="toc-exercise-6"><span style="color: green"><strong>Exercise 6</strong></span></a></li>
-<li><a href="#exercise-7" id="toc-exercise-7"><span style="color: green"><strong>Exercise 7</strong></span></a></li>
-<li><a href="#exercise-8" id="toc-exercise-8"><span style="color: green"><strong>Exercise 8</strong></span></a></li>
-<li><a href="#exercise-9" id="toc-exercise-9"><span style="color: green"><strong>Exercise 9</strong></span></a></li>
-</ul></li>
-<li><a href="#functions" id="toc-functions">Functions</a>
-<ul>
-<li><a href="#exercise-10" id="toc-exercise-10"><span style="color: green"><strong>Exercise 10</strong></span></a></li>
-<li><a href="#exercise-11" id="toc-exercise-11"><span style="color: green"><strong>Exercise 11</strong></span></a></li>
-<li><a href="#exercise-12" id="toc-exercise-12"><span style="color: green"><strong>Exercise 12</strong></span></a></li>
-</ul></li>
-<li><a href="#vectors" id="toc-vectors">Vectors</a>
-<ul>
-<li><a href="#exercise-13" id="toc-exercise-13"><span style="color: green"><strong>Exercise 13</strong></span></a></li>
-<li><a href="#exercise-14" id="toc-exercise-14"><span style="color: green"><strong>Exercise 14</strong></span></a></li>
-<li><a href="#exercise-15" id="toc-exercise-15"><span style="color: green"><strong>Exercise 15</strong></span></a></li>
-<li><a href="#exercise-16" id="toc-exercise-16"><span style="color: green"><strong>Exercise 16</strong></span></a></li>
-<li><a href="#exercise-17" id="toc-exercise-17"><span style="color: green"><strong>Exercise 17</strong></span></a></li>
-</ul></li>
-<li><a href="#vector-machinations" id="toc-vector-machinations">Vector
-machinations</a>
-<ul>
-<li><a href="#exercise-18" id="toc-exercise-18"><span style="color: green"><strong>Exercise 18</strong></span></a></li>
-<li><a href="#exercise-19" id="toc-exercise-19"><span style="color: green"><strong>Exercise 19</strong></span></a></li>
-<li><a href="#exercise-20" id="toc-exercise-20"><span style="color: green"><strong>Exercise 20</strong></span></a></li>
-</ul></li>
-<li><a href="#accessing-elements-of-a-vector" id="toc-accessing-elements-of-a-vector">Accessing elements of a
-vector</a>
-<ul>
-<li><a href="#exercise-21" id="toc-exercise-21"><span style="color: green"><strong>Exercise 21</strong></span></a></li>
-<li><a href="#exercise-22" id="toc-exercise-22"><span style="color: green"><strong>Exercise 22</strong></span></a></li>
-<li><a href="#exercise-23" id="toc-exercise-23"><span style="color: green"><strong>Exercise 23</strong></span></a></li>
-<li><a href="#exercise-24" id="toc-exercise-24"><span style="color: green"><strong>Exercise 24</strong></span></a></li>
-</ul></li>
-<li><a href="#before-leaving" id="toc-before-leaving">Before
-leaving</a></li>
-<li><a href="#homework" id="toc-homework"><span style="color: darkorange;">Homework</span></a></li>
-</ul>
-</div>
 
 <div id="what-is-r" class="section level2">
 <h2>What is R?</h2>
@@ -899,17 +842,20 @@ getwd()                                  # displays where the file was saved</co
 commands in a plain text file and call it
 “class_1_homework_Your_Name.txt” (replace “Your_Name” with your actual
 name). Then, upload the file to the <code>Class 1</code> tab on the
-Pegaz platform.</strong><br> 1. Create a vector of the number of days in
-each month called <code>days</code>. The vector should have 12 elements
-and contain only numbers. Assume it is not a leap-year.<br> 2. Using
-vector <code>days</code> find the median number of days in a month and
-save it to a new variable called <code>median_days</code>.<br> 3. Using
-vector <code>days</code> find the difference (in days) between the
-longest and shortest month and save it to a new variable called
-<code>difference_days</code>.<br> 4. Using vector <code>days</code> get
-a vector of unique month lengths and call a new vector
-<code>month_length</code>.<br> 5. Overwrite the days vector by replacing
-it with the number of minutes in each month . </span></p>
+Pegaz platform.</strong><br />
+1. Create a vector of the number of days in each month called
+<code>days</code>. The vector should have 12 elements and contain only
+numbers. Assume it is not a leap-year.<br />
+2. Using vector <code>days</code> find the median number of days in a
+month and save it to a new variable called
+<code>median_days</code>.<br />
+3. Using vector <code>days</code> find the difference (in days) between
+the longest and shortest month and save it to a new variable called
+<code>difference_days</code>.<br />
+4. Using vector <code>days</code> get a vector of unique month lengths
+and call a new vector <code>month_length</code>.<br />
+5. Overwrite the days vector by replacing it with the number of minutes
+in each month . </span></p>
 </div>
 
 
