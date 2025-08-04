@@ -452,14 +452,14 @@ If you want to save your code written during the class, type the commands below 
 
 ```{r, eval=F, echo=T}
 savehistory(file = "my_history.txt")     # saves your R history to the file "my_history.txt"
-getwd()                                  # displays where the file was saved`
+getwd()                                  # displays where the file was saved
 ```
 
 
 ## <span style="color: darkorange;">Homework</span>
 
 <span style="color: darkorange">
-**Please save all your R commands in a plain text file and call it `class_1_homework_Your_Name.txt` (Replace *Your_Name* with your actual name.).Then, upload the file to the `Class 1` tab on the Pegaz platform.**<br>
+**Please save all your R commands in a plain text file and call it "class_1_homework_Your_Name.txt" (replace "Your_Name" with your actual name). Then, upload the file to the `Class 1` tab on the Pegaz platform.**<br>
   1. Create a vector of the number of days in each month called `days`. The vector should have 12 elements and contain only numbers. Assume it is not a leap-year.<br>
   2. Using vector `days` find the median number of days in a month and save it to a new variable called `median_days`.<br>
   3. Using vector `days` find the difference (in days) between the longest and shortest month and save it to a new variable called `difference_days`.<br>
