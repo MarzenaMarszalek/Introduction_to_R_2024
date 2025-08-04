@@ -459,26 +459,11 @@ getwd()                                  # displays where the file was saved`
 ## <span style="color: darkorange;">Homework</span>
 
 <span style="color: darkorange">
-**Please, save all your commands in a text file and call it "class_1_homework_Your_Name". Upload it to the "Class 1" tab on *Pegaz* platform.**<br>
-  1. Create a vector with 12 elements which will correspond to the number of days each month has. Assume it is not a leap-year. Call it `days`.<br>
-  2. Using vector `days` calculate median number of days in a month.<br>
-  3. Using vector `days` calculate the difference (in days) between the longest and the shortest month.<br>
-  4. Modify vector `days` to obtain a vector of unique possible months’ lengths. Call it `months_length`.<br>
-  5. Modify vector `days` and create a vector with the number of minutes each month has. Call it `minutes`.
+**Please save all your R commands in a plain text file and call it `class_1_homework_Your_Name.txt` (Replace *Your_Name* with your actual name.).Then, upload the file to the `Class 1` tab on the Pegaz platform.**<br>
+  1. Create a vector of the number of days in each month called `days`. The vector should have 12 elements and contain only numbers. Assume it is not a leap-year.<br>
+  2. Using vector `days` find the median number of days in a month and save it to a new variable called `median_days`.<br>
+  3. Using vector `days` find the difference (in days) between the longest and shortest month and save it to a new variable called `difference_days`.<br>
+  4. Using vector `days` get a vector of unique month lengths and call a new vector `month_length`.<br>
+  5. Overwrite the days vector by replacing it with the number of minutes in each month .
 </span>
 
-```{r, include = F, eval = FALSE}
-print("Ex. 1")
-days <- c(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
-days
-print("Ex. 2")
-median(days)
-print("Ex. 3")
-max(days)-min(days)
-print("Ex. 4")
-months_lengths <- unique(days)
-months_lengths
-print("Ex. 5")
-minutes <- days * days*(60*24)
-minutes
-```
