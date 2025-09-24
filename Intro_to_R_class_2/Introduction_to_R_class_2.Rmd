@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R - class 2<br> <span style='color: gray'>Working in RStudio</span>"
-author: " Mateusz Chechetkin, Tomasz Gaczorek & Wiesław Babik<br>Marzena Marszałek<br> marzena.marszalek@doctoral.uj.edu.pl<br>"
+author: " Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik & Marzena Marszałek<br> marzena.marszalek@doctoral.uj.edu.pl<br>"
 date: "`r Sys.Date()`"
 chunk_output_type: console
 output:
@@ -13,19 +13,11 @@ output:
 knitr::opts_chunk$set(echo = F)
 ```
 
-## RStudio
+## RStudio interface
 
-RStudio is a **shell** and **programming environment** for the R language. It makes working with R much easier and more intuitive by providing a **user interface** to R features originally hidden behind R functions. However, remember that **all actions can be also performed within the classical R console**.
+**RStudio has three great advantages over classical R console:**
 
-### Installation
-
-Follow the [link](https://posit.co/download/rstudio-desktop/), choose the appropriate operating system and install free **RStudio Desktop**. Have in mind that **R needs to be installed first**.
-
-### Appearance
-
-RStudio has three great advantages over classical R console:
-
-  - saving and editing your code as a text file (.R)
+  - saving and editing your code as a text file - R scripts (.R)
   - running any piece of previously written code (reanalysis)
   - displaying all R objects and variables saved in your computer memory at any given moment
   
@@ -33,9 +25,9 @@ The RStudio window consists of four main panels:
 
 ![](rstudio.png)
 
-  1. **Code editor** - Here you can write your code and save it in a text file (.R). You can run it anytime by highlighting given piece of code and clicking Run in right-top corner (also Ctrl + Enter).
+  1. **Code editor** - Here you can write your code and save it in a text file (.R). You can run it anytime by highlighting given piece of code and clicking `Run` in right-top corner (also Ctrl + Enter).
 
-  2. **Console** - Exactly the same console as in standard R (see Class 1). Note that any line of code run from Code editor will appear in the console. To recall the lastly run line of code use Arrow-up (it works as a general way of browsing through the history of the executed commands).
+  2. **Console** - Exactly the same console as in standard R (see Class 1). Note that any line of code run from the Code editor will appear in the console. To recall the lastly run line of code, use `Arrow-up` (it works as a general way of browsing through the history of the executed commands).
 
   3. **Environment / History**  
     -	**Environment** - shows all the objects that you created or loaded into your computer’s memory (RAM). Have in mind they will be lost as soon as you close RStudio.  
@@ -47,8 +39,19 @@ The RStudio window consists of four main panels:
     - **Help** - access help page (often with examples) for a given function.  
     - **Packages** - manage all additionally installed packages.
     
-#### <span style="color: green">**Exercise 1**</span>
-<span style="color: green;">**Create new script file (File >> New File >> R Script) and save it. Call it as you wish. Write code for all subsequent exercises using **Code editor**. Remember that to obtain any outcome/result you need to execute/run your code first.**</span>
+
+## R Scripts
+
+In the previous class, working directly in the **R Console** was sufficient — we simply typed and executed individual commands. However, imagine that you now want to perform a series of operations on multiple datasets or rerun the same analysis in the future. Typing the same commands over and over would be inefficient and error-prone.
+
+This is where **R scripts** come in. Scripts allow you to save your code in a file, so you can organize, reuse, modify, and share your analyses easily. To create a new R script, go to **File → New File → R Script** or **New File icon → R Script**. Alternatively, use the keyboard shortcut **Ctrl + Shift + N**. Your new R script file will open in the **Code editor** (top-left panel). Remember to save your script when you are done (File → Save As..), so you can return to it later. 
+
+To run code from an R script, **place the cursor on the desired line (or highlight multiple lines)** and press **Ctrl + Enter** or click the `Run` button. The results will appear in the Console.
+
+![](RScript.png)
+
+### <span style="color: green">**Exercise 1**</span>
+<span style="color: green;">**Create new script file and save it. Call it as you wish. Write code for all subsequent exercises using Code editor. Remember that to obtain any outcome/result you need to run your code first.**</span>
 
 To make your code easier to read and understand it is a good practice to **add comments**. Comments help explain what specific sections of the code are doing. This may be useful for other people using your script, and for you as even if you know what your code is doing, after some time you may forget it, and again spend a lot of time to understand its functioning. 
 
@@ -58,9 +61,8 @@ In R you can add comments to your script by **starting the line with hashtag** `
 
 **Working directory** is a folder on your computer where **R is operating at the moment**. Think about it as a separate room for a given analysis. R will look for and save all files in the working directory by default. You can check current working directory by typing `getwd()`.
 
-### How to set a working directory?  
 To set new working directory use Session >> Set Working Directory >> Choose Directory or use `setwd()` function with a destination path provided as an argument.
-Unless you continue a previous analysis, ALWAYS set new working directory.
+Unless you continue a previous analysis, **always set new working directory**.
 
 #### <span style="color: green">**Exercise 2**</span>
 <span style="color: green;">**Create a new folder and set it as a working directory.**</span>
@@ -79,7 +81,7 @@ Although it is usually easier to create folders traditionally, using your operat
 
 A huge part of preventing mistakes and reducing the amount of frustration in your work is developing good programming habits and having an established order of doing things. Now we will go through some parts of programming workflow.
 
-### Setting up RStudio at the beginning of your working session.
+### Setting up RStudio at the beginning of your working session
 
 One of the advantages of RStudio is that it can save a lot of your work in between coding sessions. However, this can also generate some problems, as it can be easy to forget what you were doing last time. Having consistent setup rules can help with this.  
 
@@ -148,7 +150,7 @@ Once a package is installed, you need to load it. An installed package will rema
 
 *Advice: the more packages you install, the longer it will take for RStudio to open; it can also slow down the app. For most computers this difference is pretty small, however, if you have an older laptop, it is better not to install every package under the sun.*
 
-#### Coming back to uploading data.
+#### Coming back to data upload
 
 For the sake of keeping data clean and files simple and compatible, it can be a good idea to work on more universal, plain text files than complex .xlsx files: 
 
