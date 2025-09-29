@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = F)
 ```
 
-<span style="color: green">**Descriptions of exercises are in green.**</span>  
+<span style="color: green">**Descriptions of exercises are in green**</span>  
 <span style="color: #da205eff;">**Homeworks are in pink**</span>
 
 ## What is R?

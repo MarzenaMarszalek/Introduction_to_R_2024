@@ -60,7 +60,7 @@ my_data[,c(T, F, F, F, T)]
 Normally, no one creates logical vectors on their own. They are created automatically as a effect of different comparisons. The most common is testing for equality. It is done with double equal sign (`==`).
 
 ### <span style="color: green">**Exercise 4**</span>
-<span style="color: green">**Check whether in R: 5 equals 5.00 and whether `π` equals 3.14.**</span>
+<span style="color: green">**Check whether in R: 5 equals 5.00 and `π` equals 3.14.**</span>
 
 Expected result:
 
@@ -79,7 +79,7 @@ The same stands for all other comparisons, but the symbols are different:
   •	`<=` - less than or equal  
   
 >**Curiosity**  
-Double equal sign (`==`) is used for equality because the single sign (`=`) is already in use. It serves as an alternative for the assigning arrow; however, for code purity, the arrow is the one recommended.
+Double equal sign `==` is used for equality because the single sign `=` is already in use. It serves as an alternative for the assigning arrow; however, for code purity, the arrow is the one recommended.
 
 Note that while comparing two vectors with the symbols shown above, R does not consider the action as one comparison. It rather compares them element by element, recycling shorter vectors and resulting in a logical vector of a longer vector's length. It is the same rule as for mathematical operations on vectors.
 
@@ -123,7 +123,7 @@ v7 %in% v7a
 
 ## Exclamation mark
 
-Exclamation mark (`!`) works in R as the symbol of negation (=reversing the statement). Any logical vector preceded by `!` will result in its reversal - `FALSE` changed into `TRUE` and vice versa.
+Exclamation mark `!` works in R as the symbol of negation (=reversing the statement). Any logical vector preceded by `!` will result in its reversal - `FALSE` changed into `TRUE` and vice versa.
 
 ### <span style="color: green">**Exercise 8**</span>
 <span style="color: green">**Having a vector of 3 `TRUE` and 3 `FALSE` values, return its negation.**</span>
@@ -245,7 +245,7 @@ CO2[CO2$Plant == "Qn2", ]
 ```
 
 
-*An advice: To obtain the logical vector with one element for each row, you need to make a comparison based on a column e.g., ` my_data[my_data$my_column != 5, ]` would result in the observations (including all columns) from `my_data` in which the value for `my_column` does not equal 5.*
+*Advice: To obtain the logical vector with one element for each row, you need to make a comparison based on a column e.g., ` my_data[my_data$my_column != 5, ]` would result in the observations (including all columns) from `my_data` in which the value for `my_column` does not equal 5.*
 
 ### <span style="color: green">**Exercise 16**</span>
 <span style="color: green">**Using the built-in dataset `CO2`, return observation from the `Mississippi` `chilled` plant with an `uptake` higher than 20 ummol/m2 x s.**</span>
@@ -318,7 +318,7 @@ arrange(my_data, desc(Glycogen))[1:10,]
 You can also sort the data by **multiple columns**. To do this, add column in the following manner: `arrange(dataset, ordering_column1, ordering_column2)`. Note that the priority of sorting is denoted by the order of function arguments.
 
 #### <span style="color: green">**Exercise 22**</span> 
-<span style="color: green">**Using the `arrange()` function, obtain the observations from `my_data` sorted firstly by the `Treatment` column and then by the `Rat` column. Both in ascending order.**</span>
+<span style="color: green">**Using the `arrange()` function, obtain the observations from `my_data` sorted firstly by the `Treatment` column and then by the `Rat` column (both in ascending order).**</span>
 
 
 Expected result (first 10 rows):
@@ -389,7 +389,7 @@ my_data[1:10, ]
 Make a summary of your dataset with the `summarise()` function. The syntax is as follows: `summarise(dataset, name_of_summary1 = recipe_for_value1, name_of_summary2 = recipe_for_value2,…)`. Recipe in that case is any aggregating function (e.g., ` mean()` ) that will accept a whole column (vector) and result in a single statistic. Note that this function will result in the creation of a new table with 1 row of summary statistics and as many columns as the number of statistics mentioned.
 
 #### <span style="color: green">**Exercise 28**</span> 
-<span style="color: green">**Use the `summarise()` function to create a summary of `my_data` containing mean, median, maximum value, minimum value, and standard deviation of the`Glycogen` column.**</span>
+<span style="color: green">**Use the `summarise()` function to create a summary of `my_data` containing mean, median, maximum value, minimum value, and standard deviation of the `Glycogen` column.**</span>
 
 Expected result:
 
