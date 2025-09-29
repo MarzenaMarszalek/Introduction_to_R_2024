@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik &amp; Mateusz Chechetkin Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2024-11-02" />
+<meta name="date" content="2025-09-29" />
 
 <title>Introduction to R - class 4  Data Wrangling 2</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 4<br> <span style="color: gray">Data Wrangling 2</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik &amp; Mateusz
 Chechetkin<br>Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2024-11-02</h4>
+<h4 class="date">2025-09-29</h4>
 
 </div>
 
@@ -403,49 +403,49 @@ logical expressions</a>
 <li><a href="#exercise-17" id="toc-exercise-17"><span style="color: green"><strong>Exercise 17</strong></span></a></li>
 <li><a href="#exercise-18" id="toc-exercise-18"><span style="color: green"><strong>Exercise 18</strong></span></a></li>
 <li><a href="#exercise-19" id="toc-exercise-19"><span style="color: green"><strong>Exercise 19</strong></span></a></li>
-<li><a href="#sorting-observations" id="toc-sorting-observations">SORTING OBSERVATIONS</a>
+<li><a href="#sorting-observations" id="toc-sorting-observations">Sorting observations</a>
 <ul>
 <li><a href="#exercise-20" id="toc-exercise-20"><span style="color: green"><strong>Exercise 20</strong></span></a></li>
 <li><a href="#exercise-21" id="toc-exercise-21"><span style="color: green"><strong>Exercise 21</strong></span></a></li>
 <li><a href="#exercise-22" id="toc-exercise-22"><span style="color: green"><strong>Exercise 22</strong></span></a></li>
 </ul></li>
-<li><a href="#subsetting-columns" id="toc-subsetting-columns">SUBSETTING
-COLUMNS</a>
+<li><a href="#subsetting-columns" id="toc-subsetting-columns">Subsetting
+columns</a>
 <ul>
 <li><a href="#exercise-23" id="toc-exercise-23"><span style="color: green"><strong>Exercise 23</strong></span></a></li>
 <li><a href="#exercise-24" id="toc-exercise-24"><span style="color: green"><strong>Exercise 24</strong></span></a></li>
 </ul></li>
-<li><a href="#subsetting-observations" id="toc-subsetting-observations">SUBSETTING OBSERVATIONS</a>
+<li><a href="#subsetting-observations" id="toc-subsetting-observations">Subsetting observations</a>
 <ul>
 <li><a href="#exercise-25" id="toc-exercise-25"><span style="color: green"><strong>Exercise 25</strong></span></a></li>
 <li><a href="#exercise-26" id="toc-exercise-26"><span style="color: green"><strong>Exercise 26</strong></span></a></li>
 </ul></li>
-<li><a href="#modifying-columns" id="toc-modifying-columns">MODIFYING
-COLUMNS</a>
+<li><a href="#modifying-columns" id="toc-modifying-columns">Modifying
+columns</a>
 <ul>
 <li><a href="#exercise-27" id="toc-exercise-27"><span style="color: green"><strong>Exercise 27</strong></span></a></li>
 </ul></li>
-<li><a href="#summary" id="toc-summary">SUMMARY</a>
+<li><a href="#summary-of-the-dataset" id="toc-summary-of-the-dataset">Summary of the dataset</a>
 <ul>
 <li><a href="#exercise-28" id="toc-exercise-28"><span style="color: green"><strong>Exercise 28</strong></span></a></li>
 <li><a href="#exercise-29" id="toc-exercise-29"><span style="color: green"><strong>Exercise 29</strong></span></a></li>
 </ul></li>
-<li><a href="#pipeline-operator-and-pipeline" id="toc-pipeline-operator-and-pipeline">PIPELINE OPERATOR AND
-PIPELINE</a>
+<li><a href="#pipeline-operator-and-pipeline" id="toc-pipeline-operator-and-pipeline">Pipeline operator and
+pipeline</a>
 <ul>
 <li><a href="#exercise-30" id="toc-exercise-30"><span style="color: green"><strong>Exercise 30</strong></span></a></li>
 </ul></li>
-<li><a href="#grouping" id="toc-grouping">GROUPING</a>
+<li><a href="#grouping" id="toc-grouping">Grouping</a>
 <ul>
 <li><a href="#exercise-31" id="toc-exercise-31"><span style="color: green"><strong>Exercise 31</strong></span></a></li>
 <li><a href="#exercise-32" id="toc-exercise-32"><span style="color: green"><strong>Exercise 32</strong></span></a></li>
 </ul></li>
-<li><a href="#joining" id="toc-joining">JOINING</a>
+<li><a href="#joining" id="toc-joining">Joining</a>
 <ul>
 <li><a href="#exercise-33" id="toc-exercise-33"><span style="color: green"><strong>Exercise 33</strong></span></a></li>
 </ul></li>
 </ul></li>
-<li><a href="#homework" id="toc-homework"><span style="color: darkorange;">Homework</span></a></li>
+<li><a href="#homework" id="toc-homework"><span style="color: #da205eff;">Homework</span></a></li>
 </ul>
 </div>
 
@@ -461,21 +461,21 @@ into vectors using the same functions as for numbers and characters.</p>
 <h3><span style="color: green"><strong>Exercise 1</strong></span></h3>
 <p><span style="color: green"><strong>Create a logical vector with 3
 <code>TRUE</code> and 2 <code>FALSE</code> values and call it
-<code>my_logical</code>. Note that they are internal R symbols so you
+<code>my_logical</code>. Note that they are internal R symbols, so you
 should not use quotation marks (<code>&quot;&quot;</code>).</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
-<p><em>An advice: To make your code shorter you can use <code>T</code>
+<p><em>Advice: To make your code shorter, you can use <code>T</code>
 instead of <code>TRUE</code> and <code>F</code> instead of
 <code>FALSE</code>.</em></p>
 <p>Formally, logical values correspond to 0 (for <code>FALSE</code>) and
 1 (for <code>TRUE</code>) and behave like them in every mathematical
-operations.</p>
+operation.</p>
 </div>
 <div id="exercise-2" class="section level3">
 <h3><span style="color: green"><strong>Exercise 2</strong></span></h3>
-<p><span style="color: green"><strong>Calculate the sum of
-<code>my_logical</code>.</strong></span></p>
+<p><span style="color: green"><strong>Calculate the sum of the
+<code>my_logical</code>vector.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1] 3</code></pre>
 <blockquote>
@@ -487,18 +487,18 @@ presence of <code>NA</code> cells. To do this, combine the
 </blockquote>
 <p>However, logical vectors have one important distinctive
 characteristic: they can be used for <strong>subsetting</strong>. To
-achieve this you need to provide logical vector with <code>TRUE</code>
-<strong>for the elements you want to keep</strong> and
-<code>FALSE</code> <strong>for for the elements you want to
+achieve this, you need to provide a logical vector with
+<code>TRUE</code> <strong>for the elements you want to keep</strong> and
+<code>FALSE</code> <strong>for the elements you want to
 discard</strong>. The length of the logical vector used for subsetting
 has to be equal to the number of elements (e.g., columns) in the object
 we want to subset.</p>
 </div>
 <div id="exercise-3" class="section level3">
 <h3><span style="color: green"><strong>Exercise 3</strong></span></h3>
-<p><span style="color: green"><strong>Save 6 first rows of built-in
-<code>CO2</code> dataset to a chosen variable. Then, using logical
-vectors return its 1st and 5th column.</strong></span></p>
+<p><span style="color: green"><strong>Save the first 6 rows of the
+built-in <code>CO2</code> dataset to a chosen variable. Then, using
+logical vectors, return the 1st and 5th column.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##   Plant uptake
 ## 1   Qn1   16.0
@@ -511,8 +511,8 @@ vectors return its 1st and 5th column.</strong></span></p>
 </div>
 <div id="comparisons" class="section level2">
 <h2>Comparisons</h2>
-<p>Normally, no one creates logical vectors on their own. There are
-created automatically as the effect of different comparisons. The most
+<p>Normally, no one creates logical vectors on their own. They are
+created automatically as a effect of different comparisons. The most
 common is testing for equality. It is done with double equal sign
 (<code>==</code>).</p>
 <div id="exercise-4" class="section level3">
@@ -522,7 +522,7 @@ and whether <code>π</code> equals 3.14.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1] TRUE</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<p>The same stands for all others comparisons but the symbols are
+<p>The same stands for all other comparisons, but the symbols are
 different:</p>
 <p>• <code>==</code> - equal<br />
 • <code>!=</code> - not equal<br />
@@ -532,16 +532,16 @@ different:</p>
 • <code>&lt;=</code> - less than or equal</p>
 <blockquote>
 <p><strong>Curiosity</strong><br />
-Double equal sign (<code>==</code>) is used for equality because single
-sign (<code>=</code>) is already in use. It serves as an alternative for
-the assigning arrow, however, for code purity the arrow is the one
-recommended.</p>
+Double equal sign (<code>==</code>) is used for equality because the
+single sign (<code>=</code>) is already in use. It serves as an
+alternative for the assigning arrow; however, for code purity, the arrow
+is the one recommended.</p>
 </blockquote>
 <p>Note that while comparing two vectors with the symbols shown above, R
 does not consider the action as one comparison. It rather compares them
-element by element, recycling shorter vector and resulting in logical
-vector of longer one’s length. It is the same rule as for mathematical
-operations on vectors.</p>
+element by element, recycling shorter vectors and resulting in a logical
+vector of a longer vector’s length. It is the same rule as for
+mathematical operations on vectors.</p>
 </div>
 <div id="exercise-5" class="section level3">
 <h3><span style="color: green"><strong>Exercise 5</strong></span></h3>
@@ -550,30 +550,30 @@ of the prime numbers and a second of even numbers. Both should belong to
 the range &lt;0,11&gt;. Check if they are equal.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
-<p>To check whether vectors (as a whole) are identical use
+<p>To check whether vectors (as a whole) are identical, use the
 <code>identical()</code> function.</p>
 </div>
 <div id="exercise-6" class="section level3">
 <h3><span style="color: green"><strong>Exercise 6</strong></span></h3>
 <p><span style="color: green"><strong>Create two integer vectors from 1
-to 10. Call them differently and compare them with
-<code>identical()</code> function. Then, change one value within first
-vector and repeat comparison.</strong></span></p>
+to 10. Call them differently and compare them with the
+<code>identical()</code> function. Then, change one value within the
+first vector and repeat the comparison.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1] TRUE</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>The other useful tool is the <code>%in%</code> operator. It provides
-information <strong>whether elements of the first vector are present in
-the second one</strong>. Note that it is focused on the first vector
+information on <strong>whether elements of the first vector are present
+in the second one</strong>. Note that it is focused on the first vector
 only, so there is <strong>no recycling</strong>. The result of the
 operation with <code>%in%</code> is the logical vector.</p>
 </div>
 <div id="exercise-7" class="section level3">
 <h3><span style="color: green"><strong>Exercise 7</strong></span></h3>
-<p><span style="color: green"><strong>Create two character vectors each
+<p><span style="color: green"><strong>Create two character vectors, each
 consisting of a set of individual characters. The first should contain
-your name and the second one the name of other person from the group.
-Check how many letter your names have in common. Then, change the order
+your name and the second one the name of another person from the group.
+Check how many letters your names have in common. Then, change the order
 of names and repeat the comparison.</strong></span></p>
 </div>
 </div>
@@ -585,22 +585,24 @@ negation (=reversing the statement). Any logical vector preceded by
 into <code>TRUE</code> and vice versa.</p>
 <div id="exercise-8" class="section level3">
 <h3><span style="color: green"><strong>Exercise 8</strong></span></h3>
-<p><span style="color: green"><strong>Having vector of 3
+<p><span style="color: green"><strong>Having a vector of 3
 <code>TRUE</code> and 3 <code>FALSE</code> values, return its
 negation.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
-<p>More typically <code>!</code> is used to negate comparisons. Note
-that the idea is the same: you negate logical vector by negating action
-which produces it. Remember that negated comparison should be enclosed
-in parentheses e.g. <code>!(2 == 2)</code>.</p>
+<p>More typically, an exclamation mark <code>!</code> is used to negate
+comparisons. Note that the idea is the same: you negate a logical vector
+by negating the action that produces it. Remember that negated
+comparison should be enclosed in parentheses, e.g.,
+<code>!(2 == 2)</code>.</p>
 </div>
 <div id="exercise-9" class="section level3">
 <h3><span style="color: green"><strong>Exercise 9</strong></span></h3>
 <p><span style="color: green"><strong>Create a sequence of integers from
 1 to 100 in which each subsequent element is larger by 3 than the
 previous one. Then, create logical vector indicating which elements are
-larger than 50. Do not use <code>&gt;</code> sign.</strong></span></p>
+larger than 50. Do not use the <code>&gt;</code>
+sign.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [13] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
@@ -613,48 +615,48 @@ larger than 50. Do not use <code>&gt;</code> sign.</strong></span></p>
 comparisons (use parentheses for clarity). There are two basic
 operators:</p>
 <p>• <code>&amp;</code> - <strong>and</strong> - condition is
-<code>TRUE</code> if both comparison are <code>TRUE</code><br />
+<code>TRUE</code> if both comparisons are <code>TRUE</code><br />
 • <code>|</code> - <strong>or</strong> - condition is <code>TRUE</code>
 if at least one comparison is <code>TRUE</code></p>
 <div id="exercise-10" class="section level3">
 <h3><span style="color: green"><strong>Exercise 10</strong></span></h3>
 <p><span style="color: green"><strong>For an integer vector from 1 to
-10, create logical vector indicating which element is smaller or larger
-than 5. Use logical operator.</strong></span></p>
+10, create a logical vector indicating which element is smaller or
+larger than 5. Use a logical operator.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
 </div>
 <div id="exercise-11" class="section level3">
 <h3><span style="color: green"><strong>Exercise 11</strong></span></h3>
 <p><span style="color: green"><strong>For an integer vector from 1 to
-10, create logical vector indicating which element is divisible by both
-2 and 3. Use logical operator.</strong></span></p>
+10, create a logical vector indicating which element is divisible by
+both 2 and 3. Use a logical operator.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE</code></pre>
 <blockquote>
 <p><strong>Curiosity</strong><br />
-R also uses double version of <code>&amp;</code> and <code>|</code>
-operators. Their outcome is exactly the same and their role is just
-related to optimization. While using double operators, R checks first
-condition and if not needed, ignore the second one (e.g. in the “AND”
-statement if the first condition is <code>FALSE</code>, there is no need
-to check the second one as the result will always be
-<code>FALSE</code>). Note that they are often used when conditions are
-severly time-consuming.</p>
+R also uses a double version of the <code>&amp;</code> and
+<code>|</code> operators. Their outcome is the same, and their role is
+just related to optimization. While using double operators in R, the
+first condition is evaluated, and the second condition is only checked
+if necessary (e.g. in the “AND” statement if the first condition is
+<code>FALSE</code>, there is no need to check the second one as the
+result will always be <code>FALSE</code>). Note that they are often used
+when conditions are severely time-consuming.</p>
 </blockquote>
 </div>
 </div>
 <div id="which-function" class="section level2">
 <h2>which() function</h2>
 <p>Frequently, the question is not about logical vectors themselves but
-rather about <strong>which element of a vector fulfills given
+rather about <strong>which element of a vector fulfills a given
 condition</strong>. The answer is provided by <code>which()</code>
-function. It takes comparison as an argument and <strong>return a vector
-of indexes</strong> that can be used for subsetting.</p>
+function. It takes a comparison as an argument and <strong>returns a
+vector of indexes</strong> that can be used for subsetting.</p>
 <div id="exercise-12" class="section level3">
 <h3><span style="color: green"><strong>Exercise 12</strong></span></h3>
-<p><span style="color: green"><strong>Construct a vector with first 20
-integers divisible by 3. Which elements of it are larger or equal
+<p><span style="color: green"><strong>Construct a vector with the first
+20 integers divisible by 3. Which elements of it are larger or equal to
 21?</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##  [1]  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
@@ -662,8 +664,8 @@ integers divisible by 3. Which elements of it are larger or equal
 <div id="exercise-13" class="section level3">
 <h3><span style="color: green"><strong>Exercise 13</strong></span></h3>
 <p><span style="color: green"><strong>Having indexes of values larger or
-equal 21 from the previous exercise, return the values from previously
-constructed vector that corresponds to these
+equal 21 from the previous exercise, return the values from the
+previously constructed vector that correspond to these
 indexes.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##  [1] 21 24 27 30 33 36 39 42 45 48 51 54 57 60</code></pre>
@@ -671,44 +673,44 @@ indexes.</strong></span></p>
 </div>
 <div id="subsetting-with-the-logical-expressions" class="section level2">
 <h2>Subsetting with the logical expressions</h2>
-<p>As stated before subsetting can be done directly with logical vectors
-(<code>TRUE</code> for each kept element). In practice, it is even
-simpler. All you need to provide is a <strong>condition instead of a
-coordinate</strong> e.g. <code>vector[condition]</code> will return only
-the elements fulfilling given condition.</p>
+<p>As stated before, subsetting can be done directly with logical
+vectors (<code>TRUE</code> for each kept element). In practice, it is
+even simpler. All you need to provide is a <strong>condition instead of
+a coordinate</strong> e.g., <code>vector[condition]</code> will return
+only the elements fulfilling the given condition.</p>
 <p>For example: There is a vector <code>a &lt;- c(1, 2, 3, 4)</code>. We
-want to subset elements of this vector that are greater then 2.<br />
+want to subset elements of this vector that are greater than 2.<br />
 The formula will look like this: <code>a[a &gt; 2]</code>.<br />
 Then the result will be: <code>[1] 3 4</code>.</p>
 <p>The logic behind is as follows:</p>
 <ul>
-<li>condition (here: <code>[a &gt; 2]</code>) generates a logical vector
+<li>Condition (here: <code>[a &gt; 2]</code>) generates a logical vector
 - <strong>positions are denoted as a series of <code>TRUE</code> and
-<code>FALSE</code></strong>. In this example the logical vector is:
+<code>FALSE</code></strong>. In this example, the logical vector is:
 <code>[1] FALSE FALSE  TRUE  TRUE</code>.<br />
 </li>
-<li>elements in this logical vector are used to <strong>return the
+<li>Elements in this logical vector are used to <strong>return the
 elements of the vector you want to subset</strong>, for which coordinate
-equals <code>TRUE</code>, so here 2 last elements of the vector will be
-returned: <code>[1] 3 4</code></li>
+equals <code>TRUE</code>, so here last two elements of the vector will
+be returned: <code>[1] 3 4</code></li>
 </ul>
 <p>Note that you cannot see the <code>TRUE</code>/<code>FALSE</code>
-vector itself but it is if fact generated and used during subsetting
-operation.</p>
+vector itself, but it is in fact generated and used during the
+subsetting operation.</p>
 <div id="exercise-14" class="section level3">
 <h3><span style="color: green"><strong>Exercise 14</strong></span></h3>
 <p><span style="color: green"><strong>For an integer vector from 1 to
-100, return elements higher than vector’s mean.</strong></span></p>
+100, return elements higher than the vector’s mean.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##  [1]  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69
 ## [20]  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88
 ## [39]  89  90  91  92  93  94  95  96  97  98  99 100</code></pre>
-<p>The same pattern applies for subsetting data frames.</p>
+<p>The same pattern applies to subsetting data frames.</p>
 </div>
 <div id="exercise-15" class="section level3">
 <h3><span style="color: green"><strong>Exercise 15</strong></span></h3>
-<p><span style="color: green"><strong>Using built-in dataset
-<code>CO2</code>, return observation for <code>Qn2</code>
+<p><span style="color: green"><strong>Using the built-in dataset
+<code>CO2</code>, return the observation for the <code>Qn2</code>
 plant.</strong></span></p>
 <p>Epected result:</p>
 <pre><code>##    Plant   Type  Treatment conc uptake
@@ -720,15 +722,15 @@ plant.</strong></span></p>
 ## 13   Qn2 Quebec nonchilled  675   41.4
 ## 14   Qn2 Quebec nonchilled 1000   44.3</code></pre>
 <p><em>An advice: To obtain the logical vector with one element for each
-row, you need to make comparison based on a column
-e.g.<code>my_data[my_data$my_column != 5, ]</code> would result in the
+row, you need to make a comparison based on a column e.g.,
+<code>my_data[my_data$my_column != 5, ]</code> would result in the
 observations (including all columns) from <code>my_data</code> in which
 the value for <code>my_column</code> does not equal 5.</em></p>
 </div>
 <div id="exercise-16" class="section level3">
 <h3><span style="color: green"><strong>Exercise 16</strong></span></h3>
-<p><span style="color: green"><strong>Using built-in dataset
-<code>CO2</code>, return observation from <code>Mississippi</code>
+<p><span style="color: green"><strong>Using the built-in dataset
+<code>CO2</code>, return observation from the <code>Mississippi</code>
 <code>chilled</code> plant with an <code>uptake</code> higher than 20
 ummol/m2 x s.</strong></span></p>
 <p>Expected result:</p>
@@ -739,8 +741,8 @@ ummol/m2 x s.</strong></span></p>
 </div>
 <div id="dplyr" class="section level2">
 <h2>dplyr</h2>
-<p><code>dplyr</code> is an extremely popular R package that helps to
-easily manage the data frames.</p>
+<p><code>dplyr</code> is a widely used R package that simplifies the
+manipulation and management of data frames.</p>
 <div id="exercise-17" class="section level3">
 <h3><span style="color: green"><strong>Exercise 17</strong></span></h3>
 <p><span style="color: green"><strong>Install and load the
@@ -749,7 +751,8 @@ easily manage the data frames.</p>
 <div id="exercise-18" class="section level3">
 <h3><span style="color: green"><strong>Exercise 18</strong></span></h3>
 <p><span style="color: green"><strong>Upload the <a href="https://github.com/MarzenaMarszalek/Introduction_to_R_2024/blob/main/Intro_to_R_class_4/rats.csv">rats.csv</a>
-file into an object called <code>my_data</code>.</strong></span></p>
+file into an object called <code>my_data</code>. View the first 10 lines
+of the file.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    Glycogen Treatment Rat Liver
 ## 1       131         1   1     1
@@ -784,7 +787,7 @@ package. Importantly, names of columns provided to <code>dplyr</code>
 functions <strong>do not need quotation marks</strong>.</p>
 </div>
 <div id="sorting-observations" class="section level3">
-<h3>SORTING OBSERVATIONS</h3>
+<h3>Sorting observations</h3>
 <p>To sort the data, use <code>arrange()</code> function in the
 following manner: <code>arrange(dataset, ordering_column)</code></p>
 <div id="exercise-20" class="section level4">
@@ -804,12 +807,12 @@ following manner: <code>arrange(dataset, ordering_column)</code></p>
 ## 8  35      134         3   2     3
 ## 9  29      135         3   1     3
 ## 10  5      136         1   1     3</code></pre>
-<p>To obtain the descending order put the name of column inside
+<p>To obtain the descending order, put the name of the column inside the
 <code>desc()</code> function.</p>
 </div>
 <div id="exercise-21" class="section level4">
 <h4><span style="color: green"><strong>Exercise 21</strong></span></h4>
-<p><span style="color: green"><strong>Using <code>arrange()</code>
+<p><span style="color: green"><strong>Using the <code>arrange()</code>
 function sort the observations from <code>my_data</code> with the
 decreasing levels of glycogen.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
@@ -825,17 +828,17 @@ decreasing levels of glycogen.</strong></span></p>
 ## 9   7      150         1   2     1
 ## 10 12      150         1   2     3</code></pre>
 <p>You can also sort the data by <strong>multiple columns</strong>. To
-do this add an additional column in the following manner:
+do this, add column in the following manner:
 <code>arrange(dataset, ordering_column1, ordering_column2)</code>. Note
 that the priority of sorting is denoted by the order of function
 arguments.</p>
 </div>
 <div id="exercise-22" class="section level4">
 <h4><span style="color: green"><strong>Exercise 22</strong></span></h4>
-<p><span style="color: green"><strong>Using <code>arragne()</code>
-function obtain the observations from <code>my_data</code> sorted
-firstly by <code>Treatment</code> column and then by <code>Rat</code>
-column. Both in ascending order.</strong></span></p>
+<p><span style="color: green"><strong>Using the <code>arrange()</code>
+function, obtain the observations from <code>my_data</code> sorted
+firstly by the <code>Treatment</code> column and then by the
+<code>Rat</code> column. Both in ascending order.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Rat Liver
 ## 1   1      131         1   1     1
@@ -851,15 +854,15 @@ column. Both in ascending order.</strong></span></p>
 </div>
 </div>
 <div id="subsetting-columns" class="section level3">
-<h3>SUBSETTING COLUMNS</h3>
-<p>To select particular columns use the <code>select()</code> function
+<h3>Subsetting columns</h3>
+<p>To select particular columns, use the <code>select()</code> function
 in the following way:
 <code>select(dataset, column_name1, column_name2)</code>. Note that all
-mentioned columns will be preserved and the rest will be discarded.</p>
+mentioned columns will be preserved, and the rest will be discarded.</p>
 <div id="exercise-23" class="section level4">
 <h4><span style="color: green"><strong>Exercise 23</strong></span></h4>
 <p><span style="color: green"><strong>Obtain the <code>Glycogen</code>
-and <code>Liver</code> columns from <code>my_data.</code> Use
+and <code>Liver</code> columns from <code>my_data.</code> Use the
 <code>select()</code> function.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    Glycogen Liver
@@ -873,15 +876,16 @@ and <code>Liver</code> columns from <code>my_data.</code> Use
 ## 8       148     1
 ## 9       140     2
 ## 10      143     2</code></pre>
-<p>You can also use <strong>minus preceding the column name</strong>
-which means “<strong>all except this column</strong>”.</p>
+<p>You can also use <strong>minus <code>-</code> preceding the column
+name</strong>, which means “<strong>all except this
+column</strong>”.</p>
 </div>
 <div id="exercise-24" class="section level4">
 <h4><span style="color: green"><strong>Exercise 24</strong></span></h4>
 <p><span style="color: green"><strong>Obtain the <code>ID</code>,
-<code>Glycogen</code>, <code>Treatment</code> and <code>Liver</code>
-columns from <code>my_data</code>. Use <code>select()</code> function
-and the minus (<code>-</code>) sign.</strong></span></p>
+<code>Glycogen</code>, <code>Treatment</code>, and <code>Liver</code>
+columns from <code>my_data</code>. Use the <code>select()</code>
+function and the minus (<code>-</code>) sign.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Liver
 ## 1   1      131         1     1
@@ -897,15 +901,15 @@ and the minus (<code>-</code>) sign.</strong></span></p>
 </div>
 </div>
 <div id="subsetting-observations" class="section level3">
-<h3>SUBSETTING OBSERVATIONS</h3>
+<h3>Subsetting observations</h3>
 <p>To subset the observations, use the <code>filter()</code> function in
 the following manner:
 <code>filter(dataset, your_logical_condition)</code>. Note that logical
 conditions are always related to the values inside a given column.</p>
 <div id="exercise-25" class="section level4">
 <h4><span style="color: green"><strong>Exercise 25</strong></span></h4>
-<p><span style="color: green"><strong>Using <code>filter()</code>
-function obtain the observations for <code>Treatment</code> equals
+<p><span style="color: green"><strong>Using the <code>filter()</code>
+function, obtain the observations for <code>Treatment</code> equals
 1.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Rat Liver
@@ -921,13 +925,13 @@ function obtain the observations for <code>Treatment</code> equals
 ## 10 10      143         1   2     2</code></pre>
 <p>You can also combine several logical conditions by using logical
 operators (see above). Note, however, that for each observation under
-consideration it needs to result in a single <code>TRUE</code> or
+consideration, it needs to result in a single <code>TRUE</code> or
 <code>FALSE</code>.</p>
 </div>
 <div id="exercise-26" class="section level4">
 <h4><span style="color: green"><strong>Exercise 26</strong></span></h4>
-<p><span style="color: green"><strong>Using <code>filter()</code>
-function obtain the observations for <code>Treatment</code> equals 3
+<p><span style="color: green"><strong>Using the <code>filter()</code>
+function, obtain the observations for <code>Treatment</code> equals 3
 with glycogen level higher than 135.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##   ID Glycogen Treatment Rat Liver
@@ -941,19 +945,19 @@ with glycogen level higher than 135.</strong></span></p>
 </div>
 </div>
 <div id="modifying-columns" class="section level3">
-<h3>MODIFYING COLUMNS</h3>
-<p>To create a new column based on the others use the
+<h3>Modifying columns</h3>
+<p>To create a new column based on the others, use the
 <code>mutate()</code> function in the following manner:
 <code>mutate(dataset, new_column_name = recipe_for_values)</code>.
 “Recipe for values” is often a <strong>mathematical formula or simple
-mathematical function</strong> based on values of other columns. Note
-that it is just a modification of given value for each observation
-separately.</p>
+mathematical function</strong> based on the values of other columns.
+Note that it is just a modification of the given value for each
+observation separately.</p>
 <div id="exercise-27" class="section level4">
 <h4><span style="color: green"><strong>Exercise 27</strong></span></h4>
-<p><span style="color: green"><strong>Using <code>mutate()</code>
-function create a new column called <code>log_Gly</code> that will be a
-natural logarithm transformation of <code>Glycogen</code> column.
+<p><span style="color: green"><strong>Using the <code>mutate()</code>
+function, create a new column called <code>log_Gly</code> that will be a
+natural logarithm transformation of the <code>Glycogen</code> column.
 Overwrite <code>my_data</code></strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Rat Liver  log_Gly
@@ -969,34 +973,34 @@ Overwrite <code>my_data</code></strong></span></p>
 ## 10 10      143         1   2     2 4.962845</code></pre>
 </div>
 </div>
-<div id="summary" class="section level3">
-<h3>SUMMARY</h3>
+<div id="summary-of-the-dataset" class="section level3">
+<h3>Summary of the dataset</h3>
 <p>Make a summary of your dataset with the <code>summarise()</code>
 function. The syntax is as follows:
 <code>summarise(dataset, name_of_summary1 = recipe_for_value1, name_of_summary2 = recipe_for_value2,…)</code>.
-Recipe in that case is any aggregating function (e.g.<code>mean()</code>
-) that will accept whole column (vector) and result in a single
-statistics. Note that this function will result in creation of new table
-with 1 row of summary statistics and as many columns as number of
-statistics mentioned.</p>
+Recipe in that case is any aggregating function (e.g.,
+<code>mean()</code> ) that will accept a whole column (vector) and
+result in a single statistic. Note that this function will result in the
+creation of a new table with 1 row of summary statistics and as many
+columns as the number of statistics mentioned.</p>
 <div id="exercise-28" class="section level4">
 <h4><span style="color: green"><strong>Exercise 28</strong></span></h4>
-<p><span style="color: green"><strong>Use <code>summarise()</code>
+<p><span style="color: green"><strong>Use the <code>summarise()</code>
 function to create a summary of <code>my_data</code> containing mean,
-median, maximum value, minimum value and standard deviation of
-<code>Glycogen</code> column.</strong></span></p>
+median, maximum value, minimum value, and standard deviation of
+the<code>Glycogen</code> column.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##       mean median max min   st_dev
 ## 1 142.2222    141 162 125 9.754445</code></pre>
 <p>You can also count the number of observations corresponding to the
-groups within a given column e.g. check how many observations were
-collected for each treatment. To obtain it use the <code>count()</code>
+groups within a given column e.g., check how many observations were
+collected for each treatment. To obtain it, use the <code>count()</code>
 function by typing <code>count(dataset, given_column)</code>.</p>
 </div>
 <div id="exercise-29" class="section level4">
 <h4><span style="color: green"><strong>Exercise 29</strong></span></h4>
-<p><span style="color: green"><strong>Use <code>count()</code> function
-to calculate how many treatments were used in a
+<p><span style="color: green"><strong>Use the <code>count()</code>
+function to calculate how many treatments were used in a
 study.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>##   Treatment  n
@@ -1006,22 +1010,23 @@ study.</strong></span></p>
 </div>
 </div>
 <div id="pipeline-operator-and-pipeline" class="section level3">
-<h3>PIPELINE OPERATOR AND PIPELINE</h3>
-<p>As you probably noticed all <code>dplyr</code> functions have data as
-the first argument. Based on this characteristics you can create a
+<h3>Pipeline operator and pipeline</h3>
+<p>As you probably noticed, all <code>dplyr</code> functions have data
+as the first argument. Based on these characteristics, you can create a
 pipeline where the next function <strong>uses the output generated by
-the previous one</strong>. In that case you should provide the dataset
+the previous one</strong>. In that case, you should provide the dataset
 argument to the first function only.</p>
-<p>Pipeline is created by connecting subsequent functions with
-<code>%&gt;%</code> (pipe) operator. Remember to skip the
+<p>A pipeline is created by connecting subsequent functions with the
+pipe operator <code>%&gt;%</code>. Remember to skip the
 <code>data</code> argument in all functions except for the first one
-e.g. <code>select(dataset, column1, column2) %&gt;% filter(column1 &gt; 50)</code>.
-The shortcut for <code>%&gt;%</code> operator is
+e.g.,
+<code>select(dataset, column1, column2) %&gt;% filter(column1 &gt; 50)</code>.
+The shortcut for the <code>%&gt;%</code> operator is
 <code>Ctrl + Shift + M</code> (Windows) or <code>Cmd + Shift + M</code>
 (Mac).</p>
 <blockquote>
-<p><strong>Curiosity</strong> In R version 4.1.0 a new pipe operator is
-available <code>|&gt;</code>. This operator is a part of base R so you
+<p><strong>Curiosity</strong> In R version 4.1.0, a new pipe operator is
+available <code>|&gt;</code>. This operator is a part of base R, so you
 don’t have to load additional packages (like loading <code>dplyr</code>
 to use <code>%&gt;%</code>) to use it.</p>
 </blockquote>
@@ -1029,10 +1034,10 @@ to use <code>%&gt;%</code>) to use it.</p>
 <h4><span style="color: green"><strong>Exercise 30</strong></span></h4>
 <p><span style="color: green"><strong>Using pipeline and
 <code>my_data</code>:<br />
-1. select <code>ID</code>, <code>Glycogen</code> and <code>Liver</code>
+1. Select <code>ID</code>, <code>Glycogen</code>, and <code>Liver</code>
 column.<br />
-2. obtain observations with glycogen level lower than 140.<br />
-3. sort it based on <code>Glycogen</code> column in descending
+2. Obtain observations with glycogen levels lower than 140.<br />
+3. Sort it based on the <code>Glycogen</code> column in descending
 order.</strong></span></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Liver
@@ -1049,21 +1054,21 @@ order.</strong></span></p>
 </div>
 </div>
 <div id="grouping" class="section level3">
-<h3>GROUPING</h3>
-<p>Performing any function over complete dataset is often not what you
+<h3>Grouping</h3>
+<p>Performing any function over a complete dataset is often not what you
 really want. Imagine 3 species with a trait of interest. It can be the
 case that the overall mean does not reflect the variability among
-species. To check value for each species separately you need to
-<strong>group your dataset</strong>. Do it by using
-<code>group_by()</code> function in the following manner
+species. To check the value for each species separately, you need to
+<strong>group your dataset</strong>. Do it by using the
+<code>group_by()</code> function in the following manner:
 <code>group_by(dataset, column_with_groups)</code>. This produces a
 grouped dataframe and will cause all subsequent functions to
 <strong>operate on each group separately</strong>.</p>
 <div id="exercise-31" class="section level4">
 <h4><span style="color: green"><strong>Exercise 31</strong></span></h4>
-<p><span style="color: green"><strong>Using pipe,
-<code>group_by()</code> function and <code>my_data</code> data frame,
-create a summary table with mean and standard deviation of
+<p><span style="color: green"><strong>Using pipe, the
+<code>group_by()</code> function, and <code>my_data</code> data frame,
+create a summary table with mean and standard deviation of the
 <code>Glycogen</code> column for each treatment
 separately.</strong></span></p>
 <p>Expected result:</p>
@@ -1073,13 +1078,13 @@ separately.</strong></span></p>
 ## 1         1  140.  10.3 
 ## 2         2  151    5.66
 ## 3         3  135.   4.71</code></pre>
-<p><em>An advice: To perform any action on the whole dataset again, use
-the <code>ungroup()</code> function.</em></p>
+<p><em>Advice: To perform any action on the whole dataset again, use the
+<code>ungroup()</code> function.</em></p>
 </div>
 <div id="exercise-32" class="section level4">
 <h4><span style="color: green"><strong>Exercise 32</strong></span></h4>
-<p><span style="color: green"><strong>Using pipe,
-<code>group_by()</code> function and <code>my_data</code> data frame,
+<p><span style="color: green"><strong>Using pipe, thee
+<code>group_by()</code> function, and <code>my_data</code> data frame,
 create a new column with the deviations of <code>Glycogen</code> values
 from the arithmetic mean in a given
 <code>Treatment</code>.</strong></span></p>
@@ -1102,26 +1107,26 @@ from the arithmetic mean in a given
 </div>
 </div>
 <div id="joining" class="section level3">
-<h3>JOINING</h3>
+<h3>Joining</h3>
 <p>Imagine having two data frames corresponding to the same study
-system. In both of them there is a column with individual IDs. How to
-bind them together? Using <code>cbind()</code> is rather a bad idea as
+system. In both of them, there is a column with individual IDs. How to
+bind them together? Using <code>cbind()</code> is rather a bad idea, as
 the order of observations can differ.</p>
 <p>The solution is to use one of the <code>_join()</code> functions.</p>
-<p>data frame 1:</p>
+<p>Data frame 1:</p>
 <pre><code>##      ID    V1
 ## 1 ind_1   red
 ## 2 ind_2  blue
 ## 3 ind_3 green</code></pre>
-<p>data frame 2:</p>
+<p>Data frame 2:</p>
 <pre><code>##      ID    V2
 ## 1 ind_2 black
 ## 2 ind_3  blue
 ## 3 ind_4  blue</code></pre>
 <ol style="list-style-type: decimal">
-<li><strong><code>left_join()</code> - join the values from second table
-(right) that correspond to observation in the first one (left). If there
-is no suitable value in the second table, <code>NA</code> is
+<li><strong><code>left_join()</code> - join the values from the second
+table (right) that correspond to observations in the first one (left).
+If there is no suitable value in the second table, <code>NA</code> is
 returned.</strong></li>
 </ol>
 <pre class="r"><code>left_join(df1, df2, by = &quot;ID&quot;)</code></pre>
@@ -1130,9 +1135,9 @@ returned.</strong></li>
 ## 2 ind_2  blue black
 ## 3 ind_3 green  blue</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li><strong><code>right_join()</code> - join the values from first table
-(left) that correspond to observation in the second one (right). If
-there is no suitable value in the first table, <code>NA</code> is
+<li><strong><code>right_join()</code> - join the values from the first
+table (left) that correspond to observations in the second one (right).
+If there is no suitable value in the first table, <code>NA</code> is
 returned.</strong></li>
 </ol>
 <pre class="r"><code>right_join(df1, df2, by = &quot;ID&quot;)</code></pre>
@@ -1141,7 +1146,7 @@ returned.</strong></li>
 ## 2 ind_3 green  blue
 ## 3 ind_4  &lt;NA&gt;  blue</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li><strong><code>inner_join()</code> - return only that observations
+<li><strong><code>inner_join()</code> - return only those observations
 that have corresponding values in both tables.</strong></li>
 </ol>
 <pre class="r"><code>inner_join(df1, df2, by = &quot;ID&quot;)</code></pre>
@@ -1149,9 +1154,9 @@ that have corresponding values in both tables.</strong></li>
 ## 1 ind_2  blue black
 ## 2 ind_3 green  blue</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li><strong><code>full_join()</code> - join what can be joined but
-</strong>keeps all observations<strong>. In case of the lack of suitable
-value, returns <code>NA</code>.</strong></li>
+<li><strong><code>full_join()</code> - join what can be joined, but
+</strong>keeps all observations<strong>. In case of the lack of a
+suitable value, returns <code>NA</code>.</strong></li>
 </ol>
 <pre class="r"><code>full_join(df1, df2, by = &quot;ID&quot;)</code></pre>
 <pre><code>##      ID    V1    V2
@@ -1161,65 +1166,66 @@ value, returns <code>NA</code>.</strong></li>
 ## 4 ind_4  &lt;NA&gt;  blue</code></pre>
 <p>Each of the abovementioned functions can be used by typing:
 <code>_join(first_table, second_table, by = “shared_column_name”)</code>.</p>
-<p>Notice that the name of shared column should be exactly the same in
-both tables (eg. <code>ID</code>).</p>
+<p>Notice that the name of the shared column should be the same in both
+tables (eg. <code>ID</code>).</p>
 <div id="exercise-33" class="section level4">
 <h4><span style="color: green"><strong>Exercise 33</strong></span></h4>
 <p><span style="color: green"><strong>Execute the code below to create a
-new data frame with <code>ID</code> and <code>weight</code> column. Join
-the observations from <code>my_data</code> and <code>new_data</code>
-data frames using proper <code>_join()</code> function. Keep all
-observations from <code>my_data</code> but only those from
-<code>new_data</code> that have their counterparts in
+new data frame with an <code>ID</code> and a <code>weight</code> column.
+Join the observations from <code>my_data</code> and
+<code>new_data</code> data frames using the proper <code>_join()</code>
+function. Keep all observations from <code>my_data</code>, but only
+those from <code>new_data</code> that have their counterparts in
 <code>my_data</code>.</strong></p>
 <p><code>new_data &lt;- data.frame(&quot;ID&quot; = c(2:100), &quot;weight&quot; = rnorm(99, mean = 150, sd = 20))</code></p>
 <p>Expected result (first 10 rows):</p>
 <pre><code>##    ID Glycogen Treatment Rat Liver  log_Gly   weight
 ## 1   1      131         1   1     1 4.875197       NA
-## 2   2      130         1   1     1 4.867534 127.1260
-## 3   3      131         1   1     2 4.875197 141.9839
-## 4   4      125         1   1     2 4.828314 136.2852
-## 5   5      136         1   1     3 4.912655 154.4841
-## 6   6      142         1   1     3 4.955827 150.3438
-## 7   7      150         1   2     1 5.010635 127.4190
-## 8   8      148         1   2     1 4.997212 139.7274
-## 9   9      140         1   2     2 4.941642 127.2635
-## 10 10      143         1   2     2 4.962845 133.8374</code></pre>
+## 2   2      130         1   1     1 4.867534 157.5152
+## 3   3      131         1   1     2 4.875197 165.6078
+## 4   4      125         1   1     2 4.828314 118.1179
+## 5   5      136         1   1     3 4.912655 116.6798
+## 6   6      142         1   1     3 4.955827 125.4106
+## 7   7      150         1   2     1 5.010635 149.4657
+## 8   8      148         1   2     1 4.997212 180.7987
+## 9   9      140         1   2     2 4.941642 185.4554
+## 10 10      143         1   2     2 4.962845 143.4289</code></pre>
 <blockquote>
 <p><strong>Curiosity</strong><br />
-1. Using joins let us avoid repeating the same information across many
+1. Using joins lets us avoid repeating the same information across many
 data frames.<br />
-2. The concept of joins is common in many computer languages but it is
-most often used in databases management (e.g. SQL).</p>
+2. The concept of joins is common in many computer languages, but it is
+most often used in database management (e.g., SQL).</p>
 </blockquote>
 </div>
 </div>
 </div>
 <div id="homework" class="section level2">
-<h2><span style="color: darkorange;">Homework</span></h2>
-<p><span style="color: darkorange"> 1. Create a vector from 1 to 50.
+<h2><span style="color: #da205eff;">Homework</span></h2>
+<p><span style="color: #da205eff"> 1. Create a vector from 1 to 50.
 Then, using R only, calculate how many elements of this vector are
-higher or equal than the positive square root of 100. *Positive square
-root can be calculated with the <code>sqrt()</code> function.<br> 2.
-Upload the built-in <code>CO2</code> data set as <code>hw_data</code>.
-Using logical expressions, display the rows of the dataset that have
-<code>concentration</code> below 350 AND <code>uptake</code> of over
-30.<br> 3. Load the <code>dplyr</code> package. In the
-<code>hw_data</code> data frame sort the observations first by
-<code>concentration</code>, then by <code>uptake</code>. Overwrite the
-<code>hw_data</code> file so that the columns are permanently sorted in
-this manner.<br> 4. Using <code>dplyr</code> function add a new column
-called <code>uptake_percent</code> to the <code>hw_data</code> data
-frame that displays the <code>uptake</code> value as a percent of the
-maximum value of that column (=so that the highest value, 45.5,
-corresponds to 100%). Then remove the original <code>uptake</code>
-column using a <code>dplyr</code> function.<br> 5. Use the pipe operator
-to perform multiple functions on the <code>hw_data</code> data frame.
-Create a summary data frame that displays mean and standard deviation of
-the new <code>uptake_percent</code> column for <code>Treatment</code>
+higher than or equal to the positive square root of 100. *A positive
+square root can be calculated with the <code>sqrt()</code> function.<br>
+2. Upload the built-in <code>CO2</code> data set as
+<code>hw_data</code>. Using logical expressions, display the rows of the
+dataset that have a <code>concentration</code> below 350 AND
+<code>uptake</code> of over 30.<br> 3. Load the <code>dplyr</code>
+package. In the <code>hw_data</code> data frame, sort the observations
+first by <code>concentration</code>, then by <code>uptake</code>.
+Overwrite the <code>hw_data</code> variable so that the columns are
+permanently sorted in this manner.<br> 4. Using one of the the
+<code>dplyr</code> function, add a new column called
+<code>uptake_percent</code> to the <code>hw_data</code> data frame that
+displays the <code>uptake</code> value as a percent of the maximum value
+of that column (=so that the highest value, 45.5, corresponds to 100%).
+Then, remove the original <code>uptake</code> column using a
+<code>dplyr</code> function.<br> 5. Use the pipe operator to perform
+multiple functions on the <code>hw_data</code> data frame. Create a
+summary data frame that displays the mean and standard deviation of the
+new <code>uptake_percent</code> column for the <code>Treatment</code>
 groups. Save this summary as a .csv file called
 “CO2_uptake_summary_Your_Name.csv”.</p>
-<p><span style="color: darkorange"><strong>Upload both your R script and
+<p><span style="color: #da205eff"><strong>Upload both your R script and
 .csv file to the <em>Pegaz</em> platform.</strong></span></p>
 </div>
 

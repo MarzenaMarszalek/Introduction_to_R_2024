@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = F)
 ```
 
 <span style="color: green">**Descriptions of exercises are in green.**</span>  
-<span style="color: darkorange;">**Homeworks are in orange**</span>
+<span style="color: #da205eff;">**Homeworks are in pink**</span>
 
 ## What is R?
 R is an extremely powerful programming language, broadly used in science for:
@@ -467,9 +467,9 @@ getwd()                                  # displays where the file was saved
 ```
 
 
-## <span style="color: darkorange;">Homework</span>
+## <span style="color: #da205eff;">Homework</span>
 
-<span style="color: darkorange">
+<span style="color: #da205eff">
 **Please save all your R commands in a plain text file and call it "class_1_homework_Your_Name.txt" (replace "Your_Name" with your actual name). Then, upload the file to the `Class 1` tab on the Pegaz platform.**  
   1. Create a vector of the number of days in each month called `days`. The vector should have 12 elements and contain only numbers. Assume it is not a leap year.  
   2. Using vector `days`, find the median number of days in a month and save it to a new variable called `median_days`.  
