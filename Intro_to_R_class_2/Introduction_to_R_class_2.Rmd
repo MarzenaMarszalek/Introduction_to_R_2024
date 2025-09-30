@@ -127,9 +127,8 @@ For two reasons. Firstly, if every time you opened RStudio, it would have to **l
 
 Secondly, the R programming language is a collective non-profit project – thousands of scientists and programmers have contributed to it since it was created. **You do not need all of these packages**. Many hyper-specific packages are being introduced every year for very particular research and analysis purposes. This allows people to personalize their R experience and contribute to its development.
 
-
 #### <span style="color: green">**Exercise 4**</span>
-<span style="color: green">**Browse the pre-existing packages in your RStudio. Then try googling or looking up packages for your specific purposes (e.g., by typing “R package for [your purpose]”).**</span>
+<span style="color: green">**Check the `Packages` tab (the lower right panel). You will see a list of installed packages**</span>
 
 Remember, if you are using someone else’s package in your research, **you need to cite it in your articles** the same way as you would someone else’s lab protocol. Usually, when a new package is introduced, a manual is published at the same time, and the **appropriate citation is provided in the package instructions**.
 
@@ -137,19 +136,17 @@ Remember, if you are using someone else’s package in your research, **you need
 Although R was developed primarily for data science and statistics, it can be used for many different purposes. For example, there are some text-based games for R. Check out [these](https://www.r-bloggers.com/2016/06/useless-but-fun-r-packages/) (useless but fun) R packages.
 
 #### How to use a package? 
-If the package you want to use is already present in RStudio, all you need to do is load it using the `library()` function. However, if the package is not installed, you have to do it and then load it with the `library()` function. 
+If the package you want to use is already present in RStudio, all you need to do is load it using the `library()` function. However, if the package is not installed, you will need to **install it first**. You can do it using a line of code provided by the package creator or the `install.packages()` function. Remember to put the name of the package in **quotation marks** (`""`). Once a package is installed, you need to **load it**. An installed package will remain in R memory for as long as the app itself is not reinstalled. 
 
-#### <span style="color: green;">**Exercise 5**</span>  
-<span style="color: green;">**Load any package you can find in the RStudio list using a command prompt library([package name]).**</span>
+As we learned in the first class, you can access the **documentation of a package or function** by typing `?package_or_function_name` (for example, `?dplyr`). Keep in mind that **for functions from packages outside of base R**, you can view the manual only after **the package has been loaded**.
 
 Remember that every time you close the RStudio app, it turns off any packages you were using (= puts away the toolbox). So every time you close and open the app again, you need to run the `library()` command again. **Base R packages do not need to be loaded!**
 
-If the package you want to use is not already in R, you will need to **download and install it first**. You can do it using a line of code provided by the package creator or the `install.packages()` function. Remember to put the name of the package in **quotation marks** (`""`).  
-
-Once a package is installed, you need to **load it**. An installed package will remain in R memory for as long as the app itself is not reinstalled. 
+#### <span style="color: green;">**Exercise 5**</span>  
+<span style="color: green;">**Install the `tidyverse` package using the `install.packages()` function. Then, [see here](https://www.tidyverse.org/). Check the `Packages` tab - a newly installed package should appear there!**</span>
 
 #### <span style="color: green;">**Exercise 6**</span>
-<span style="color: green;">**Install the tidyverse package using the `install.packages()` function. Once installed, load the package `dplyr`.**</span>
+<span style="color: green;">**Load the `dplyr` package. Find the `dplyr` function that allows you to select columns from a table based on their names.**</span>
 
 *Advice: The more packages you install, the longer it will take for RStudio to open; it can also slow down the app. For most computers, this difference is pretty small; however, if you have an older laptop, it is better not to install every package under the sun.*
 
@@ -182,7 +179,7 @@ If you are trying to upload a file with **non-Latin characters** and R is displa
 The `read.csv()` function can work with just one argument – the file name. However, as the name suggests, it only works with standard .csv files and does not allow for certain kinds of customization through arguments. 
 
 #### <span style="color: green;">**Exercise 8**</span>
-<span style="color: green;">**Check the `read_table()` and the `read.csv()` function manuals. Upload the "class_2_data.csv" file into the R environment using both functions. Make sure what additional arguments you should use for both functions to upload files properly.**
+<span style="color: green;">**Check the `read.table()` and the `read.csv()` function manuals. Upload the "class_2_data.csv" file into the R environment using both functions. Make sure what additional arguments you should use for both functions to upload files properly.**
 
 In most of your analyses, you will not need to download a modified data frame out of R – you will only be interested in the results of certain tests or graphs that R will generate. However, if you want to **download the data frame**, you can use:  
   - `write.table()` – for saving a .csv file; uses similar arguments to `read.table()`  
