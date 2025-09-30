@@ -11,7 +11,7 @@
 
 <meta name="author" content="Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik &amp; Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2025-09-29" />
+<meta name="date" content="2025-09-30" />
 
 <title>Introduction to R - class 2  Working in RStudio</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 2<br> <span style="color: gray">Working in RStudio</span></h1>
 <h4 class="author">Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik
 &amp; Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2025-09-29</h4>
+<h4 class="date">2025-09-30</h4>
 
 </div>
 
@@ -593,7 +593,7 @@ object you created is a proper data frame by using the
 <div id="exercise-3" class="section level4">
 <h4><span style="color: green"><strong>Exercise 3</strong></span></h4>
 <p><span style="color: green;"><strong>Download the <a href="class_2_data.xlsx">class_2_data.xlsx</a> file and save it in your
-working directory. Then, upload the file into R using theRStudio user
+working directory. Then, upload the file into R using the RStudio user
 interface.</strong></span></p>
 <p>Notice that, when you upload your data from an MS Excel file, one of
 the lines of code that RStudio generated is
@@ -628,10 +628,10 @@ development.</p>
 </div>
 <div id="exercise-4" class="section level4">
 <h4><span style="color: green"><strong>Exercise 4</strong></span></h4>
-<p><span style="color: green"><strong>Browse the pre-existing packages
-in your RStudio. Then try googling or looking up packages for your
-specific purposes (e.g., by typing “R package for [your
-purpose]”).</strong></span></p>
+<p><span style="color: green"><strong>Check the <code>Packages</code>
+tab (the lower right panel). You will see a list of installed packages;
+loaded packages have a checkmark (✅). Did any packages load
+automatically when you started R?</strong></span></p>
 <p>Remember, if you are using someone else’s package in your research,
 <strong>you need to cite it in your articles</strong> the same way as
 you would someone else’s lab protocol. Usually, when a new package is
@@ -650,33 +650,38 @@ text-based games for R. Check out <a href="https://www.r-bloggers.com/2016/06/us
 <h4>How to use a package?</h4>
 <p>If the package you want to use is already present in RStudio, all you
 need to do is load it using the <code>library()</code> function.
-However, if the package is not installed, you have to do it and then
-load it with the <code>library()</code> function.</p>
-</div>
-<div id="exercise-5" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 5</strong></span></h4>
-<p><span style="color: green;"><strong>Load any package you can find in
-the RStudio list using a command prompt library([package
-name]).</strong></span></p>
+However, if the package is not installed, you will need to
+<strong>install it first</strong>. You can do it using a line of code
+provided by the package creator or the <code>install.packages()</code>
+function. Remember to put the name of the package in <strong>quotation
+marks</strong> (<code>&quot;&quot;</code>). Once a package is installed, you need
+to <strong>load it</strong>. An installed package will remain in R
+memory for as long as the app itself is not reinstalled.</p>
+<p>As we learned in the first class, you can access the
+<strong>documentation of a package or function</strong> by typing
+<code>?package_or_function_name</code> (for example,
+<code>?dplyr</code>). Keep in mind that <strong>for functions from
+packages outside of base R</strong>, you can view the manual only after
+<strong>the package has been loaded</strong>.</p>
 <p>Remember that every time you close the RStudio app, it turns off any
 packages you were using (= puts away the toolbox). So every time you
 close and open the app again, you need to run the <code>library()</code>
 command again. <strong>Base R packages do not need to be
 loaded!</strong></p>
-<p>If the package you want to use is not already in R, you will need to
-<strong>download and install it first</strong>. You can do it using a
-line of code provided by the package creator or the
-<code>install.packages()</code> function. Remember to put the name of
-the package in <strong>quotation marks</strong> (<code>&quot;&quot;</code>).</p>
-<p>Once a package is installed, you need to <strong>load it</strong>. An
-installed package will remain in R memory for as long as the app itself
-is not reinstalled.</p>
+</div>
+<div id="exercise-5" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 5</strong></span></h4>
+<p><span style="color: green;"><strong>Install the <code>ggplot2</code>
+package using the <code>install.packages()</code> function. Check the
+<code>Packages</code> tab - a newly installed package should appear
+there!</strong></span></p>
 </div>
 <div id="exercise-6" class="section level4">
 <h4><span style="color: green;"><strong>Exercise 6</strong></span></h4>
-<p><span style="color: green;"><strong>Install the tidyverse package
-using the <code>install.packages()</code> function. Once installed, load
-the package <code>dplyr</code>.</strong></span></p>
+<p><span style="color: green;"><strong>Install the
+<code>tidyverse</code> package. Then, <a href="https://www.tidyverse.org/">see here</a> to learn more about
+<code>tidyverse</code>. Load the <code>dplyr</code>
+package.</strong></span></p>
 <p><em>Advice: The more packages you install, the longer it will take
 for RStudio to open; it can also slow down the app. For most computers,
 this difference is pretty small; however, if you have an older laptop,
@@ -750,7 +755,7 @@ customization through arguments.</p>
 <div id="exercise-8" class="section level4">
 <h4><span style="color: green;"><strong>Exercise 8</strong></span></h4>
 <p><span style="color: green;"><strong>Check the
-<code>read_table()</code> and the <code>read.csv()</code> function
+<code>read.table()</code> and the <code>read.csv()</code> function
 manuals. Upload the “class_2_data.csv” file into the R environment using
 both functions. Make sure what additional arguments you should use for
 both functions to upload files properly.</strong></p>
