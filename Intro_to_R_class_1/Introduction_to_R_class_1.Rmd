@@ -3,9 +3,14 @@ title: "Introduction to R - class 1<br> <span style='color: gray'>variables, fun
 author: "Tomasz Gaczorek, Wiesław Babik, Mateusz Chechetkin & Marzena Marszałek<br> marzena.marszalek@doctoral.uj.edu.pl<br>"
 date: "`r Sys.Date()`"
 chunk_output_type: console
+# output:
+#    pdf_document:
+#       latex_engine: xelatex
+#       toc: true
 output:
-   html_document:
-      toc: true
+    html_document:
+       toc: true
+
 ---
 
 ```{r setup, include=F}
@@ -27,10 +32,10 @@ R is an extremely powerful programming language, broadly used in science for:
 ### R installation
 
 To install R for Windows, follow the [link](https://cran.uni-muenster.de/bin/windows/base/) and then click on “Download R – *version_number* – for Windows”.  
-To install R for OS X (Macs), follow the [link](https://cran.uni-muenster.de/) and then click on “Download R for (Mac) OS X”  
+To install R for macOS (Macs), follow the [link](https://cran.uni-muenster.de/) and then click on “Download R for (Mac) OS X”  
 To install R for Linux, type the lines below in the terminal. 
 
-```{r, engine = 'bash', eval = FALSE}
+```{r, engine = 'bash', eval = FALSE, echo = T}
 sudo apt-get update
 sudo apt-get install r-base
 ```
@@ -41,7 +46,7 @@ Run R. You should see a window similar to the one below.
 It is the so-called **R console**. Anything written and executed within a console will be interpreted (calculated) by R, and the result or message will be printed out in the console.
 
 ## Note on Programming Vocabulary
- -	**console**: the window in which you type lines of code and receive the result of the code running
+ -	**console**: the window in which you type lines of code and the output is displayed
  -	**input**: what you give to R to work on, such as commands, values, or files
  -	**output**: what R displays back to you, typically the result of an operation
  -	**call**: run the code or prompt the computer to produce output
@@ -50,7 +55,7 @@ It is the so-called **R console**. Anything written and executed within a consol
 
 ## RStudio
 
-RStudio is a **shell** and **programming environment** for the R language. It makes working with R much easier and more intuitive by providing a **user interface** to R features originally hidden behind R functions. However, remember that **all actions can also be performed within the classical R console**. 
+RStudio is a **programming environment**, which combines **console, text editor and other useful things** for the R language. It makes working with R much easier and more intuitive by providing a **user interface** to R features originally hidden behind R functions. However, remember that **all actions can also be performed within the classical R console**. 
 
 ### RStudio installation
 
@@ -175,9 +180,9 @@ x <- 5
 x
 ```
 
-*Advice: The variable name is case sensitive and **cannot contain blank spaces or start with a digit**. When you want to combine several words into one name, use the underscore (`\_`). By convention, dots are used for function names and should be used with caution.*
+*Advice: The variable name is case sensitive and **cannot contain blank spaces or start with a digit**. When you want to combine several words into one name, use the underscore (`_`). By convention, dots are used for function names and should be used with caution.*
 
-Since the variable is saved, its name can replace the actual value in any R commands, e.g. if 2 is assigned to x, both `2+3` and `x+3` would result in 5.
+Once the variable is saved, its name can replace the actual value in any R commands, e.g. if 2 is assigned to x, both `2+3` and `x+3` would result in 5.
 
 ### <span style="color: green">**Exercise 7**</span>
 <span style="color: green">**Using the table from exercise 5, calculate the range of species frequencies for both populations and save them as separate variables. Then, using chosen names, calculate the absolute difference between ranges. Save it to a variable called `range_diff` and call it.**</span>
@@ -354,7 +359,7 @@ sort(repeated)
 unique(repeated)
 ```
 
-Vectors can also be used in typical mathematical operations. However, there is one important rule: **the shorter vector will be repeated until it reaches the length of the longer one** (a single number is treated as a vector of length 1).
+Vectors can also be used in typical mathematical operations. However, there is one important role of recycling: **the shorter vector will be repeated until it reaches the length of the longer one** (a single number is treated as a vector of length 1).
 
 Examples:
 
