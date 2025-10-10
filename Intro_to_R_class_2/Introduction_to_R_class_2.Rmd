@@ -46,7 +46,7 @@ In the previous class, working directly in the **R Console** was sufficient — 
 
 This is where **R scripts** come in. Scripts allow you to save your code in a file, so you can organize, reuse, modify, and share your analyses easily. To create a new R script, go to **File → New File → R Script** or **New File icon → R Script**. Alternatively, use the keyboard shortcut **Ctrl + Shift + N**. Your new R script file will open in the **Code editor** (top-left panel). Remember to save your script when you are done (File → Save As..), so you can return to it later. 
 
-To run code from an R script, **place the cursor on the desired line (or highlight multiple lines)** and press **Ctrl + Enter** or click the `Run` button. The results will appear in the Console.
+To run a particular line(s) from an R script, **highlight this part of your code** and press **Ctrl + Enter** or click the `Run` button. To run the whole script, click the `Source` button. The results will appear in the **Console**.
 
 ![](RScript.png)
 
