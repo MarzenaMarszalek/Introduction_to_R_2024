@@ -51,9 +51,9 @@ To run a particular line(s) from an R script, **highlight this part of your code
 ![](RScript.png)
 
 ### <span style="color: green">**Exercise 1**</span>
-<span style="color: green;">**Create a new script file and save it. Call it as you wish. Write code for all subsequent exercises using the Code editor. Remember that to obtain any outcome/result, you need to run your code first.**</span>
+<span style="color: green;">**Create a new script file and save it. Name it as you wish. Write code for all subsequent exercises using the Code editor. Remember that to obtain any outcome/result, you need to run your code first.**</span>
 
-To make your code easier to read and understand, it is a good practice to **add comments**. Comments help explain what specific sections of the code are doing. This may be useful for other people using your script, and for you as well. Even if you know what your code is doing, after some time, you may forget it, and you may have to spend a lot of time understanding its functionality again.
+To make your code easier to read and understand, it is a good practice to **add comments**. Comments help explain what specific sections of the code are doing. This may be useful for other people using your script, and for you as well. Even if you know what your code is doing, after some time, you may forget it, and you may have to spend a lot of time trying to understand its functionalisty again.
 
 In R you can add comments to your script by **starting the line with the hashtag** `#`. Apart from adding comments to your script hashtag can also be used to **"turn off" a chunk of your code**. **Anything to the right of the hashtag will not be taken by R as a command**. To **comment several lines**, highlight them and use **Ctrl+Shift+c**. Repeat it to uncomment. When you remove the hashtag, the command will be executed when you run your script again.
 
@@ -90,7 +90,7 @@ One of the advantages of RStudio is that it can save a lot of your work in betwe
 
 **Every time you boot up RStudio, remember to:**  
   -	 <span style='color: blue'>**create and save a new script file**</span> – if you don’t have one already  
-  -	<span style='color: blue'>**copy and update the name of your script file (e.g. with that day’s date)**</span> – if you are working on a previously created file and want to **keep track of multiple versions** 
+  -	<span style='color: blue'>**copy and update the name of your script file (e.g. with the current date)**</span> – if you are working on a previously created file and want to **keep track of multiple versions** 
   -	<span style='color: blue'>**set up a working directory** </span> – easiest way to keep track of this is to have a **line of code at the beginning of the script**; if you set up a working directory through the RStudio user interface, you can copy the code from the console into the script  
   -	<span style='color: blue'>**clear the RStudio environment** </span> – this is important, especially when **switching between scripts/projects** you are working on  
   - <span style='color: blue'>**load any packages that the script is using**</span> – further explanation of this will be in the section about packages; for now, remember that some functions we will use later on **are not present in base R**, so if RStudio suddenly doesn’t want to run code with a function that you’ve been using before, it might be because it comes from a package that **isn’t currently loaded**
@@ -172,7 +172,7 @@ These arguments are, for example:
 
   - **header**: specifies whether the top row should be considered the headers of each column; should be set as `TRUE` if the top row corresponds to column descriptors and to `FALSE` if the top row starts immediately from data  
   - **sep**: stands for separator; specifies which symbol (`,`, `_`, or ` `) was used to separate values in the file; by default, .csv files should be comma (`,`) separated, but might be set to something else – you can check by opening the .csv file through a basic text editor  
-  - **encoding**: specifies which encoding is used in the .csv file; can be important if you are using files with non-Latin characters, for example*, but isn’t always needed
+  - **encoding**: specifies which encoding is used in the .csv file; this can be important if you are working with files that contain non-Latin characters, for example Polish special letters (ą, ę, ć, etc.), but it isn’t always required.
 
 If you are trying to upload a file with **non-Latin characters** and R is displaying them as nonsense symbols, you can try the following: open your .csv as a text document in the most basic text editor and save it with the **UTF-8** encoding; then, while uploading it to R, make sure to specify encoding as UTF-8; this should fix the problem.
 
@@ -194,18 +194,18 @@ Tips for finding R solutions on the Internet:
   - **improve your Google searches** - identify **keywords** that will allow you to find the function you need and combine them using **quotation marks** and Boolean logic (e.g., “R package” AND “general linear model”)  
   - **use trusted sources for finding packages and getting advice** – *[StackOverflow](https://stackoverflow.com/), [RDocumentation](https://www.rdocumentation.org/), [CRAN](https://cran.r-project.org/)*, and published research are the best  
   - **use published codes** - many coders and researchers will share their code for free on **GitHub** and other websites – even if the code cannot solve your problem, it can point you in the right direction  
-  - **be careful with AI-generated solutions**: while websites like **ChatGPT** can be useful for finding specific functions, it rarely generates a whole block of code that does not require heavy editing; **if the code uses functions you don’t know, you might not notice that it generates faulty results**
+  - **AI-generated solutions** are very useful but require some care: while ChatGPT, Gemini and other similar tools often generate correct code, this is **not guaranteed**; **if the code uses functions you don’t know, you might not notice that it generates faulty results**
 
 #### <span style="color: green;">**Exercise 9**</span>
 <span style="color: green;">**Search the Internet for an R function that can rename columns in a data frame. Install and load a package if necessary. Try using the RStudio manual to figure out how to use the function that can perform this task.**</span>
 
-Remember that the manual for any installed function can be pulled up by typing a question mark (`?`) before its name.  
+Remember that the **manual** for any installed function can be invoked up by typing a **question mark (?) before its name** or by **pressing F1 when your cursor is on the function name.**
 If you are attempting to use someone else’s code and you need to adapt it for your purposes, consider the following:
 
-  -	before changing anything in the code you copied, go through the entire script and **make sure you understand**, at least on a basic level, what every line is doing  
-  -	remember to **change the parts of the code that do not apply to your tasks**: e.g., change the path to files being used, adjust function arguments and parameters, and remove parts that are not important for you  
-  -	another coder might assume that everyone uses the same packages as they do – if a function is not working, it can be a result of R not recognizing it  
-  -	you can find what package uses a specific function by searching **“R [function name] package”** – keep in mind that multiple packages can use the same word to describe different functions, so make sure to read their descriptions before downloading the package  
+  -	 before changing anything in the code you copied, go through the entire script and **make sure you understand**, at least on a basic level, what every line is doing. Again ChatGTP and others may be helpful here. 
+  -	remember to **change the parts of the code that do not apply to your tasks**: e.g., change the path to files being used, adjust function arguments and parameters, and remove parts that are not important for you.  
+  -	another coder might assume that everyone uses the same packages as they do – if a function is not working, it can be a result of R not recognizing it.  
+  -	you can find what package uses a specific function by searching **“R [function name] package”** – keep in mind that multiple packages can use the same word to describe different functions, so make sure to read their descriptions before downloading the package.  
 
 
 #### <span style="color: green;">**Exercise 10**</span>
@@ -290,8 +290,7 @@ Example Four:
 
 As you can see, coding can be meticulous and sometimes frustrating work. To reduce this frustration, remember the following:
 
-  -	stick to habits of **setting up your working session** every time you open RStudio  
-  -	if you are working on a script for multiple days, consider making a **new copy of it every day or every week** to keep previous versions in hand in case you need to revert the changes
+  -	if you are working on a script for multiple days, consider making **a new copy of it every day or every week** to keep previous versions in hand in case you need to revert the changes (there are much better ways of handling thee problem of version controm but they are beyond the scope of our course)
   -	**include comments** in your code! remember that you can use the hashtag symbol `#` to both turn off certain parts of the code and leave useful descriptions – this can be a lifesaver when using someone else’s code or even coming back to work you were doing weeks or months ago  
   -	make it a habit to go back through your scripts and **simplify anything you can** - the shorter the script, the less that can go wrong  
   -	give your objects **short, unique, and self-describing names** - things can quickly get out of hand if all of your data frames are called “dataframe”  

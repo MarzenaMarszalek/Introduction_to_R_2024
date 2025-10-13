@@ -11,7 +11,7 @@
 
 <meta name="author" content="Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik &amp; Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2025-10-10" />
+<meta name="date" content="2025-10-13" />
 
 <title>Introduction to R - class 2  Working in RStudio</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 2<br> <span style="color: gray">Working in RStudio</span></h1>
 <h4 class="author">Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik
 &amp; Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2025-10-10</h4>
+<h4 class="date">2025-10-13</h4>
 
 </div>
 
@@ -476,7 +476,7 @@ click the <code>Run</code> button. To run the whole script, click the
 <div id="exercise-1" class="section level3">
 <h3><span style="color: green"><strong>Exercise 1</strong></span></h3>
 <p><span style="color: green;"><strong>Create a new script file and save
-it. Call it as you wish. Write code for all subsequent exercises using
+it. Name it as you wish. Write code for all subsequent exercises using
 the Code editor. Remember that to obtain any outcome/result, you need to
 run your code first.</strong></span></p>
 <p>To make your code easier to read and understand, it is a good
@@ -484,7 +484,8 @@ practice to <strong>add comments</strong>. Comments help explain what
 specific sections of the code are doing. This may be useful for other
 people using your script, and for you as well. Even if you know what
 your code is doing, after some time, you may forget it, and you may have
-to spend a lot of time understanding its functionality again.</p>
+to spend a lot of time trying to understand its functionalisty
+again.</p>
 <p>In R you can add comments to your script by <strong>starting the line
 with the hashtag</strong> <code>#</code>. Apart from adding comments to
 your script hashtag can also be used to <strong>“turn off” a chunk of
@@ -546,7 +547,7 @@ Having consistent setup rules can help with this.</p>
 - <span style="color: blue"><strong>create and save a new script
 file</strong></span> – if you don’t have one already<br />
 - <span style="color: blue"><strong>copy and update the name of your
-script file (e.g. with that day’s date)</strong></span> – if you are
+script file (e.g. with the current date)</strong></span> – if you are
 working on a previously created file and want to <strong>keep track of
 multiple versions</strong> - <span style="color: blue"><strong>set up a
 working directory</strong> </span> – easiest way to keep track of this
@@ -739,8 +740,9 @@ values in the file; by default, .csv files should be comma
 check by opening the .csv file through a basic text editor<br />
 </li>
 <li><strong>encoding</strong>: specifies which encoding is used in the
-.csv file; can be important if you are using files with non-Latin
-characters, for example*, but isn’t always needed</li>
+.csv file; this can be important if you are working with files that
+contain non-Latin characters, for example Polish special letters (ą, ę,
+ć, etc.), but it isn’t always required.</li>
 </ul>
 <p>If you are trying to upload a file with <strong>non-Latin
 characters</strong> and R is displaying them as nonsense symbols, you
@@ -791,12 +793,11 @@ will share their code for free on <strong>GitHub</strong> and other
 websites – even if the code cannot solve your problem, it can point you
 in the right direction<br />
 </li>
-<li><strong>be careful with AI-generated solutions</strong>: while
-websites like <strong>ChatGPT</strong> can be useful for finding
-specific functions, it rarely generates a whole block of code that does
-not require heavy editing; <strong>if the code uses functions you don’t
-know, you might not notice that it generates faulty
-results</strong></li>
+<li><strong>AI-generated solutions</strong> are very useful but require
+some care: while ChatGPT, Gemini and other similar tools often generate
+correct code, this is <strong>not guaranteed</strong>; <strong>if the
+code uses functions you don’t know, you might not notice that it
+generates faulty results</strong></li>
 </ul>
 <div id="exercise-9" class="section level4">
 <h4><span style="color: green;"><strong>Exercise 9</strong></span></h4>
@@ -804,29 +805,30 @@ results</strong></li>
 function that can rename columns in a data frame. Install and load a
 package if necessary. Try using the RStudio manual to figure out how to
 use the function that can perform this task.</strong></span></p>
-<p>Remember that the manual for any installed function can be pulled up
-by typing a question mark (<code>?</code>) before its name.<br />
-If you are attempting to use someone else’s code and you need to adapt
-it for your purposes, consider the following:</p>
+<p>Remember that the <strong>manual</strong> for any installed function
+can be invoked up by typing a <strong>question mark (?) before its
+name</strong> or by <strong>pressing F1 when your cursor is on the
+function name.</strong> If you are attempting to use someone else’s code
+and you need to adapt it for your purposes, consider the following:</p>
 <ul>
 <li>before changing anything in the code you copied, go through the
 entire script and <strong>make sure you understand</strong>, at least on
-a basic level, what every line is doing<br />
-</li>
+a basic level, what every line is doing. Again ChatGTP and others may be
+helpful here.</li>
 <li>remember to <strong>change the parts of the code that do not apply
 to your tasks</strong>: e.g., change the path to files being used,
 adjust function arguments and parameters, and remove parts that are not
-important for you<br />
+important for you.<br />
 </li>
 <li>another coder might assume that everyone uses the same packages as
 they do – if a function is not working, it can be a result of R not
-recognizing it<br />
+recognizing it.<br />
 </li>
 <li>you can find what package uses a specific function by searching
 <strong>“R [function name] package”</strong> – keep in mind that
 multiple packages can use the same word to describe different functions,
 so make sure to read their descriptions before downloading the
-package</li>
+package.</li>
 </ul>
 </div>
 <div id="exercise-10" class="section level4">
@@ -976,12 +978,11 @@ how to fix the issue, edit the code.</strong></span></p>
 <p>As you can see, coding can be meticulous and sometimes frustrating
 work. To reduce this frustration, remember the following:</p>
 <ul>
-<li>stick to habits of <strong>setting up your working session</strong>
-every time you open RStudio<br />
-</li>
-<li>if you are working on a script for multiple days, consider making a
-<strong>new copy of it every day or every week</strong> to keep previous
-versions in hand in case you need to revert the changes</li>
+<li>if you are working on a script for multiple days, consider making
+<strong>a new copy of it every day or every week</strong> to keep
+previous versions in hand in case you need to revert the changes (there
+are much better ways of handling thee problem of version controm but
+they are beyond the scope of our course)</li>
 <li><strong>include comments</strong> in your code! remember that you
 can use the hashtag symbol <code>#</code> to both turn off certain parts
 of the code and leave useful descriptions – this can be a lifesaver when
