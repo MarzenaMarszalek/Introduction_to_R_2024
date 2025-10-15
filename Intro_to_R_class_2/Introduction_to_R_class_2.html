@@ -11,7 +11,7 @@
 
 <meta name="author" content="Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik &amp; Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2025-10-13" />
+<meta name="date" content="2025-10-15" />
 
 <title>Introduction to R - class 2  Working in RStudio</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 2<br> <span style="color: gray">Working in RStudio</span></h1>
 <h4 class="author">Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik
 &amp; Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2025-10-13</h4>
+<h4 class="date">2025-10-15</h4>
 
 </div>
 
@@ -405,6 +405,10 @@ vs Errors</a>
 <li><a href="#exercise-11" id="toc-exercise-11"><span style="color: green;"><strong>Exercise 11</strong></span></a></li>
 <li><a href="#exercise-12" id="toc-exercise-12"><span style="color: green;"><strong>Exercise 12</strong></span></a></li>
 </ul></li>
+<li><a href="#writing-a-table-to-a-file" id="toc-writing-a-table-to-a-file">Writing a table to a file</a>
+<ul>
+<li><a href="#exercise-13" id="toc-exercise-13"><span style="color: green;"><strong>Exercise 13</strong></span></a></li>
+</ul></li>
 <li><a href="#keeping-your-code-clean-and-tidy" id="toc-keeping-your-code-clean-and-tidy">Keeping your code clean and
 tidy</a></li>
 </ul></li>
@@ -412,7 +416,6 @@ tidy</a></li>
 </ul>
 </div>
 
-<pre class="r"><code>knitr::opts_chunk$set(echo = F)</code></pre>
 <div id="rstudio-interface" class="section level2">
 <h2>RStudio interface</h2>
 <p><strong>RStudio has three great advantages over the classical R
@@ -762,14 +765,6 @@ customization through arguments.</p>
 manuals. Upload the “class_2_data.csv” file into the R environment using
 both functions. Make sure what additional arguments you should use for
 both functions to upload files properly.</strong></p>
-<p>In most of your analyses, you will not need to download a modified
-data frame out of R – you will only be interested in the results of
-certain tests or graphs that R will generate. However, if you want to
-<strong>download the data frame</strong>, you can use:<br />
-- <code>write.table()</code> – for saving a .csv file; uses similar
-arguments to <code>read.table()</code><br />
-- <code>write_xlsx()</code> – requires the <code>writexl</code> package
-to be installed and loaded</p>
 </div>
 </div>
 <div id="searching-for-functions-and-code-on-the-internet" class="section level3">
@@ -893,12 +888,13 @@ code separately, then identify what warning is occurring and why. If you
 know how to fix the issue, edit the code.</strong></span></p>
 <ul>
 <li><p>Example One:<br />
-<code>numbers &lt;- c(10, -5, 0)</code>
+<code>numbers &lt;- c(10, -5, 0)</code><br />
 <code>log(numbers)</code></p></li>
 <li><p>Example Two:<br />
 <code>log(100, by = 2)</code></p></li>
 <li><p>Example Three:<br />
-<code>vec &lt;- c(1, 2, &quot;three&quot;)</code> <code>vec * 2</code></p></li>
+<code>vec &lt;- c(1, 2, &quot;three&quot;)</code><br />
+<code>vec * 2</code></p></li>
 </ul>
 <p><span style="color: red;"><strong>Error messages</strong></span> are
 issues in the code that actually <strong>prevent the code from
@@ -968,9 +964,26 @@ how to fix the issue, edit the code.</strong></span></p>
 <code>x &lt;- c(1, 2, 3; 4)</code></p></li>
 <li><p>Example Three:<br />
 <code>describe(class_2_data)</code></p></li>
+<li><p>Example Four:
+<code>df &lt;- data.frame(name = c(&quot;Alice&quot;, &quot;Bob&quot;),  age = c(25, 30, 35))</code></p></li>
 </ul>
-<p>Example Four:
-<code>df &lt;- data.frame(name = c(&quot;Alice&quot;, &quot;Bob&quot;),  age = c(25, 30, 35))</code></p>
+</div>
+</div>
+<div id="writing-a-table-to-a-file" class="section level3">
+<h3>Writing a table to a file</h3>
+<p>In most of your analyses, you will not need to download a modified
+data frame out of R – you will only be interested in the results of
+certain tests or graphs that R will generate. However, if you want to
+<strong>download the data frame</strong>, you can use:<br />
+- <code>write.table()</code> – for saving a .csv file; uses similar
+arguments to <code>read.table()</code><br />
+- <code>write_xlsx()</code> – requires the <code>writexl</code> package
+to be installed and loaded</p>
+<div id="exercise-13" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 13</strong></span></h4>
+<p><span style="color: green"><strong>Using the
+<code>write.table()</code> function write the <code>class_2_data</code>
+table as a .csv file.</strong></span></p>
 </div>
 </div>
 <div id="keeping-your-code-clean-and-tidy" class="section level3">

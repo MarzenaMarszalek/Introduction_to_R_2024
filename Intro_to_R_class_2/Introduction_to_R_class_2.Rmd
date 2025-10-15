@@ -9,7 +9,7 @@ output:
       toc_depth: 4
 ---
 
-```{r setup, include=T}
+```{r setup, include=F}
 knitr::opts_chunk$set(echo = F)
 ```
 
@@ -181,10 +181,6 @@ The `read.csv()` function can work with just one argument – the file name. How
 #### <span style="color: green;">**Exercise 8**</span>
 <span style="color: green;">**Check the `read.table()` and the `read.csv()` function manuals. Upload the "class_2_data.csv" file into the R environment using both functions. Make sure what additional arguments you should use for both functions to upload files properly.**
 
-In most of your analyses, you will not need to download a modified data frame out of R – you will only be interested in the results of certain tests or graphs that R will generate. However, if you want to **download the data frame**, you can use:  
-  - `write.table()` – for saving a .csv file; uses similar arguments to `read.table()`  
-  - `write_xlsx()` – requires the `writexl` package to be installed and loaded
-
 ### Searching for functions and code on the internet
 
 R is a constantly growing and updating community. If you need something done in R, chances are, someone has made a library or a function for it.
@@ -239,14 +235,14 @@ Some warning messages can be safely ignored, while some indicate potential issue
 <span style="color: green">**Look at these lines of code. What kind of warning messages do you think they contain? Run the lines of code separately, then identify what warning is occurring and why. If you know how to fix the issue, edit the code.**</span>
 
 - Example One:    
-`numbers <- c(10, -5, 0)`
+`numbers <- c(10, -5, 0)`  
 `log(numbers)`
 
 - Example Two:  
 `log(100, by = 2)`
 
 - Example Three:  
-`vec <- c(1, 2, "three")`
+`vec <- c(1, 2, "three")`  
 `vec * 2`
 
 
@@ -282,9 +278,17 @@ If all of the above fails, you can try looking up your specific situation – ch
 - Example Three:   
 `describe(class_2_data)`
 
-Example Four:
+- Example Four:
 `df <- data.frame(name = c("Alice", "Bob"),  age = c(25, 30, 35))`
 
+### Writing a table to a file
+
+In most of your analyses, you will not need to download a modified data frame out of R – you will only be interested in the results of certain tests or graphs that R will generate. However, if you want to **download the data frame**, you can use:  
+  - `write.table()` – for saving a .csv file; uses similar arguments to `read.table()`  
+  - `write_xlsx()` – requires the `writexl` package to be installed and loaded
+
+#### <span style="color: green;">**Exercise 13**</span>
+<span style="color: green">**Using the `write.table()` function write the `class_2_data` table as a .csv file.**</span>
 
 ### Keeping your code clean and tidy
 
