@@ -452,7 +452,7 @@ v31
 *Advice: To perform any action on the whole dataset again, use the `ungroup()` function.*
 
 #### <span style="color: green">**Exercise 32**</span> 
-<span style="color: green">**Using pipe, thee `group_by()` function, and `my_data` data frame, create a new column with the deviations of `Glycogen` values from the arithmetic mean in a given `Treatment`.**</span>
+<span style="color: green">**Using pipe, the `group_by()` function, and `my_data` data frame, create a new column with the standard deviation of `Glycogen` column in a given `Treatment`.**</span>
 
 Expected result (first 10 rows):
 
