@@ -426,7 +426,7 @@ ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-We can also display separate plots for each species, but still keep them within a single figure, using the `facet_wrap()` function. Add `facet_wrap(~ variable)` to your ggplot chain, where variable is the factor you want to split the plot by. Panels are automatically arranged in a grid, making comparisons across groups easy.
+We can also display **separate plots for each species**, but still keep them within a **single figure**, using the `facet_wrap()` function. Add `facet_wrap(~ variable)` to your ggplot chain, where **variable is the factor you want to split the plot by**. Panels are automatically arranged in a grid, making comparisons across groups easy. Since each species is in its own panel, there is no need to use position = "dodge" anymore.
 
 #### <span style="color: green">**Exercise 22**</span> 
 <span style="color: green">**Now modify the histogram above to display density distributions and density bars for each species on a separate plots.**</span>
@@ -441,6 +441,27 @@ ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) +
   labs(x = "Length of sepal [cm]", y = "Density", title = "Histogram of Sepals' Length Observation") + 
   theme(plot.title = element_text(hjust = 0.5)) +
   facet_wrap(~ Species)
+```
+
+So far, when we used the color or fill arguments inside `aes()`, `ggplot2` automatically selected colors. You can also set colors manually by specifying exact values using `scale_fill_manual()` or `scale_color_manual()`. For example:
+scale_fill_manual(values = c(group1 = "color1", group2 = "color2", ...)) or scale_fill_manual(values = c("color1", "color2", ...)) 
+
+You can also use predefined color palettes from packages like `RColorBrewer` or `viridis` to automatically generate visually appealing and consistent colors. Palettes are especially useful when working with many categories, as they ensure good contrast and accessibility. [Here](https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/) you can read more about color palettes and how to apply them.
+
+#### <span style="color: green">**Exercise 23**</span> 
+<span style="color: green">**Change the colors for each species in the plot you created in the previous exercise.**</span>
+
+Expected result:
+
+```{r, message = F}
+ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) + 
+  geom_histogram(aes(fill = Species), color = "black", bins = 10, position = "dodge") + 
+  geom_density(aes(x = Sepal.Length, fill = Species), alpha = 0.2) +  
+  theme_bw() +
+  labs(x = "Length of sepal [cm]", y = "Density", title = "Histogram of Sepals' Length Observation") + 
+  theme(plot.title = element_text(hjust = 0.5)) +
+  facet_wrap(~ Species) +
+  scale_fill_manual(values = c(setosa = "violet", virginica = "lightblue", versicolor = "pink"))
 ```
 
 ### Saving your images
@@ -464,7 +485,7 @@ In `ggplot`, we can use the function `ggsave()`. **By default, it saves the last
 `ggsave("scatterplot_1.pdf", width = 20, height = 20, units = "cm")`
 
 
-#### <span style="color: green">**Exercise 22**</span> 
+#### <span style="color: green">**Exercise 24**</span> 
 <span style="color: green">**Save one of the plots we generated today using your preferred method.**</span>
 
 ```{r, message = F, eval = F}
@@ -473,7 +494,7 @@ ggsave("plot_ggsave.png")
 
 ## <span style="color: darkorange;">Homework</span>
 
-<span style="color: darkorange"><br>
+<span style="color: #da205eff"><br>
 Use the built in `mtcars` data set for all exercises. As a reminder, you can pull up a description of the inbuilt data set by typing a question mark before its name into the R console.<br>
 1.	Using base R, generate a scatterplot to demonstrate a relationship between any 2 continuous variables. Add a grouping by `color` to the plot, descriptions of axes, and a title.<br>
 2.	Using base R, generate a histogram for any appropriate variable. Set the number of bins on it to 5, add axes descriptions, and plot title.
