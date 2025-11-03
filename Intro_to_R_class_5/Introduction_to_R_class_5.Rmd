@@ -40,14 +40,11 @@ summary(my_data)
 The two most common types of plots are **scatterplots** and **histograms**.
 
   - **Scatterplots** display individual observations of two variables measured existing on a **continuous scale**. They are usually used to demonstrate a **relationship** (or lack thereof) between two traits or measures.   
-  - **Histograms**, on the other hand, display number of observations (shown on the y axis of a graph) per category of observations (shown on the x axis).
-  
-Histograms are usually used to demonstrate differences between groups or their central tendencies (e.g. means).
+  - **Histograms**, on the other hand, display number of observations (shown on the y axis of a graph) per category of observations (shown on the x axis). Histograms are usually used to demonstrate differences between groups or their central tendencies (e.g. means).
 
 ### Scatterplot
 
-We’ll start with a scatterplot.  
-The basic R function to create any kind of plot is, simply, `plot()`. To set it up, provide arguments for x axis, and y axis: `plot(x = x_axis_data, y = y_axis_data)`, where `x` and `y` specify variables that define x and y axes values respectively. 
+We’ll start with a scatterplot. The basic R function to create any kind of plot is, simply, `plot()`, it automatically adapts depending on the type of object you pass to it (numeric vectors, data frames, factors, etc.). To set it up, provide arguments for x axis, and y axis: `plot(x = x_axis_data, y = y_axis_data)`, where `x` and `y` specify variables that define x and y axes values respectively. 
 
 #### <span style="color: green">**Exercise 2**</span> 
 <span style="color: green">**Create a  scatterplot using `my_data` data frame. Provide the `Sepal.length` column as x, and `Sepal.width` as y arguments of the `plot()` function.**</span>
@@ -103,9 +100,7 @@ The basic plot function allows further modification, such as, e.g., addition of 
 
 ### Histogram
 
-Now let’s try to make a histogram.
-
-The base R function for making a histogram is `hist()`. The only argument you need to provide is the column of the data you want to work on. The group of the observations will be shown on the x axis, and the number of observations in that group will be shown on the y axis.
+Now let’s try to make a histogram. The base R function for making a histogram is `hist()`. The only argument you need to provide is the **column of the data you want to work on**. The group of the observations will be shown on the x axis, and the number of observations in that group will be shown on the y axis.
 
 #### <span style="color: green">**Exercise 6**</span> 
 <span style="color: green">**Create a histogram plot of the sepal length using `my_data`.**</span>
@@ -134,7 +129,7 @@ hist(my_data$Sepal.Length,
 
 ### Installation
 
-From now on, we are going to use the `ggplot2` package.
+From now on, we are going to use the `ggplot2` package that provides a flexible system for building complex and visually appealing graphics in R. [Here](https://r-graph-gallery.com/) you can find very nicely presented descriptions of many types of plots.
 
 Install and load the package:
 
@@ -418,17 +413,34 @@ ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) +
 ```
 
 #### <span style="color: green">**Exercise 21**</span> 
-<span style="color: green">**Modify the histogram above and display density distributions for each species separately on a single plot. Take advantage of `color` argument inside aesthetics.**</span>
+<span style="color: green">**Modify the histogram above and display both density distributions and density bars for each species separately on a single plot. Take advantage of `color` argument inside aesthetics.**</span>
 
 Expected result:
 
 ```{r, message = F}
 ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) + 
-  geom_histogram(fill = "white", color = "black", bins = 10) + 
+  geom_histogram(aes(fill = Species), color = "black", bins = 10, position = "dodge") + 
   geom_density(aes(x = Sepal.Length, fill = Species), alpha = 0.2) +  
   theme_bw() +
   labs(x = "Length of sepal [cm]", y = "Density", title = "Histogram of Sepals' Length Observation") + 
   theme(plot.title = element_text(hjust = 0.5))
+```
+
+We can also display separate plots for each species, but still keep them within a single figure, using the `facet_wrap()` function. Add `facet_wrap(~ variable)` to your ggplot chain, where variable is the factor you want to split the plot by. Panels are automatically arranged in a grid, making comparisons across groups easy.
+
+#### <span style="color: green">**Exercise 22**</span> 
+<span style="color: green">**Now modify the histogram above to display density distributions and density bars for each species on a separate plots.**</span>
+
+Expected result:
+
+```{r, message = F}
+ggplot(my_data, aes(x = Sepal.Length, y = after_stat(density))) + 
+  geom_histogram(aes(fill = Species), color = "black", bins = 10, position = "dodge") + 
+  geom_density(aes(x = Sepal.Length, fill = Species), alpha = 0.2) +  
+  theme_bw() +
+  labs(x = "Length of sepal [cm]", y = "Density", title = "Histogram of Sepals' Length Observation") + 
+  theme(plot.title = element_text(hjust = 0.5)) +
+  facet_wrap(~ Species)
 ```
 
 ### Saving your images
