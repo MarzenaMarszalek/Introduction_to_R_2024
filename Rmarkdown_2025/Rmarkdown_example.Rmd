@@ -1,0 +1,66 @@
+---
+title: "Example R Markdown with an analysis of Iris data"
+author: "Wiesław Babik"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(tidyverse)
+```
+
+# Load and summarise
+
+We'll use built-in `iris` dataset containing various flower measurements in three *Iris* species.
+
+First, we have a look at the structure of the data
+
+```{r}
+str(iris)
+```
+
+Second, we print part of the data as a simple table 
+
+```{r}
+#we use kable() from knitr package
+kable(head(iris))
+```
+
+Third, we generate basic summary of the dataset and print it as a simple table
+
+```{r}
+kable(summary(iris))
+```
+
+# Visualise and interpret
+
+Finally, we plot the relationship between sepal length and sepal width and interpret results with the help of correlations coefficients calculated as inline R code.
+
+## Plot
+
+```{r}
+p <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, colour = Species)) +
+  geom_point() + geom_smooth(method = 'lm') +
+  theme_light()
+p
+
+```
+
+## Interpretation
+
+We first calculate Pearson correlation coefficient for each species and then write a short interpretative text 
+
+```{r}
+r <- iris %>% group_by(Species) %>% 
+  summarise(r = round(cor(Sepal.Length, Sepal.Width, method = 'pearson'), 2)) %>% 
+  deframe()
+
+```
+
+It looks like correlation for *setosa* (`r r["setosa"]`) is higher than for the two other species (`r paste(r[[2]], r[[3]], sep =", ")`), but we have to do proper statistical test for significance of the difference.
+
+
