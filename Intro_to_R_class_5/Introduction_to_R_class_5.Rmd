@@ -16,7 +16,8 @@ knitr::opts_chunk$set(echo = FALSE)
 **Data visualization** is a vital tool for statistics and research. Plots, graphs, and other visual representations of data not only make complex datasets **more accessible** but also reveal **patterns, trends, and outliers** we might not notice otherwise. 
 Base R provides all necessary functions for creating quick plots that you can use for your own information, e.g. in accessing **the distribution of data**. To make plots more aesthetically pleasing, readable, and publication ready, we will use `ggplot2` package.
 
-## Basic plotting
+## <span style="color: #3b50dbff">**Basic plotting @home**</span>
+
 
 During this class, we will be working on the internal dataset `iris`, which describes various dimensions of flowers. You can access the description of the dataset by typing a question mark before its name.
 Here is a botanical visual of the flower structure.
@@ -25,8 +26,8 @@ Here is a botanical visual of the flower structure.
 ![](flower.png)
 
 
-### <span style="color: green">**Exercise 1**</span>
-<span style="color: green">**Assign the internal data set `iris` to an object called `my_data`. View the dataset and create its short summary.**</span>
+### <span style="color: #3b50dbff">**Exercise 1 @home**</span>
+<span style="color: #3b50dbff">**Assign the internal data set `iris` to an object called `my_data`. View the dataset and create its short summary.**</span>
 
 Expected result (first 10 rows):
 
@@ -42,12 +43,12 @@ The two most common types of plots are **scatterplots** and **histograms**.
   - **Scatterplots** display individual observations of two variables measured existing on a **continuous scale**. They are usually used to demonstrate a **relationship** (or lack thereof) between two traits or measures.   
   - **Histograms**, on the other hand, display number of observations (shown on the y axis of a graph) per category of observations (shown on the x axis). Histograms are usually used to demonstrate differences between groups or their central tendencies (e.g. means).
 
-### Scatterplot
+### Scatterplot 
 
 We’ll start with a scatterplot. The basic R function to create any kind of plot is, simply, `plot()`, it automatically adapts depending on the type of object you pass to it (numeric vectors, data frames, factors, etc.). To set it up, provide arguments for x axis, and y axis: `plot(x = x_axis_data, y = y_axis_data)`, where `x` and `y` specify variables that define x and y axes values respectively. 
 
-#### <span style="color: green">**Exercise 2**</span> 
-<span style="color: green">**Create a  scatterplot using `my_data` data frame. Provide the `Sepal.length` column as x, and `Sepal.width` as y arguments of the `plot()` function.**</span>
+#### <span style="color: #3b50dbff">**Exercise 2 @home**</span> 
+<span style="color: #3b50dbff">**Create a  scatterplot using `my_data` data frame. Provide the `Sepal.length` column as x, and `Sepal.width` as y arguments of the `plot()` function.**</span>
 
 Expected result:
 
@@ -57,8 +58,8 @@ plot(x = my_data$Sepal.Length, y = my_data$Sepal.Width)
 
 Alternatively, the same command can be given using the **tilde** `~` sign. In coding language, this can be read as "depends on", and is used not only in plots, but also in e.g. statistical functions.
 
-#### <span style="color: green">**Exercise 3**</span> 
-<span style="color: green">**Create a plot using the same function but writing the arguments down as `Sepal.width` depending on `Sepal.length`. Provide the name of the data frame as data argument. Remember that, on a standard plot, the y axis shows the dependent variable, and x shows the independent variable.**</span>
+#### <span style="color: #3b50dbff">**Exercise 3 @home**</span> 
+<span style="color: #3b50dbff">**Create a plot using the same function but writing the arguments down as `Sepal.width` depending on `Sepal.length`. Provide the name of the data frame as data argument. Remember that, on a standard plot, the y axis shows the dependent variable, and x shows the independent variable.**</span>
 
 The only difference in the results should be the displayed titles for the axes. 
 
@@ -68,8 +69,8 @@ plot(Sepal.Width ~ Sepal.Length, data = my_data)
 
 The basic `plot()` function allows us to somewhat customize the plots. For example, we can change the name of the axes, as well as the title of the plot.
 
-#### <span style="color: green">**Exercise 4**</span> 
-<span style="color: green">**Copy and modify the code from exercise 3. Add axis titles using the arguments `xlab` and `ylab`. Add the title of the plot using the `main` argument.**</span>
+#### <span style="color: #3b50dbff">**Exercise 4 @home**</span> 
+<span style="color: #3b50dbff">**Copy and modify the code from exercise 3. Add axis titles using the arguments `xlab` and `ylab`. Add the title of the plot using the `main` argument.**</span>
 
 Remember that, for any function, you can always access its manual by typing its name with a question mark at the beginning into the R console.
 
@@ -82,8 +83,8 @@ plot(Sepal.Width ~ Sepal.Length, data = my_data, xlab = "sepal length", ylab = "
 
 What if we want to add **grouping** to the scatterplot? We can add another argument to the function too, for example, color the individual observations according to group.
 
-#### <span style="color: green">**Exercise 5**</span> 
-<span style="color: green">**Modify the plot function to color the observations by `Species`. Do this by adding a `col` argument and setting the `Species` column as its value.**</span>
+#### <span style="color: #3b50dbff">**Exercise 5 @home**</span> 
+<span style="color: #3b50dbff">**Modify the plot function to color the observations by `Species`. Do this by adding a `col` argument and setting the `Species` column as its value.**</span>
 
 Expected result:
  
@@ -102,8 +103,8 @@ The basic plot function allows further modification, such as, e.g., addition of 
 
 Now let’s try to make a histogram. The base R function for making a histogram is `hist()`. The only argument you need to provide is the **column of the data you want to work on**. The group of the observations will be shown on the x axis, and the number of observations in that group will be shown on the y axis.
 
-#### <span style="color: green">**Exercise 6**</span> 
-<span style="color: green">**Create a histogram plot of the sepal length using `my_data`.**</span>
+#### <span style="color: #3b50dbff">**Exercise 6 @home**</span> 
+<span style="color: #3b50dbff">**Create a histogram plot of the sepal length using `my_data`.**</span>
 
 Expected outcome:
 
@@ -114,8 +115,8 @@ hist(my_data$Sepal.Length)
  
 You can customize this plot using the same arguments as in the `plot()` function to add axes labels and a title. Additionally, we can adjust some other things about this plot, for example changing the grouping on the x axis using the `breaks` argument. The `breaks` argument can take a single number (which will correspond to the number of bins) or a numeric vector (which will correspond to the boundaries of the bins). 
 
-#### <span style="color: green">**Exercise 7**</span> 
-<span style="color: green">**Update the histogram code by adding axes names, title, and setting it to display 4 bins.**</span>
+#### <span style="color: #3b50dbff">**Exercise 7 @home**</span> 
+<span style="color: #3b50dbff">**Update the histogram code by adding axes names, title, and setting it to display 4 bins.**</span>
 
 ```{r}
 hist(my_data$Sepal.Length,

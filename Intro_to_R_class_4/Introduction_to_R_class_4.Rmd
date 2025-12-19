@@ -83,8 +83,8 @@ Double equal sign `==` is used for equality because the single sign `=` is alrea
 
 Note that while comparing two vectors with the symbols shown above, R does not consider the action as one comparison. It rather compares them element by element, recycling shorter vectors and resulting in a logical vector of a longer vector's length. It is the same rule as for mathematical operations on vectors.
 
-### <span style="color: green">**Exercise 5**</span>
-<span style="color: green">**Manually create two vectors. One of the prime numbers and a second of even numbers. Both should belong to the range <0,11>. Check if they are equal.**</span>
+### <span style="color: #3b50dbff">**Exercise 5 @home**</span>
+<span style="color: #3b50dbff">**Manually create two vectors. One of the prime numbers and a second of even numbers. Both should belong to the range <0,11>. Check if they are equal.**</span>
 
 Expected result:
 
@@ -96,8 +96,8 @@ prime == even
 
 To check whether vectors (as a whole) are identical, use the `identical()` function.
 
-### <span style="color: green">**Exercise 6**</span>
-<span style="color: green">**Create two integer vectors from 1 to 10. Call them differently and compare them with the `identical()` function. Then, change one value within the first vector and repeat the comparison.**</span>
+### <span style="color: #3b50dbff">**Exercise 6 @home**</span>
+<span style="color: #3b50dbff">**Create two integer vectors from 1 to 10. Call them differently and compare them with the `identical()` function. Then, change one value within the first vector and repeat the comparison.**</span>
 
 Expected result:
 
@@ -179,8 +179,8 @@ R also uses a double version of the `&` and `|` operators. Their outcome is the 
 
 Frequently, the question is not about logical vectors themselves but rather about **which element of a vector fulfills a given condition**. The answer is provided by `which()` function. It takes a comparison as an argument and **returns a vector of indexes** that can be used for subsetting.
 
-### <span style="color: green">**Exercise 12**</span>
-<span style="color: green">**Construct a vector with the first 20 integers divisible by 3. Which elements of it are larger or equal to 21?**</span>
+### <span style="color: #3b50dbff">**Exercise 12 @home**</span>
+<span style="color: #3b50dbff">**Construct a vector with the first 20 integers divisible by 3. Which elements of it are larger or equal to 21?**</span>
 
 Expected result:
 
@@ -197,8 +197,8 @@ v12d <- which(v12c >= 21)
 v12d
 ```
 
-### <span style="color: green">**Exercise 13**</span>
-<span style="color: green">**Having indexes of values larger or equal 21 from the previous exercise, return the values from the previously constructed vector that correspond to these indexes.**</span>
+### <span style="color: #3b50dbff">**Exercise 13 @home**</span>
+<span style="color: #3b50dbff">**Having indexes of values larger or equal 21 from the previous exercise, return the values from the previously constructed vector that correspond to these indexes.**</span>
 
 Expected result:
 
@@ -296,8 +296,8 @@ Importantly, names of columns provided to `dplyr` functions **do not need quotat
 
 To sort the data, use `arrange()` function in the following manner: `arrange(dataset, ordering_column)`
 
-#### <span style="color: green">**Exercise 20**</span> 
-<span style="color: green">**Obtain the observations from `my_data` sorted with increasing levels of glycogen. Use the `arrange()` function.**</span>
+#### <span style="color: #3b50dbff">**Exercise 20 @home**</span> 
+<span style="color: #3b50dbff">**Obtain the observations from `my_data` sorted with increasing levels of glycogen. Use the `arrange()` function.**</span>
 
 Expected result (first 10 rows):
 
@@ -306,8 +306,8 @@ arrange(my_data, Glycogen)[1:10, ]
 ```
 To obtain the descending order, put the name of the column inside the `desc()` function.
 
-#### <span style="color: green">**Exercise 21**</span> 
-<span style="color: green">**Using the `arrange()` function sort the observations from `my_data` with the decreasing levels of glycogen.**</span>
+#### <span style="color: #3b50dbff">**Exercise 21 @home**</span> 
+<span style="color: #3b50dbff">**Using the `arrange()` function sort the observations from `my_data` with the decreasing levels of glycogen.**</span>
 
 
 Expected result (first 10 rows):
@@ -317,8 +317,8 @@ arrange(my_data, desc(Glycogen))[1:10,]
 ```
 You can also sort the data by **multiple columns**. To do this, add column in the following manner: `arrange(dataset, ordering_column1, ordering_column2)`. Note that the priority of sorting is denoted by the order of function arguments.
 
-#### <span style="color: green">**Exercise 22**</span> 
-<span style="color: green">**Using the `arrange()` function, obtain the observations from `my_data` sorted firstly by the `Treatment` column and then by the `Rat` column (both in ascending order).**</span>
+#### <span style="color: #3b50dbff">**Exercise 22 @home**</span> 
+<span style="color: #3b50dbff">**Using the `arrange()` function, obtain the observations from `my_data` sorted firstly by the `Treatment` column and then by the `Rat` column (both in ascending order).**</span>
 
 
 Expected result (first 10 rows):
@@ -461,7 +461,7 @@ v31 <- my_data %>% group_by(Treatment) %>%  mutate(std_dev = sd(Glycogen))
 v31[1:10,]
 ```
 
-**************** **ADVANCED** ******************  
+**************** **ADVANCED @home** ******************  
 
 ### Joining
 
