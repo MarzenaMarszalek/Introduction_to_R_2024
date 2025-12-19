@@ -93,7 +93,7 @@ Expected result:
 my_data[5, 3]
 ```
 
-You can call for **multiple values in the same time**. To define a range of coordinates, use a **colon** (`:`) separating range borders - e.g., `table[row_number_1:row_number_2, column_number]`.
+You can call for **multiple values in the same time**. To define a range of coordinates, use a **colon** (`:`) separating range borders - e.g., `table_name[row_number_1:row_number_2, column_number]`.
 
 ### <span style="color: green">**Exercise 5**</span>
 <span style="color: green">**Return first 5 rows for the last 2 columns of `my_data`.**</span>
@@ -103,7 +103,6 @@ Expected result:
 ```{r}
 my_data[1:5, 3:4]
 ```
-
 
 ### <span style="color: green">**Exercise 6**</span>
 <span style="color: green">**Now, save the 4th column of `my_data` as a variable called `my_column_4`. Call the variable, so its content is displayed in the console.**</span>
@@ -118,8 +117,8 @@ my_column_4
 ```
 
 
-### <span style="color: green">**Exercise 7**</span>
-<span style="color: green">**Return the 3rd, 4th, and the 5th value from the variable `my_column_4`.**</span>
+### <span style="color: #3b50dbff">**Exercise 7 @home**</span>
+<span style="color: #3b50dbff">**Return the 3rd, 4th, and the 5th value from the variable `my_column_4`.**</span>
 
 Expected result:
 
@@ -129,8 +128,8 @@ my_column_4[3:5, 1]
 
 The table can also be subsetted with the use of columns’ (or rows’) names.
 
-### <span style="color: green">**Exercise 8**</span>
-<span style="color: green">**Return the 4th column of `my_data`, but use the column name instead of its number. Don’t forget about quotation marks (`""`).**</span>
+### <span style="color: #3b50dbff">**Exercise 8 @home**</span>
+<span style="color: #3b50dbff">**Return the 4th column of `my_data`, but use the column name instead of its number. Don’t forget about quotation marks (`""`).**</span>
 
 Expected results (first 10 rows):
 
@@ -156,8 +155,8 @@ Note that **the outcome is no longer a table**. As we asked for just one column,
 > **Curiosity**  
 Pulling one row from the data frame **will not result in a vector**. It is because a row can contain elements of different types, which is not allowed for vectors.
 
-### <span style="color: green">**Exercise 10**</span>
-<span style="color: green">**Create a vector with values 3, 5, 7, 9, and 12 and save it to a variable. Call it.**</span>
+### <span style="color: #3b50dbff">**Exercise 10 @home**</span>
+<span style="color: #3b50dbff">**Create a vector with values 3, 5, 7, 9, and 12 and save it to a variable. Call it.**</span>
 
 Expected result:
 
@@ -166,8 +165,8 @@ v <- c(3, 5, 7, 9, 12)
 v
 ```
 
-### <span style="color: green">**Exercise 11**</span>
-<span style="color: green">**Return rows of the `score` column corresponding to the values in the vector created before.**</span>
+### <span style="color: #3b50dbff">**Exercise 11 @home**</span>
+<span style="color: #3b50dbff">**Return rows of the `score` column corresponding to the values in the vector created before.**</span>
 
 Expected result:
 
@@ -185,7 +184,6 @@ Expected result (first 10 rows):
 ```{r}
 my_data[, -2]
 ```
-
 
 ## Simple operations on data frames/ tibbles
 
@@ -218,8 +216,8 @@ my_data$mass
 ```
 You can also use simple summary functions from the previous class (see Class 2).
 
-#### <span style="color: green">**Exercise 15**</span>
-<span style="color: green">**Calculate the mean value of the `score` column.**</span>
+#### <span style="color: #3b50dbff">**Exercise 15 @home**</span>
+<span style="color: #3b50dbff">**Calculate the mean value of the `score` column.**</span>
 
 Expected result:
 
@@ -332,23 +330,20 @@ my_data$sex <- as.factor(my_data$sex)
 class(my_data$sex)
 ```
 
-## Saving the data frame
-
-To save your data frame into a file, use the `write.table()` function.
-
 ### <span style="color: green">**Exercise 24**</span>
 <span style="color: green">**Save modified `my_data` to the .csv file.**</span>
 
 ## <span style="color: #da205eff;">Homework</span>
 
 <span style="color: #da205eff">
-Prepare your homework in the form of a script file (.R) and call it "class_3_homework_Your_name.R".  
-Perform all exercises using the built-in ToothGrowth dataset. You can view details about the dataset with `?ToothGrowth`. To begin, assign it to a variable with `my_data <- ToothGrowth`, and then carry out all operations on `my_data` as we did in today's class.  
-Include all subsequent steps in a script file.<br>
-  1.	Check the class of each column in the `my_data` data frame. Find the shortest tooth length.<br>
-  2.	Add a new row at the end of `my_data`. The values in a new row should be as follows: 26.2, OJ, 2.0. Write the modified `my_data` dataset as the `my_data_modified` variable. The `my_data` should still contain the original dataset.<br>
-  3.	Add column with IDs - "obs_1" to "obs_n" ("n" is the number of the last observation)- for each observation as the first column of `my_data_modified`. Overwrite `my_data_modified` variable. Tip: to create a vector with IDs, you can use `paste()` to connect "obs_" with the numbers (1-n) instead of typing each ID manually.<br>
-  4.	Modify `my_data_modified` by removing its first 4 rows. Overwrite the `my_data_modified` variable.<br>
+Prepare your homework in the form of a **script file** (.R) and call it "class_3_homework_Your_name.R".  
+Perform all exercises using the built-in `ToothGrowth` dataset. You can view details about the dataset with `?ToothGrowth`. To begin, assign it to a variable with `my_data <- ToothGrowth`, and then carry out all operations on `my_data` as we did in today's class.  
+Include all subsequent steps in a script file.  
+<br>
+  1.	Check the **class of each colum**n in the `my_data` data frame. Find the **shortest tooth length**.<br>
+  2.	Add a **new row** at the end of `my_data`. The values in a new row should be as follows: 26.2, OJ, 2.0. Write the modified `my_data` dataset as the `my_data_modified` variable. The `my_data` should still contain the **original datase**t.<br>
+  3.	Add column with **IDs** - "obs_1" to "obs_n" ("n" is the number of the last observation)- for each observation as the first column of `my_data_modified`. **Overwrite** `my_data_modified` variable. Tip: to create a vector with IDs, you can use `paste()` to connect "obs_" with the numbers (1-n) instead of typing each ID manually.<br>
+  4.	Modify `my_data_modified` by **removing its first 4 rows**. Overwrite the `my_data_modified` variable.<br>
   5.	Save a modified dataset to a "class_3_toothgrowth_modified_Your_Name.csv" file.<br>
-
+</span>
 <span style="color: #da205eff">**Upload your R script to the "Class 3" tab on the *Pegaz* platform.**</span>

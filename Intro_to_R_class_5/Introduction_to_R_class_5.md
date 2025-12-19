@@ -5,36 +5,37 @@ Tomasz Gaczorek, Wiesław Babik & Mateusz Chechetkin<br>Marzena
 Marszałek<br> <marzena.marszalek@doctoral.uj.edu.pl><br>
 2024-10-03
 
-- [Basic plotting](#basic-plotting)
-  - [<span style="color: green">**Exercise 1**</span>](#exercise-1)
-  - [Scatterplot](#scatterplot)
-    - [<span style="color: green">**Exercise 2**</span>](#exercise-2)
-    - [<span style="color: green">**Exercise 3**</span>](#exercise-3)
-    - [<span style="color: green">**Exercise 4**</span>](#exercise-4)
-    - [<span style="color: green">**Exercise 5**</span>](#exercise-5)
-  - [Histogram](#histogram)
-    - [<span style="color: green">**Exercise 6**</span>](#exercise-6)
-    - [<span style="color: green">**Exercise 7**</span>](#exercise-7)
-- [ggplot2](#ggplot2)
-  - [Installation](#installation)
-  - [Syntax](#syntax)
-  - [Scatterplot](#scatterplot-1)
-    - [<span style="color: green">**Exercise 8**</span>](#exercise-8)
-    - [<span style="color: green">**Exercise 9**</span>](#exercise-9)
-    - [<span style="color: green">**Exercise 10**</span>](#exercise-10)
-    - [<span style="color: green">**Exercise 11**</span>](#exercise-11)
-    - [<span style="color: green">**Exercise 12**</span>](#exercise-12)
-    - [<span style="color: green">**Exercise 13**</span>](#exercise-13)
-  - [Boxplot](#boxplot)
-    - [<span style="color: green">**Exercise 14**</span>](#exercise-14)
-  - [Histogram](#histogram-1)
-    - [<span style="color: green">**Exercise 15**</span>](#exercise-15)
-    - [<span style="color: green">**Exercise 16**</span>](#exercise-16)
-  - [<span style="color: green">**Exercise 17**</span>](#exercise-17)
-    - [<span style="color: green">**Exercise 18**</span>](#exercise-18)
-  - [Saving your images](#saving-your-images)
-    - [<span style="color: green">**Exercise 19**</span>](#exercise-19)
-- [<span style="color: darkorange;">Homework</span>](#homework)
+- [R and ggplot2](#r-and-ggplot2)
+  - [Basic plotting](#basic-plotting)
+    - [**Exercise 1**](#exercise-1)
+    - [Scatterplot](#scatterplot)
+      - [**Exercise 2**](#exercise-2)
+      - [**Exercise 3**](#exercise-3)
+      - [**Exercise 4**](#exercise-4)
+      - [**Exercise 5**](#exercise-5)
+    - [Histogram](#histogram)
+      - [**Exercise 6**](#exercise-6)
+      - [**Exercise 7**](#exercise-7)
+  - [ggplot2](#ggplot2)
+    - [Installation](#installation)
+    - [Syntax](#syntax)
+    - [Scatterplot](#scatterplot-1)
+      - [**Exercise 8**](#exercise-8)
+      - [**Exercise 9**](#exercise-9)
+      - [**Exercise 10**](#exercise-10)
+      - [**Exercise 11**](#exercise-11)
+      - [**Exercise 12**](#exercise-12)
+      - [**Exercise 13**](#exercise-13)
+    - [Boxplot](#boxplot)
+      - [**Exercise 14**](#exercise-14)
+    - [Histogram](#histogram-1)
+      - [**Exercise 15**](#exercise-15)
+      - [**Exercise 16**](#exercise-16)
+    - [**Exercise 17**](#exercise-17)
+      - [**Exercise 18**](#exercise-18)
+    - [Saving your images](#saving-your-images)
+      - [**Exercise 19**](#exercise-19)
+  - [Homework](#homework)
 
 **Data visualization** is a vital tool for statistics and research.
 Plots, graphs, and other visual representations of data not only make
@@ -499,22 +500,13 @@ using your preferred method.**</span>
 
 ## <span style="color: darkorange;">Homework</span>
 
-<span style="color: darkorange"><br> Use the built in `mtcars` data set
-for all exercises. As a reminder, you can pull up a description of the
-inbuilt data set by typing a question mark before its name into the R
-console.<br> 1. Using base R, generate a scatterplot to demonstrate a
-relationship between any 2 continuous variables. Add a grouping by
-`colour` to the plot, descriptions of axes, and a title.<br> 2. Using
-base R, generate a histogram for any appropriate variable. Set the
-number of bins on it to 5, add axes descriptions, and plot title. 3.
-Load the `ggplot2` library and use it for all subsequent tasks. Draw a
-scatterplot of cars’ horsepower against weight. Include a regression
-line to check the relationship.<br> 4. Group values in the above
-scatterplot based on the number of cylinders. Does it change the
-relationship<br> 5. Plot a relationship between the number of forward
-gears and rate of combustion (miles/per gallon).<br>
+<span style="color: darkorange">
+Use the built in `mtcars` data set for all exercises. As a reminder, you can pull up a description of the inbuilt data set by typing a question mark before its name into the Rconsole.<br> 
+1. Using base R, generate a scatterplot to demonstrate a relationship between wind speed and temperature. Color the observation by `Month`, add descriptions of axes, and a title.  
+2. Using base R, generate a histogram for the measured temperatures. Set the number of bins on it to 5, add axes descriptions, and plot title.  
+3. Load the ggplot2 library and use it for all subsequent tasks. Draw a scatterplot of the temperature against ozone. Include a regression line to check the relationship.  
+4. Generate a boxplot comparing the distribution of the wind speed across months. Color the boxes' countours according to months. Hint: Convert Month to a factor using `as.factor(Month)` to treat months as categorical variable.  
+5. Generate a histogram of Solar Radiation showing density instead of counts, and overlay a density curve.
 
-<span style="color: darkorange">**Save all the graphs with your
-preferred method. Upload your R script (including commands for saving
-graphs) on the *Pegaz* platform. Do not upload graph files
-itself!**</span>
+<span style="color: darkorange">**Save all the graphs with your preferred method. Upload your R script (including commands for saving
+graphs) on the *Pegaz* platform. Do not upload graph files itself!**</span>

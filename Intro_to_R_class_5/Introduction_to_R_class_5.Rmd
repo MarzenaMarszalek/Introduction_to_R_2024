@@ -494,34 +494,16 @@ ggsave("plot_ggsave.png")
 
 ## <span style="color: #da205eff;">Homework</span>
 
-<span style="color: #da205eff"><br>
-Use the built in `mtcars` data set for all exercises. As a reminder, you can pull up a description of the inbuilt data set by typing a question mark before its name into the R console.<br>
-1.	Using base R, generate a scatterplot to demonstrate a relationship between any 2 continuous variables. Add a grouping by `color` to the plot, descriptions of axes, and a title.<br>
-2.	Using base R, generate a histogram for any appropriate variable. Set the number of bins on it to 5, add axes descriptions, and plot title.
-3.	Load the `ggplot2` library and use it for all subsequent tasks. Draw a scatterplot of cars’ horsepower against weight. Include a regression line to check the relationship.<br>
-4.	Group values in the above scatterplot based on the number of cylinders. Does it change the relationship<br>
-5.	Plot a relationship between the number of forward gears and rate of combustion (miles/per gallon).<br>
+<span style="color: #da205eff">
+Use the built in `airquality` data set for all exercises. As a reminder, you can pull up a description of the inbuilt data set by typing a question mark (`?`) before its name into the Rconsole.
+<br> 
+  1. Using **base R**, generate a **scatterplot** to demonstrate a relationship between **wind speed and temperature**. Color the observation by `Month`, add descriptions of axes, and a title.  
+  2. Using base R, generate a **histogram** for the measured **temperatures**. Set the **number of bins to 5**, add **axes descriptions**, and **plot title**.  
+  3. Load the `ggplot2` library and use it for all subsequent tasks. Draw a **scatterplot** of the **temperature against ozone**. Include a **regression line** to check the relationship.  
+  4. Generate a **boxplot** comparing the** distribution of the wind speed across months**. Color the boxes' countours according to **months**. Hint: Convert Month to a **factor** using `as.factor(Month)` to treat months as **categorical variable**.  
+  5. Generate a **histogram** of Solar Radiation showing **density instead of counts**, and overlay a **density curve**.
 
-<span style="color: #da205eff">**Save all the graphs with your preferred method. Upload your R script (including commands for saving graphs) on the *Pegaz* platform. Do not upload graph files itself.**</span>
+<span style="color: #da205eff">**Save all the graphs with your preferred method. Upload your R script (including commands for saving
+graphs) on the *Pegaz* platform. Do not upload graph files itself!**</span>
 
-```{r, include = F, eval = FALSE}
-my_data <- mtcars
-
-print("Ex. 1")
-plot(mpg ~ hp, data = my_data, col = gear, xlab = "horsepower", ylab = "miles per gallon", main = "rate of combustion by horsepower")
-
-print("Ex. 2")
-hist(x = my_data$wt, breaks = 5, xlab = "weight (*1000 pounds)", ylab = "number of observations", main = "car weight histogram" )
-
-print("Ex. 3")
-library(ggplot2)
-ggplot(data = my_data) + geom_point(mapping = aes(x = wt, y = hp)) + geom_smooth(mapping = aes(x = wt, y = hp), method = "lm")
-
-print("Ex. 4")
-ggplot(data = my_data) + geom_point(mapping = aes(x = wt, y = hp, color = cyl)) + geom_smooth(mapping = aes(x = wt, y = hp), method = "lm")
-
-print("Ex.")
-ggplot(data = my_data) + geom_point(mapping = aes(x = gear, y = mpg))
-
-```
 

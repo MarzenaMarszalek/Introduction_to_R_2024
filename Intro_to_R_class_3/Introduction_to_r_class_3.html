@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik, Mateusz Chechetkin &amp; Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2025-10-27" />
+<meta name="date" content="2025-12-19" />
 
 <title>Introduction to R - class 3  Data Wrangling 1</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 3<br> <span style="color: gray">Data Wrangling 1</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik, Mateusz Chechetkin
 &amp; Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2025-10-27</h4>
+<h4 class="date">2025-12-19</h4>
 
 </div>
 
@@ -373,11 +373,11 @@ display: none;
 <li><a href="#exercise-4" id="toc-exercise-4"><span style="color: green"><strong>Exercise 4</strong></span></a></li>
 <li><a href="#exercise-5" id="toc-exercise-5"><span style="color: green"><strong>Exercise 5</strong></span></a></li>
 <li><a href="#exercise-6" id="toc-exercise-6"><span style="color: green"><strong>Exercise 6</strong></span></a></li>
-<li><a href="#exercise-7" id="toc-exercise-7"><span style="color: green"><strong>Exercise 7</strong></span></a></li>
-<li><a href="#exercise-8" id="toc-exercise-8"><span style="color: green"><strong>Exercise 8</strong></span></a></li>
+<li><a href="#exercise-7-home" id="toc-exercise-7-home"><span style="color: #3b50dbff"><strong>Exercise 7 <span class="citation">@home</span></strong></span></a></li>
+<li><a href="#exercise-8-home" id="toc-exercise-8-home"><span style="color: #3b50dbff"><strong>Exercise 8 <span class="citation">@home</span></strong></span></a></li>
 <li><a href="#exercise-9" id="toc-exercise-9"><span style="color: green"><strong>Exercise 9</strong></span></a></li>
-<li><a href="#exercise-10" id="toc-exercise-10"><span style="color: green"><strong>Exercise 10</strong></span></a></li>
-<li><a href="#exercise-11" id="toc-exercise-11"><span style="color: green"><strong>Exercise 11</strong></span></a></li>
+<li><a href="#exercise-10-home" id="toc-exercise-10-home"><span style="color: #3b50dbff"><strong>Exercise 10 <span class="citation">@home</span></strong></span></a></li>
+<li><a href="#exercise-11-home" id="toc-exercise-11-home"><span style="color: #3b50dbff"><strong>Exercise 11 <span class="citation">@home</span></strong></span></a></li>
 <li><a href="#exercise-12" id="toc-exercise-12"><span style="color: green"><strong>Exercise 12</strong></span></a></li>
 </ul></li>
 <li><a href="#simple-operations-on-data-frames-tibbles" id="toc-simple-operations-on-data-frames-tibbles">Simple operations on
@@ -390,7 +390,7 @@ data frames/ tibbles</a>
 <li><a href="#mathematical-operations" id="toc-mathematical-operations">2. Mathematical operations</a>
 <ul>
 <li><a href="#exercise-14" id="toc-exercise-14"><span style="color: green"><strong>Exercise 14</strong></span></a></li>
-<li><a href="#exercise-15" id="toc-exercise-15"><span style="color: green"><strong>Exercise 15</strong></span></a></li>
+<li><a href="#exercise-15-home" id="toc-exercise-15-home"><span style="color: #3b50dbff"><strong>Exercise 15 <span class="citation">@home</span></strong></span></a></li>
 </ul></li>
 <li><a href="#simple-summaries" id="toc-simple-summaries">3. Simple
 summaries</a>
@@ -411,9 +411,6 @@ data</a>
 <li><a href="#exercise-21" id="toc-exercise-21"><span style="color: green"><strong>Exercise 21</strong></span></a></li>
 <li><a href="#exercise-22" id="toc-exercise-22"><span style="color: green"><strong>Exercise 22</strong></span></a></li>
 <li><a href="#exercise-23" id="toc-exercise-23"><span style="color: green"><strong>Exercise 23</strong></span></a></li>
-</ul></li>
-<li><a href="#saving-the-data-frame" id="toc-saving-the-data-frame">Saving the data frame</a>
-<ul>
 <li><a href="#exercise-24" id="toc-exercise-24"><span style="color: green"><strong>Exercise 24</strong></span></a></li>
 </ul></li>
 <li><a href="#homework" id="toc-homework"><span style="color: #da205eff;">Homework</span></a></li>
@@ -548,7 +545,7 @@ and 3rd column of <code>my_data</code>.</strong></span></p>
 <p>You can call for <strong>multiple values in the same time</strong>.
 To define a range of coordinates, use a <strong>colon</strong>
 (<code>:</code>) separating range borders - e.g.,
-<code>table[row_number_1:row_number_2, column_number]</code>.</p>
+<code>table_name[row_number_1:row_number_2, column_number]</code>.</p>
 </div>
 <div id="exercise-5" class="section level3">
 <h3><span style="color: green"><strong>Exercise 5</strong></span></h3>
@@ -590,10 +587,11 @@ respective coordinate - e.g.,
 ## 10    74
 ## # ℹ 20 more rows</code></pre>
 </div>
-<div id="exercise-7" class="section level3">
-<h3><span style="color: green"><strong>Exercise 7</strong></span></h3>
-<p><span style="color: green"><strong>Return the 3rd, 4th, and the 5th
-value from the variable <code>my_column_4</code>.</strong></span></p>
+<div id="exercise-7-home" class="section level3">
+<h3><span style="color: #3b50dbff"><strong>Exercise 7 <span class="citation">@home</span></strong></span></h3>
+<p><span style="color: #3b50dbff"><strong>Return the 3rd, 4th, and the
+5th value from the variable
+<code>my_column_4</code>.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## # A tibble: 3 × 1
 ##   score
@@ -604,9 +602,9 @@ value from the variable <code>my_column_4</code>.</strong></span></p>
 <p>The table can also be subsetted with the use of columns’ (or rows’)
 names.</p>
 </div>
-<div id="exercise-8" class="section level3">
-<h3><span style="color: green"><strong>Exercise 8</strong></span></h3>
-<p><span style="color: green"><strong>Return the 4th column of
+<div id="exercise-8-home" class="section level3">
+<h3><span style="color: #3b50dbff"><strong>Exercise 8 <span class="citation">@home</span></strong></span></h3>
+<p><span style="color: #3b50dbff"><strong>Return the 4th column of
 <code>my_data</code>, but use the column name instead of its number.
 Don’t forget about quotation marks
 (<code>&quot;&quot;</code>).</strong></span></p>
@@ -651,16 +649,16 @@ vector</strong>. It is because a row can contain elements of different
 types, which is not allowed for vectors.</p>
 </blockquote>
 </div>
-<div id="exercise-10" class="section level3">
-<h3><span style="color: green"><strong>Exercise 10</strong></span></h3>
-<p><span style="color: green"><strong>Create a vector with values 3, 5,
-7, 9, and 12 and save it to a variable. Call it.</strong></span></p>
+<div id="exercise-10-home" class="section level3">
+<h3><span style="color: #3b50dbff"><strong>Exercise 10 <span class="citation">@home</span></strong></span></h3>
+<p><span style="color: #3b50dbff"><strong>Create a vector with values 3,
+5, 7, 9, and 12 and save it to a variable. Call it.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1]  3  5  7  9 12</code></pre>
 </div>
-<div id="exercise-11" class="section level3">
-<h3><span style="color: green"><strong>Exercise 11</strong></span></h3>
-<p><span style="color: green"><strong>Return rows of the
+<div id="exercise-11-home" class="section level3">
+<h3><span style="color: #3b50dbff"><strong>Exercise 11 <span class="citation">@home</span></strong></span></h3>
+<p><span style="color: #3b50dbff"><strong>Return rows of the
 <code>score</code> column corresponding to the values in the vector
 created before.</strong></span></p>
 <p>Expected result:</p>
@@ -730,10 +728,10 @@ column.</strong></span></p>
 <p>You can also use simple summary functions from the previous class
 (see Class 2).</p>
 </div>
-<div id="exercise-15" class="section level4">
-<h4><span style="color: green"><strong>Exercise 15</strong></span></h4>
-<p><span style="color: green"><strong>Calculate the mean value of the
-<code>score</code> column.</strong></span></p>
+<div id="exercise-15-home" class="section level4">
+<h4><span style="color: #3b50dbff"><strong>Exercise 15 <span class="citation">@home</span></strong></span></h4>
+<p><span style="color: #3b50dbff"><strong>Calculate the mean value of
+the <code>score</code> column.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1] 57.53333</code></pre>
 </div>
@@ -872,11 +870,6 @@ the conversion.</strong></span></p>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 </div>
-</div>
-<div id="saving-the-data-frame" class="section level2">
-<h2>Saving the data frame</h2>
-<p>To save your data frame into a file, use the
-<code>write.table()</code> function.</p>
 <div id="exercise-24" class="section level3">
 <h3><span style="color: green"><strong>Exercise 24</strong></span></h3>
 <p><span style="color: green"><strong>Save modified <code>my_data</code>
@@ -886,29 +879,32 @@ to the .csv file.</strong></span></p>
 <div id="homework" class="section level2">
 <h2><span style="color: #da205eff;">Homework</span></h2>
 <p><span style="color: #da205eff"> Prepare your homework in the form of
-a script file (.R) and call it “class_3_homework_Your_name.R”.<br />
-Perform all exercises using the built-in ToothGrowth dataset. You can
-view details about the dataset with <code>?ToothGrowth</code>. To begin,
-assign it to a variable with <code>my_data &lt;- ToothGrowth</code>, and
-then carry out all operations on <code>my_data</code> as we did in
-today’s class.<br />
-Include all subsequent steps in a script file.<br> 1. Check the class of
-each column in the <code>my_data</code> data frame. Find the shortest
-tooth length.<br> 2. Add a new row at the end of <code>my_data</code>.
-The values in a new row should be as follows: 26.2, OJ, 2.0. Write the
-modified <code>my_data</code> dataset as the
+a <strong>script file</strong> (.R) and call it
+“class_3_homework_Your_name.R”.<br />
+Perform all exercises using the built-in <code>ToothGrowth</code>
+dataset. You can view details about the dataset with
+<code>?ToothGrowth</code>. To begin, assign it to a variable with
+<code>my_data &lt;- ToothGrowth</code>, and then carry out all
+operations on <code>my_data</code> as we did in today’s class.<br />
+Include all subsequent steps in a script file.<br />
+<br> 1. Check the <strong>class of each colum</strong>n in the
+<code>my_data</code> data frame. Find the <strong>shortest tooth
+length</strong>.<br> 2. Add a <strong>new row</strong> at the end of
+<code>my_data</code>. The values in a new row should be as follows:
+26.2, OJ, 2.0. Write the modified <code>my_data</code> dataset as the
 <code>my_data_modified</code> variable. The <code>my_data</code> should
-still contain the original dataset.<br> 3. Add column with IDs - “obs_1”
-to “obs_n” (“n” is the number of the last observation)- for each
-observation as the first column of <code>my_data_modified</code>.
-Overwrite <code>my_data_modified</code> variable. Tip: to create a
-vector with IDs, you can use <code>paste()</code> to connect “obs_” with
-the numbers (1-n) instead of typing each ID manually.<br> 4. Modify
-<code>my_data_modified</code> by removing its first 4 rows. Overwrite
-the <code>my_data_modified</code> variable.<br> 5. Save a modified
-dataset to a “class_3_toothgrowth_modified_Your_Name.csv” file.<br></p>
-<p><span style="color: #da205eff"><strong>Upload your R script to the
-“Class 3” tab on the <em>Pegaz</em> platform.</strong></span></p>
+still contain the <strong>original datase</strong>t.<br> 3. Add column
+with <strong>IDs</strong> - “obs_1” to “obs_n” (“n” is the number of the
+last observation)- for each observation as the first column of
+<code>my_data_modified</code>. <strong>Overwrite</strong>
+<code>my_data_modified</code> variable. Tip: to create a vector with
+IDs, you can use <code>paste()</code> to connect “obs_” with the numbers
+(1-n) instead of typing each ID manually.<br> 4. Modify
+<code>my_data_modified</code> by <strong>removing its first 4
+rows</strong>. Overwrite the <code>my_data_modified</code> variable.<br>
+5. Save a modified dataset to a
+“class_3_toothgrowth_modified_Your_Name.csv” file.<br> </span> <span style="color: #da205eff"><strong>Upload your R script to the “Class 3”
+tab on the <em>Pegaz</em> platform.</strong></span></p>
 </div>
 
 
