@@ -17,7 +17,8 @@ output:
 knitr::opts_chunk$set(echo = F)
 ```
 
-<span style="color: green">**Descriptions of exercises are in green**</span>  
+<span style="color: green">**Descriptions of exercises to be done during classes are in green**</span>  
+<span style="color: #3b50dbff">**Descriptions of exercises to be done at home are in blue**</span>  
 <span style="color: #da205eff;">**Homeworks are in pink**</span>
 
 ## What is R?
@@ -103,8 +104,8 @@ Expected result:
 ```
 
 
-### <span style="color: green">**Exercise 4**</span>
-<span style="color: green">**Calculate the area of a circle if the radius equals 40 meters.**</span>
+### <span style="color: #3b50dbff">**Exercise 4 @home**</span>
+<span style="color: #3b50dbff">**Calculate the area of a circle if the radius equals 40 meters.**</span>
 
 *Tip: Due to its unique role in science `π` value can be obtained just by typing 'pi'*.  
 Expected result:
@@ -125,8 +126,8 @@ Apart from that, there are also commonly used mathematical functions as:
 
 You can use them by including the desired number inside the parentheses, e.g. exponent of e for `exp()` or an angle in radians for any of the trigonometric functions.
 
-### <span style="color: green">**Exercise 5**</span>
-<span style="color: green">**Using the equation for Shannon - Wiener index and species frequencies shown below, calculate diversity for both populations separately. Which is more diverse (higher values reflect more diverse populations)?**</span>
+### <span style="color: #3b50dbff">**Exercise 5 @home**</span>
+<span style="color: #3b50dbff">**Using the equation for Shannon - Wiener index and species frequencies shown below, calculate diversity for both populations separately. Which is more diverse (higher values reflect more diverse populations)?**</span>
 
 
 $$
@@ -140,6 +141,17 @@ Where:
 - \(S\) is the total number of species,  
 - \(p_i\) is the  frequency of the given species,  
 - \(\ln\) is the natural logarithm.  
+
+The expanded form of the the Shannon-Wiener diversity index formula:
+
+$$
+H_{SW}
+= p_1 \cdot \ln\left(\frac{1}{p_1}\right)
++ p_2 \cdot \ln\left(\frac{1}{p_2}\right)
++ \cdots
++ p_S \cdot \ln\left(\frac{1}{p_S}\right)
+$$
+<br>
 
 <center>
 
@@ -185,7 +197,7 @@ x
 Once the variable is saved, its name can replace the actual value in any R commands, e.g. if 2 is assigned to x, both `2+3` and `x+3` would result in 5.
 
 ### <span style="color: green">**Exercise 7**</span>
-<span style="color: green">**Using the table from exercise 5, calculate the range of species frequencies for both populations and save them as separate variables. Then, using chosen names, calculate the absolute difference between ranges. Save it to a variable called `range_diff` and call it.**</span>
+<span style="color: green">**Using the table from exercise 5, calculate the range of species frequencies (difference between the highest and lowest frequencies of species in a population) for both populations and save them as separate variables. Then, using chosen names, calculate the absolute difference between ranges. Save it to a variable called `range_diff` and call it.**</span>
 
 Expected result:
 
@@ -476,10 +488,11 @@ getwd()                                  # displays where the file was saved
 
 <span style="color: #da205eff">
 **Please save all your R commands in a plain text file and call it "class_1_homework_Your_Name.txt" (replace "Your_Name" with your actual name). Then, upload the file to the `Class 1` tab on the Pegaz platform.**  
-  1. Create a vector of the number of days in each month called `days`. The vector should have 12 elements and contain only numbers. Assume it is not a leap year.  
-  2. Using vector `days`, find the median number of days in a month and save it to a new variable called `median_days`.  
-  3. Using vector `days`, find the difference (in days) between the longest and shortest month and save it to a new variable called `range_days`. Find the longest and shortest month using R functions.  
-  4. Using vector `days`, get a vector of unique month lengths and call a new vector `month_length`.  
-  5. Overwrite the `days` vector by replacing it with the number of minutes in each month.
+<br>
+  1. Create a **vector** of the number of days in each month called `days`. The vector should have **12 elements** and contain **only numbers**. Assume it is **not a leap year**.  
+  2. Using vector `days`, find the **median number of days** in a month and save it to a new variable called `median_days`.  
+  3. Using vector `days`, find the **difference (in days) between the longest and shortest month** and save it to a new variable called `range_days`. Find the longest and shortest month using R functions.  
+  4. Using vector `days`, get a vector of **unique month lengths** and call a new vector `month_length`.  
+  5. Overwrite the `days` vector by replacing it with the **number of minutes in each month**.
 </span>
 

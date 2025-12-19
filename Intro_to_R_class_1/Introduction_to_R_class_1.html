@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tomasz Gaczorek, Wiesław Babik, Mateusz Chechetkin &amp; Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2025-10-08" />
+<meta name="date" content="2025-12-19" />
 
 <title>Introduction to R - class 1  variables, functions, vectors</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 1<br> <span style="color: gray">variables, functions, vectors</span></h1>
 <h4 class="author">Tomasz Gaczorek, Wiesław Babik, Mateusz Chechetkin
 &amp; Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2025-10-08</h4>
+<h4 class="date">2025-12-19</h4>
 
 </div>
 
@@ -376,8 +376,8 @@ Vocabulary</a></li>
 <li><a href="#exercise-2" id="toc-exercise-2"><span style="color: green"><strong>Exercise 2</strong></span></a></li>
 <li><a href="#exercise-3" id="toc-exercise-3"><span style="color: green"><strong>Exercise
 3</strong><span></a></li>
-<li><a href="#exercise-4" id="toc-exercise-4"><span style="color: green"><strong>Exercise 4</strong></span></a></li>
-<li><a href="#exercise-5" id="toc-exercise-5"><span style="color: green"><strong>Exercise 5</strong></span></a></li>
+<li><a href="#exercise-4-home" id="toc-exercise-4-home"><span style="color: #3b50dbff"><strong>Exercise 4 <span class="citation">@home</span></strong></span></a></li>
+<li><a href="#exercise-5-home" id="toc-exercise-5-home"><span style="color: #3b50dbff"><strong>Exercise 5 <span class="citation">@home</span></strong></span></a></li>
 </ul></li>
 <li><a href="#variables" id="toc-variables">Variables</a>
 <ul>
@@ -421,8 +421,10 @@ leaving</a></li>
 </ul>
 </div>
 
-<p><span style="color: green"><strong>Descriptions of exercises are in
-green</strong></span><br />
+<p><span style="color: green"><strong>Descriptions of exercises to be
+done during classes are in green</strong></span><br />
+<span style="color: #3b50dbff"><strong>Descriptions of exercises to be
+done at home are in blue</strong></span><br />
 <span style="color: #da205eff;"><strong>Homeworks are in
 pink</strong></span></p>
 <div id="what-is-r" class="section level2">
@@ -525,10 +527,10 @@ Expected result:</p>
 <pre><code>## [1] 0</code></pre>
 <pre><code>## [1] 5</code></pre>
 </div>
-<div id="exercise-4" class="section level3">
-<h3><span style="color: green"><strong>Exercise 4</strong></span></h3>
-<p><span style="color: green"><strong>Calculate the area of a circle if
-the radius equals 40 meters.</strong></span></p>
+<div id="exercise-4-home" class="section level3">
+<h3><span style="color: #3b50dbff"><strong>Exercise 4 <span class="citation">@home</span></strong></span></h3>
+<p><span style="color: #3b50dbff"><strong>Calculate the area of a circle
+if the radius equals 40 meters.</strong></span></p>
 <p><em>Tip: Due to its unique role in science <code>π</code> value can
 be obtained just by typing ‘pi’</em>.<br />
 Expected result:</p>
@@ -548,10 +550,10 @@ given power<br />
 parentheses, e.g. exponent of e for <code>exp()</code> or an angle in
 radians for any of the trigonometric functions.</p>
 </div>
-<div id="exercise-5" class="section level3">
-<h3><span style="color: green"><strong>Exercise 5</strong></span></h3>
-<p><span style="color: green"><strong>Using the equation for Shannon -
-Wiener index and species frequencies shown below, calculate diversity
+<div id="exercise-5-home" class="section level3">
+<h3><span style="color: #3b50dbff"><strong>Exercise 5 <span class="citation">@home</span></strong></span></h3>
+<p><span style="color: #3b50dbff"><strong>Using the equation for Shannon
+- Wiener index and species frequencies shown below, calculate diversity
 for both populations separately. Which is more diverse (higher values
 reflect more diverse populations)?</strong></span></p>
 <p><span class="math display">\[
@@ -571,6 +573,15 @@ given species,<br />
 <li><span class="math inline">\(\ln\)</span> is the natural
 logarithm.</li>
 </ul>
+<p>The expanded form of the the Shannon-Wiener diversity index
+formula:</p>
+<p><span class="math display">\[
+H_{SW}
+= p_1 \cdot \ln\left(\frac{1}{p_1}\right)
++ p_2 \cdot \ln\left(\frac{1}{p_2}\right)
++ \cdots
++ p_S \cdot \ln\left(\frac{1}{p_S}\right)
+\]</span> <br></p>
 <center>
 <table>
 <thead>
@@ -635,10 +646,11 @@ any R commands, e.g. if 2 is assigned to x, both <code>2+3</code> and
 <div id="exercise-7" class="section level3">
 <h3><span style="color: green"><strong>Exercise 7</strong></span></h3>
 <p><span style="color: green"><strong>Using the table from exercise 5,
-calculate the range of species frequencies for both populations and save
-them as separate variables. Then, using chosen names, calculate the
-absolute difference between ranges. Save it to a variable called
-<code>range_diff</code> and call it.</strong></span></p>
+calculate the range of species frequencies (difference between the
+highest and lowest frequencies of species in a population) for both
+populations and save them as separate variables. Then, using chosen
+names, calculate the absolute difference between ranges. Save it to a
+variable called <code>range_diff</code> and call it.</strong></span></p>
 <p>Expected result:</p>
 <pre><code>## [1] 0.3</code></pre>
 <p>Variables can also be <strong>overwritten</strong>. It is done by
@@ -929,20 +941,21 @@ commands in a plain text file and call it
 “class_1_homework_Your_Name.txt” (replace “Your_Name” with your actual
 name). Then, upload the file to the <code>Class 1</code> tab on the
 Pegaz platform.</strong><br />
-1. Create a vector of the number of days in each month called
-<code>days</code>. The vector should have 12 elements and contain only
-numbers. Assume it is not a leap year.<br />
-2. Using vector <code>days</code>, find the median number of days in a
-month and save it to a new variable called
+<br> 1. Create a <strong>vector</strong> of the number of days in each
+month called <code>days</code>. The vector should have <strong>12
+elements</strong> and contain <strong>only numbers</strong>. Assume it
+is <strong>not a leap year</strong>.<br />
+2. Using vector <code>days</code>, find the <strong>median number of
+days</strong> in a month and save it to a new variable called
 <code>median_days</code>.<br />
-3. Using vector <code>days</code>, find the difference (in days) between
-the longest and shortest month and save it to a new variable called
-<code>range_days</code>. Find the longest and shortest month using R
-functions.<br />
-4. Using vector <code>days</code>, get a vector of unique month lengths
-and call a new vector <code>month_length</code>.<br />
+3. Using vector <code>days</code>, find the <strong>difference (in days)
+between the longest and shortest month</strong> and save it to a new
+variable called <code>range_days</code>. Find the longest and shortest
+month using R functions.<br />
+4. Using vector <code>days</code>, get a vector of <strong>unique month
+lengths</strong> and call a new vector <code>month_length</code>.<br />
 5. Overwrite the <code>days</code> vector by replacing it with the
-number of minutes in each month. </span></p>
+<strong>number of minutes in each month</strong>. </span></p>
 </div>
 
 
