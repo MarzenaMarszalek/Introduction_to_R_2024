@@ -493,6 +493,19 @@ In `ggplot`, we can use the function `ggsave()`. **By default, it saves the last
 ggsave("plot_ggsave.png")
 ```
 
+### Generating reports
+
+R gives you the ability to generate reports in a variety of formats, including HTML, PDF, and Word. This is done using the R Markdown package. R Markdown allows you to combine text, code, and output (including plots) into a single document, generating a report based on the code and text in your script. 
+
+The basic method to create a report is to create such report straight from R script files. You can do this using the user interface by clicking on the `Compile report` button (see below) in RStudio or using the `rmarkdown::render()` function in the console. For more information, see [this guide](https://rmarkdown.rstudio.com/articles_report_from_r_script.html).
+
+![](./knit.png)
+
+A more flexible and widely used (though more advanced) approach is to create reports from R Markdown (.Rmd) files. Unlike standard R scripts, R Markdown files allow you to interleave formatted text with executable R code, enabling you to produce well-structured, fully reproducible reports. You can learn how to create and customize R Markdown documents in [the additional class instruction](https://marzenamarszalek.github.io/Introduction_to_R_2024/Rmarkdown_2025/Introduction_to_R_Rmarkdown.html).
+
+#### <span style="color: green">**Exercise 25**</span> 
+<span style="color: green">**Generate a Microsoft Word report containing the plots you created during today's class directly from your R Script file.**</span>
+
 ## <span style="color: #da205eff;">Homework</span>
 
 <span style="color: #da205eff">
