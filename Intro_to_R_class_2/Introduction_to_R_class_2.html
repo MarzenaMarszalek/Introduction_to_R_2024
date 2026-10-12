@@ -11,7 +11,7 @@
 
 <meta name="author" content="Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik &amp; Marzena Marszałek  marzena.marszalek@doctoral.uj.edu.pl " />
 
-<meta name="date" content="2025-12-19" />
+<meta name="date" content="2026-10-12" />
 
 <title>Introduction to R - class 2  Working in RStudio</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Introduction to R - class 2<br> <span style="color: gray">Working in RStudio</span></h1>
 <h4 class="author">Mateusz Chechetkin, Tomasz Gaczorek, Wiesław Babik
 &amp; Marzena Marszałek<br> <a href="mailto:marzena.marszalek@doctoral.uj.edu.pl" class="email">marzena.marszalek@doctoral.uj.edu.pl</a><br></h4>
-<h4 class="date">2025-12-19</h4>
+<h4 class="date">2026-10-12</h4>
 
 </div>
 
@@ -385,28 +385,27 @@ functions not available in base R?</a></li>
 <li><a href="#how-to-use-a-package" id="toc-how-to-use-a-package">How to
 use a package?</a></li>
 <li><a href="#exercise-4" id="toc-exercise-4"><span style="color: green;"><strong>Exercise 4</strong></span></a></li>
-<li><a href="#exercise-5" id="toc-exercise-5"><span style="color: green;"><strong>Exercise 5</strong></span></a></li>
 <li><a href="#coming-back-to-data-upload" id="toc-coming-back-to-data-upload">Coming back to data upload</a></li>
+<li><a href="#exercise-5" id="toc-exercise-5"><span style="color: green;"><strong>Exercise 5</strong></span></a></li>
 <li><a href="#exercise-6" id="toc-exercise-6"><span style="color: green;"><strong>Exercise 6</strong></span></a></li>
-<li><a href="#exercise-7" id="toc-exercise-7"><span style="color: green;"><strong>Exercise 7</strong></span></a></li>
 </ul></li>
 <li><a href="#searching-for-functions-and-code-on-the-internet" id="toc-searching-for-functions-and-code-on-the-internet">Searching for
 functions and code on the internet</a>
 <ul>
+<li><a href="#exercise-7" id="toc-exercise-7"><span style="color: green;"><strong>Exercise 7</strong></span></a></li>
 <li><a href="#exercise-8" id="toc-exercise-8"><span style="color: green;"><strong>Exercise 8</strong></span></a></li>
-<li><a href="#exercise-9" id="toc-exercise-9"><span style="color: green;"><strong>Exercise 9</strong></span></a></li>
 </ul></li>
 <li><a href="#reading-warning-and-error-messages." id="toc-reading-warning-and-error-messages.">Reading warning and error
 messages.</a></li>
 <li><a href="#warnings-vs-errors" id="toc-warnings-vs-errors">Warnings
 vs Errors</a>
 <ul>
+<li><a href="#exercise-9" id="toc-exercise-9"><span style="color: green;"><strong>Exercise 9</strong></span></a></li>
 <li><a href="#exercise-10" id="toc-exercise-10"><span style="color: green;"><strong>Exercise 10</strong></span></a></li>
-<li><a href="#exercise-11" id="toc-exercise-11"><span style="color: green;"><strong>Exercise 11</strong></span></a></li>
 </ul></li>
 <li><a href="#writing-a-table-to-a-file" id="toc-writing-a-table-to-a-file">Writing a table to a file</a>
 <ul>
-<li><a href="#exercise-12" id="toc-exercise-12"><span style="color: green;"><strong>Exercise 12</strong></span></a></li>
+<li><a href="#exercise-11" id="toc-exercise-11"><span style="color: green;"><strong>Exercise 11</strong></span></a></li>
 </ul></li>
 <li><a href="#keeping-your-code-clean-and-tidy" id="toc-keeping-your-code-clean-and-tidy">Keeping your code clean and
 tidy</a></li>
@@ -549,11 +548,12 @@ file</strong></span> – if you don’t have one already<br />
 - <span style="color: #265843ff"><strong>copy and update the name of
 your script file (e.g. with the current date)</strong></span> – if you
 are working on a previously created file and want to <strong>keep track
-of multiple versions</strong> - <span style="color: #265843ff"><strong>set up a working directory</strong>
-</span> – easiest way to keep track of this is to have a <strong>line of
-code at the beginning of the script</strong>; if you set up a working
-directory through the RStudio user interface, you can copy the code from
-the console into the script<br />
+of multiple versions</strong><br />
+- <span style="color: #265843ff"><strong>set up a working
+directory</strong> </span> – easiest way to keep track of this is to
+have a <strong>line of code at the beginning of the script</strong>; if
+you set up a working directory through the RStudio user interface, you
+can copy the code from the console into the script<br />
 - <span style="color: #265843ff"><strong>clear the RStudio
 environment</strong> </span> – this is important, especially when
 <strong>switching between scripts/projects</strong> you are working
@@ -665,17 +665,12 @@ loaded!</strong></p>
 </div>
 <div id="exercise-4" class="section level4">
 <h4><span style="color: green;"><strong>Exercise 4</strong></span></h4>
-<p><span style="color: green;"><strong>Install the <code>ggplot2</code>
-package using the <code>install.packages()</code> function. Check the
-<code>Packages</code> tab - a newly installed package should appear
-there!</strong></span></p>
-</div>
-<div id="exercise-5" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 5</strong></span></h4>
 <p><span style="color: green;"><strong>Install the
-<code>tidyverse</code> package. Then, <a href="https://www.tidyverse.org/">see here</a> to learn more about
-<code>tidyverse</code>. Load the <code>dplyr</code>
-package.</strong></span></p>
+<code>tidyverse</code> package using the <code>install.packages()</code>
+function. Then, <a href="https://www.tidyverse.org/">see here</a> to
+learn more about <code>tidyverse</code>. Load the <code>dplyr</code>
+package. Check the <code>Packages</code> tab - a newly installed package
+should appear there!</strong></span></p>
 <p><em>Advice: The more packages you install, the longer it will take
 for RStudio to open; it can also slow down the app. For most computers,
 this difference is pretty small; however, if you have an older laptop,
@@ -705,8 +700,8 @@ Excel (in Polish) by default creates a .csv file with columns separated
 by semicolon (;). Then, arguments of importing R functions need to be
 properly adjusted.</em></p>
 </div>
-<div id="exercise-6" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 6</strong></span></h4>
+<div id="exercise-5" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 5</strong></span></h4>
 <p><span style="color: green;"><strong>In Excel, save the
 “class_2_data.xlsx” file as a “class_2_data.csv” file. Remember to set
 it as a <em>comma-separated</em> file.</strong></span></p>
@@ -747,8 +742,8 @@ this should fix the problem.</p>
 standard .csv files and does not allow for certain kinds of
 customization through arguments.</p>
 </div>
-<div id="exercise-7" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 7</strong></span></h4>
+<div id="exercise-6" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 6</strong></span></h4>
 <p><span style="color: green;"><strong>Check the
 <code>read.table()</code> and the <code>read.csv()</code> function
 manuals. Upload the “class_2_data.csv” file into the R environment using
@@ -783,13 +778,12 @@ correct code, this is <strong>not guaranteed</strong>; <strong>if the
 code uses functions you don’t know, you might not notice that it
 generates faulty results</strong></li>
 </ul>
-<div id="exercise-8" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 8</strong></span></h4>
+<div id="exercise-7" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 7</strong></span></h4>
 <p><span style="color: green;"><strong>Search the Internet for an R
-function that can rename columns in a data frame. Install and load a
-package if necessary. Try using the RStudio manual to figure out how to
-use the function that can perform this task. Use the
-<code>rename()</code> function to change one of the columns’
+function that can change columns’ names in a data frame. Install and
+load a package if necessary. Try using the RStudio manual to figure out
+how to use this function and apply it to change one of the columns’
 names.</strong></span></p>
 <p>Remember that the <strong>manual</strong> for any installed function
 can be invoked up by typing a <strong>question mark (?) before its
@@ -817,8 +811,8 @@ so make sure to read their descriptions before downloading the
 package.</li>
 </ul>
 </div>
-<div id="exercise-9" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 9</strong></span></h4>
+<div id="exercise-8" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 8</strong></span></h4>
 <p><span style="color: green;"><strong>Find a script online that uses R
 to calculate time differences between two dates. Try adjusting it to
 calculate how many days are left in this year.</strong></span></p>
@@ -871,8 +865,8 @@ character</li>
 <p>Some warning messages can be safely ignored, while some indicate
 potential issues in your code. When in doubt, always double-check on the
 internet.</p>
-<div id="exercise-10" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 10</strong></span></h4>
+<div id="exercise-9" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 9</strong></span></h4>
 <p><span style="color: green"><strong>Look at these lines of code. What
 kind of warning messages do you think they contain? Run the lines of
 code separately, then identify what warning is occurring and why. If you
@@ -942,8 +936,8 @@ situation – chances are, someone else had the same issue and posted it
 on <em>Reddit</em> or <em>StackOverflow</em>. where someone else has
 already explained how to fix it.</p>
 </div>
-<div id="exercise-11" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 11</strong></span></h4>
+<div id="exercise-10" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 10</strong></span></h4>
 <p><span style="color: green"><strong>Look at these lines of code. What
 kind of errors do you think they contain? Run the lines of code
 separately, then identify what error is occurring and why. If you know
@@ -974,8 +968,8 @@ space (<code></code>) as delimiter by default<br />
 delimiter by default<br />
 - <code>write_xlsx()</code> – requires the <code>writexl</code> package
 to be installed and loaded</p>
-<div id="exercise-12" class="section level4">
-<h4><span style="color: green;"><strong>Exercise 12</strong></span></h4>
+<div id="exercise-11" class="section level4">
+<h4><span style="color: green;"><strong>Exercise 11</strong></span></h4>
 <p><span style="color: green"><strong>Using the
 <code>write.table()</code> function write the <code>class_2_data</code>
 table as a .csv file.</strong></span></p>

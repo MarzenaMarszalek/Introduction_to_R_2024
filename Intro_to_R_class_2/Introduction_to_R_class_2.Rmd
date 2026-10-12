@@ -87,7 +87,7 @@ One of the advantages of RStudio is that it can save a lot of your work in betwe
 
 **Every time you boot up RStudio, remember to:**  
   -	 <span style='color: #265843ff'>**create and save a new script file**</span> – if you don’t have one already  
-  -	<span style='color: #265843ff'>**copy and update the name of your script file (e.g. with the current date)**</span> – if you are working on a previously created file and want to **keep track of multiple versions** 
+  -	<span style='color: #265843ff'>**copy and update the name of your script file (e.g. with the current date)**</span> – if you are working on a previously created file and want to **keep track of multiple versions**   
   -	<span style='color: #265843ff'>**set up a working directory** </span> – easiest way to keep track of this is to have a **line of code at the beginning of the script**; if you set up a working directory through the RStudio user interface, you can copy the code from the console into the script  
   -	<span style='color: #265843ff'>**clear the RStudio environment** </span> – this is important, especially when **switching between scripts/projects** you are working on  
   - <span style='color: #265843ff'>**load any packages that the script is using**</span> – further explanation of this will be in the section about packages; for now, remember that some functions we will use later on **are not present in base R**, so if RStudio suddenly doesn’t want to run code with a function that you’ve been using before, it might be because it comes from a package that **isn’t currently loaded**
@@ -137,10 +137,7 @@ As we learned in the first class, you can access the **documentation of a packag
 Remember that every time you close the RStudio app, it turns off any packages you were using (= puts away the toolbox). So every time you close and open the app again, you need to run the `library()` command again. **Base R packages do not need to be loaded!**
 
 #### <span style="color: green;">**Exercise 4**</span>  
-<span style="color: green;">**Install the `ggplot2` package using the `install.packages()` function. Check the `Packages` tab - a newly installed package should appear there!**</span>
-
-#### <span style="color: green;">**Exercise 5**</span>
-<span style="color: green;">**Install the `tidyverse` package. Then, [see here](https://www.tidyverse.org/) to learn more about `tidyverse`. Load the `dplyr` package.**</span>
+<span style="color: green;">**Install the `tidyverse` package using the `install.packages()` function. Then, [see here](https://www.tidyverse.org/) to learn more about `tidyverse`. Load the `dplyr` package. Check the `Packages` tab - a newly installed package should appear there!**</span>
 
 *Advice: The more packages you install, the longer it will take for RStudio to open; it can also slow down the app. For most computers, this difference is pretty small; however, if you have an older laptop, it is better not to install every package under the sun.*
 
@@ -155,7 +152,7 @@ They can be easily **uploaded and downloaded** from R. Additionally, .csv files 
   
 *For Polish speakers: Using Polish versions of some software (e.g., Excel) with default settings of the operating system may generate problems with .csv files, as the comma is used as the decimal delimiter. Excel (in Polish) by default creates a .csv file with columns separated by semicolon (;). Then, arguments of importing R functions need to be properly adjusted.*
 
-#### <span style="color: green;">**Exercise 6**</span>
+#### <span style="color: green;">**Exercise 5**</span>
 <span style="color: green;">**In Excel, save the "class_2_data.xlsx" file as a "class_2_data.csv" file. Remember to set it as a *comma-separated* file.**</span>
 
 Uploading a .csv file into R **does not require any additional packages**. We can do it using a `read.csv()` or `read.table()` function.
@@ -172,7 +169,7 @@ If you are trying to upload a file with **non-Latin characters** and R is displa
 
 The `read.csv()` function can work with just one argument – the file name. However, as the name suggests, it only works with standard .csv files and does not allow for certain kinds of customization through arguments. 
 
-#### <span style="color: green;">**Exercise 7**</span>
+#### <span style="color: green;">**Exercise 6**</span>
 <span style="color: green;">**Check the `read.table()` and the `read.csv()` function manuals. Upload the "class_2_data.csv" file into the R environment using both functions. Make sure what additional arguments you should use for both functions to upload files properly.**
 
 ### Searching for functions and code on the internet
@@ -186,8 +183,8 @@ Tips for finding R solutions on the Internet:
   - **use published codes** - many coders and researchers will share their code for free on **GitHub** and other websites – even if the code cannot solve your problem, it can point you in the right direction  
   - **AI-generated solutions** are very useful but require some care: while ChatGPT, Gemini and other similar tools often generate correct code, this is **not guaranteed**; **if the code uses functions you don’t know, you might not notice that it generates faulty results**
 
-#### <span style="color: green;">**Exercise 8**</span>
-<span style="color: green;">**Search the Internet for an R function that can rename columns in a data frame. Install and load a package if necessary. Try using the RStudio manual to figure out how to use the function that can perform this task. Use the `rename()` function to change one of the columns' names.**</span>
+#### <span style="color: green;">**Exercise 7**</span>
+<span style="color: green;">**Search the Internet for an R function that can change columns' names in a data frame. Install and load a package if necessary. Try using the RStudio manual to figure out how to use this function and apply it to change one of the columns' names.**</span>
 
 Remember that the **manual** for any installed function can be invoked up by typing a **question mark (?) before its name** or by **pressing F1 when your cursor is on the function name.**
 If you are attempting to use someone else’s code and you need to adapt it for your purposes, consider the following:
@@ -198,7 +195,7 @@ If you are attempting to use someone else’s code and you need to adapt it for 
   -	you can find what package uses a specific function by searching **“R [function name] package”** – keep in mind that multiple packages can use the same word to describe different functions, so make sure to read their descriptions before downloading the package.  
 
 
-#### <span style="color: green;">**Exercise 9**</span>
+#### <span style="color: green;">**Exercise 8**</span>
 <span style="color: green;">**Find a script online that uses R to calculate time differences between two dates. Try adjusting it to calculate how many days are left in this year.**</span>
 
 ```{r, eval = F}
@@ -225,7 +222,7 @@ Some common warning messages are:
 Some warning messages can be safely ignored, while some indicate potential issues in your code. When in doubt, always double-check on the internet.
 
 
-#### <span style="color: green;">**Exercise 10**</span>
+#### <span style="color: green;">**Exercise 9**</span>
 <span style="color: green">**Look at these lines of code. What kind of warning messages do you think they contain? Run the lines of code separately, then identify what warning is occurring and why. If you know how to fix the issue, edit the code.**</span>
 
 - Example One:    
@@ -260,7 +257,7 @@ The order of operations when encountering an error:
 
 If all of the above fails, you can try looking up your specific situation – chances are, someone else had the same issue and posted it on *Reddit* or *StackOverflow*. where someone else has already explained how to fix it.
 
-#### <span style="color: green;">**Exercise 11**</span>
+#### <span style="color: green;">**Exercise 10**</span>
 <span style="color: green">**Look at these lines of code. What kind of errors do you think they contain? Run the lines of code separately, then identify what error is occurring and why. If you know how to fix the issue, edit the code.**</span>
 
 - Example One:  
@@ -282,7 +279,7 @@ In most of your analyses, you will not need to download a modified data frame ou
   - `write.csv()` - the base R function, specialized version of `write.table()` for CSV files, uses comma (`,`) as delimiter by default  
   - `write_xlsx()` – requires the `writexl` package to be installed and loaded
 
-#### <span style="color: green;">**Exercise 12**</span>
+#### <span style="color: green;">**Exercise 11**</span>
 <span style="color: green">**Using the `write.table()` function write the `class_2_data` table as a .csv file.**</span>
 
 ### Keeping your code clean and tidy
